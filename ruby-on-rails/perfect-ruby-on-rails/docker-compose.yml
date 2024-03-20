@@ -1,0 +1,37 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ROLLBAR_ACCESS_TOKEN: ${ROLLBAR_ACCESS_TOKEN}
+    ports:
+      - "3000:3000"
+    command: sh -c "bundle install && yarn install && rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0 -p 3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+      - node_modules:/app/node_modules
+  db:
+    image: mysql:8.0.27
+    command: |
+      mysqld --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+    driver: local
+  bundle:
+    driver: local
+  node_modules:
+    driver: local
