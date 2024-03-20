@@ -1,0 +1,74 @@
+<h2 id="1-environment">1. Environment</h2>
+<ul>
+  <li>WSL(Ubuntu 20.04.1 LTS (GNU/Linux 4.19.128-microsoft-standard x86_64))</li>
+  <li>node v14.16.0</li>
+  <li>npm 7.7.5</li>
+</ul>
+<h2 id="2-reference">2. Reference</h2>
+<ul>
+  <li><a href="https://jsprimer.net/">JavaScript Primer</a></li>
+  <li><a href="https://sbfl.net/blog/2019/01/20/javascript-unittest/">JavaScriptでも単体テストを導入しよう！ってかテストって何？</a></li>
+  <li><a href="https://jestjs.io/docs/using-matchers">JEST &gt; Using Matchers</a><ul>
+    <li><a href="https://jestjs.io/docs/timer-mocks">Timer Mocks</a></li>
+  </ul>
+</li>
+</ul>
+<h3 id="3-clone-this-repogitory">3. Clone this repogitory</h3>
+<pre>
+  <code class="language-bash">git clone git@github.com:oasis-forever/javascript_primer.git</code>
+</pre>
+<h2 id="4-jest-install-for-unit-test">4. JEST install for Unit Test</h2>
+<h3 id="4-1-build-a-nodejs-project">4-1. Build a Node.js project</h3>
+<pre>
+  <code class="language-bash">$ npm init</code>
+</pre>
+<p>You will be asked some questions, but just keep tapping &quot;Enter&quot; key.</p>
+<h3 id="4-2-install-required-packages">4-2. Install required packages</h3>
+<pre>
+  <code class="language-bash">$ npm install --save-dev jest babel-jest babel-core @babel/core @babel/preset-env</code>
+</pre>
+<h3 id="4-3-install-a-plugin-with-babel-to-convert-jest-to-commonjs">4-3. Install a plugin with babel to convert JEST to CommonJS</h3>
+<pre>
+  <code class="language-bash">$ npm install --save-dev jest babel-jest</code>
+</pre>
+<h3 id="4-4-run-a-unittest">4-4. Run a unittest</h3>
+<p>To execuate all unittests, run <code>npx jest</code>.</p>
+<pre>
+  <code class="language-bash">
+    $ npx jest
+    PASS  __tests__/hello.test.js (24.047 s)
+    ✓ Hello (3 ms)
+
+    Test Suites: 1 passed, 1 total
+    Tests:       1 passed, 1 total
+    Snapshots:   0 total
+    Time:        48.781 s
+    Ran all test suites.
+  </code>
+</pre>
+<hr>
+<p>To execuate a unittest, run
+  <code>npx jest ./__test__/{filename}_test.js</code>.
+</p>
+<pre>
+  <code class="language-bash">
+    $ npx jest ./basic/__tests__/hello_test.js
+    PASS  basic/__tests__/hello_test.js (15.283 s)
+    ✓ hello (2 ms)
+
+    Test Suites: 1 passed, 1 total
+    Tests:       1 passed, 1 total
+    Snapshots:   0 total
+    Time:        38.076 s
+    Ran all test suites matching /basic\/__tests__\/hello_test.js/i.
+  </code>
+</pre>
+<h2 id="5-ajax">5. Ajax</h2>
+<p>To setup a local server, run the following command and access <code>http://localhost:3000</code>.
+  * To use another port, assign one with <code>--port [port]</code> option.
+</p>
+<pre>
+  <code class="language-bash">$ cd ajax
+    $ npx @js-primer/local-server
+  </code>
+</pre>
