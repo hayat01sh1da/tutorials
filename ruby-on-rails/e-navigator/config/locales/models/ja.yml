@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      interviews: 面接日程
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        current_password: 現在のパスワード
+        remember_me: 保存する
+        sex: 性別
+        birthday: 生年月日
+        school: 学校名
+        created_at: 登録日時
+        updated_at: 更新日時
+    attributes:
+      interview:
+        user_id: ユーザーID
+        datetime: 面接日時
+        status: 承認状態
