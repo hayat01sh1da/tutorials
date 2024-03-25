@@ -43,7 +43,7 @@ class Event < ApplicationRecord
 
   def start_at_should_be_before_end_at
     return unless start_at && end_at
-    errors.add(:start_at, 'は終了時刻より前の時刻を指定してください') if start_at >= end_at
+    errors.add(:start_at, 'は終了時刻より前の時刻を指定してください') if start_at.floor >= end_at.floor
   end
 
   def remove_image_if_user_accept
