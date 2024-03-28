@@ -30,8 +30,11 @@ class EventsController < ApplicationController
   end
 
   def update
-    return unless @event.update!(event_params)
-    redirect_to @event, notice: 'イベントを更新しました'
+    if @event.update(event_params)
+      redirect_to @event, notice: 'イベントを更新しました'
+    else
+      render :edit
+    end
   end
 
   def destroy
