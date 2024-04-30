@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree
 WORKDIR /tmp
 
 # Bundler
-RUN gem install bundler
+RUN gem install bundler && gem update --system
 
 WORKDIR /app
 
