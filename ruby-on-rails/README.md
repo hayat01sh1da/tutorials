@@ -1,7 +1,7 @@
 ## 1. Common Environment
 
 - Rails 7.1.3.3
-- Ruby 3.3.1
+- Ruby 3.3.2
 - Docker 26.0.0
 
 ## 2. READMEs
