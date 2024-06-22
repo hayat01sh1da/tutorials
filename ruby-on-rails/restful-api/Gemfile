@@ -34,6 +34,9 @@ gem 'nokogiri', '~> 1.16.5'
 
 gem 'net-smtp', '~> 0.3.3'
 
+# The Observer pattern provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
+gem 'observer', '~> 0.1.2'
+
 group :development, :test do
   # Use MySQL as the database for Active Record
   gem 'mysql2', '~> 0.5.6'
