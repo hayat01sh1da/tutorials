@@ -4,8 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    command: sh -c "bundle install && rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0 -p 3000"
+      - "5000:5000"
+    command: sh -c "bundle install && rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0 -p 5000"
     stdin_open: true
     tty: true
     depends_on:
@@ -18,7 +18,7 @@ services:
     command: |
       mysqld --default-authentication-plugin=mysql_native_password
     ports:
-      - '3306:3306'
+      - '3307:3307'
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:

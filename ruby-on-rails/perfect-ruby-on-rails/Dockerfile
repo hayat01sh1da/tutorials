@@ -28,5 +28,5 @@ RUN npm install -g yarn
 # RubyGems
 RUN bundle config set path vendor/bundle
 
-EXPOSE 3000
+EXPOSE 4000
 CMD ["bash"]

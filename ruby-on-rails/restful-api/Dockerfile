@@ -13,5 +13,5 @@ WORKDIR /app
 # RubyGems
 RUN bundle config set path vendor/bundle
 
-EXPOSE 3000
+EXPOSE 5000
 CMD ["bash"]
