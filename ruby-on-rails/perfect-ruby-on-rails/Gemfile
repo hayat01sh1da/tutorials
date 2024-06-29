@@ -52,12 +52,12 @@ gem 'ransack', '~> 4.0.0'
 
 gem 'rexml', '~> 3.2.6'
 
-gem 'nokogiri', '~> 1.16.5'
+gem 'nokogiri', '~> 1.16.6'
 
 # YAML parser
 gem 'psych', '~> 5.1.0'
 
-gem 'net-smtp', '~> 0.3.3'
+gem 'net-smtp', '~> 0.5.0'
 
 # The Observer pattern provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
 gem 'observer', '~> 0.1.2'
@@ -85,7 +85,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 5.2.0'
   gem 'matrix', '~> 0.4.2'
-  gem 'pry-rails', '~> 0.3.9'
+  gem 'pry-rails', '~> 0.3.11'
 end
 
 group :production do
