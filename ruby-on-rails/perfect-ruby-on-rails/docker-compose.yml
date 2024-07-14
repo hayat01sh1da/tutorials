@@ -17,9 +17,8 @@ services:
       - bundle:/app/vendor/bundle
       - node_modules:/app/node_modules
   db:
-    image: mysql:8.0.27
-    command: |
-      mysqld --default-authentication-plugin=mysql_native_password
+    image: mysql:8.0.38
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - '3306:3306'
     environment:
