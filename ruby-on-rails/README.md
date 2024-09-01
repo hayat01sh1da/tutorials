@@ -2,7 +2,7 @@
 
 - Rails 7.1.3.3
 - Ruby 3.3.4
-- Docker 27.1.1
+- Docker 27.2.0
 
 ## 2. READMEs
 
