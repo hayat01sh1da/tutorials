@@ -1,5 +1,5 @@
 FROM node:22.4.1 AS node
-FROM ruby:3.3.4
+FROM ruby:3.3.5
 
 # Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev libvips libvips-dev vim tree
