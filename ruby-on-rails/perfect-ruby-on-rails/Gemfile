@@ -30,9 +30,6 @@ gem 'active_storage_validations', '~> 1.0.4'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.16.0', require: false
 
-# Error tracking
-gem 'rollbar', '~> 3.4.2'
-
 # environmental variables
 gem 'dotenv-rails', '~> 2.8.1'
 
