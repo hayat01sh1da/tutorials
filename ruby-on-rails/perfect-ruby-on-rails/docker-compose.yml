@@ -3,8 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      ROLLBAR_ACCESS_TOKEN: ${ROLLBAR_ACCESS_TOKEN}
     ports:
       - "4000:4000"
     command: sh -c "bundle install && yarn install && rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0 -p 4000"
