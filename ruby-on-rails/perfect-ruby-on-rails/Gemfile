@@ -47,7 +47,7 @@ gem 'kaminari', '~> 1.2.2'
 # SearchForm
 gem 'ransack', '~> 4.2.1'
 
-gem 'rexml', '~> 3.3.7'
+gem 'rexml', '~> 3.3.8'
 
 gem 'nokogiri', '~> 1.16.7'
 
