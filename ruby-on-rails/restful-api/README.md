@@ -25,7 +25,7 @@ $ docker-compose exec app bin/rails db:setup
 
 #### 2-2-2. Access `localhost:5000`
 
-![Yay! You're on Ruby on Rails](./public/yay!-you're-on-rails!.png)
+![Ruby on Rails App Home](./public/ruby-on-rails-app-home.png)
 
 ## 3. API Endpoints
 

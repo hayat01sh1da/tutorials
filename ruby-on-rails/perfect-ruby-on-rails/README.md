@@ -25,7 +25,7 @@ $ docker-compose exec app bin/setup
 
 #### 3-3-2. Access `localhost:4000`
 
-![Yay! You're on Ruby on Rails](./public/yay!-you're-on-rails!.png)
+![Ruby on Rails App Home](./public/ruby-on-rails-app-home.png)
 
 #### 3-3-2. Reflect initial data
 
