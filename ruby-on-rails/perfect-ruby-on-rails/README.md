@@ -23,7 +23,7 @@ $ docker-compose up -d
 $ docker-compose exec app bin/setup
 ```
 
-#### 3-3-2. Access `localhost:3000`
+#### 3-3-2. Access `localhost:4000`
 
 ![Yay! You're on Ruby on Rails](./public/yay!-you're-on-rails!.png)
 

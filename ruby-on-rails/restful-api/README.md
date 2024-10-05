@@ -23,7 +23,7 @@ $ docker-compose up -d
 $ docker-compose exec app bin/rails db:setup
 ```
 
-#### 2-2-2. Access `localhost:3000`
+#### 2-2-2. Access `localhost:5000`
 
 ![Yay! You're on Ruby on Rails](./public/yay!-you're-on-rails!.png)
 
