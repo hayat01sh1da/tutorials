@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- Node.js 21.3.0
+- Node 22.9.0
 
 ## 2. Reference
 
@@ -8,7 +8,7 @@
 
 ## 3. Docker
 
-### 3-1. Boot Docker Process
+### 3-1. Setup Docker
 
 ```bash
 $ docker-compose build
@@ -17,7 +17,7 @@ $ docker-compose up -d
 
 ### 3-2. Rails
 
-#### 3-2-1. Setup database
+#### 3-2-1. Setup Rails Application
 
 ```bash
 $ docker-compose exec app bin/setup
@@ -27,10 +27,14 @@ $ docker-compose exec app bin/setup
 
 ![Ruby on Rails App Home](./public/ruby-on-rails-app-home.png)
 
-#### 3-3-2. Reflect initial data
+#### 3-3-2. Import Seed Data
 
 Login via 'GitHubでログイン', and a user data will be created in `user` table.  
-Then, run `docker-compose exec app bin/rails db:seed` to reflect initial data.
+Then, run the following command to create sample data.
+
+```command
+docker-compose exec app bin/rails db:seed
+``
 
 ## 4. `config/credentials.yml.enc`
 

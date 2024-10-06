@@ -6,9 +6,7 @@
 
 ## 2. Docker
 
-### 2-1. Boot Docker Processes
-
-- Build container of `db` and `app`
+### 2-1. Setup Docker
 
 ```bash
 $ docker-compose build
@@ -17,10 +15,10 @@ $ docker-compose up -d
 
 ### 2-2. Rails
 
-#### 2-2-1. Setup database
+#### 2-2-1. Setup Rails application
 
 ```bash
-$ docker-compose exec app bin/rails db:setup
+$ docker-compose exec app bin/setup
 ```
 
 #### 2-2-2. Access `localhost:5000`
@@ -47,7 +45,7 @@ $ docker-compose exec app bin/rails db:setup
 - [./docs/todos/update](./docs/todos/update.md)
 - [./docs/todos/delete](./docs/todos/delete.md)
 
-## 4-3. Items
+### 4-3. Items
 
 - [./docs/items/index](./docs/items/index.md)
 - [./docs/items/show](./docs/items/show.md)
@@ -55,6 +53,6 @@ $ docker-compose exec app bin/rails db:setup
 - [./docs/items/update](./docs/items/update.md)
 - [./docs/items/delete](./docs/items/delete.md)
 
-## 4-4. Pagination
+### 4-4. Pagination
 
 - [docs/pagination.md](./docs/pagination.md)
