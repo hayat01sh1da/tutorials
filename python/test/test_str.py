@@ -1,9 +1,20 @@
 import unittest
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import str
 
 class TesStr(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.isdir(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Return each char in a string
     def test_return_each_char(self):
         self.assertEqual(['H', 'e', 'l', 'l', 'o'], str.return_each_char('Hello'))

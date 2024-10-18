@@ -1,6 +1,9 @@
 import unittest
 import contextlib
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import function
 
@@ -8,6 +11,14 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TestFunction(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.isdir(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Square an input number
     def _calFUT(self):
         return function.cube()
