@@ -12,7 +12,7 @@ class TestModu(unittest.TestCase):
 
     def tearDown(self):
         for pycache in self.pycaches:
-            if os.path.isdir(pycache):
+            if os.path.exists(pycache):
                 shutil.rmtree(pycache)
 
     # 1. Return values of Statistics#mthods
