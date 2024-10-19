@@ -8,7 +8,7 @@ from square import Square
 
 class TestSquare(unittest.TestCase):
     def setUp(self):
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:

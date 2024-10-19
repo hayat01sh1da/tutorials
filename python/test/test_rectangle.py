@@ -9,7 +9,7 @@ from rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
     def setUp(self):
         self.rectangle = Rectangle(20, 30)
-        self.pycaches  = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches  = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:

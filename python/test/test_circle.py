@@ -9,7 +9,7 @@ from circle import Circle
 class TestCircle(unittest.TestCase):
     def setUp(self):
         self.circle   = Circle(29)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:

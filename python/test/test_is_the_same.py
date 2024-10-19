@@ -10,7 +10,7 @@ from rider import Rider
 class TestIsTheSame(unittest.TestCase):
     def setUp(self):
         self.rider    = Rider('Koichi Oguri', 86)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:

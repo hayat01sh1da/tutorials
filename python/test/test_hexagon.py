@@ -9,7 +9,7 @@ from hexagon import Hexagon
 class TestHexagon(unittest.TestCase):
     def setUp(self):
         self.hexagon  = Hexagon(10, 11, 12, 13, 14, 15)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:

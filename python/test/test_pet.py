@@ -9,7 +9,7 @@ from pet import Pet
 class TestPet(unittest.TestCase):
     def setUp(self):
         self.pet      = Pet('cat', 'nana', 18)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'))
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
     def tearDown(self):
         for pycache in self.pycaches:
