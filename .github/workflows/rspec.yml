@@ -13,6 +13,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0.40
+        env:
+          DB_USERNAME: ${{ vars.DB_USERNAME }}
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          DB_HOST: ${{ vars.DB_HOST }}
+        ports:
+          - 3307:3307
+        options: --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 20s --health-timeout 10s --health-retries 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,9 +33,13 @@ jobs:
         with:
           ruby-version: '3.3.5'
           bundler-cache: true
+      - name: Set up Database
+        run: |
+          cd ./ruby-on-rails/restful-api
+          bundle install
+          bundle exec rake db:create
+          bundle exec rake db:migrate
       - name: Run RSpec
         run: |
-          cd ./ruby-on-rails/perfect-ruby-on-rails
-          chmod -R 777 bin/setup
-          bin/setup
+          cd ./ruby-on-rails/restful-api
           bundle exec rspec
