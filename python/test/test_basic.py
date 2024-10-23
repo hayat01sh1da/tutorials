@@ -1,9 +1,20 @@
 import unittest
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import basic
 
 class TestBasic(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Print 3 different strings
     def test_return_three_strings(self):
         self.assertEqual('string1: Ruby, string2: Python, string3: Go lang', basic.return_three_strings('Ruby', 'Python', 'Go lang'))

@@ -1,6 +1,9 @@
 import unittest
 import contextlib
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import file
 
@@ -8,6 +11,14 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TestFile(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Read the contents of a file
     def test_read_file(self):
         self.assertEqual('Hogehoge\nFoobar\n', file.read_file('./file/read_file.txt'))

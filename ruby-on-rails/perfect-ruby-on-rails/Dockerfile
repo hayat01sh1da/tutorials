@@ -2,9 +2,11 @@ FROM node:22.9.0 AS node
 FROM ruby:3.3.5
 
 # Install Packages
+RUN apt-get update && apt-get install -y curl build-essential libpq-dev libvips libvips-dev vim tree sudo
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN apt-get update && apt-get install -y curl build-essential libpq-dev libvips libvips-dev vim tree google-chrome-stable
+RUN sudo chmod -R 777 /dev/null
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/google.gpg > /dev/null
+RUN apt-get update && apt-get install -y google-chrome-stable
 
 # Setup Node.js
 COPY --from=node /usr/local/bin/node /usr/local/bin/node

@@ -1,7 +1,5 @@
 # Ruby on Rails
-
 ## Perfect Ruby on Rails
-
 ruby-on-rails/perfect-ruby-on-rails/.bundle
 ruby-on-rails/perfect-ruby-on-rails/log/*
 ruby-on-rails/perfect-ruby-on-rails/tmp/*
@@ -24,14 +22,12 @@ ruby-on-rails/perfect-ruby-on-rails/.yarn-integrity
 ruby-on-rails/perfect-ruby-on-rails/.env
 
 ## RESTful API
-
 ruby-on-rails/restful-api/tmp/*
 ruby-on-rails/restful-api/log/*
 ruby-on-rails/restful-api/.bundle
 ruby-on-rails/restful-api/.env
 
 ## e-Navigator
-
 ruby-on-rails/e-navigator/*.DS_Store
 ruby-on-rails/e-navigator/.AppleDouble
 ruby-on-rails/e-navigator/.LSOverride
@@ -109,13 +105,11 @@ ruby-on-rails/e-navigator/.bundle/
 ruby-on-rails/e-navigator/lib/bundler/man/
 
 # Python
-
-python/src/__pycache__
+python/**/__pycache__/
 python/file/write_csv.csv
 python/file/write_file.txt
 
 # React.js
-
 reactjs/node_modules
 reactjs/.pnp
 reactjs/.pnp.js
@@ -131,7 +125,6 @@ reactjs/yarn-debug.log*
 reactjs/yarn-error.log*
 
 # TypeScript
-
 typescript/node_modules/
 typescript/*~
 typescript/.fuse_hidden*
@@ -140,5 +133,4 @@ typescript/.Trash-*
 typescript/.nfs*
 
 # JavaScript
-
 javascript/node_modules/

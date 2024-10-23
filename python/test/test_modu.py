@@ -1,9 +1,20 @@
 import unittest
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import modu
 
 class TestModu(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Return values of Statistics#mthods
     def test_statistics(self):
         data = [100,200,300,400,500,500,600,700,800,800]
