@@ -42,7 +42,4 @@ jobs:
       - name: Run RSpec
         run: |
           cd ./ruby-on-rails/restful-api
-          echo 'DB_USERNAME=$DB_USERNAME' >> .env
-          echo 'DB_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD' >> .env
-          echo 'DB_HOST=$DB_HOST' >> .env
           bundle exec rspec

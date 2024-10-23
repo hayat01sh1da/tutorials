@@ -54,7 +54,4 @@ jobs:
           OAUTH_CLIENT_SECRET: ${ vars.OAUTH_CLIENT_SECRET }
         run: |
           cd ./ruby-on-rails/perfect-ruby-on-rails
-          echo 'DB_USERNAME=$DB_USERNAME' >> .env
-          echo 'DB_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD' >> .env
-          echo 'DB_HOST=$DB_HOST' >> .env
           bundle exec rails test
