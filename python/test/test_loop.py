@@ -1,6 +1,9 @@
 import unittest
 import sys
 import contextlib
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import loop
 
@@ -8,6 +11,14 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TestLoop(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Print TV dramas by looping a list
     def _calFUT1(self):
         return loop.print_tv_dramas(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])

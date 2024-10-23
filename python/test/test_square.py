@@ -1,9 +1,20 @@
 import unittest
 import sys
+import glob
+import os
+import shutil
 sys.path.append('./src')
 from square import Square
 
 class TestSquare(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Return sum of perimeter
     def test_calculate_perimeter(self):
         square = Square(40)
@@ -20,7 +31,7 @@ class TestSquare(unittest.TestCase):
     def test_square_list(self):
         square = Square(120)
         square = Square(160)
-        self.assertEqual([40, 80, 120, 160], Square.square_list)
+        self.assertEqual([40, 80, 120, 160], square.square_list)
 
 if __name__ == '__main__':
     unittest.main()

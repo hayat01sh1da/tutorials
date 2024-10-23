@@ -1,6 +1,9 @@
 import unittest
 import sys
 import contextlib
+import glob
+import os
+import shutil
 sys.path.append('./src')
 import container
 
@@ -8,6 +11,14 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TesContainer(unittest.TestCase):
+    def setUp(self):
+        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+
+    def tearDown(self):
+        for pycache in self.pycaches:
+            if os.path.exists(pycache):
+                shutil.rmtree(pycache)
+
     # 1. Return a list including your favourites musicians
     def test_list_favourite_musicians(self):
         self.assertEqual(['Oasis', "B'z", "L'Arc~en~Ciel"], container.list_favourite_musicians('Oasis', "B'z", "L'Arc~en~Ciel"))
