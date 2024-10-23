@@ -1,0 +1,60 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: MiniTest
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0.40
+        env:
+          DB_USERNAME: '${{ vars.DB_USERNAME }}'
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          DB_HOST: '${{ vars.DB_HOST }}'
+        ports:
+          - 3306:3306
+        options: --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 20s --health-timeout 10s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 130.0.6723.69
+          install-dependencies: true
+      - name: Set up Ruby
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.5'
+      - name: Install Google Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 130.0.6723.69
+          install-dependencies: true
+      - name: Set up Database
+        run: |
+          cd ./ruby-on-rails/perfect-ruby-on-rails
+          bundle install
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+      - name: Run MiniTest
+        env:
+          OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }
+          OAUTH_CLIENT_SECRET: ${ vars.OAUTH_CLIENT_SECRET }
+        run: |
+          cd ./ruby-on-rails/perfect-ruby-on-rails
+          echo 'DB_USERNAME=$DB_USERNAME' >> .env
+          echo 'DB_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD' >> .env
+          echo 'DB_HOST=$DB_HOST' >> .env
+          bundle exec rails test
