@@ -2,7 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       github: {
-        url: 'https://github.com/oasis-forever/vuejs_tutorial'
+        url: 'https://github.com/hayat01sh1da/vuejs_tutorial'
       },
       cart: [],
       premium: true
