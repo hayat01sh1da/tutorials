@@ -1,4 +1,21 @@
 {
+  "name": "javascript_primer",
+  "version": "1.0.0",
+  "description": "* WSL(Ubuntu 20.04.1 LTS (GNU/Linux 4.19.128-microsoft-standard x86_64)) * node v14.8.0 * npm 6.14.8",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha nodejs/test/"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayat01sh1da/tutorials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hayat01sh1da/tutorials/issues"
+  },
+  "homepage": "https://github.com/hayat01sh1da/tutorials/typescript#readme",
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
