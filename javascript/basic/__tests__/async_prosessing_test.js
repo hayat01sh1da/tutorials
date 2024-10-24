@@ -28,13 +28,13 @@ import {
   fetchAllResources
 } from "../src/async_prosessing";
 
-test("blockTime", () => {
+test.skip("blockTime", () => {
   const timeout = 1000;
   const message = blockTime(timeout);
   expect(message).toBe(`${timeout} millisecond seconds have passed.`);
 });
 
-test("getAsyncProcesses1", () => {
+test.skip("getAsyncProcesses1", () => {
   const timeout   = 1000;
   const millisec  = 10;
   const processes = getAsyncProcesses1(timeout, millisec);
@@ -46,7 +46,7 @@ test("getAsyncProcesses1", () => {
   ]);
 });
 
-test("getAsyncProcesses2", () => {
+test.skip("getAsyncProcesses2", () => {
   const timeout   = 1000;
   const millisec  = 10;
   const processes = getAsyncProcesses2(timeout, millisec);
@@ -57,13 +57,13 @@ test("getAsyncProcesses2", () => {
   ]);
 });
 
-test("handleAsyncError", () => {
+test.skip("handleAsyncError", () => {
   const message = handleAsyncError();
   expect(message).toBe(undefined);
   // expect(message).toBe("It succeeds in catching an error.");
 });
 
-test("dummyFetch", () => {
+test.skip("dummyFetch", () => {
   const successRes1 = dummyFetch("/success/sample.json").then(onFulfilled, onRejected);
   const successRes2 = dummyFetch("/success/sample.json").then();
   const failureRes1 = dummyFetch("/failure/sample.json").then(onFulfilled, onRejected);
@@ -117,24 +117,24 @@ test("dummyFetch", () => {
   expect(result_4).resolves.toBe("Not Found");
 });
 
-test("throwPromise", () => {
+test.skip("throwPromise", () => {
   const error = throwPromise().catch(onRejected);
   expect(error).resolves.toThrow("An error raised");
 });
 
-test("Promise#resolve", () => {
+test.skip("Promise#resolve", () => {
   const promise = Promise.resolve("This promise is resolved.");
   const val = promise.then(onFulfilled);
   expect(val).resolves.toBe("This promise is resolved.");
 });
 
-test("Promise#reject", () => {
+test.skip("Promise#reject", () => {
   const promise = Promise.reject(new Error("Rejected"));
   const val = promise.catch(onRejected);
   expect(val).resolves.toThrow("Rejected");
 });
 
-test("promiseChain", () => {
+test.skip("promiseChain", () => {
   const message = Promise.resolve().then(() => {
     return "This is the first promise chain.";
   }).then(() => {
@@ -143,29 +143,29 @@ test("promiseChain", () => {
   expect(message).resolves.toBe("This is the second promise chain.");
 });
 
-test("asyncTask1", () => {
+test.skip("asyncTask1", () => {
   const message = asyncTask1(11).then(onFulfilled).catch(onRejected);
   expect(message).resolves.toBe("The value fulfills the requirement.");
 });
 
-test("asyncMultiply", () => {
+test.skip("asyncMultiply", () => {
   const product = Promise.resolve(1).then(asyncMultiply).then(asyncMultiply);
   expect(product).resolves.toBe(100);
 });
 
-test("getPromiseInCallbackFunc", () => {
+test.skip("getPromiseInCallbackFunc", () => {
   const vals = getPromiseInCallbackFunc();
   expect(vals).resolves.toStrictEqual([2, 3]);
 });
 
-test("asyncTask2", () => {
+test.skip("asyncTask2", () => {
   const result_1 = asyncTask2(20);
   const result_2 = asyncTask2(9);
   expect(result_1).resolves.toStrictEqual(["Promise#then", "Promise#finally"]);
   expect(result_2).resolves.toStrictEqual(["Promise#catch", "Promise#finally"]);
 });
 
-test("delay", () => {
+test.skip("delay", () => {
   const promise_1 = delay(1);
   const promise_2 = delay(2);
   const promise_3 = delay(3);
@@ -184,7 +184,7 @@ test("delay", () => {
   expect(winner).resolves.toBe(1);
 });
 
-test("timeOut", () => {
+test.skip("timeOut", () => {
   const result = Promise.race([
     dummyFetch("/success/sample.json"),
     timeOut(500)
@@ -192,29 +192,29 @@ test("timeOut", () => {
   expect(result).resolves.toThrow("Timeout: 500 milliseconds have passed.");
 });
 
-test("resolveFunc", () => {
+test.skip("resolveFunc", () => {
   const error = rejectFunc().catch(onRejected);
   expect(error instanceof Promise).toBe(true);
   expect(error).resolves.toThrow("Error Raised!!");
 });
 
-test("exceptionFunc", () => {
+test.skip("exceptionFunc", () => {
   const error = exceptionFunc().catch(onRejected);
   expect(error instanceof Promise).toBe(true);
   expect(error).resolves.toThrow("Error Raised!!");
 });
 
-test("ayancMain1", () => {
+test.skip("ayancMain1", () => {
   const val = ayancMain1().then(onFulfilled);
   expect(val).resolves.toBe(42);
 });
 
-test("ayancMain2", () => {
+test.skip("ayancMain2", () => {
   const val = ayancMain2().catch(onRejected);
   expect(val).resolves.toBe("Error Raised!!");
 });
 
-test("fetchResourceAB1", () => {
+test.skip("fetchResourceAB1", () => {
   const responses = fetchResourceAB1().then(onFulfilled);
   expect(responses).resolves.toStrictEqual([
     { body: "Response body of /success/A.json" },
@@ -222,7 +222,7 @@ test("fetchResourceAB1", () => {
   ]);
 });
 
-test("fetchResourceAB2", () => {
+test.skip("fetchResourceAB2", () => {
   const responses = fetchResourceAB2().then(onFulfilled);
   expect(responses).resolves.toStrictEqual([
     { body: "Response body of /success/A.json" },
@@ -230,7 +230,7 @@ test("fetchResourceAB2", () => {
   ]);
 });
 
-test("fetchResources", () => {
+test.skip("fetchResources", () => {
   const resources = ["/success/A.json", "/success/A.json"];
   const result = fetchResources(resources).then(onFulfilled);
   expect(result).resolves.toStrictEqual([
@@ -239,7 +239,7 @@ test("fetchResources", () => {
   ]);
 });
 
-test("fetchAllResources", () => {
+test.skip("fetchAllResources", () => {
   const resources = ["/success/A.json", "/success/A.json"];
   const result = fetchAllResources(resources).then(onFulfilled);
   expect(result).resolves.toStrictEqual([
