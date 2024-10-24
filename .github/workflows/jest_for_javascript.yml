@@ -30,6 +30,8 @@ jobs:
           cd ./javascript
           yarn install
       - name: Run Jest
+        env:
+          TZ: 'Asia/Tokyo'
         run: |
           cd ./javascript
           npx jest
