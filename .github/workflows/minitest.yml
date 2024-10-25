@@ -19,15 +19,15 @@ jobs:
       mysql:
         image: mysql:8.0.40
         env:
-          DB_USERNAME: '${{ vars.DB_USERNAME }}'
-          MYSQL_ROOT_PASSWORD: ''
+          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
+          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
+          DB_HOST: '${{ secrets.DB_HOST }}'
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          DB_HOST: '${{ vars.DB_HOST }}'
         ports:
           - 3306:3306
-        options: --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 20s --health-timeout 10s --health-retries 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 130.0.6723.69
@@ -47,8 +47,10 @@ jobs:
         run: |
           cd ./ruby-on-rails/perfect-ruby-on-rails
           bundle install
-          bundle exec rake db:create
-          bundle exec rake db:migrate
+          sudo mkdir -p /var/run/mysqld
+          sudo chown mysql:mysql /var/run/mysqld
+          sudo mysqld_safe --skip-grant-tables &
+          bin/setup
       - name: Run MiniTest
         env:
           OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }

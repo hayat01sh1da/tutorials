@@ -24,13 +24,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: ./javascript/package-lock.json
+          cache-dependency-path: ./javascript/yarn.lock
       - name: Install Packages
         run: |
           cd ./javascript
-          npm install
-          npm install --save-dev jest babel-jest babel-core @babel/core @babel/preset-env
+          yarn install
       - name: Run Jest
+        env:
+          TZ: 'Asia/Tokyo'
         run: |
           cd ./javascript
           npx jest
