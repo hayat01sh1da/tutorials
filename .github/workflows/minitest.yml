@@ -43,10 +43,13 @@ jobs:
         with:
           chrome-version: 130.0.6723.69
           install-dependencies: true
-      - name: Set up Database
+      - name: Bundle Install
         run: |
           cd ./ruby-on-rails/perfect-ruby-on-rails
           bundle install
+      - name: Set up Database
+        run: |
+          cd ./ruby-on-rails/perfect-ruby-on-rails
           sudo mkdir -p /var/run/mysqld
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &

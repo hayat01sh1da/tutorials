@@ -32,10 +32,13 @@ jobs:
         with:
           ruby-version: '3.3.5'
           bundler-cache: true
-      - name: Set up Database
+      - name: Bundle Install
         run: |
           cd ./ruby-on-rails/restful-api
           bundle install
+      - name: Set up Database
+        run: |
+          cd ./ruby-on-rails/restful-api
           sudo mkdir -p /var/run/mysqld
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
