@@ -102,7 +102,7 @@ m = Module.new do
   def activation_error_handling
     yield
     nil
-  rescue StandardError, LoadError => e
+  rescue StandardError, LoadError => error
     e
   end
 end
