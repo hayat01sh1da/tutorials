@@ -1,8 +1,8 @@
 ## 1. Environment
 
 - WSL(Ubuntu 24.04.1 LTS)
-- node v16.17.0
-- npm 8.19.2
+- node v23.1.0
+- node 10.9.0
 
 ## 2. Reference
 

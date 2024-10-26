@@ -1,7 +1,7 @@
 ## 1. Environment
 
-- node v21.6.1
-- npm 10.4.0
+- node v23.1.0
+- node 10.9.0
 
 ## 2. Reference
 
