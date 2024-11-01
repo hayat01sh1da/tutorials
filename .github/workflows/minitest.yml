@@ -37,9 +37,9 @@ jobs:
         with:
           chrome-version: 130.0.6723.69
           install-dependencies: true
-      - name: Set up Ruby
       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
       # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.5
