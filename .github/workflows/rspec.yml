@@ -10,8 +10,12 @@ name: RSpec
 on:
   push:
     branches: [master]
+    paths:
+      - ./ruby-on-railsrestful-api/*
   pull_request:
     branches: [master]
+    paths:
+      - ./ruby-on-railsrestful-api/*
 
 permissions:
   contents: read

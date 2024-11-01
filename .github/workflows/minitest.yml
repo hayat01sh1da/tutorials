@@ -10,8 +10,12 @@ name: MiniTest
 on:
   push:
     branches: [master]
+    paths:
+      - ./ruby-on-railsperfect-ruby-on-rails/*
   pull_request:
     branches: [master]
+    paths:
+      - ./ruby-on-railsperfect-ruby-on-rails/*
 
 permissions:
   contents: read
