@@ -33,17 +33,15 @@ jobs:
           ruby-version: '3.3.5'
           bundler-cache: true
       - name: Bundle Install
-        run: |
-          cd ./ruby-on-rails/restful-api
-          bundle install
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle install
       - name: Set up Database
+        working-directory: ./ruby-on-rails/restful-api
         run: |
-          cd ./ruby-on-rails/restful-api
           sudo mkdir -p /var/run/mysqld
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
           bin/setup
       - name: Run RSpec
-        run: |
-          cd ./ruby-on-rails/restful-api
-          bundle exec rspec
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle exec rspec

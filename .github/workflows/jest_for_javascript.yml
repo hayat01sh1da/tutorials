@@ -26,12 +26,10 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./javascript/yarn.lock
       - name: Install Packages
-        run: |
-          cd ./javascript
-          yarn install
+        working-directory: ./javascript
+        run: yarn install
       - name: Run Jest
+        working-directory: ./javascript
         env:
           TZ: 'Asia/Tokyo'
-        run: |
-          cd ./javascript
-          npx jest
+        run: npx jest

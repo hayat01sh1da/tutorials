@@ -26,10 +26,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./typescript/yarn.lock
       - name: Install Packages
-        run: |
-          cd ./typescript
-          yarn install
+        working-directory: ./typescript
+        run: yarn install
       - name: Run Jest
-        run: |
-          cd ./typescript
-          npx jest
+        working-directory: ./typescript
+        run: npx jest
