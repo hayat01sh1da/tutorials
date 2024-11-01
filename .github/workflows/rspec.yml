@@ -7,9 +7,9 @@
 name: RSpec
 on:
   push:
-    branches: ["master"]
+    branches: [master]
   pull_request:
-    branches: ["master"]
+    branches: [master]
 jobs:
   test:
     timeout-minutes: 10
@@ -30,7 +30,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.5'
+          ruby-version: 3.3.5
           bundler-cache: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/restful-api
