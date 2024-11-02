@@ -15,7 +15,8 @@ on:
     branches:
       - master
     paths:
-      - ./ruby-on-railsrestful-api/*
+      - ./ruby-on-rails/restful-api
+      - '!./ruby-on-rails/restful-api/README.md'
 
 permissions:
   contents: read

@@ -13,6 +13,8 @@ on:
     paths:
       - ./javascript
       - ./typescript
+      - '!./javascript/README.md'
+      - '!./typescript/README.md'
 
 permissions:
   contents: read

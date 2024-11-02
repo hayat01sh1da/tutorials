@@ -11,6 +11,7 @@ on:
     branches:
       - master
       - ./python
+      - '!./python/README.md'
 
 permissions:
   contents: read
