@@ -9,11 +9,11 @@ name: RSpec
 
 on:
   push:
-    branches: [master]
-    paths:
-      - ./ruby-on-railsrestful-api/*
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
     paths:
       - ./ruby-on-railsrestful-api/*
 

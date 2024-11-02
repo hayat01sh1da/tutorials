@@ -9,11 +9,11 @@ name: MiniTest
 
 on:
   push:
-    branches: [master]
-    paths:
-      - ./ruby-on-railsperfect-ruby-on-rails/*
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
     paths:
       - ./ruby-on-railsperfect-ruby-on-rails/*
 

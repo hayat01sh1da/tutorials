@@ -5,12 +5,11 @@ name: Jest
 
 on:
   push:
-    branches: [master]
-    paths:
-      - ./javascript
-      - ./typescript
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
     paths:
       - ./javascript
       - ./typescript
