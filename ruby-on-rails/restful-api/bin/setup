@@ -14,4 +14,7 @@ FileUtils.chdir APP_ROOT do
 
   system! 'bin/rails db:migrate'
   puts "\n== Migrated schema =="
+
+  system! 'bin/rails db:seed'
+  puts "\n== Created seed data =="
 end
