@@ -10,7 +10,7 @@ default: &default
 
 development:
   <<: *default
-  database: rails_experiment_development
+  database: restful_api_rails_development
 
 test:
   <<: *default
