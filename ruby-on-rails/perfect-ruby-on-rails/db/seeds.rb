@@ -8,7 +8,7 @@
 
 owner = User.first
 
-500.times do |i|
+1.upto(500) do |i|
   Event.create!(
     name: "Event#{sprintf('%03d', i)}",
     place: 'Tokyo',

@@ -13,13 +13,13 @@ user = User.create do |user|
   user.password_confirmation = 'hogehogefoobar'
 end
 
-30.times.map do |t_id|
+1.upto(30).map do |t_id|
   Todo.create do |todo|
-    todo.title = "Todo#{sprintf("%03d", t_id + 1)}"
+    todo.title = "Todo#{sprintf("%03d", t_id)}"
     todo.user = user
     30.times do |i_id|
       Item.create do |item|
-        item.name = "Item#{sprintf("%03d", i_id + 1)}"
+        item.name = "Item#{sprintf("%03d", i_id)}"
         item.done = false
         item.todo = todo
       end
