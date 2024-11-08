@@ -7,6 +7,11 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ./javascript
+      - ./typescript
+      - '!./javascript/README.md'
+      - '!./typescript/README.md'
   pull_request:
     branches:
       - master

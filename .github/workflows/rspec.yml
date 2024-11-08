@@ -11,6 +11,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ./ruby-on-rails/restful-api
+      - '!./ruby-on-rails/restful-api/README.md'
   pull_request:
     branches:
       - master

@@ -11,6 +11,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ./ruby-on-rails/perfect-ruby-on-rails
+      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
   pull_request:
     branches:
       - master
