@@ -19,7 +19,7 @@ on:
       - master
     paths:
       - ./ruby-on-rails/restful-api
-      - '!./ruby-on-rails/restful-api/README.md'
+      # - '!./ruby-on-rails/restful-api/README.md'
 
 permissions:
   contents: read
