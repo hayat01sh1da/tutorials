@@ -8,13 +8,13 @@ on:
     branches:
       - master
     paths:
-      - ./python
+      - ./python/**
       - '!./python/README.md'
   pull_request:
     branches:
       - master
     paths:
-      - ./python
+      - ./python/**
       - '!./python/README.md'
 
 permissions:
