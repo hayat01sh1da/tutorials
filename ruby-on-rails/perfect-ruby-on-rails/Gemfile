@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.13.0'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.13.0'
 
-gem 'active_storage_validations', '~> 1.3.0'
+gem 'active_storage_validations', '~> 1.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.18.4', require: false
@@ -60,7 +60,7 @@ gem 'net-smtp', '~> 0.5.0'
 gem 'observer', '~> 0.1.2'
 
 # Data structure, similar to a Hash, that allows the definition of arbitrary attributes with their accompanying values
-gem 'ostruct', '~> 0.6.0'
+gem 'ostruct', '~> 0.6.1'
 
 group :development, :test do
   # Use mysql as the database for Active Record
