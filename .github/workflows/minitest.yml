@@ -19,7 +19,7 @@ on:
       - master
     paths:
       - ./ruby-on-rails/perfect-ruby-on-rails
-      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
+      # - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
 
 permissions:
   contents: read
