@@ -12,14 +12,26 @@ on:
     branches:
       - master
     paths:
-      - ./ruby-on-rails/restful-api
-      - '!./ruby-on-rails/restful-api/README.md'
+      - '.github/workflows/rspec.yml'
+      - 'ruby-on-rails/restful-api/.ruby-version'
+      - 'ruby-on-rails/restful-api/Gemfile'
+      - 'ruby-on-rails/restful-api/Gemfile.lock'
+      - 'ruby-on-rails/restful-api/Rakefile'
+      - 'ruby-on-rails/restful-api/**/*.rb'
+      - 'ruby-on-rails/restful-api/**/*.rake'
+      - 'ruby-on-rails/restful-api/**/*.yml'
   pull_request:
     branches:
       - master
     paths:
-      - ./ruby-on-rails/restful-api
-      - '!./ruby-on-rails/restful-api/README.md'
+      - '.github/workflows/rspec.yml'
+      - 'ruby-on-rails/restful-api/.ruby-version'
+      - 'ruby-on-rails/restful-api/Gemfile'
+      - 'ruby-on-rails/restful-api/Gemfile.lock'
+      - 'ruby-on-rails/restful-api/Rakefile'
+      - 'ruby-on-rails/restful-api/**/*.rb'
+      - 'ruby-on-rails/restful-api/**/*.rake'
+      - 'ruby-on-rails/restful-api/**/*.yml'
 
 permissions:
   contents: read

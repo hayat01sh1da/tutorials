@@ -12,14 +12,34 @@ on:
     branches:
       - master
     paths:
-      - ./ruby-on-rails/perfect-ruby-on-rails
-      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
+      - '.github/workflows/minitest.yml'
+      - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Rakefile'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.rb'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.rake'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.yml'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.js'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.scss'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.css'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb'
   pull_request:
     branches:
       - master
     paths:
-      - ./ruby-on-rails/perfect-ruby-on-rails
-      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
+      - '.github/workflows/minitest.yml'
+      - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock'
+      - 'ruby-on-rails/perfect-ruby-on-rails/Rakefile'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.rb'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.rake'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.yml'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.js'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.scss'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.css'
+      - 'ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb'
 
 permissions:
   contents: read
