@@ -4,12 +4,26 @@
 #
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
+
 name: RSpec
+
 on:
   push:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./ruby-on-rails/restful-api
+      - '!./ruby-on-rails/restful-api/README.md'
   pull_request:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./ruby-on-rails/restful-api
+      - '!./ruby-on-rails/restful-api/README.md'
+
+permissions:
+  contents: read
+
 jobs:
   test:
     timeout-minutes: 10
@@ -27,23 +41,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install Ruby
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.5'
+          ruby-version: 3.3.6
           bundler-cache: true
       - name: Bundle Install
-        run: |
-          cd ./ruby-on-rails/restful-api
-          bundle install
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle install
       - name: Set up Database
+        working-directory: ./ruby-on-rails/restful-api
         run: |
-          cd ./ruby-on-rails/restful-api
           sudo mkdir -p /var/run/mysqld
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
           bin/setup
       - name: Run RSpec
-        run: |
-          cd ./ruby-on-rails/restful-api
-          bundle exec rspec
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle exec rspec

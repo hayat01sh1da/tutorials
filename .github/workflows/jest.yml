@@ -1,13 +1,28 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Jest for JavaScript
+name: Jest
 
 on:
   push:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./javascript
+      - ./typescript
+      - '!./javascript/README.md'
+      - '!./typescript/README.md'
   pull_request:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./javascript
+      - ./typescript
+      - '!./javascript/README.md'
+      - '!./typescript/README.md'
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -15,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.10.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [22.10.0]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -25,13 +40,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: ./javascript/yarn.lock
-      - name: Install Packages
-        run: |
-          cd ./javascript
-          yarn install
-      - name: Run Jest
+      - name: Install Packages for JavaScript
+        working-directory: ./javascript
+        run: yarn install
+      - name: Run Jest for JavaScript
+        working-directory: ./javascript
         env:
           TZ: 'Asia/Tokyo'
-        run: |
-          cd ./javascript
-          npx jest
+        run: npx jest
+      - name: Install Packages for TypeScript
+        working-directory: ./typescript
+        run: yarn install
+      - name: Run Jest for TypeScript
+        working-directory: ./typescript
+        run: npx jest

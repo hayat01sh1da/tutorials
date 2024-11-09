@@ -6,11 +6,24 @@
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
 name: MiniTest
+
 on:
   push:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./ruby-on-rails/perfect-ruby-on-rails
+      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
   pull_request:
-    branches: ["master"]
+    branches:
+      - master
+    paths:
+      - ./ruby-on-rails/perfect-ruby-on-rails
+      - '!./ruby-on-rails/perfect-ruby-on-rails/README.md'
+
+permissions:
+  contents: read
+
 jobs:
   test:
     timeout-minutes: 10
@@ -32,32 +45,30 @@ jobs:
         with:
           chrome-version: 130.0.6723.69
           install-dependencies: true
-      - name: Set up Ruby
       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
       # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.5'
+          ruby-version: 3.3.6
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 130.0.6723.69
           install-dependencies: true
       - name: Bundle Install
-        run: |
-          cd ./ruby-on-rails/perfect-ruby-on-rails
-          bundle install
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: bundle install
       - name: Set up Database
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: |
-          cd ./ruby-on-rails/perfect-ruby-on-rails
           sudo mkdir -p /var/run/mysqld
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
           bin/setup
       - name: Run MiniTest
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         env:
           OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }
           OAUTH_CLIENT_SECRET: ${ vars.OAUTH_CLIENT_SECRET }
-        run: |
-          cd ./ruby-on-rails/perfect-ruby-on-rails
-          bundle exec rails test
+        run: bundle exec rails test
