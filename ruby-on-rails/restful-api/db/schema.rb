@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2020_06_26_035204) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_28_163752) do
   create_table "items", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.boolean "done"
