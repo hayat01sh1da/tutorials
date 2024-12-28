@@ -8,18 +8,24 @@ on:
     branches:
       - master
     paths:
-      - ./javascript/**
-      - ./typescript/**
-      - '!./javascript/README.md'
-      - '!./typescript/README.md'
+      - '.github/workflows/jest.yml'
+      - 'javascript/package.json'
+      - 'typecript/package.json'
+      - 'javascript/yarn.lock'
+      - 'typecript/yarn.lock'
+      - '**.js'
+      - '**.ts'
   pull_request:
     branches:
       - master
     paths:
-      - ./javascript/**
-      - ./typescript/**
-      - '!./javascript/README.md'
-      - '!./typescript/README.md'
+      - '.github/workflows/jest.yml'
+      - 'javascript/package.json'
+      - 'typecript/package.json'
+      - 'javascript/yarn.lock'
+      - 'typecript/yarn.lock'
+      - '**.js'
+      - '**.ts'
 
 permissions:
   contents: read
