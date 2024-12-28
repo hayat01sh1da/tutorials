@@ -120,7 +120,6 @@ GEM
     faraday-net_http (3.3.0)
       net-http
     ffi (1.17.0)
-    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -188,8 +187,6 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
-    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -354,6 +351,7 @@ DEPENDENCIES
   capybara (~> 3.40.0)
   dotenv-rails (~> 3.1.4)
   factory_bot_rails (~> 6.4.3)
+  ffi (~> 1.17)
   image_processing (~> 1.13.0)
   jbuilder (~> 2.13.0)
   kaminari (~> 1.2.2)
@@ -384,7 +382,7 @@ DEPENDENCIES
   webpacker (~> 5.4.4)
 
 RUBY VERSION
-   ruby 3.3.6p108
+   ruby 3.4.1p0
 
 BUNDLED WITH
    2.5.10
