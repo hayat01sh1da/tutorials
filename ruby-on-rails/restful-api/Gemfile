@@ -4,9 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby file: '.ruby-version'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.2.2'
+gem 'rails', '7.2.2'
 # Use Puma as the app server
-gem 'puma', '~> 6.4.3'
+gem 'puma', '~> 6.5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -19,7 +19,7 @@ gem 'bootsnap', '~> 1.18.4', require: false
 # gem 'rack-cors'
 
 # JSON web tokens
-gem 'jwt', '~> 2.9.3'
+gem 'jwt', '~> 2.10.1'
 
 # Active model serializers
 gem 'active_model_serializers', '~> 0.10.14'
@@ -28,9 +28,9 @@ gem 'active_model_serializers', '~> 0.10.14'
 gem 'will_paginate', '~> 4.0.1'
 
 # environmental variables
-gem 'dotenv-rails', '~> 3.1.4'
+gem 'dotenv-rails', '~> 3.1.7'
 
-gem 'nokogiri', '~> 1.16.7', force_ruby_platform: true
+gem 'nokogiri', '~> 1.18.0'
 
 gem 'net-smtp', '~> 0.5.0'
 
@@ -62,7 +62,7 @@ end
 group :test do
   # 'factory_bot_rails' cames not to behave right in 5.0 or more
   gem 'factory_bot_rails', '~> 6.4.3'
-  gem 'rspec-rails', '~> 7.0.2'
+  gem 'rspec-rails', '~> 7.1.0'
   gem 'faker', '~> 3.5.1'
   gem 'shoulda-matchers', '~> 6.4.0'
   gem 'database_cleaner', '~> 2.1.0'
