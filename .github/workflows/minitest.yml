@@ -65,7 +65,7 @@ jobs:
         uses: actions/checkout@v4
       - uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 130.0.6723.69
+          chrome-version: 131.0.6778.264
           install-dependencies: true
       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
       # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -76,7 +76,7 @@ jobs:
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 130.0.6723.69
+          chrome-version: 131.0.6778.264
           install-dependencies: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
