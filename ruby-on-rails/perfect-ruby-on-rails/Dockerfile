@@ -27,9 +27,6 @@ RUN yarn install
 COPY .ruby-version Gemfile Gemfile.lock ./
 RUN bundle config set path vendor/bundle
 RUN bundle config set force_ruby_platform true
-RUN bundle install
 
-# Remove the Remaining Process Files
-RUN rm -rf tmp/pids/server.pid
-
-CMD ["./bin/rails", "s", "-b", "0.0.0.0", "-p", "4000"]
+EXPOSE 4000
+CMD ["bash"]
