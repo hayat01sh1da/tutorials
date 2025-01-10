@@ -30,7 +30,7 @@ gem 'will_paginate', '~> 4.0.1'
 # environmental variables
 gem 'dotenv-rails', '~> 3.1.7'
 
-gem 'nokogiri', '~> 1.18.0'
+gem 'nokogiri', '~> 1.18.1'
 
 gem 'net-smtp', '~> 0.5.0'
 
@@ -41,7 +41,7 @@ gem 'observer', '~> 0.1.2'
 gem 'ostruct', '~> 0.6.1'
 
 # A foreign function interface (FFI) is a mechanism by which a program written in one programming language can call routines or make use of services written or compiled in another one
-gem 'ffi', '~> 1.17'
+gem 'ffi', '~> 1.17.1'
 
 group :development, :test do
   # Use MySQL as the database for Active Record
