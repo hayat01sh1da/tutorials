@@ -63,21 +63,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 131.0.6778.264
-          install-dependencies: true
       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
       # change this to (see https://github.com/ruby/setup-ruby#versioning):
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4.1
-      - name: Install Google Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 131.0.6778.264
-          install-dependencies: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle install
@@ -88,6 +79,10 @@ jobs:
           sudo chown mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
           bin/setup
+      - name: Install Google Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          install-dependencies: true
       - name: Run MiniTest
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         env:
