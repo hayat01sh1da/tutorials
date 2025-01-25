@@ -81,8 +81,6 @@ jobs:
           bin/setup
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
-        with:
-          install-dependencies: true
       - name: Run MiniTest
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         env:
