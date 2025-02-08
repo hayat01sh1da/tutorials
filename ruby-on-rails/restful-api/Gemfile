@@ -62,7 +62,7 @@ end
 group :test do
   # 'factory_bot_rails' cames not to behave right in 5.0 or more
   gem 'factory_bot_rails', '~> 6.4.3'
-  gem 'rspec-rails', '~> 7.1.0'
+  gem 'rspec-rails', '~> 7.1.1'
   gem 'faker', '~> 3.5.1'
   gem 'shoulda-matchers', '~> 6.4.0'
   gem 'database_cleaner', '~> 2.1.0'
