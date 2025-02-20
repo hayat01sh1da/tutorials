@@ -1,7 +1,7 @@
-def return_each_char(str):
+def return_each_char(string):
     chars = []
-    for i in range(0, len(str)):
-        chars.append(str[i])
+    for i in range(0, len(string)):
+        chars.append(string[i])
     return chars
 
 def complete_proverb(adj1, adj2):
@@ -13,8 +13,9 @@ def capitalise(sentence):
     words[0] = first_word
     return ' '.join(words)
 
-def str_to_list(str):
-    return str.split(' ')
+
+def string_to_list(string):
+    return string.split(' ')
 
 def words_to_sentence(words):
     return ' '.join(words).replace(' .', '.')
