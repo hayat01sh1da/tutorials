@@ -8,7 +8,6 @@ def judge_num_1(num):
         return 'Number is less then 10.'
 
 def judge_num_2(num):
-    pass
     if num > 25:
         return 'Number is more than 25.'
     elif num <= 10:
@@ -23,7 +22,6 @@ def print_quotient(num1, num2):
     return num1 % num2
 
 def judge_age(age):
-    pass
     if age >= 40:
         return 'Now you must start paying a healthcare insurace tax.'
     elif age >= 20:
