@@ -68,7 +68,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.1
+          ruby-version: 3.4.2
       - name: Bundle Install
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle install
