@@ -40,11 +40,7 @@ class TestBasic(unittest.TestCase):
     def test_print_remainder(self):
         self.assertEqual(2, basic.print_remainder(29, 3))
 
-    # 5. Divide a number by another and print the quotient
-    def test_print_remainder(self):
-        self.assertEqual(2, basic.print_remainder(29, 3))
-
-    # 6. Assign an integer to a variable `age`.
+    # 5. Assign an integer to a variable `age`.
     #    Process it with a conditional statement
     def test_judge_age(self):
         self.assertEqual('Now you must start paying a healthcare insurace tax.', basic.judge_age(41))
