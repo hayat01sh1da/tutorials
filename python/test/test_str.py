@@ -19,7 +19,7 @@ class TesStr(unittest.TestCase):
     def test_return_each_char(self):
         self.assertEqual(['H', 'e', 'l', 'l', 'o'], str.return_each_char('Hello'))
 
-    # 2. Complete a sentense with 2 args to fill the placeholders
+    # 2. Complete a sentence with 2 args to fill the placeholders
     def test_complete_proverb(self):
         self.assertEqual('Stay hungry, stay foolish!', str.complete_proverb('hungry', 'foolish'))
 
@@ -31,11 +31,11 @@ class TesStr(unittest.TestCase):
     def test_str_to_list(self):
         self.assertEqual(['When?', 'Where?', 'Who?', 'What?', 'How?', 'Why?'], str.str_to_list('When? Where? Who? What? How? Why?'))
 
-    # 5. Combine words into a sentense, but remove a space before the period
-    def test_words_to_sentense(self):
-        self.assertEqual('The fox jumped over the fence.', str.words_to_sentense(['The', 'fox', 'jumped', 'over', 'the', 'fence', '.']))
+    # 5. Combine words into a sentence, but remove a space before the period
+    def test_words_to_sentence(self):
+        self.assertEqual('The fox jumped over the fence.', str.words_to_sentence(['The', 'fox', 'jumped', 'over', 'the', 'fence', '.']))
 
-    # 6. Replace 's' with '$' in a sentense
+    # 6. Replace 's' with '$' in a sentence
     def test_replace_char(self):
         self.assertEqual('A $creaming come$ acro$$ the $ky.', str.replace_char('A screaming comes across the sky.'))
 
@@ -47,14 +47,14 @@ class TesStr(unittest.TestCase):
     def test_python_str(self):
         self.assertEqual('The phrase \'two plus two makes five\' in Nineteen-Eight Four scars me.', str.python_str('two plus two makes five'))
 
-    # 9. Make a sentense 'three three three' with '+' and '*' operator
+    # 9. Make a sentence 'three three three' with '+' and '*' operator
     def test_combine_words(self):
         self.assertEqual('three three three', str.combine_words_1('three'))
         self.assertEqual('three three three', str.combine_words_2('three'))
 
-    # 10. Extract a phrase before ',' in a sentense
-    def test_slice_sentense(self):
-        self.assertEqual('Before I die', str.slice_sentense('Before I die, I wish to watch aurora in Finland'))
+    # 10. Extract a phrase before ',' in a sentence
+    def test_slice_sentence(self):
+        self.assertEqual('Before I die', str.slice_sentence('Before I die, I wish to watch aurora in Finland'))
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,8 +7,8 @@ def return_each_char(str):
 def complete_proverb(adj1, adj2):
     return 'Stay {}, stay {}!'.format(adj1, adj2)
 
-def capitalise(sentense):
-    words = sentense.split(' ')
+def capitalise(sentence):
+    words = sentence.split(' ')
     first_word = words[0].capitalize()
     words[0] = first_word
     return ' '.join(words)
@@ -16,11 +16,11 @@ def capitalise(sentense):
 def str_to_list(str):
     return str.split(' ')
 
-def words_to_sentense(words):
+def words_to_sentence(words):
     return ' '.join(words).replace(' .', '.')
 
-def replace_char(sentense):
-    return sentense.replace('s', '$')
+def replace_char(sentence):
+    return sentence.replace('s', '$')
 
 def index_char(word):
     return word.index('m')
@@ -34,6 +34,6 @@ def combine_words_1(word):
 def combine_words_2(word):
     return (word + ' ') * 2 + word
 
-def slice_sentense(sentense):
-    i = sentense.index(',')
-    return sentense[:i]
+def slice_sentence(sentence):
+    i = sentence.index(',')
+    return sentence[:i]
