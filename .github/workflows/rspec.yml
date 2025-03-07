@@ -67,8 +67,9 @@ jobs:
         working-directory: ./ruby-on-rails/restful-api
         run: |
           sudo mkdir -p /var/run/mysqld
-          sudo chown mysql:mysql /var/run/mysqld
+          sudo chown -R mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
+          sleep 10
           bin/setup
       - name: Run RSpec
         working-directory: ./ruby-on-rails/restful-api

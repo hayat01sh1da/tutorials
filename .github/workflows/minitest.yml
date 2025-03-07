@@ -76,8 +76,9 @@ jobs:
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: |
           sudo mkdir -p /var/run/mysqld
-          sudo chown mysql:mysql /var/run/mysqld
+          sudo chown -R mysql:mysql /var/run/mysqld
           sudo mysqld_safe --skip-grant-tables &
+          sleep 10
           bin/setup
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
