@@ -38,6 +38,8 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.scss'
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.css'
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb'
+      - 'ruby-on-rails/perfect-ruby-on-rails/package.json'
+      - 'ruby-on-rails/perfect-ruby-on-rails/yarn.lock'
 
 permissions:
   contents: read

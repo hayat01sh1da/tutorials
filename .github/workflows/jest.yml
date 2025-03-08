@@ -8,20 +8,20 @@ on:
     paths:
       - '.github/workflows/jest.yml'
       - 'javascript/package.json'
-      - 'typecript/package.json'
       - 'javascript/yarn.lock'
-      - 'typecript/yarn.lock'
-      - '**.js'
-      - '**.ts'
+      - 'javascript/**/*.js'
+      - 'typescript/package.json'
+      - 'typescript/yarn.lock'
+      - 'typescript/**/*.ts'
   pull_request:
     paths:
       - '.github/workflows/jest.yml'
       - 'javascript/package.json'
-      - 'typecript/package.json'
       - 'javascript/yarn.lock'
-      - 'typecript/yarn.lock'
-      - '**.js'
-      - '**.ts'
+      - 'javascript/**/*.js'
+      - 'typescript/package.json'
+      - 'typescript/yarn.lock'
+      - 'typescript/**/*.ts'
 
 permissions:
   contents: read
