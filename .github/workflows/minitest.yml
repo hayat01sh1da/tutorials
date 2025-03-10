@@ -67,6 +67,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4.2
+          bundler-cache: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle install
