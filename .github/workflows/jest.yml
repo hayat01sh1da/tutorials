@@ -5,6 +5,8 @@ name: Jest
 
 on:
   push:
+    branches:
+      - master
     paths:
       - '.github/workflows/jest.yml'
       - 'javascript/package.json'

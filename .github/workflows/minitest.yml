@@ -5,10 +5,12 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: MiniTest
+name: Minitest
 
 on:
   push:
+    branches:
+      - master
     paths:
       - '.github/workflows/minitest.yml'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
@@ -81,7 +83,7 @@ jobs:
           bin/setup
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
-      - name: Run MiniTest
+      - name: Run Minitest
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         env:
           OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }

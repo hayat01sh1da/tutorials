@@ -9,6 +9,8 @@ name: RSpec
 
 on:
   push:
+    branches:
+      - master
     paths:
       - '.github/workflows/rspec.yml'
       - 'ruby-on-rails/restful-api/.ruby-version'
