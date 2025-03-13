@@ -32,18 +32,13 @@ jobs:
   build:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [22.10.0]
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+        # https://github.com/actions/setup-node/
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: ./javascript/yarn.lock
+          node-version-file: '.node-version'
       - name: Install Packages for JavaScript
         working-directory: ./javascript
         run: yarn install
