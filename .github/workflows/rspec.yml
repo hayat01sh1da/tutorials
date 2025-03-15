@@ -13,6 +13,7 @@ on:
       - master
     paths:
       - '.github/workflows/rspec.yml'
+      - './ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'
       - 'ruby-on-rails/restful-api/Gemfile.lock'
@@ -23,6 +24,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/rspec.yml'
+      - './ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'
       - 'ruby-on-rails/restful-api/Gemfile.lock'
