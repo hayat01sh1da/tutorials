@@ -56,7 +56,7 @@ class InterviewsController < ApplicationController
 
   # POST /users/:user_id/interviews/select_approver
   def select_approver
-    @approver = User.find_by(approver_params)
+    @approver = User.find_by(email: approver_params[:email])
     # Mailerの名前を変更しました
     InterviewMailer.apply(@user, @approver).deliver
     flash[:notice] = "面接日時を申請しました"
