@@ -35,9 +35,9 @@ class ApplicationController < ActionController::Base
 
   def load_pagination_params(action)
     data = session[:last_pagination_data].presence
-    if data["controller"] == controller_name && data["action"] == action.to_s
+    if data['controller'] == controller_name && data['action'] == action.to_s
       session[:last_pagination_data] = nil
-      ret = data["params"]
+      ret = data['params']
     end
   end
 
