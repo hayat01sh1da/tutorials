@@ -44,7 +44,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :place, :content, :start_at, :end_at, :image, :remove_image)
+    params.expect(event: [:name, :place, :content, :start_at, :end_at, :image, :remove_image])
   end
 
   def set_event
