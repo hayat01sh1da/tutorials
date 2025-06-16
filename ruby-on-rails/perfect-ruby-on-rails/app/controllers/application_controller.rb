@@ -42,6 +42,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_with_kept_pagination_params(action:, **args)
-    redirect_to({ action: action, params: load_pagination_params(action) }, args)
+    redirect_to({ action:, params: load_pagination_params(action) }, args)
   end
 end
