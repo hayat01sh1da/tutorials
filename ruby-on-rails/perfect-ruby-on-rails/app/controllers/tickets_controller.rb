@@ -9,12 +9,12 @@ class TicketsController < ApplicationController
       t.event = event
       t.comment = params[:ticket][:comment]
     }
-    return unless @ticket.save!
+    return unless @ticket.save
     redirect_to event, notice: 'このイベントに参加表明しました'
   end
 
   def destroy
-    ticket = current_user.tickets.find_by!(event_id: params[:event_id])
+    ticket = current_user.tickets.find_by(event_id: params[:event_id])
     ticket.destroy!
     redirect_to event_path(params[:event_id]), notice: 'このイベントの参加をキャンセルしました'
   end
