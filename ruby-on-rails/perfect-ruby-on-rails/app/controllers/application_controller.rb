@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return unless session[:user_id]
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
@@ -22,7 +21,6 @@ class ApplicationController < ActionController::Base
 
   def paginate_per
     session[:paginate_per] = params[:per] if params[:per].present?
-    session[:paginate_per]
   end
 
   def keep_last_pagination_data
