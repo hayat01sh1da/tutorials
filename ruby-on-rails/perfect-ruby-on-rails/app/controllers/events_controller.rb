@@ -26,8 +26,7 @@ class EventsController < ApplicationController
     @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @event.update(event_params)
