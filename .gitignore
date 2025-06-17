@@ -22,6 +22,7 @@ ruby-on-rails/perfect-ruby-on-rails/.yarn-integrity
 ruby-on-rails/perfect-ruby-on-rails/.env
 
 ## RESTful API
+ruby-on-rails/restful-api/config/master.key
 ruby-on-rails/restful-api/tmp/*
 ruby-on-rails/restful-api/log/*
 ruby-on-rails/restful-api/.bundle
