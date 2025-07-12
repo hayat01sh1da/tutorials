@@ -19,7 +19,7 @@ gem 'bootsnap', '~> 1.18.4', require: false
 # gem 'rack-cors'
 
 # JSON web tokens
-gem 'jwt', '~> 2.10.1'
+gem 'jwt', '~> 2.10.2'
 
 # Active model serializers
 gem 'active_model_serializers', '~> 0.10.14'
@@ -67,7 +67,7 @@ group :test do
   # 'factory_bot_rails' cames not to behave right in 5.0 or more
   gem 'factory_bot_rails', '~> 6.4.3'
   gem 'rspec-rails', '~> 7.1.1'
-  gem 'faker', '~> 3.5.1'
+  gem 'faker', '~> 3.5.2'
   gem 'shoulda-matchers', '~> 6.4.0'
   gem 'database_cleaner', '~> 2.1.0'
 end
