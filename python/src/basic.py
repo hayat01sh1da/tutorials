@@ -1,5 +1,5 @@
 def return_three_strings(string1, string2, string3):
-    return 'string1: {}, string2: {}, string3: {}'.format(string1, string2, string3)
+    return f'string1: {string1}, string2: {string2}, string3: {string3}'
 
 def judge_num_1(num):
     if num >= 10:

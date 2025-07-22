@@ -9,7 +9,7 @@ def print_nums(nums):
 def print_tv_dramas_with_index(movies):
     for i in range(0, len(movies)):
         movie = movies[i]
-        print('{}: {}'.format(i + 1, movie))
+        print(f'{i + 1}: {movie}')
 
 def guess_num(val):
     nums = [1, 3, 5, 7, 9]

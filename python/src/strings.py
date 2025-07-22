@@ -5,7 +5,7 @@ def return_each_char(string):
     return chars
 
 def complete_proverb(adj1, adj2):
-    return 'Stay {}, stay {}!'.format(adj1, adj2)
+    return f'Stay {adj1}, stay {adj2}!'
 
 def capitalise(sentence):
     words = sentence.split(' ')
@@ -27,7 +27,7 @@ def index_char(word):
     return word.index('m')
 
 def python_str(phrase):
-    return 'The phrase \'{}\' in Nineteen-Eight Four scars me.'.format(phrase)
+    return f'The phrase \'{phrase}\' in Nineteen-Eight Four scars me.'
 
 def combine_words_1(word):
     return word + ' ' + word + ' ' + word

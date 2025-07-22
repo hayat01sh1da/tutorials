@@ -6,7 +6,7 @@ def return_str(str):
     return str
 
 def introduce_self(name, lang_in_study, main_lang = 'Ruby'):
-    return 'Hi, I am {} and stdying {} so hard.  My main proguramming language is {}'.format(name, lang_in_study, main_lang)
+    return f'Hi, I am {name} and stdying {lang_in_study} so hard.  My main proguramming language is {main_lang}'
 
 def halve(num):
     return num / 2
