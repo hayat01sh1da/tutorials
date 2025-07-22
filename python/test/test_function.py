@@ -40,7 +40,7 @@ class TestFunction(unittest.TestCase):
 
     # 3. Return a message with 3 required args and 2 optional arg
     def test_introduce_self(self):
-        self.assertEqual('Hi, I am Oasist and stdying Python so hard.  My main proguramming language is Ruby', function.introduce_self('Oasist', 'Python'))
+        self.assertEqual('Hi, I am Oasist and stdying Python so hard. My main programming language is Ruby', function.introduce_self('Oasist', 'Python'))
 
     # 4. Define a function which halves an int arg.
     #    Define another function which fourfold an int arg.
