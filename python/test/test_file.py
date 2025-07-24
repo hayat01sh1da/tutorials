@@ -21,7 +21,7 @@ class TestFile(unittest.TestCase):
 
     # 1. Read the contents of a file
     def test_read_file(self):
-        self.assertEqual('Hogehoge\nFoobar\n', file.read_file('./file/read_file.txt'))
+        self.assertEqual(file.read_file('./file/read_file.txt'), 'Hogehoge\nFoobar\n')
 
     # 2. Write an input value on a file
     def _calFUT(self):
@@ -58,8 +58,8 @@ class TestFile(unittest.TestCase):
             ]
         ]
         self.assertEqual(
-            'Top Gun,Risky Business,Minority Report\nTitanic,The Revenant,Interception\nTraining Day,Man on Fire,Flight\n',
-            file.write_csv('./file/write_file.csv', data)
+            file.write_csv('./file/write_file.csv', data),
+            'Top Gun,Risky Business,Minority Report\nTitanic,The Revenant,Interception\nTraining Day,Man on Fire,Flight\n'
         )
 
 if __name__ == '__main__':

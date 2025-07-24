@@ -18,9 +18,9 @@ class TestPet(unittest.TestCase):
 
     # Define `Pet` which has 3 attributes
     def test_initialize(self):
-        self.assertEqual('cat', self.pet.species)
-        self.assertEqual('nana', self.pet.name)
-        self.assertEqual(18, self.pet.age)
+        self.assertEqual(self.pet.species, 'cat')
+        self.assertEqual(self.pet.name, 'nana')
+        self.assertEqual(self.pet.age, 18)
 
 if __name__ == '__main__':
     unittest.main()

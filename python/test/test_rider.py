@@ -18,8 +18,8 @@ class TestRider(unittest.TestCase):
 
     # Return the attributes of a horse and its rider by composition
     def test_horse(self):
-        self.assertEqual('Koichi Oguri', self.rider.name)
-        self.assertEqual(86, self.rider.age)
+        self.assertEqual(self.rider.name, 'Koichi Oguri')
+        self.assertEqual(self.rider.age, 86)
 
 if __name__ == '__main__':
     unittest.main()

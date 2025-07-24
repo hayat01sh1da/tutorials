@@ -17,22 +17,22 @@ class TestModu(unittest.TestCase):
 
     # 1. Return values of Statistics#mthods
     def test_statistics(self):
-        data = [100,200,300,400,500,500,600,700,800,800]
-        self.assertEqual(490, modu.calc_mean(data))
-        self.assertEqual(490.0, modu.calc_fmean(data))
-        self.assertEqual(417.5976552266734, modu.calc_geometric_mean(data))
-        self.assertEqual(328.63849765258215, modu.calc_harmonic_mean(data))
-        self.assertEqual(500.0, modu.calc_median(data))
-        self.assertEqual(500, modu.calc_median_low(data))
-        self.assertEqual(500, modu.calc_median_high(data))
-        self.assertEqual(500.0, modu.calc_median_grouped(data))
-        self.assertEqual(500, modu.calc_mode(data))
-        self.assertEqual([500, 800], modu.calc_multimode(data))
-        self.assertEqual([275.0, 500.0, 725.0], modu.calc_quantiles(data))
+        data = [100, 200, 300, 400, 500, 500, 600, 700, 800, 900]
+        self.assertEqual(modu.calc_fmean(data), 500)
+        self.assertEqual(modu.calc_mean(data), 500)
+        self.assertEqual(modu.calc_geometric_mean(data), 422.54532757321437)
+        self.assertEqual(modu.calc_harmonic_mean(data), 330.1454211974322)
+        self.assertEqual(modu.calc_median(data), 500.0)
+        self.assertEqual(modu.calc_median_low(data), 500)
+        self.assertEqual(modu.calc_median_high(data), 500)
+        self.assertEqual(modu.calc_median_grouped(data), 500.0)
+        self.assertEqual(modu.calc_mode(data), 500)
+        self.assertEqual(modu.calc_multimode(data), [500])
+        self.assertEqual(modu.calc_quantiles(data), [275.0, 500.0, 725.0])
 
     # 2. Define a function in another module which cubes a number and return the value
     def test_import_cubed(self):
-        self.assertEqual(729, modu.import_cubed(9))
+        self.assertEqual(modu.import_cubed(9), 729)
 
 if __name__ == '__main__':
     unittest.main()

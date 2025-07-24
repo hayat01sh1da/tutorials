@@ -18,7 +18,7 @@ class TestTriangle(unittest.TestCase):
 
     # Return dimension
     def test_area(self):
-        self.assertEqual(1500, self.triangle.area())
+        self.assertEqual(self.triangle.area(), 1500)
 
 if __name__ == '__main__':
     unittest.main()

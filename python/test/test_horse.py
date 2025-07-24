@@ -22,8 +22,8 @@ class TestHorse(unittest.TestCase):
     def test_horse(self):
         self.assertEqual('Oguri Cap', self.horse.name)
         self.assertEqual(25, self.horse.age)
-        self.assertEqual('Koichi Oguri', self.horse.rider.name)
-        self.assertEqual(86, self.horse.rider.age)
+        self.assertEqual(self.horse.rider.name, 'Koichi Oguri')
+        self.assertEqual(self.horse.rider.age, 86)
 
 if __name__ == '__main__':
     unittest.main()
