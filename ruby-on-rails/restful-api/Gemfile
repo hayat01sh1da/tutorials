@@ -12,6 +12,9 @@ gem 'puma', '~> 6.5.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.20'
 
+# Use MySQL as the database for Active Record
+gem 'mysql2', '~> 0.5.7'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.18.4', require: false
 
@@ -30,7 +33,7 @@ gem 'will_paginate', '~> 4.0.1'
 # environmental variables
 gem 'dotenv-rails', '~> 3.1.8'
 
-gem 'nokogiri', '~> 1.18.9'
+gem 'nokogiri', '~> 1.18.10'
 
 gem 'net-smtp', '~> 0.5.0'
 
@@ -44,8 +47,6 @@ gem 'ostruct', '~> 0.6.3'
 gem 'ffi', '~> 1.17.2'
 
 group :development, :test do
-  # Use MySQL as the database for Active Record
-  gem 'mysql2', '~> 0.5.6'
   # Debug tool used with binding.irb
   # 'debug/prelude' option enables debug gem only if debugger is called. Otherwise, it is deactivated.
   # [Ref] https://ruby.github.io/irb/#label-Debugging+with+IRB
