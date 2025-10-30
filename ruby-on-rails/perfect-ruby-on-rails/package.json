@@ -9,7 +9,7 @@
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "popper.js": "^1.14.1",
-    "tar": "^7.4.3",
+    "tar": "^7.5.2",
     "trim-newlines": "^5.0.0",
     "turbolinks": "^5.2.0",
     "webpack": "^5.98.0",
