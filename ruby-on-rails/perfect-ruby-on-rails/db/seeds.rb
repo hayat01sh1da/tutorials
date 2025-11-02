@@ -13,8 +13,8 @@ owner = User.first
     name: "Event#{sprintf('%03d', i)}",
     place: 'Tokyo',
     content: 'This is a sample event.',
-    start_at: Time.zone.now.since(1.day),
-    end_at: Time.zone.now.since(1.day).since(3.hours),
+    start_at: Time.zone.now.since(1.year),
+    end_at: Time.zone.now.since(1.year).since(3.hours),
     owner: owner
   )
 end
