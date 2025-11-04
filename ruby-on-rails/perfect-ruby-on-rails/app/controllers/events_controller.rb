@@ -24,6 +24,11 @@ class EventsController < ApplicationController
   def show
     @ticket  = current_user&.tickets.find_by(event: @event)
     @tickets = @event.tickets.includes(:user).order(:created_at)
+
+    respond_to do |format|
+      format.html
+      format.md { render markdown: @event }
+    end
   end
 
   def edit; end
