@@ -39,6 +39,17 @@ class Event < ApplicationRecord
     self.image.attached? && self.image.blob&.persisted?
   end
 
+  def to_markdown
+    <<~MARKDOWN
+      # #{name}
+
+      - 主催者: #{owner.name}
+      - 開催場所: #{place}
+      - 開催日時: #{start_at.strftime('%Y年%m月%d日 %H:%M:%S')} ~ #{end_at.strftime('%Y年%m月%d日 %H:%M:%S')}
+      - イベント内容: #{content}
+    MARKDOWN
+  end
+
   private
 
   def start_at_should_be_before_end_at
