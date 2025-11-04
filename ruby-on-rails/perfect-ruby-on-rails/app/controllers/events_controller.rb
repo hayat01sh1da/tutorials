@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @ticket  = current_user&.tickets.find_by(event: @event)
+    @ticket  = current_user&.tickets&.find_by(event: @event)
     @tickets = @event.tickets.includes(:user).order(:created_at)
 
     respond_to do |format|
