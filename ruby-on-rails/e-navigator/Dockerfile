@@ -7,7 +7,7 @@ RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /
 
 # Install Packages including Node.js from Debian archive
 RUN apt-get update -o Acquire::Check-Valid-Until=false && \
-    apt-get install -y --allow-unauthenticated curl build-essential libpq-dev vim tree nodejs && \
+    apt-get install -y --allow-unauthenticated curl build-essential default-libmysqlclient-dev vim tree nodejs && \
     ln -s /usr/bin/nodejs /usr/bin/node
 
 WORKDIR /tmp
