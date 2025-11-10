@@ -8,8 +8,7 @@ class Interview < ApplicationRecord
     declined: 2
   }
   def datetime_cannot_be_in_the_past
-    if datetime.present? && datetime.past?
-      errors.add(:datetime, "に過去の日時は選択できません。")
-    end
+    return unless datetime.present? && datetime < Time.current
+    errors.add(:datetime, "に過去の日時は選択できません。")
   end
 end
