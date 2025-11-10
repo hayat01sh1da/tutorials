@@ -251,12 +251,4 @@ class InterviewsControllerTest < ActionDispatch::IntegrationTest
 
   private
 
-  def sign_in(user)
-    post user_session_url, params: {
-      user: {
-        email: user.email,
-        password: 'password123'
-      }
-    }
-  end
 end
