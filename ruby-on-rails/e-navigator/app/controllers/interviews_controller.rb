@@ -30,8 +30,9 @@ class InterviewsController < ApplicationController
     else
       render :new
     end
-  end  # GET /users/:user_id/interviews/:id/edit
+  end
 
+  # GET /users/:user_id/interviews/:id/edit
   def edit; end
 
   # PATCH /users/:user_id/interviews/:id
@@ -45,8 +46,9 @@ class InterviewsController < ApplicationController
     @interview.update(interview_params)
     flash[:notice] = "面接日時を変更しました"
     redirect_to user_interviews_path
-  end  # DELETE /users/:user_id/interviews/:id
+  end
 
+  # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
     flash[:notice] = "面接日時を削除しました"
