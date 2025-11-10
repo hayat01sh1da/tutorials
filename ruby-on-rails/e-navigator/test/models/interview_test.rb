@@ -99,9 +99,9 @@ class InterviewTest < ActiveSupport::TestCase
     assert_not @interview.valid?
   end
 
-  test "should validate datetime even when nil" do
+  test "should be invalid when datetime is nil" do
     @interview.datetime = nil
-    # datetime can be nil, validation only triggers if present
-    assert @interview.valid?
+    # datetime is required, should be invalid if nil
+    assert_not @interview.valid?
   end
 end
