@@ -54,12 +54,10 @@ jobs:
       mysql:
         image: mysql:8.0.40
         env:
-          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
-          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
-          DB_HOST: '${{ secrets.DB_HOST }}'
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         ports:
           - 3308:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -75,14 +73,25 @@ jobs:
         run: bundle install
       - name: Set up Database
         working-directory: ./ruby-on-rails/e-navigator
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3308
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          RAILS_ENV: test
         run: |
-          sudo mkdir -p /var/run/mysqld
-          sudo chown -R mysql:mysql /var/run/mysqld
-          sudo mysqld_safe --skip-grant-tables &
-          sleep 10
+          chmod +x bin/*
+          mkdir -p tmp
           bin/setup
       - name: Install Google Chrome
         uses: browser-actions/setup-chrome@v1
       - name: Run Minitest
         working-directory: ./ruby-on-rails/e-navigator
-        run: bin/test
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3308
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          RAILS_ENV: test
+        run: |
+          bin/test

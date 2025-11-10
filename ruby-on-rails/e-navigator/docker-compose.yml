@@ -9,6 +9,10 @@ services:
     environment:
       # Suppress Ruby warnings during runtime by setting RUBYOPT=-W0 (silences warnings)
       - RUBYOPT=-W0
+      - DB_HOST=db
+      - DB_USERNAME=root
+      - DB_PASSWORD=devpassword
+      - DB_PORT=3306
     stdin_open: true
     tty: true
     depends_on:
