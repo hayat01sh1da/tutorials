@@ -105,10 +105,9 @@ class UserTest < ActiveSupport::TestCase
   test "age should handle nil birthday" do
     @user.birthday = nil
     @user.save(validate: false)
-    # The age method will attempt to calculate but returns a very large number due to nil.strftime
-    # This is the current implementation behavior
+    # The age method should return nil if birthday is not set
     result = @user.age
-    assert_kind_of Integer, result
+    assert_nil result
   end
 
   test "update_without_current_password should update user without password" do
