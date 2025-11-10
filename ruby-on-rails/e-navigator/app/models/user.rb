@@ -23,7 +23,8 @@ class User < ApplicationRecord
     result
   end
 
-  def age #ユーザーの年齢を表示させるメソッド
+  def age
+    return unless birthday
     date_format = "%Y%m%d"
     (Date.today.try(:strftime, date_format).to_i - self.birthday.try(:strftime, date_format).to_i) / 10000
   end
