@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  datetime: <%= 2.days.from_now %>
+  status: 0
+
+two:
+  user: one
+  datetime: <%= 3.days.from_now %>
+  status: 0
+
+three:
+  user: two
+  datetime: <%= 5.days.from_now %>
+  status: 1
