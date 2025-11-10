@@ -30,8 +30,9 @@ class InterviewsController < ApplicationController
     else
       render :new
     end
-  end  # GET /users/:user_id/interviews/:id/edit
+  end
 
+  # GET /users/:user_id/interviews/:id/edit
   def edit; end
 
   # PATCH /users/:user_id/interviews/:id
