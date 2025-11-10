@@ -20,34 +20,33 @@ class InterviewsController < ApplicationController
     unless current_user?(@user.id)
       flash[:notice] = "他のユーザーの面接日時の登録は許可されていません"
       redirect_to users_path
-    else
-      @interview = @user.interviews.new(interview_params)
-      if @interview.save
-        flash[:notice] = "面接日時を登録しました"
-        redirect_to user_interviews_path
-      else
-        render :new
-      end
+      return
     end
-  end
 
-  # GET /users/:user_id/interviews/:id/edit
-  def edit
-  end
+    @interview = @user.interviews.new(interview_params)
+    if @interview.save
+      flash[:notice] = "面接日時を登録しました"
+      redirect_to user_interviews_path
+    else
+      render :new
+    end
+  end  # GET /users/:user_id/interviews/:id/edit
+
+  def edit; end
 
   # PATCH /users/:user_id/interviews/:id
   def update
     unless current_user?(@interview.user_id)
       flash[:notice] = "他のユーザーの面接日時の変更は許可されていません"
       redirect_to users_path
-    else
-      @interview.update(interview_params)
-      flash[:notice] = "面接日時を変更しました"
-      redirect_to user_interviews_path
+      return
     end
-  end
 
-  # DELETE /users/:user_id/interviews/:id
+    @interview.update(interview_params)
+    flash[:notice] = "面接日時を変更しました"
+    redirect_to user_interviews_path
+  end  # DELETE /users/:user_id/interviews/:id
+
   def destroy
     @interview.destroy
     flash[:notice] = "面接日時を削除しました"
@@ -86,24 +85,23 @@ class InterviewsController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find_by(id: params[:user_id])
-    end
+  def set_user
+    @user = User.find_by(id: params[:user_id])
+  end
 
-    def set_interview
-      @interview = Interview.find(params[:id])
-    end
+  def set_interview
+    @interview = Interview.find(params[:id])
+  end
 
-    def interview_params
-      params.require(:interview).permit(:datetime)
-    end
+  def interview_params
+    params.require(:interview).permit(:datetime)
+  end
 
-    # form_tagに変えたので、.require(:user)を削除しました
-    def approver_params
-      params.permit(:email)
-    end
+  def approver_params
+    params.permit(:email)
+  end
 
-    def current_user?(id)
-      current_user.id == id
-    end
+  def current_user?(id)
+    current_user.id == id
+  end
 end
