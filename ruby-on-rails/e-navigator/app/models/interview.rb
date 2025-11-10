@@ -1,6 +1,7 @@
 class Interview < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
+  validates :datetime, presence: true
   validate :datetime_cannot_be_in_the_past
   enum status: {
     suspended: 0,
