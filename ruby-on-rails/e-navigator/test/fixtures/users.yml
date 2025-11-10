@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "John Doe"
+  email: "john@example.com"
+  encrypted_password: <%= BCrypt::Password.create('password123', cost: 4) %>
+  birthday: 1990-05-15
+  sex: male
+  school: "Example University"
+
+two:
+  name: "Jane Smith"
+  email: "jane@example.com"
+  encrypted_password: <%= BCrypt::Password.create('password123', cost: 4) %>
+  birthday: 1992-08-20
+  sex: female
+  school: "Sample College"
+
+three:
+  name: "Bob Johnson"
+  email: "bob@example.com"
+  encrypted_password: <%= BCrypt::Password.create('password123', cost: 4) %>
+  birthday: 1988-12-10
+  sex: male
+  school: "Test Institute"

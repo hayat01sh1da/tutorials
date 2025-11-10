@@ -1,0 +1,97 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Minitest - e-navigator
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/minitest.yml'
+      - '.ruby-version'
+      - './node-version'
+      - 'ruby-on-rails/e-navigator/.ruby-version'
+      - 'ruby-on-rails/e-navigator/Gemfile'
+      - 'ruby-on-rails/e-navigator/Gemfile.lock'
+      - 'ruby-on-rails/e-navigator/Rakefile'
+      - 'ruby-on-rails/e-navigator/**/*.rb'
+      - 'ruby-on-rails/e-navigator/**/*.rake'
+      - 'ruby-on-rails/e-navigator/**/*.yml'
+      - 'ruby-on-rails/e-navigator/**/*.js'
+      - 'ruby-on-rails/e-navigator/**/*.scss'
+      - 'ruby-on-rails/e-navigator/**/*.css'
+      - 'ruby-on-rails/e-navigator/**/*.html.erb'
+  pull_request:
+    paths:
+      - '.github/workflows/minitest.yml'
+      - '.ruby-version'
+      - './node-version'
+      - 'ruby-on-rails/e-navigator/.ruby-version'
+      - 'ruby-on-rails/e-navigator/Gemfile'
+      - 'ruby-on-rails/e-navigator/Gemfile.lock'
+      - 'ruby-on-rails/e-navigator/Rakefile'
+      - 'ruby-on-rails/e-navigator/**/*.rb'
+      - 'ruby-on-rails/e-navigator/**/*.rake'
+      - 'ruby-on-rails/e-navigator/**/*.yml'
+      - 'ruby-on-rails/e-navigator/**/*.js'
+      - 'ruby-on-rails/e-navigator/**/*.scss'
+      - 'ruby-on-rails/e-navigator/**/*.css'
+      - 'ruby-on-rails/e-navigator/**/*.html.erb'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0.40
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 3308:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 2.6.0
+      - name: Bundle Install
+        working-directory: ./ruby-on-rails/e-navigator
+        run: bundle install
+      - name: Set up Database
+        working-directory: ./ruby-on-rails/e-navigator
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3308
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          RAILS_ENV: test
+        run: |
+          chmod +x bin/*
+          mkdir -p tmp
+          bin/setup
+      - name: Install Google Chrome
+        uses: browser-actions/setup-chrome@v1
+      - name: Run Minitest
+        working-directory: ./ruby-on-rails/e-navigator
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3308
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          RAILS_ENV: test
+        run: |
+          bundle exec rails test

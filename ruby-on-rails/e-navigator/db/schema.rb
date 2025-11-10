@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_04_17_193220) do
 
-  create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "interviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "datetime"
     t.integer "status", default: 0
     t.bigint "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_193220) do
     t.index ["user_id"], name: "index_interviews_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

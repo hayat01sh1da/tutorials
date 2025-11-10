@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
-begin
-  load File.expand_path('../spring', __FILE__)
-rescue LoadError => error
-  raise unless error.message.include?('spring')
-end
+# Set default environment variables for Docker if not already set
+ENV['DB_HOST'] ||= 'db'
+ENV['DB_USERNAME'] ||= 'root'
+ENV['DB_PASSWORD'] ||= 'devpassword'
+ENV['DB_PORT'] ||= '3306'
+ENV['DISABLE_SPRING'] ||= '1'
+
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
 require 'rails/commands'
