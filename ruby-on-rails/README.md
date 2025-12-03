@@ -2,7 +2,7 @@
 
 - Rails 8.1.1
 - Ruby 3.4.7
-- Docker 28.5.2
+- Docker 29.0.1
 
 ## 2. READMEs
 
