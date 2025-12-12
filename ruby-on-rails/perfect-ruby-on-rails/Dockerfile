@@ -14,7 +14,7 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem install bundler && gem update --system
+RUN gem install bundler -v 4.0.1
 
 WORKDIR /app
 
@@ -23,10 +23,13 @@ COPY package.json yarn.lock ./
 RUN npm install -g yarn
 RUN yarn install
 
-# Bundle Install
+# RubyGems
 COPY .ruby-version Gemfile Gemfile.lock ./
-RUN bundle config set path vendor/bundle
-RUN bundle config set force_ruby_platform true
+ENV BUNDLE_GEMFILE=/app/Gemfile
+ENV BUNDLE_PATH=/app/vendor/bundle
+ENV BUNDLE_FROZEN=true
+ENV BUNDLE_WITHOUT="development:test"
+RUN bundle install
 
 EXPOSE 4000
 CMD ["bash"]
