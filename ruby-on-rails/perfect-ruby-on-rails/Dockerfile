@@ -1,4 +1,4 @@
-FROM node:25.1.0 AS node
+FROM node:25.2.1 AS node
 FROM ruby:3.4.7
 
 # Install Packages
@@ -10,6 +10,7 @@ COPY --from=node /usr/local/include/node /usr/local/include/node
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+RUN npm install -g pnpm@9.12.3
 
 WORKDIR /tmp
 
@@ -18,10 +19,9 @@ RUN gem install bundler -v 4.0.1
 
 WORKDIR /app
 
-# Yarn Install
-COPY package.json yarn.lock ./
-RUN npm install -g yarn
-RUN yarn install
+# pnpm Install
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 # RubyGems
 COPY .ruby-version Gemfile Gemfile.lock ./
