@@ -1,6 +1,7 @@
 # Ruby on Rails
 ## Perfect Ruby on Rails
 ruby-on-rails/perfect-ruby-on-rails/.bundle
+ruby-on-rails/perfect-ruby-on-rails/.pnpm-store
 ruby-on-rails/perfect-ruby-on-rails/log/*
 ruby-on-rails/perfect-ruby-on-rails/tmp/*
 !ruby-on-rails/perfect-ruby-on-rails/log/.keep
@@ -16,9 +17,6 @@ ruby-on-rails/perfect-ruby-on-rails/config/master.key
 ruby-on-rails/perfect-ruby-on-rails/public/packs/
 ruby-on-rails/perfect-ruby-on-rails/public/packs-test/
 ruby-on-rails/perfect-ruby-on-rails/node_modules/
-ruby-on-rails/perfect-ruby-on-rails/yarn-error.log
-ruby-on-rails/perfect-ruby-on-rails/yarn-debug.log*
-ruby-on-rails/perfect-ruby-on-rails/.yarn-integrity
 ruby-on-rails/perfect-ruby-on-rails/.env
 
 ## RESTful API
