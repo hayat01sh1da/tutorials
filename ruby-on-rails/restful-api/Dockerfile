@@ -6,14 +6,17 @@ RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem install bundler && gem update --system
+RUN gem install bundler -v 2.5.9
 
 WORKDIR /app
 
-# Bundle Install
+# RubyGems
 COPY .ruby-version Gemfile Gemfile.lock ./
-RUN bundle config set path vendor/bundle
-RUN bundle config set force_ruby_platform true
+ENV BUNDLE_GEMFILE=/app/Gemfile
+ENV BUNDLE_PATH=/app/vendor/bundle
+ENV BUNDLE_FROZEN=true
+ENV BUNDLE_WITHOUT="development:test"
+RUN bundle install
 
 EXPOSE 5000
 CMD ["bash"]
