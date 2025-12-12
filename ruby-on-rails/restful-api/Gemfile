@@ -47,12 +47,12 @@ gem 'ostruct', '~> 0.6.3'
 gem 'ffi', '~> 1.17.2'
 
 group :development, :test do
-  # Debug tool used with binding.irb
-  # 'debug/prelude' option enables debug gem only if debugger is called. Otherwise, it is deactivated.
+  # Debug tool used with binding.irb. Explicit require avoids eager loading `debug/prelude`
+  # which interferes with the Docker boot process.
   # [Ref] https://ruby.github.io/irb/#label-Debugging+with+IRB
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
+  gem 'debug', platforms: %i[ mri windows ], require: false
 end
 
 group :development do
