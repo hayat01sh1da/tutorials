@@ -28,7 +28,6 @@ COPY .ruby-version Gemfile Gemfile.lock ./
 ENV BUNDLE_GEMFILE=/app/Gemfile
 ENV BUNDLE_PATH=/app/vendor/bundle
 ENV BUNDLE_FROZEN=true
-ENV BUNDLE_WITHOUT="development:test"
 RUN bundle install
 
 EXPOSE 4000
