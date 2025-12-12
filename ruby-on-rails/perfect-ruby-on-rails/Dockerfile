@@ -14,7 +14,7 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem install bundler -v 2.5.10
+RUN gem install bundler -v 4.0.1
 
 WORKDIR /app
 
