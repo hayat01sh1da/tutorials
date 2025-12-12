@@ -52,7 +52,7 @@ group :development, :test do
   # [Ref] https://ruby.github.io/irb/#label-Debugging+with+IRB
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
+  gem 'debug', platforms: %i[ mri windows ]
 end
 
 group :development do
