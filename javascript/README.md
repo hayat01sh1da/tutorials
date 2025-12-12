@@ -1,7 +1,7 @@
 ## 1. Environment
 
-- node v23.1.0
-- node 10.9.0
+- Node v23.1.0
+- PNPM 10.25.0
 
 ## 2. Reference
 
@@ -15,7 +15,7 @@
 ### 3-1. Build a Node.js project
 
 ```bash
-$ npm init
+$ pnpm init
 ```
 
 You will be asked some questions, but just keep tapping "Enter" key.
@@ -23,13 +23,13 @@ You will be asked some questions, but just keep tapping "Enter" key.
 ### 3-2. Install required packages
 
 ```bash
-$ npm install --save-dev jest babel-jest babel-core @babel/core @babel/preset-env
+$ pnpm install --save-dev jest babel-jest babel-core @babel/core @babel/preset-env
 ```
 
 ### 3-3. Install a plugin with babel to convert JEST to CommonJS
 
 ```bash
-$ npm install --save-dev jest babel-jest
+$ pnpm install --save-dev jest babel-jest
 ```
 
 ### 3-4. Run a unittest
@@ -37,7 +37,7 @@ $ npm install --save-dev jest babel-jest
 To execute all unit tests, run `npx jest`.
 
 ```bash
-$ npx jest
+$ pnpm jest
  PASS  __tests__/hello.test.js (24.047 s)
   ✓ Hello (3 ms)
 
