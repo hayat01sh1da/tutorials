@@ -25,13 +25,33 @@ class User < ApplicationRecord
 
   def age
     return unless birthday
-    date_format = "%Y%m%d"
-    (Date.today.try(:strftime, date_format).to_i - self.birthday.try(:strftime, date_format).to_i) / 10000
+
+    @today      = Time.zone&.today || Date.today
+    @birth_date = birthday.to_date
+    age         = today.year - birth_date.year
+
+    before_birthday? ? age -1 : age
   end
+
+  private
+
+  attr_reader :today, :birth_date
 
   def birthday_cannot_be_in_the_future
     if birthday.present? && birthday.future?
       errors.add(:birthday, "に未来の日時は選択できません。")
     end
+  end
+
+  def before_birth_date_on_birth_month?
+    today.month == birth_date.month && today.day < birth_date.day
+  end
+
+  def before_birthday?
+    before_birth_month? || before_birth_date_on_birth_month?
+  end
+
+  def before_birth_month?
+    today.month < birth_date.month
   end
 end
