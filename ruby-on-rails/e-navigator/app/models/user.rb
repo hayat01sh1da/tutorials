@@ -1,14 +1,21 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
+
   validate :birthday_cannot_be_in_the_future
+
   enum sex: {
     unchosen: 0,
     male: 1,
     female: 2
   }
+
   has_many :interviews, dependent: :destroy
 
   # パスワード入力なしでの更新を許可する
@@ -18,6 +25,7 @@ class User < ApplicationRecord
       params.delete(:password)
       params.delete(:password_confirmation)
     end
+
     result = update_attributes(params, *options)
     clean_up_passwords
     result
