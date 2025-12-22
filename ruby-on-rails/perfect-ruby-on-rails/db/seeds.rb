@@ -6,7 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-owner = User.first
+owner = User.create!(
+  image_url: 'https://avatars.githubusercontent.com/u/37478830',
+  name: 'hayat01sh1da',
+  provider: 'github',
+  uid: rand(10**(8-1)..10**8-1).to_s
+)
 
 1.upto(500) do |i|
   Event.create!(
@@ -15,6 +20,6 @@ owner = User.first
     content: 'This is a sample event.',
     start_at: Time.zone.now.since(1.year),
     end_at: Time.zone.now.since(1.year).since(3.hours),
-    owner: owner
+    owner:
   )
 end
