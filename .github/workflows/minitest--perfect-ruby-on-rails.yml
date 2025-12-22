@@ -12,7 +12,7 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/minitest.yml'
+      - '.github/workflows/minitest--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - './node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
