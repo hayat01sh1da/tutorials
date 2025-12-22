@@ -38,7 +38,7 @@ class User < ApplicationRecord
     @birth_date = birthday.to_date
     age         = today.year - birth_date.year
 
-    before_birthday? ? age -1 : age
+    before_birthday? ? age - 1 : age
   end
 
   private
