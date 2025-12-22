@@ -27,9 +27,8 @@ on:
       - 'ruby-on-rails/e-navigator/**/*.html.erb'
   pull_request:
     paths:
-      - '.github/workflows/minitest.yml'
-      - '.ruby-version'
-      - './node-version'
+      - '.github/workflows/minitest--e-navigator.yml'
+      # - '.ruby-version'
       - 'ruby-on-rails/e-navigator/.ruby-version'
       - 'ruby-on-rails/e-navigator/Gemfile'
       - 'ruby-on-rails/e-navigator/Gemfile.lock'
