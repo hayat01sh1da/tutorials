@@ -15,7 +15,7 @@ RUN npm install -g pnpm@10.25.0
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem install bundler -v 4.0.1
+RUN gem install bundler -v 4.0.3
 
 WORKDIR /app
 
