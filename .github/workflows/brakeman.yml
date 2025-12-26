@@ -27,7 +27,7 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.css'
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb'
       - 'ruby-on-rails/perfect-ruby-on-rails/package.json'
-      - 'ruby-on-rails/perfect-ruby-on-rails/yarn.lock'
+      - 'ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml'
   pull_request:
     paths:
       - '.github/workflows/minitest.yml'
@@ -45,7 +45,7 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.css'
       - 'ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb'
       - 'ruby-on-rails/perfect-ruby-on-rails/package.json'
-      - 'ruby-on-rails/perfect-ruby-on-rails/yarn.lock'
+      - 'ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml'
 
 permissions:
   contents: read

@@ -11,20 +11,20 @@ on:
       - '.github/workflows/jest.yml'
       - './node-version'
       - 'javascript/package.json'
-      - 'javascript/yarn.lock'
+      - 'javascript/pnpm-lock.yaml'
       - 'javascript/**/*.js'
       - 'typescript/package.json'
-      - 'typescript/yarn.lock'
+      - 'typescript/pnpm-lock.yaml'
       - 'typescript/**/*.ts'
   pull_request:
     paths:
       - '.github/workflows/jest.yml'
       - './node-version'
       - 'javascript/package.json'
-      - 'javascript/yarn.lock'
+      - 'javascript/pnpm-lock.yaml'
       - 'javascript/**/*.js'
       - 'typescript/package.json'
-      - 'typescript/yarn.lock'
+      - 'typescript/pnpm-lock.yaml'
       - 'typescript/**/*.ts'
 
 permissions:
