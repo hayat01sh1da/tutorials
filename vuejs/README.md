@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- WSL(Ubuntu 24.04.1 LTS)
+- WSL(Ubuntu 24.04.3 LTS)
 
 ## 2. Reference
 
