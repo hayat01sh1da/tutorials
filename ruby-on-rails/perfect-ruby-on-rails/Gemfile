@@ -87,6 +87,9 @@ group :development do
   gem 'spring', '~> 4.2.1'
   # Static code analysis for security vulnerabilities
   gem 'brakeman', '~> 7.0.2', require: false
+
+  # Provides methods for benchmarking Ruby code, giving detailed reports on the time taken for each task
+  gem 'benchmark', '~> 0.5.0'
 end
 
 group :test do

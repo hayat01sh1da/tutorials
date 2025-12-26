@@ -1,5 +1,5 @@
 FROM node:25.2.1 AS node
-FROM ruby:3.4.8
+FROM ruby:4.0.0
 
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree chromium
@@ -15,7 +15,7 @@ RUN npm install -g pnpm@10.25.0
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem install bundler -v 4.0.1
+RUN gem install bundler -v 4.0.3
 
 WORKDIR /app
 
