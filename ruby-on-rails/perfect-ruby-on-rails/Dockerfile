@@ -10,7 +10,7 @@ COPY --from=node /usr/local/include/node /usr/local/include/node
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-RUN npm install -g pnpm@10.25.0
+RUN npm install -g pnpm@10.26.2
 
 WORKDIR /tmp
 
