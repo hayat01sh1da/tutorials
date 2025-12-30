@@ -22,7 +22,7 @@ def get_value():
         'nationality': 'Japan',
         'favourite_colour': 'Black'
     }
-    key = input('Input a key: ')
+    key = input('Input a key: ').strip()
     value = self_info[key]
     return value
 

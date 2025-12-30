@@ -1,5 +1,5 @@
 def cube():
-    num = int(input('Input a number: '))
+    num = int(input('Input a number: ').strip())
     return num ** 3
 
 def return_str(str):

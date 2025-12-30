@@ -14,7 +14,7 @@ def print_tv_dramas_with_index(movies):
 def guess_num(val):
     nums = [1, 3, 5, 7, 9]
     while True:
-        # val = input('Input a number or \'q\' to quit: ')
+        # val = input('Input a number or \'q\' to quit: ').strip()
         if val == 'q':
             break
         try:
