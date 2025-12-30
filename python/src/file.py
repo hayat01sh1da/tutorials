@@ -5,7 +5,7 @@ def read_file(file):
         return f.read()
 
 def write_file(file):
-    val = input('Input something: ')
+    val = input('Input something: ').strip()
     with open(file, 'w+') as f:
         f.write(val)
         f.seek(0)
