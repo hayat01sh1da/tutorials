@@ -18,7 +18,7 @@ RSpec.describe 'Items API' do
     context 'when todo exists' do
       it 'returns all items' do
         expect(json).not_to be_empty
-        expect(json.size).to eq(10)
+        expect(json.length).to eq(10)
       end
 
       it 'returns status code 200' do
