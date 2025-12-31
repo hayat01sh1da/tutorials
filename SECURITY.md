@@ -5,12 +5,10 @@
 The table below lists which versions of this project currently receive security
 updates. At this time, only the 5.1.x and 4.0.x release lines are supported.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version        | Supported          |
+| -------------- | ------------------ |
+| Latest release | :white_check_mark: |
+| Earlier versions | :x:              |
 
 ## Reporting a Vulnerability
 
