@@ -22,5 +22,5 @@
 
 ## Reporting a Vulnerability
 
-Please disclose issues privately via GitHub’s **Security → Report a vulnerability** workflow or by emailing `security@example.com` with the track, lesson, reproduction steps, and dependency versions. Expect acknowledgement within **3 business days** and status updates every **7 business days** until
+Please disclose issues privately via GitHub’s **Security → Report a vulnerability** workflow, including the track, lesson, reproduction steps, and dependency versions. Expect acknowledgement within **3 business days** and status updates every **7 business days** until
 resolution.
