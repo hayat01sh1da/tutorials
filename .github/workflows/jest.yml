@@ -9,7 +9,7 @@ on:
       - master
     paths:
       - '.github/workflows/jest.yml'
-      - './node-version'
+      - '.node-version'
       - 'javascript/package.json'
       - 'javascript/pnpm-lock.yaml'
       - 'javascript/pnpm-workspace.yaml'
@@ -20,7 +20,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/jest.yml'
-      - './node-version'
+      - '.node-version'
       - 'javascript/package.json'
       - 'javascript/pnpm-lock.yaml'
       - 'javascript/pnpm-workspace.yaml'
