@@ -17,16 +17,10 @@
 
 ## Backward Compatibility
 
-- Each track promises stability within the same major runtime (Ruby 4.0.x,
-    Python 3.14.x, Node 25.x). If breaking curriculum updates are required, the
-    README of the affected lesson will describe the migration.
-- Deprecated tutorials remain available for reference but do not receive
-    fixes. Upgrade to the latest commit before reporting issues.
+- Each track promises stability within the same major runtime (Ruby 4.0.x, Python 3.14.x, Node 25.x). If breaking curriculum updates are required, the README of the affected lesson will describe the migration.
+- Deprecated tutorials remain available for reference but do not receive fixes. Upgrade to the latest commit before reporting issues.
 
 ## Reporting a Vulnerability
 
-Please disclose issues privately via GitHub’s **Security → Report a
-vulnerability** workflow or by emailing `security@example.com` with the track,
-lesson, reproduction steps, and dependency versions. Expect acknowledgement
-within **3 business days** and status updates every **7 business days** until
+Please disclose issues privately via GitHub’s **Security → Report a vulnerability** workflow or by emailing `security@example.com` with the track, lesson, reproduction steps, and dependency versions. Expect acknowledgement within **3 business days** and status updates every **7 business days** until
 resolution.
