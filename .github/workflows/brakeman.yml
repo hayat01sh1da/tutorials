@@ -14,7 +14,7 @@ on:
     paths:
       - '.github/workflows/minitest.yml'
       - '.ruby-version'
-      - './node-version'
+      - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile'
       - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock'
@@ -32,7 +32,7 @@ on:
     paths:
       - '.github/workflows/minitest.yml'
       - '.ruby-version'
-      - './node-version'
+      - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile'
       - 'ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock'
