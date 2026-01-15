@@ -1,6 +1,6 @@
 ## 1. Common Environment
 
-- Rails 8.1.1
+- Rails 8.1.2
 - Ruby 4.0.1
 - Docker 29.1.3
 
