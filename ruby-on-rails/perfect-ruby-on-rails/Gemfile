@@ -57,8 +57,6 @@ gem 'nokogiri', '~> 1.18.10'
 # YAML parser
 gem 'psych', '~> 5.2.2'
 
-gem 'minitest', '~> 5.27.0'
-
 gem 'net-smtp', '~> 0.5.0'
 
 # The Observer pattern provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
