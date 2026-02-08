@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- Node v25.3.0
+- Node v25.6.0
 
 ## 2. Reference
 

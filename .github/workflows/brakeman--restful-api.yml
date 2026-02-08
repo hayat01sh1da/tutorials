@@ -1,11 +1,11 @@
-# This workflow uses actions that are not certified by GitHub.  They are
-# provided by a third-party and are governed by separate terms of service,
-# privacy policy, and support documentation.
-#
-# This workflow will install a prebuilt Ruby version, install dependencies, and
-# run tests and linters.
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: RSpec
+name: Brakeman - RESTful API
 
 on:
   push:
@@ -40,16 +40,6 @@ jobs:
   test:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8.0.40
-        env:
-          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
-          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
-          DB_HOST: '${{ secrets.DB_HOST }}'
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:
-          - 3306:3306
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -60,16 +50,11 @@ jobs:
         with:
           bundler-cache: true
       - name: Bundle Install
-        working-directory: ./ruby-on-rails/restful-api
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle install --path vendor/bundle
-      - name: Set up Database
-        working-directory: ./ruby-on-rails/restful-api
-        run: |
-          sudo mkdir -p /var/run/mysqld
-          sudo chown -R mysql:mysql /var/run/mysqld
-          sudo mysqld_safe --skip-grant-tables &
-          sleep 10
-          bin/setup
-      - name: Run RSpec
-        working-directory: ./ruby-on-rails/restful-api
-        run: bundle exec rspec
+      - name: Run Brakeman
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        env:
+          OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }
+          OAUTH_CLIENT_SECRET: ${ vars.OAUTH_CLIENT_SECRET }
+        run: bundle exec brakeman --no-pager
