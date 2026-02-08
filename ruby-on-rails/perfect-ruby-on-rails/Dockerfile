@@ -1,4 +1,4 @@
-FROM node:25.3.0 AS node
+FROM node:25.6.0 AS node
 FROM ruby:4.0.1
 
 # Install Packages
@@ -15,8 +15,8 @@ RUN npm install -g pnpm@10.26.2
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem update --system 4.0.4
-RUN gem install bundler -v 4.0.4
+RUN gem update --system 4.0.6
+RUN gem install bundler -v 4.0.6
 
 WORKDIR /app
 
