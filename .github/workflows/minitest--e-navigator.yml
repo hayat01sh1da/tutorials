@@ -68,7 +68,7 @@ jobs:
           ruby-version: 2.6.0
       - name: Bundle Install
         working-directory: ./ruby-on-rails/e-navigator
-        run: bundle install
+        run: bundle install --path vendor/bundle
       - name: Set up Database
         working-directory: ./ruby-on-rails/e-navigator
         env:

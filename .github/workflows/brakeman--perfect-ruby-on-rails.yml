@@ -65,7 +65,7 @@ jobs:
           bundler-cache: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-        run: bundle install
+        run: bundle install --path vendor/bundle
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         env:
