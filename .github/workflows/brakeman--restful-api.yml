@@ -1,0 +1,60 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Brakeman
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/rspec.yml'
+      - '.ruby-version'
+      - 'ruby-on-rails/restful-api/.ruby-version'
+      - 'ruby-on-rails/restful-api/Gemfile'
+      - 'ruby-on-rails/restful-api/Gemfile.lock'
+      - 'ruby-on-rails/restful-api/Rakefile'
+      - 'ruby-on-rails/restful-api/**/*.rb'
+      - 'ruby-on-rails/restful-api/**/*.rake'
+      - 'ruby-on-rails/restful-api/**/*.yml'
+  pull_request:
+    paths:
+      - '.github/workflows/rspec.yml'
+      - '.ruby-version'
+      - 'ruby-on-rails/restful-api/.ruby-version'
+      - 'ruby-on-rails/restful-api/Gemfile'
+      - 'ruby-on-rails/restful-api/Gemfile.lock'
+      - 'ruby-on-rails/restful-api/Rakefile'
+      - 'ruby-on-rails/restful-api/**/*.rb'
+      - 'ruby-on-rails/restful-api/**/*.rake'
+      - 'ruby-on-rails/restful-api/**/*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Bundle Install
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: bundle install
+      - name: Run Brakeman
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        env:
+          OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }
+          OAUTH_CLIENT_SECRET: ${ vars.OAUTH_CLIENT_SECRET }
+        run: bundle exec brakeman --no-pager
