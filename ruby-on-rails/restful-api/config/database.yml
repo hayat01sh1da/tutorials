@@ -5,7 +5,7 @@ default: &default
   collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("DB_USERNAME") { 'root' } %>
-  password: <%= ENV.fetch("DB_ROOT_PASSWORD") { '' } %>
+  password: <%= ENV["DB_PASSWORD"] || ENV.fetch("DB_ROOT_PASSWORD") { '' } %>
   host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
 
 development:
