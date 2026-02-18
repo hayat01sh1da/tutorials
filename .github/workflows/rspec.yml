@@ -61,7 +61,9 @@ jobs:
           bundler-cache: true
       - name: Bundle Install
         working-directory: ./ruby-on-rails/restful-api
-        run: bundle install --path vendor/bundle
+        run: |
+          bundle config set --local path 'vendor/bundle'
+          bundle install
       - name: Set up Database
         working-directory: ./ruby-on-rails/restful-api
         run: |
