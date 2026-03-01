@@ -15,8 +15,8 @@ RUN npm install -g pnpm@10.26.2
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem update --system 4.0.6
-RUN gem install bundler -v 4.0.6
+RUN gem update --system 4.0.7
+RUN gem install bundler -v 4.0.7
 
 WORKDIR /app
 
@@ -28,7 +28,7 @@ RUN pnpm install --frozen-lockfile
 COPY .ruby-version Gemfile Gemfile.lock ./
 ENV BUNDLE_GEMFILE=/app/Gemfile
 ENV BUNDLE_PATH=/app/vendor/bundle
-ENV BUNDLE_FROZEN=true
+# ENV BUNDLE_FROZEN=true
 RUN bundle install
 
 EXPOSE 4000
