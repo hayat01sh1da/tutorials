@@ -58,9 +58,9 @@ jobs:
       mysql:
         image: mysql:8.0.40
         env:
-          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
-          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
-          DB_HOST: '${{ secrets.DB_HOST }}'
+          DB_USERNAME: root
+          MYSQL_ROOT_PASSWORD: ''
+          DB_HOST: 127.0.0.1
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         ports:
           - 3306:3306
