@@ -39,21 +39,29 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         # https://github.com/actions/setup-node/
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
+          cache: 'pnpm'
+          cache-dependency-path: |
+            javascript/pnpm-lock.yaml
+            typescript/pnpm-lock.yaml
       - name: Install Packages for JavaScript
         working-directory: ./javascript
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Run Jest for JavaScript
         working-directory: ./javascript
         env:
           TZ: 'Asia/Tokyo'
-        run: npx jest
+        run: pnpm exec jest
       - name: Install Packages for TypeScript
         working-directory: ./typescript
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Run Jest for TypeScript
         working-directory: ./typescript
-        run: npx jest
+        run: pnpm exec jest
