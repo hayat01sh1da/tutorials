@@ -1,5 +1,3 @@
-# Security Policy
-
 ## Supported Versions
 
 - Each tutorial track (Ruby on Rails, Python, JavaScript/TypeScript, React,
@@ -22,5 +20,7 @@
 
 ## Reporting a Vulnerability
 
-Please disclose issues privately via GitHub’s **Security → Report a vulnerability** workflow, including the track, lesson, reproduction steps, and dependency versions. Expect acknowledgement within **3 business days** and status updates every **7 business days** until
-resolution.
+Please report issues privately via **GitHub Security Advisory** (preferred) — open through the repository’s **Security → Report a vulnerability** workflow.
+
+Acknowledgement occurs and status updates follow as soon as possible.  
+After remediation we publish guidance alongside required dependency updates.
