@@ -1,5 +1,3 @@
-# Security Policy
-
 ## Supported Versions
 
 - Only the `master` branch shell scripts are supported. Re-run scripts from the latest commit before reporting issues.
@@ -20,5 +18,7 @@
 
 ## Reporting a Vulnerability
 
-Please disclose vulnerabilities privately using GitHub’s **Security → Report a vulnerability** workflow.
-We acknowledge within **3 business days** and update at least every **7 business days** while investigating.
+Please report issues privately via **GitHub Security Advisory** (preferred) — open through the repository’s **Security → Report a vulnerability** workflow.
+
+Acknowledgement occurs and status updates follow as soon as possible.  
+After remediation we publish guidance alongside required dependency updates.
