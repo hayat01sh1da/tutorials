@@ -5,6 +5,7 @@
 [![Actions Status: Jest](https://github.com/hayat01sh1da/tutorials/workflows/Jest/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Jest%22)
 [![Actions Status: Brakeman - RESTful API](https://github.com/hayat01sh1da/tutorials/workflows/Brakeman%20-%20RESTful%20API/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Brakeman%20-%20RESTful%20API%22)
 [![Actions Status: Brakeman - Perfect Ruby on Rails](https://github.com/hayat01sh1da/tutorials/workflows/Brakeman%20-%20Perfect%20Ruby%20on%20Rails/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Brakeman%20-%20Perfect%20Ruby%20on%20Rails%22)
+[![Actions Status: CodeQL](https://github.com/hayat01sh1da/tutorials/workflows/CodeQL/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22CodeQL%22)
 
 ## 1. Common Environment
 
