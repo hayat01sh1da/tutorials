@@ -18,10 +18,10 @@
   "homepage": "https://github.com/hayat01sh1da/tutorials/javascript#readme",
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "babel-core": "^6.26.3",
-    "babel-jest": "^29.7.0",
-    "jest": "^29.7.0",
-    "marked": "^15.0.12"
+    "babel-jest": "^30.3.0",
+    "jest": "^30.3.0",
+    "marked": "^17.0.4"
   }
 }
