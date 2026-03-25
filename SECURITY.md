@@ -5,11 +5,11 @@
 
 ## Ecosystem & Compatibility
 
-| Component        | Version(s) / Tooling                  | Notes |
-| ---------------- | ------------------------------------- | ----- |
-| OS baseline      | WSL (Ubuntu 24.04.3 LTS)              | Mirrors the environment documented in the README. |
-| Shell runtime    | GNU Bash 5.0.17(1)-release            | `bash` is required; `sh` is unsupported for several scripts. |
-| External tools   | Core GNU utilities (`sed`, `awk`, etc.) | Dependencies are noted inline within each script. |
+| Component      | Version(s) / Tooling                    | Notes                                                        |
+| -------------- | --------------------------------------- | ------------------------------------------------------------ |
+| OS baseline    | WSL (Ubuntu 25.10)                      | Shared environment across tracks.                            |
+| Shell runtime  | GNU Bash 5.0.17(1)-release              | `bash` is required; `sh` is unsupported for several scripts. |
+| External tools | Core GNU utilities (`sed`, `awk`, etc.) | Dependencies are noted inline within each script.            |
 
 ## Backward Compatibility
 
