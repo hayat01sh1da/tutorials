@@ -12,11 +12,13 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm install -g pnpm@10.33.0
 
+ARG BUNDLER_VERSION=4.0.9
+
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem update --system 4.0.8 --no-document && \
-    gem install bundler -v 4.0.8 --no-document
+RUN gem update --system $BUNDLER_VERSION --no-document && \
+    gem install bundler -v $BUNDLER_VERSION --no-document
 
 WORKDIR /app
 
