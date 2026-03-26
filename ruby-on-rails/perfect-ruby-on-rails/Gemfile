@@ -52,7 +52,7 @@ gem 'ransack', '~> 4.4.1'
 
 gem 'rexml', '~> 3.4.4'
 
-gem 'nokogiri', '~> 1.19.1'
+gem 'nokogiri', '~> 1.19.2'
 
 # YAML parser
 gem 'psych', '~> 5.3.1'
