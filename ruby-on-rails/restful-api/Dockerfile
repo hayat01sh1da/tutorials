@@ -3,11 +3,13 @@ FROM ruby:4.0.2
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree
 
+ARG BUNDLER_VERSION=4.0.9
+
 WORKDIR /tmp
 
 # Setup Bundler
-RUN gem update --system 4.0.9 --no-document && \
-    gem install bundler -v 4.0.9 --no-document
+RUN gem update --system $BUNDLER_VERSION --no-document && \
+    gem install bundler -v $BUNDLER_VERSION --no-document
 
 WORKDIR /app
 
