@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- WSL(Ubuntu 24.04.3 LTS)
+- WSL (Ubuntu 25.10)
 - Node v25.8.1
 - PNPM 10.30.3
 
