@@ -2,24 +2,22 @@
   "name": "perfect_ruby_on_rails",
   "private": true,
   "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.23",
+    "@popperjs/core": "^2.11.8",
     "@rails/actioncable": "^8.1.300",
     "@rails/activestorage": "^8.1.300",
     "@rails/ujs": "7.1.3-4",
-    "@rails/webpacker": "5.4.4",
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
-    "tar": "^7.5.13",
-    "trim-newlines": "^5.0.0",
-    "turbolinks": "^5.2.0",
-    "webpack": "^5.105.4",
-    "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.2.3"
+    "bootstrap": "^5.3.8"
   },
-  "version": "0.1.0",
-  "pnpm": {
-    "overrides": {
-      "@babel/plugin-proposal-class-properties": "npm:@babel/plugin-transform-class-properties@^7.27.1",
-      "@babel/plugin-proposal-object-rest-spread": "npm:@babel/plugin-transform-object-rest-spread@^7.27.2"
-    }
-  }
+  "devDependencies": {
+    "esbuild": "^0.25.12",
+    "sass": "^1.99.0"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:watch": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch",
+    "build:css": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules",
+    "build:css:watch": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --watch"
+  },
+  "version": "0.1.0"
 }
