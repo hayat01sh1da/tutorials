@@ -6,8 +6,8 @@
     "@rails/activestorage": "^8.1.300",
     "@rails/ujs": "7.1.3-4",
     "@rails/webpacker": "5.4.4",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
-    "popper.js": "^1.16.1",
     "tar": "^7.5.13",
     "trim-newlines": "^5.0.0",
     "turbolinks": "^5.2.0",
@@ -15,5 +15,11 @@
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.2.3"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "pnpm": {
+    "overrides": {
+      "@babel/plugin-proposal-class-properties": "npm:@babel/plugin-transform-class-properties@^7.27.1",
+      "@babel/plugin-proposal-object-rest-spread": "npm:@babel/plugin-transform-object-rest-spread@^7.27.2"
+    }
+  }
 }
