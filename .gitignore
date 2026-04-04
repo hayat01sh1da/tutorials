@@ -14,8 +14,8 @@ ruby-on-rails/perfect-ruby-on-rails/storage/*
 ruby-on-rails/perfect-ruby-on-rails/public/assets/
 ruby-on-rails/perfect-ruby-on-rails/.byebug_history
 ruby-on-rails/perfect-ruby-on-rails/config/master.key
-ruby-on-rails/perfect-ruby-on-rails/public/packs/
-ruby-on-rails/perfect-ruby-on-rails/public/packs-test/
+ruby-on-rails/perfect-ruby-on-rails/app/assets/builds/*
+!ruby-on-rails/perfect-ruby-on-rails/app/assets/builds/.keep
 ruby-on-rails/perfect-ruby-on-rails/node_modules/
 ruby-on-rails/perfect-ruby-on-rails/.env
 

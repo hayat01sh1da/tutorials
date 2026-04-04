@@ -1,5 +1,4 @@
-// Load all the channels within this directory and all subdirectories.
-// Channel files must be named *_channel.js.
+// Import all the channels in this directory.
+// To add a new channel, create a file named *_channel.js and import it here.
 
-const channels = require.context('.', true, /_channel\.js$/)
-channels.keys().forEach(channels)
+import "./consumer"
