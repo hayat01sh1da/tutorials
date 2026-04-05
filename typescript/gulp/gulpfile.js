@@ -12,5 +12,9 @@ const bundle = async () => {
     sourcemap: true,
     outfile: "./dist/bundle.js",
   });
-}
-gulp.task("default", gulp.series(gulp.parallel("copy-html"), bundle));
+};
+const watch = () => {
+  gulp.watch(paths.pages, gulp.series("copy-html"));
+  gulp.watch("./src/**/*.ts", bundle);
+};
+gulp.task("default", gulp.series(gulp.parallel("copy-html"), bundle, watch));
