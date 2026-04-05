@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   validate :birthday_cannot_be_in_the_future
 
-  enum sex: {
+  enum :sex, {
     unchosen: 0,
     male: 1,
     female: 2
@@ -26,7 +26,7 @@ class User < ApplicationRecord
       params.delete(:password_confirmation)
     end
 
-    result = update_attributes(params, *options)
+    result = update(params, *options)
     clean_up_passwords
     result
   end
