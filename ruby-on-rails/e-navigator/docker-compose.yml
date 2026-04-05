@@ -30,5 +30,3 @@ volumes:
     driver: local
   bundle:
     driver: local
-  node_modules:
-    driver: local
