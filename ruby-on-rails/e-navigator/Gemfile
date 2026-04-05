@@ -22,7 +22,7 @@ gem 'bcrypt', '~> 3.1.22'
 
 gem 'devise', '~> 5.0.3'
 gem 'enum_help'
-# environmental variables
+# environment variables
 gem 'dotenv-rails', '~> 3.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
