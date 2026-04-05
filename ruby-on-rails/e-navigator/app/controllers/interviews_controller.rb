@@ -59,7 +59,7 @@ class InterviewsController < ApplicationController
   def select_approver
     @approver = User.find_by(email: approver_params[:email])
     # Mailerの名前を変更しました
-    InterviewMailer.apply(@user, @approver).deliver
+    InterviewMailer.apply(@user, @approver).deliver_now
     flash[:notice] = "面接日時を申請しました"
     redirect_to user_interviews_path
   end
@@ -74,12 +74,15 @@ class InterviewsController < ApplicationController
       # 以下、承認した日時以外を否認状態にする
       interviews = Interview.where(user_id: @interview.user_id).where.not(id: @interview.id)
       interviews.each do |interview|
-        interview.declined!
+        begin
+          interview.declined!
         rescue ActiveRecord::RecordInvalid
+          # Skip interviews that can't be declined
+        end
       end
       @approver = current_user
       # Mailerの名前を変更しました
-      InterviewMailer.approve(@approver, @interview).deliver
+      InterviewMailer.approve(@approver, @interview).deliver_now
       flash[:notice] = "面接日時を承認しました"
       redirect_to user_interviews_path
     end
