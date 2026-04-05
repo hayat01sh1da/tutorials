@@ -1,10 +1,4 @@
 #!/usr/bin/env ruby
-# Set default environment variables for Docker if not already set
-ENV['DB_HOST'] ||= 'db'
-ENV['DB_USERNAME'] ||= 'root'
-ENV['DB_PASSWORD'] ||= 'devpassword'
-ENV['DB_PORT'] ||= '3306'
-
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative '../config/boot'
 require 'rails/commands'
