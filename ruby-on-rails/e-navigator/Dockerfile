@@ -1,28 +1,24 @@
-FROM ruby:2.6.0
+FROM ruby:4.0.2
 
-# Fix Debian Stretch repository URLs (Stretch is archived)
-RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list && \
-    sed -i 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list && \
-    sed -i '/stretch-updates/d' /etc/apt/sources.list
+# Install Packages
+RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree
 
-# Install Packages including Node.js from Debian archive
-RUN apt-get update -o Acquire::Check-Valid-Until=false && \
-    apt-get install -y --allow-unauthenticated curl build-essential default-libmysqlclient-dev vim tree nodejs && \
-    ln -s /usr/bin/nodejs /usr/bin/node
+ARG BUNDLER_VERSION=4.0.9
 
 WORKDIR /tmp
 
-# Setup Bundler (install compatible version for Ruby 2.6.0)
-RUN gem install bundler -v 2.4.22
+# Setup Bundler
+RUN gem update --system $BUNDLER_VERSION --no-document && \
+    gem install bundler -v $BUNDLER_VERSION --no-document
 
 WORKDIR /app
 
-# Unset BUNDLE_PATH to allow local configuration and force compilation
-ENV BUNDLE_PATH="vendor/bundle"
-ENV BUNDLE_FORCE_RUBY_PLATFORM="true"
-
-# Bundle Install
+# RubyGems
 COPY .ruby-version Gemfile Gemfile.lock ./
+ENV BUNDLE_GEMFILE=/app/Gemfile
+ENV BUNDLE_PATH=/app/vendor/bundle
+ENV BUNDLE_FROZEN=true
+RUN bundle install
 
 EXPOSE 6000
 CMD ["bash"]
