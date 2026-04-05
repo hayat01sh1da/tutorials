@@ -12,7 +12,7 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/minitest.yml'
+      - '.github/workflows/brakeman--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
@@ -30,7 +30,7 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml'
   pull_request:
     paths:
-      - '.github/workflows/minitest.yml'
+      - '.github/workflows/brakeman--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
