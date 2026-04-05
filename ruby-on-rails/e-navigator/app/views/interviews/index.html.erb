@@ -27,7 +27,7 @@
       </td>
       <td>
       <% if current_user.id == @user.id && interview.suspended? %>
-        <%= link_to "削除", user_interview_path(@user, interview), method: :delete, data: { confirm: "削除します。宜しいですか?" } %>
+        <%= button_to "削除", user_interview_path(@user, interview), method: :delete, data: { turbo_confirm: "削除します。宜しいですか?" } %>
       <% end %>
       </td>
     </tr>
@@ -36,7 +36,7 @@
   <br>
   <div class="field">
      <!-- モデルを意識しないform_tagに変更しました -->
-    <%= form_tag(action: :select_approver, method: :post) do %>
+    <%= form_with(url: select_approver_user_interviews_path(@user), method: :post) do %>
       <%= label_tag :申請先選択 %>
       <br>
       <%= select_tag :email, options_for_select(@email) %>

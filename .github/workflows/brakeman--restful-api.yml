@@ -12,7 +12,7 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/rspec.yml'
+      - '.github/workflows/brakeman--restful-api.yml'
       - '.ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'
@@ -23,7 +23,7 @@ on:
       - 'ruby-on-rails/restful-api/**/*.yml'
   pull_request:
     paths:
-      - '.github/workflows/rspec.yml'
+      - '.github/workflows/brakeman--restful-api.yml'
       - '.ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'

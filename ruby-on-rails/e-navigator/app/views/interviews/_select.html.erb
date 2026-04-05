@@ -9,10 +9,10 @@
   <% @interviews.each do |interview| %>
   <tr>
     <td>
-      <%= link_to interview.datetime.strftime("%Y年%m月%d日 %H時%M分"),
+      <%= button_to interview.datetime.strftime("%Y年%m月%d日 %H時%M分"),
           approve_user_interview_path(@user, interview),
           method: :post,
-          data: { confirm: "#{interview.datetime.strftime("%Y年%m月%d日 %H時%M分")}を面接日時に確定します。宜しいですか?" }
+          data: { turbo_confirm: "#{interview.datetime.strftime("%Y年%m月%d日 %H時%M分")}を面接日時に確定します。宜しいですか?" }
       %>
     </td>
   </tr>

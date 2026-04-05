@@ -30,7 +30,7 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml'
   pull_request:
     paths:
-      - '.github/workflows/minitest.yml'
+      - '.github/workflows/minitest--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:8.0.40
+        image: mysql:9.6.0
         env:
           DB_USERNAME: '${{ secrets.DB_USERNAME }}'
           MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
