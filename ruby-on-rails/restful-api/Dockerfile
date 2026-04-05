@@ -20,5 +20,5 @@ ENV BUNDLE_PATH=/app/vendor/bundle
 ENV BUNDLE_FROZEN=true
 RUN bundle install
 
-EXPOSE 5000
+EXPOSE 6000
 CMD ["bash"]
