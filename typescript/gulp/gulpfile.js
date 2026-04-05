@@ -11,6 +11,6 @@ const bundle = async () => {
     bundle: true,
     sourcemap: true,
     outfile: "./dist/bundle.js",
-  }).catch((err) => fancy_log(err));
+  });
 }
 gulp.task("default", gulp.series(gulp.parallel("copy-html"), bundle));
