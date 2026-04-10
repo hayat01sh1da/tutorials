@@ -1,30 +1,22 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Jest
+name: TypeScript
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/jest.yml'
+      - '.github/workflows/typescript.yml'
       - '.node-version'
-      - 'javascript/package.json'
-      - 'javascript/pnpm-lock.yaml'
-      - 'javascript/pnpm-workspace.yaml'
-      - 'javascript/**/*.js'
       - 'typescript/package.json'
       - 'typescript/pnpm-lock.yaml'
       - 'typescript/**/*.ts'
   pull_request:
     paths:
-      - '.github/workflows/jest.yml'
+      - '.github/workflows/typescript.yml'
       - '.node-version'
-      - 'javascript/package.json'
-      - 'javascript/pnpm-lock.yaml'
-      - 'javascript/pnpm-workspace.yaml'
-      - 'javascript/**/*.js'
       - 'typescript/package.json'
       - 'typescript/pnpm-lock.yaml'
       - 'typescript/**/*.ts'
@@ -37,8 +29,8 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
+      # https://github.com/actions/setup-node/
       - uses: actions/checkout@v6
-        # https://github.com/actions/setup-node/
       - name: Set up pnpm
         uses: pnpm/action-setup@v5
         with:
@@ -48,20 +40,10 @@ jobs:
         with:
           node-version-file: '.node-version'
           cache: 'pnpm'
-          cache-dependency-path: |
-            javascript/pnpm-lock.yaml
-            typescript/pnpm-lock.yaml
-      - name: Install Packages for JavaScript
-        working-directory: ./javascript
-        run: pnpm install --frozen-lockfile
-      - name: Run Jest for JavaScript
-        working-directory: ./javascript
-        env:
-          TZ: 'Asia/Tokyo'
-        run: pnpm exec jest
-      - name: Install Packages for TypeScript
+          cache-dependency-path: typescript/pnpm-lock.yaml
+      - name: Install Packages
         working-directory: ./typescript
         run: pnpm install --frozen-lockfile
-      - name: Run Jest for TypeScript
+      - name: Run Jest
         working-directory: ./typescript
         run: pnpm exec jest

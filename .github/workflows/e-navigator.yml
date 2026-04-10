@@ -5,14 +5,14 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Brakeman - e-Navigator
+name: e-Navigator
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/brakeman--e-navigator.yml'
+      - '.github/workflows/minitest--e-navigator.yml'
       - '.ruby-version'
       - 'ruby-on-rails/e-navigator/.ruby-version'
       - 'ruby-on-rails/e-navigator/Gemfile'
@@ -27,7 +27,7 @@ on:
       - 'ruby-on-rails/e-navigator/**/*.html.erb'
   pull_request:
     paths:
-      - '.github/workflows/brakeman--e-navigator.yml'
+      - '.github/workflows/minitest--e-navigator.yml'
       - '.ruby-version'
       - 'ruby-on-rails/e-navigator/.ruby-version'
       - 'ruby-on-rails/e-navigator/Gemfile'
@@ -48,6 +48,16 @@ jobs:
   test:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:9.6.0
+        env:
+          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
+          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
+          DB_HOST: '${{ secrets.DB_HOST }}'
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 3306:3306
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -62,6 +72,20 @@ jobs:
         run: |
           bundle config set --local path 'vendor/bundle'
           bundle install
+      - name: Set up Database
+        working-directory: ./ruby-on-rails/e-navigator
+        run: |
+          sudo mkdir -p /var/run/mysqld
+          sudo chown -R mysql:mysql /var/run/mysqld
+          sudo chmod +x bin/setup
+          sudo mysqld_safe --skip-grant-tables &
+          sleep 10
+          bin/setup --skip-server
+      - name: Install Google Chrome
+        uses: browser-actions/setup-chrome@v1
+      - name: Run Minitest
+        working-directory: ./ruby-on-rails/e-navigator
+        run: bin/rails test
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec brakeman --no-pager
