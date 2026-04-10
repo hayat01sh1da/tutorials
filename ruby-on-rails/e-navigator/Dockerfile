@@ -3,7 +3,7 @@ FROM ruby:4.0.2
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev default-libmysqlclient-dev vim tree
 
-ARG BUNDLER_VERSION=4.0.9
+ARG BUNDLER_VERSION=4.0.10
 
 WORKDIR /tmp
 
