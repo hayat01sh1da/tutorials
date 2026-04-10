@@ -21,6 +21,6 @@
     "@babel/preset-env": "^7.29.2",
     "babel-jest": "^30.3.0",
     "jest": "^30.3.0",
-    "marked": "^17.0.5"
+    "marked": "^17.0.6"
   }
 }
