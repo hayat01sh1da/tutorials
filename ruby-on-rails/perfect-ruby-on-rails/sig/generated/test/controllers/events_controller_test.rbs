@@ -1,0 +1,10 @@
+# Generated from test/controllers/events_controller_test.rb with RBS::Inline
+
+# rbs_inline: enabled
+class EventsControllerTest < ApplicationControllerTest
+  private
+
+  attr_reader event_owner: untyped
+
+  attr_reader event: untyped
+end

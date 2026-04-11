@@ -1,0 +1,10 @@
+# Generated from app/models/user.rb with RBS::Inline
+
+# rbs_inline: enabled
+class User < ApplicationRecord
+  def self.find_or_create_from_auth_hash!: (untyped auth_hash) -> untyped
+
+  private
+
+  def check_all_events_finished: () -> untyped
+end

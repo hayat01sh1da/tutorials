@@ -1,0 +1,8 @@
+# Generated from app/controllers/sessions_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class SessionsController < ApplicationController
+  def create: () -> untyped
+
+  def destroy: () -> untyped
+end

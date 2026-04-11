@@ -1,0 +1,26 @@
+# Generated from app/controllers/events_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class EventsController < ApplicationController
+  def index: () -> untyped
+
+  def new: () -> untyped
+
+  def create: () -> untyped
+
+  def show: () -> untyped
+
+  def edit: () -> untyped
+
+  def update: () -> untyped
+
+  def destroy: () -> untyped
+
+  private
+
+  def event_params: () -> untyped
+
+  def set_event: () -> untyped
+
+  def set_event_of_current_user: () -> untyped
+end

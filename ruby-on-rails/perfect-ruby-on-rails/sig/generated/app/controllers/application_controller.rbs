@@ -1,0 +1,20 @@
+# Generated from app/controllers/application_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class ApplicationController < ActionController::Base
+  private
+
+  def logged_in?: () -> untyped
+
+  def current_user: () -> untyped
+
+  def authenticate: () -> untyped
+
+  def paginate_per: () -> untyped
+
+  def keep_last_pagination_data: () -> untyped
+
+  def load_pagination_params: (untyped action) -> untyped
+
+  def redirect_with_kept_pagination_params: (action: untyped, **untyped args) -> untyped
+end
