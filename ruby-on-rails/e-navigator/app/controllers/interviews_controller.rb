@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class InterviewsController < ApplicationController
   before_action :set_user, only: [:index, :new, :create, :select_approver]
   before_action :set_interview, only: [:edit, :update, :destroy, :approve]

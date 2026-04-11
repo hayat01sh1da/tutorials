@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class Interview < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true

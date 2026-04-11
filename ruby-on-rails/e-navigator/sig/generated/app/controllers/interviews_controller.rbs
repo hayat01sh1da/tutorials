@@ -1,0 +1,40 @@
+# Generated from app/controllers/interviews_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class InterviewsController < ApplicationController
+  # GET /users/:user_id/interviews
+  def index: () -> untyped
+
+  # GET /users/:user_id/interviews/new
+  def new: () -> untyped
+
+  # POST /users/:user_id/interviews
+  def create: () -> untyped
+
+  # GET /users/:user_id/interviews/:id/edit
+  def edit: () -> untyped
+
+  # PATCH /users/:user_id/interviews/:id
+  def update: () -> untyped
+
+  # DELETE /users/:user_id/interviews/:id
+  def destroy: () -> untyped
+
+  # POST /users/:user_id/interviews/select_approver
+  def select_approver: () -> untyped
+
+  # POST /users/:user_id/interviews/:id/approve
+  def approve: () -> untyped
+
+  private
+
+  def set_user: () -> untyped
+
+  def set_interview: () -> untyped
+
+  def interview_params: () -> untyped
+
+  def approver_params: () -> untyped
+
+  def current_user?: (untyped id) -> untyped
+end

@@ -1,0 +1,10 @@
+# Generated from app/mailers/interview_mailer.rb with RBS::Inline
+
+# rbs_inline: enabled
+class InterviewMailer < ApplicationMailer
+  # メソッド名を変更しました
+  def apply: (untyped user, untyped approver) -> untyped
+
+  # メソッド名を変更しました
+  def approve: (untyped approver, untyped interview) -> untyped
+end

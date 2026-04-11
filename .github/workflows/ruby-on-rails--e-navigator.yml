@@ -5,14 +5,14 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: e-Navigator
+name: Ruby on Rails - e-Navigator
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/minitest--e-navigator.yml'
+      - '.github/workflows/ruby-on-rails--e-navigator.yml'
       - '.ruby-version'
       - 'ruby-on-rails/e-navigator/.ruby-version'
       - 'ruby-on-rails/e-navigator/Gemfile'
@@ -27,7 +27,7 @@ on:
       - 'ruby-on-rails/e-navigator/**/*.html.erb'
   pull_request:
     paths:
-      - '.github/workflows/minitest--e-navigator.yml'
+      - '.github/workflows/ruby-on-rails--e-navigator.yml'
       - '.ruby-version'
       - 'ruby-on-rails/e-navigator/.ruby-version'
       - 'ruby-on-rails/e-navigator/Gemfile'
@@ -89,3 +89,9 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec brakeman --no-pager
+      - name: Generate RBS
+        working-directory: ./ruby-on-rails/e-navigator
+        run: bundle exec rbs-inline --output sig
+      - name: Run Steep
+        working-directory: ./ruby-on-rails/e-navigator
+        run: bundle exec steep check

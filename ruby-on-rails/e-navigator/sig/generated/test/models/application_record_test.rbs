@@ -1,0 +1,4 @@
+# Generated from test/models/application_record_test.rb with RBS::Inline
+
+class ApplicationRecordTest < ActiveSupport::TestCase
+end

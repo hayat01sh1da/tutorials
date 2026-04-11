@@ -1,0 +1,6 @@
+# Generated from app/models/interview.rb with RBS::Inline
+
+# rbs_inline: enabled
+class Interview < ApplicationRecord
+  def datetime_cannot_be_in_the_past: () -> untyped
+end
