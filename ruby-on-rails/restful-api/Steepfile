@@ -1,0 +1,13 @@
+D = Steep::Diagnostic
+
+target :app do
+  check "app"
+  check "spec"
+  signature "sig"
+
+  library "net-smtp"
+  library "observer"
+  library "ostruct"
+
+  configure_code_diagnostics(D::Ruby.default)
+end
