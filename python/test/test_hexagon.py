@@ -7,17 +7,17 @@ sys.path.append('./src')
 from hexagon import Hexagon
 
 class TestHexagon(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.hexagon  = Hexagon(10, 11, 12, 13, 14, 15)
         self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         for pycache in self.pycaches:
             if os.path.exists(pycache):
                 shutil.rmtree(pycache)
 
     # Return sum of perimeter
-    def test_calculate_perimeter(self):
+    def test_calculate_perimeter(self) -> None:
         self.assertEqual(75, self.hexagon.calculate_perimeter())
 
 if __name__ == '__main__':
