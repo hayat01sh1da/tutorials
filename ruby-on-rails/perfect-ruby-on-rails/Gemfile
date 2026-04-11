@@ -75,6 +75,9 @@ group :development, :test do
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ], require: false
+  # Typechecking
+  gem 'rbs-inline', '~> 0.13.0', require: false
+  gem 'steep', '~> 1.10.0', require: false
 end
 
 group :development do
