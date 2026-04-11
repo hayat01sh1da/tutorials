@@ -1,0 +1,24 @@
+# Generated from app/lib/concerns/exception_handler.rb with RBS::Inline
+
+# rbs_inline: enabled
+module ExceptionHandler
+  extend ActiveSupport::Concern
+
+  # Define custom error subclasses - rescue catches `StandardErrors`
+  class AuthenticationError < StandardError
+  end
+
+  class MissingToken < StandardError
+  end
+
+  class InvalidToken < StandardError
+  end
+
+  private
+
+  # JSON response with message; Status code 422 - unprocessable entity
+  def four_twenty_two: (untyped error) -> untyped
+
+  # JSON response with message; Status code 401 - Unauthorized
+  def unauthorized_request: (untyped error) -> untyped
+end

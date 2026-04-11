@@ -1,0 +1,5 @@
+# Generated from app/serializers/todo_serializer.rb with RBS::Inline
+
+# rbs_inline: enabled
+class TodoSerializer < ActiveModel::Serializer
+end

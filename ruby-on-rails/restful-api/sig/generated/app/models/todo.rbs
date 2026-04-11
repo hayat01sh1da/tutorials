@@ -1,0 +1,5 @@
+# Generated from app/models/todo.rb with RBS::Inline
+
+# rbs_inline: enabled
+class Todo < ApplicationRecord
+end

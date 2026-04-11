@@ -1,0 +1,17 @@
+# Generated from app/lib/api_version.rb with RBS::Inline
+
+# rbs_inline: enabled
+class ApiVersion
+  attr_reader version: untyped
+
+  attr_reader default: untyped
+
+  def initialize: (untyped version, ?untyped default) -> untyped
+
+  # check whether version is specified or is default
+  def matches?: (untyped request) -> untyped
+
+  private
+
+  def check_headers: (untyped headers) -> untyped
+end
