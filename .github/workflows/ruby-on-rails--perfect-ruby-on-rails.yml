@@ -5,14 +5,14 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Perfect Ruby on Rails
+name: Ruby on Rails - Perfect Ruby on Rails
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/minitest--perfect-ruby-on-rails.yml'
+      - '.github/workflows/ruby-on-rails--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
@@ -30,7 +30,7 @@ on:
       - 'ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml'
   pull_request:
     paths:
-      - '.github/workflows/minitest--perfect-ruby-on-rails.yml'
+      - '.github/workflows/ruby-on-rails--perfect-ruby-on-rails.yml'
       - '.ruby-version'
       - '.node-version'
       - 'ruby-on-rails/perfect-ruby-on-rails/.ruby-version'
@@ -104,3 +104,9 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle exec brakeman --no-pager
+      - name: Generate RBS
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: bundle exec rbs-inline --output sig
+      - name: Run Steep
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: bundle exec steep check

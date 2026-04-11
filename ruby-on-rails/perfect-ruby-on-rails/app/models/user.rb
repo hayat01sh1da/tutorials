@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class User < ApplicationRecord
   before_destroy :check_all_events_finished
 

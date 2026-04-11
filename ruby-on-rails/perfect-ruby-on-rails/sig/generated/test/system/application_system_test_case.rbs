@@ -1,0 +1,5 @@
+# Generated from test/system/application_system_test_case.rb with RBS::Inline
+
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  include SignInHelper
+end

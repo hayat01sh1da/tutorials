@@ -1,0 +1,5 @@
+# Generated from app/mailers/application_mailer.rb with RBS::Inline
+
+# rbs_inline: enabled
+class ApplicationMailer < ActionMailer::Base
+end

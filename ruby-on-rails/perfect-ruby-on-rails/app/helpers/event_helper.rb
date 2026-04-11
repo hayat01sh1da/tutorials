@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 module EventHelper
   def show_image_if_attached(event)
     return unless event.has_image_to_show?
