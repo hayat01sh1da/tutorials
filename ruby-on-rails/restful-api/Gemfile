@@ -33,8 +33,6 @@ gem 'will_paginate', '~> 4.0.1'
 # environmental variables
 gem 'dotenv-rails', '~> 3.2.0'
 
-gem 'nokogiri', '~> 1.19.2'
-
 gem 'net-smtp', '~> 0.5.0'
 
 # The Observer pattern provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
@@ -43,9 +41,6 @@ gem 'observer', '~> 0.1.2'
 # Data structure, similar to a Hash, that allows the definition of arbitrary attributes with their accompanying values
 gem 'ostruct', '~> 0.6.3'
 
-# A foreign function interface (FFI) is a mechanism by which a program written in one programming language can call routines or make use of services written or compiled in another one
-gem 'ffi', '~> 1.17.4'
-
 group :development, :test do
   # Debug tool used with binding.irb. Explicit require avoids eager loading `debug/prelude`
   # which interferes with the Docker boot process.
@@ -53,6 +48,9 @@ group :development, :test do
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ], require: false
+  # Typechecking
+  gem 'rbs-inline', '~> 0.13.0', require: false
+  gem 'steep', '~> 1.10.0', require: false
 end
 
 group :development do
