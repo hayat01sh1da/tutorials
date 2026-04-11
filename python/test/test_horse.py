@@ -8,18 +8,18 @@ from rider import Rider
 from horse import Horse
 
 class TestHorse(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.rider    = Rider('Koichi Oguri', 86)
         self.horse    = Horse('Oguri Cap', 25, self.rider)
         self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         for pycache in self.pycaches:
             if os.path.exists(pycache):
                 shutil.rmtree(pycache)
 
     # Return the attributes of a horse and its rider by composition
-    def test_horse(self):
+    def test_horse(self) -> None:
         self.assertEqual('Oguri Cap', self.horse.name)
         self.assertEqual(25, self.horse.age)
         self.assertEqual(self.horse.rider.name, 'Koichi Oguri')
