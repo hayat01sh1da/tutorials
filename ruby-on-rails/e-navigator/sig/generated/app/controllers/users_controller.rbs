@@ -1,0 +1,10 @@
+# Generated from app/controllers/users_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class UsersController < ApplicationController
+  # GET /users
+  def index: () -> untyped
+
+  # GET /users/:id
+  def show: () -> untyped
+end

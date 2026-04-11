@@ -1,0 +1,4 @@
+# Generated from test/jobs/application_job_test.rb with RBS::Inline
+
+class ApplicationJobTest < ActiveJob::TestCase
+end
