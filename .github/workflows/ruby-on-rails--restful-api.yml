@@ -5,14 +5,14 @@
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
 
-name: RESTful API
+name: Ruby on Rails - RESTful API
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/restful-api.yml'
+      - '.github/workflows/ruby-on-rails--restful-api.yml'
       - '.ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'
@@ -23,7 +23,7 @@ on:
       - 'ruby-on-rails/restful-api/**/*.yml'
   pull_request:
     paths:
-      - '.github/workflows/restful-api.yml'
+      - '.github/workflows/ruby-on-rails--restful-api.yml'
       - '.ruby-version'
       - 'ruby-on-rails/restful-api/.ruby-version'
       - 'ruby-on-rails/restful-api/Gemfile'
@@ -78,3 +78,9 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec brakeman --no-pager
+      - name: Generate RBS
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle exec rbs-inline --output sig
+      - name: Run Steep
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle exec steep check
