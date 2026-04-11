@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class V2::TodosController < ApplicationController
   def index
     # a dummy response

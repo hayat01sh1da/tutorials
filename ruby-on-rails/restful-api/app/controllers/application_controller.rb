@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class ApplicationController < ActionController::API
   include Response
   include ExceptionHandler
