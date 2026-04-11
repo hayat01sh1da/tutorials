@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class JsonWebToken
   # secret to encode and decode token
   HMAC_SECRET = Rails.application.credentials.secret_key_base

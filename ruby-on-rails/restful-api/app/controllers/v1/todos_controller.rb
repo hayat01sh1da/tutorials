@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class V1::TodosController < ApplicationController
   before_action :set_todo, only: %i(show update destroy)
 

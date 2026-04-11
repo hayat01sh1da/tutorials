@@ -1,0 +1,25 @@
+# Generated from app/controllers/v1/todos_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class V1::TodosController < ApplicationController
+  # GET /todos
+  def index: () -> untyped
+
+  # GET /todos/:id
+  def show: () -> untyped
+
+  # POST /todos
+  def create: () -> untyped
+
+  # PUT /todos/:id
+  def update: () -> untyped
+
+  # DELETE /todos/:id
+  def destroy: () -> untyped
+
+  private
+
+  def set_todo: () -> untyped
+
+  def todo_params: () -> untyped
+end

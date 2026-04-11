@@ -1,0 +1,21 @@
+# Generated from app/auth/authorize_api_request.rb with RBS::Inline
+
+# rbs_inline: enabled
+class AuthorizeApiRequest
+  def initialize: (?untyped headers) -> untyped
+
+  # Service entry point - return valid user object
+  def call: () -> untyped
+
+  private
+
+  attr_reader headers: untyped
+
+  def user: () -> untyped
+
+  # decode authentication token
+  def decoded_auth_token: () -> untyped
+
+  # check for token in `Authorization` header
+  def http_auth_header: () -> untyped
+end

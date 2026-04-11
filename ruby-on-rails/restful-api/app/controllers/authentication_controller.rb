@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class AuthenticationController < ApplicationController
   skip_before_action :authorize_request, only: :authenticate
 
