@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 FactoryBot.define do
   factory :event do
     owner

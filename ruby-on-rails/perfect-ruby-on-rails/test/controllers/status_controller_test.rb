@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class StatusControllerTest < ApplicationControllerTest
   test "GET /status" do
     get '/status'

@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class TicketsController < ApplicationController
   def new
     raise ApplicationController::RoutingError, 'ログイン状態で TicketsController#new にアクセスされました'
