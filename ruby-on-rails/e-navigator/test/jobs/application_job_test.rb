@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 require 'test_helper'
 
 class ApplicationJobTest < ActiveJob::TestCase
