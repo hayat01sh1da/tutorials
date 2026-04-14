@@ -78,9 +78,11 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec brakeman --no-pager
-      - name: Generate RBS
+      - name: Run RuboCop
         working-directory: ./ruby-on-rails/restful-api
-        run: bundle exec rbs-inline --output sig
+        run: bundle exec rubocop
       - name: Run Steep
         working-directory: ./ruby-on-rails/restful-api
-        run: bundle exec steep check
+        run: |
+          bundle exec rbs-inline --output sig  
+          bundle exec steep check
