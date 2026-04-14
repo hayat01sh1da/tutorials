@@ -104,3 +104,6 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle exec brakeman --no-pager
+      - name: Run RuboCop
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: bundle exec rubocop
