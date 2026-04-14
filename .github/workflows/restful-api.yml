@@ -78,3 +78,6 @@ jobs:
       - name: Run Brakeman
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec brakeman --no-pager
+      - name: Run RuboCop
+        working-directory: ./ruby-on-rails/restful-api
+        run: bundle exec rubocop
