@@ -9,7 +9,7 @@
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-scripts": "5.0.1",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "5.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
