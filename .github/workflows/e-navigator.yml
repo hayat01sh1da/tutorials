@@ -13,7 +13,7 @@ on:
       - master
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--e-navigator.yml
+      - .github/workflows/e-navigator.yml
       - .ruby-version
       - ruby-on-rails/e-navigator/.ruby-version
       - ruby-on-rails/e-navigator/Gemfile
@@ -33,7 +33,7 @@ on:
   pull_request:
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--e-navigator.yml
+      - .github/workflows/e-navigator.yml
       - .ruby-version
       - ruby-on-rails/e-navigator/.ruby-version
       - ruby-on-rails/e-navigator/Gemfile
@@ -59,9 +59,9 @@ jobs:
   change-detection:
     runs-on: ubuntu-latest
     outputs:
-      ruby-changes: ${{ steps.ruby.outputs.changes }}
-      rubocop-changes: ${{ steps.rubocop.outputs.changes }}
-      # steep-changes: ${{ steps.steep.outputs.changes }}
+      ruby-changes: ${{ steps.change-detection.outputs.ruby }}
+      rubocop-changes: ${{ steps.change-detection.outputs.rubocop}}
+      # steep-changes: ${{ steps.change-detection.outputs.steep}}
     steps:
       - uses: actions/checkout@v6
       - name: Change Detection
@@ -69,45 +69,45 @@ jobs:
         id: change-detection
         with:
           filters: |
-            ruby: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/minitest--e-navigator.yml
-              .ruby-version
-              ruby-on-rails/e-navigator/.ruby-version
-              ruby-on-rails/e-navigator/Gemfile
-              ruby-on-rails/e-navigator/Gemfile.lock
-              ruby-on-rails/e-navigator/Rakefile
-              ruby-on-rails/e-navigator/**/*.rb
-              ruby-on-rails/e-navigator/**/*.rake
-              ruby-on-rails/e-navigator/**/*.yml
-              ruby-on-rails/e-navigator/**/*.js
-              ruby-on-rails/e-navigator/**/*.scss
-              ruby-on-rails/e-navigator/**/*.css
-              ruby-on-rails/e-navigator/**/*.html.erb
-            rubocop: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/minitest--e-navigator.yml
-              .ruby-version
-              ruby-on-rails/e-navigator/.ruby-version
-              ruby-on-rails/e-navigator/Gemfile
-              ruby-on-rails/e-navigator/Gemfile.lock
-              ruby-on-rails/e-navigator/Rakefile
-              ruby-on-rails/e-navigator/rubocop.yml
-              ruby-on-rails/e-navigator/rubocop_todo.yml
-              ruby-on-rails/e-navigator/**/*.rb
-              ruby-on-rails/e-navigator/**/*.rake
-            # steep: |
-            #   .github/actions/setup-ruby-on-rails/action.yml
-            #   .github/workflows/minitest--e-navigator.yml
-            #   .ruby-version
-            #   ruby-on-rails/e-navigator/.ruby-version
-            #   ruby-on-rails/e-navigator/Gemfile
-            #   ruby-on-rails/e-navigator/Gemfile.lock
-            #   ruby-on-rails/e-navigator/Rakefile
-            #   ruby-on-rails/e-navigator/Steepfile
-            #   ruby-on-rails/e-navigator/**/*.rb
-            #   ruby-on-rails/e-navigator/**/*.rbs
-            #   ruby-on-rails/e-navigator/**/*.rake
+            ruby:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/e-navigator.yml
+              - .ruby-version
+              - ruby-on-rails/e-navigator/.ruby-version
+              - ruby-on-rails/e-navigator/Gemfile
+              - ruby-on-rails/e-navigator/Gemfile.lock
+              - ruby-on-rails/e-navigator/Rakefile
+              - ruby-on-rails/e-navigator/**/*.rb
+              - ruby-on-rails/e-navigator/**/*.rake
+              - ruby-on-rails/e-navigator/**/*.yml
+              - ruby-on-rails/e-navigator/**/*.js
+              - ruby-on-rails/e-navigator/**/*.scss
+              - ruby-on-rails/e-navigator/**/*.css
+              - ruby-on-rails/e-navigator/**/*.html.erb
+            rubocop:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/e-navigator.yml
+              - .ruby-version
+              - ruby-on-rails/e-navigator/.ruby-version
+              - ruby-on-rails/e-navigator/Gemfile
+              - ruby-on-rails/e-navigator/Gemfile.lock
+              - ruby-on-rails/e-navigator/Rakefile
+              - ruby-on-rails/e-navigator/rubocop.yml
+              - ruby-on-rails/e-navigator/rubocop_todo.yml
+              - ruby-on-rails/e-navigator/**/*.rb
+              - ruby-on-rails/e-navigator/**/*.rake
+            # steep:
+              # - .github/actions/setup-ruby-on-rails/action.yml
+              # - .github/workflows/e-navigator.yml
+              # - .ruby-version
+              # - ruby-on-rails/e-navigator/.ruby-version
+              # - ruby-on-rails/e-navigator/Gemfile
+              # - ruby-on-rails/e-navigator/Gemfile.lock
+              # - ruby-on-rails/e-navigator/Rakefile
+              # - ruby-on-rails/e-navigator/Steepfile
+              # - ruby-on-rails/e-navigator/**/*.rb
+              # - ruby-on-rails/e-navigator/**/*.rbs
+              # - ruby-on-rails/e-navigator/**/*.rake
   minitest:
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -118,7 +118,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: Minitest
+          job-name: minitest
       - name: Minitest
         working-directory: ./ruby-on-rails/e-navigator
         run: bin/rails test
@@ -132,7 +132,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: Brakeman
+          job-name: brakeman
       - name: Brakeman
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec brakeman --no-pager
@@ -146,7 +146,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: RuboCop
+          job-name: rubocop
       - name: RuboCop
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec rubocop
@@ -160,7 +160,7 @@ jobs:
   #     - uses: ./.github/actions/setup-ruby-on-rails
   #       with:
   #         working-directory: ./ruby-on-rails/e-navigator
-  #         job-name: Steep
+  #         job-name: steep
   #     - name: Steep
   #       working-directory: ./ruby-on-rails/e-navigator
   #       run: |
