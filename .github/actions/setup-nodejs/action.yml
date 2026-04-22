@@ -1,0 +1,23 @@
+name: Setup Node.js Environment
+description: Setup Node.js with caching and dependency installation
+inputs:
+  working-directory:
+    description: The working directory of the application that will use this action
+    required: true
+
+runs:
+  using: composite
+  steps:
+    # To automatically get bug fixes and new Node.js versions for actions/setup-node,
+    # change this to (see https://github.com/actions/setup-node#usage):
+    - name: Set up Node.js
+      uses: actions/setup-node@v6
+      with:
+        cache: npm
+    - name: Install pnpm
+      shell: bash
+      run: corepack enable && corepack prepare pnpm@latest --activate
+    - name: Install Node.js dependencies
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: pnpm install --frozen-lockfile
