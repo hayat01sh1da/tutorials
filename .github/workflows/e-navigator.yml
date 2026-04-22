@@ -12,83 +12,157 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/minitest--e-navigator.yml'
-      - '.ruby-version'
-      - 'ruby-on-rails/e-navigator/.ruby-version'
-      - 'ruby-on-rails/e-navigator/Gemfile'
-      - 'ruby-on-rails/e-navigator/Gemfile.lock'
-      - 'ruby-on-rails/e-navigator/Rakefile'
-      - 'ruby-on-rails/e-navigator/**/*.rb'
-      - 'ruby-on-rails/e-navigator/**/*.rake'
-      - 'ruby-on-rails/e-navigator/**/*.yml'
-      - 'ruby-on-rails/e-navigator/**/*.js'
-      - 'ruby-on-rails/e-navigator/**/*.scss'
-      - 'ruby-on-rails/e-navigator/**/*.css'
-      - 'ruby-on-rails/e-navigator/**/*.html.erb'
+      - .github/actions/setup-ruby-on-rails/action.yml
+      - .github/workflows/minitest--e-navigator.yml
+      - .ruby-version
+      - ruby-on-rails/e-navigator/.ruby-version
+      - ruby-on-rails/e-navigator/Gemfile
+      - ruby-on-rails/e-navigator/Gemfile.lock
+      - ruby-on-rails/e-navigator/Rakefile
+      - ruby-on-rails/e-navigator/rubocop.yml
+      - ruby-on-rails/e-navigator/rubocop_todo.yml
+      # - ruby-on-rails/e-navigator/Steepfile
+      - ruby-on-rails/e-navigator/**/*.rb
+      # - ruby-on-rails/e-navigator/**/*.rbs
+      - ruby-on-rails/e-navigator/**/*.rake
+      - ruby-on-rails/e-navigator/**/*.yml
+      - ruby-on-rails/e-navigator/**/*.js
+      - ruby-on-rails/e-navigator/**/*.scss
+      - ruby-on-rails/e-navigator/**/*.css
+      - ruby-on-rails/e-navigator/**/*.html.erb
   pull_request:
     paths:
-      - '.github/workflows/minitest--e-navigator.yml'
-      - '.ruby-version'
-      - 'ruby-on-rails/e-navigator/.ruby-version'
-      - 'ruby-on-rails/e-navigator/Gemfile'
-      - 'ruby-on-rails/e-navigator/Gemfile.lock'
-      - 'ruby-on-rails/e-navigator/Rakefile'
-      - 'ruby-on-rails/e-navigator/**/*.rb'
-      - 'ruby-on-rails/e-navigator/**/*.rake'
-      - 'ruby-on-rails/e-navigator/**/*.yml'
-      - 'ruby-on-rails/e-navigator/**/*.js'
-      - 'ruby-on-rails/e-navigator/**/*.scss'
-      - 'ruby-on-rails/e-navigator/**/*.css'
-      - 'ruby-on-rails/e-navigator/**/*.html.erb'
+      - .github/actions/setup-ruby-on-rails/action.yml
+      - .github/workflows/minitest--e-navigator.yml
+      - .ruby-version
+      - ruby-on-rails/e-navigator/.ruby-version
+      - ruby-on-rails/e-navigator/Gemfile
+      - ruby-on-rails/e-navigator/Gemfile.lock
+      - ruby-on-rails/e-navigator/Rakefile
+      - ruby-on-rails/e-navigator/rubocop.yml
+      - ruby-on-rails/e-navigator/rubocop_todo.yml
+      # - ruby-on-rails/e-navigator/Steepfile
+      - ruby-on-rails/e-navigator/**/*.rb
+      # - ruby-on-rails/e-navigator/**/*.rbs
+      - ruby-on-rails/e-navigator/**/*.rake
+      - ruby-on-rails/e-navigator/**/*.yml
+      - ruby-on-rails/e-navigator/**/*.js
+      - ruby-on-rails/e-navigator/**/*.scss
+      - ruby-on-rails/e-navigator/**/*.css
+      - ruby-on-rails/e-navigator/**/*.html.erb
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
-  test:
+  change-detection:
+    runs-on: ubuntu-latest
+    outputs:
+      ruby-changes: ${{ steps.ruby.outputs.changes }}
+      rubocop-changes: ${{ steps.rubocop.outputs.changes }}
+      # steep-changes: ${{ steps.steep.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Change Detection
+        uses: dorny/paths-filter@v4
+        id: change-detection
+        with:
+          filters: |
+            ruby: |
+              .github/actions/setup-ruby-on-rails/action.yml
+              .github/workflows/minitest--e-navigator.yml
+              .ruby-version
+              ruby-on-rails/e-navigator/.ruby-version
+              ruby-on-rails/e-navigator/Gemfile
+              ruby-on-rails/e-navigator/Gemfile.lock
+              ruby-on-rails/e-navigator/Rakefile
+              ruby-on-rails/e-navigator/**/*.rb
+              ruby-on-rails/e-navigator/**/*.rake
+              ruby-on-rails/e-navigator/**/*.yml
+              ruby-on-rails/e-navigator/**/*.js
+              ruby-on-rails/e-navigator/**/*.scss
+              ruby-on-rails/e-navigator/**/*.css
+              ruby-on-rails/e-navigator/**/*.html.erb
+            rubocop: |
+              .github/actions/setup-ruby-on-rails/action.yml
+              .github/workflows/minitest--e-navigator.yml
+              .ruby-version
+              ruby-on-rails/e-navigator/.ruby-version
+              ruby-on-rails/e-navigator/Gemfile
+              ruby-on-rails/e-navigator/Gemfile.lock
+              ruby-on-rails/e-navigator/Rakefile
+              ruby-on-rails/e-navigator/rubocop.yml
+              ruby-on-rails/e-navigator/rubocop_todo.yml
+              ruby-on-rails/e-navigator/**/*.rb
+              ruby-on-rails/e-navigator/**/*.rake
+            # steep: |
+            #   .github/actions/setup-ruby-on-rails/action.yml
+            #   .github/workflows/minitest--e-navigator.yml
+            #   .ruby-version
+            #   ruby-on-rails/e-navigator/.ruby-version
+            #   ruby-on-rails/e-navigator/Gemfile
+            #   ruby-on-rails/e-navigator/Gemfile.lock
+            #   ruby-on-rails/e-navigator/Rakefile
+            #   ruby-on-rails/e-navigator/Steepfile
+            #   ruby-on-rails/e-navigator/**/*.rb
+            #   ruby-on-rails/e-navigator/**/*.rbs
+            #   ruby-on-rails/e-navigator/**/*.rake
+  minitest:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:9.6.0
-        env:
-          DB_USERNAME: '${{ secrets.DB_USERNAME }}'
-          MYSQL_ROOT_PASSWORD: '${{ secrets.DB_ROOT_PASSWORD }}'
-          DB_HOST: '${{ secrets.DB_HOST }}'
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:
-          - 3306:3306
+    needs: change-detection
+    if: needs.change-detection.outputs.ruby-changes == 'true'
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-      # change this to (see https://github.com/ruby/setup-ruby#versioning):
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-ruby-on-rails
         with:
-          bundler-cache: true
-      - name: Bundle Install
-        working-directory: ./ruby-on-rails/e-navigator
-        run: |
-          bundle config set --local path 'vendor/bundle'
-          bundle install
-      - name: Set up Database
-        working-directory: ./ruby-on-rails/e-navigator
-        run: |
-          sudo mkdir -p /var/run/mysqld
-          sudo chown -R mysql:mysql /var/run/mysqld
-          sudo chmod +x bin/setup
-          sudo mysqld_safe --skip-grant-tables &
-          sleep 10
-          bin/setup --skip-server
-      - name: Install Google Chrome
-        uses: browser-actions/setup-chrome@v1
-      - name: Run Minitest
+          working-directory: ./ruby-on-rails/e-navigator
+          job-name: Minitest
+      - name: Minitest
         working-directory: ./ruby-on-rails/e-navigator
         run: bin/rails test
-      - name: Run Brakeman
+  brakeman:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs: change-detection
+    if: needs.change-detection.outputs.ruby-changes == 'true'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-ruby-on-rails
+        with:
+          working-directory: ./ruby-on-rails/e-navigator
+          job-name: Brakeman
+      - name: Brakeman
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec brakeman --no-pager
-      - name: Run RuboCop
+  rubocop:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs: change-detection
+    if: needs.change-detection.outputs.rubocop-changes == 'true'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-ruby-on-rails
+        with:
+          working-directory: ./ruby-on-rails/e-navigator
+          job-name: RuboCop
+      - name: RuboCop
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec rubocop
+  # steep:
+  #   timeout-minutes: 10
+  #   runs-on: ubuntu-latest
+  #   needs: change-detection
+  #   if: needs.change-detection.outputs.steep-changes == 'true'
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - uses: ./.github/actions/setup-ruby-on-rails
+  #       with:
+  #         working-directory: ./ruby-on-rails/e-navigator
+  #         job-name: Steep
+  #     - name: Steep
+  #       working-directory: ./ruby-on-rails/e-navigator
+  #       run: |
+  #         bundle exec rbs-inline --output sig/generated/ .
+  #         bundle exec steep check
