@@ -13,7 +13,7 @@ on:
       - master
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--perfect-ruby-on-rails.yml
+      - .github/workflows/perfect-ruby-on-rails.yml
       - .ruby-version
       - .node-version
       - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -36,7 +36,7 @@ on:
   pull_request:
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--perfect-ruby-on-rails.yml
+      - .github/workflows/perfect-ruby-on-rails.yml
       - .ruby-version
       - .node-version
       - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -64,9 +64,9 @@ jobs:
   change-detection:
     runs-on: ubuntu-latest
     outputs:
-      ruby-changes: ${{ steps.ruby.outputs.changes }}
-      rubocop-changes: ${{ steps.rubocop.outputs.changes }}
-      # steep-changes: ${{ steps.steep.outputs.changes }}
+      ruby-changes: ${{ steps.change-detection.outputs.ruby }}
+      rubocop-changes: ${{ steps.change-detection.outputs.rubocop}}
+      # steep-changes: ${{ steps.change-detection.outputs.steep}}
     steps:
       - uses: actions/checkout@v6
       - name: Change Detection
@@ -74,47 +74,47 @@ jobs:
         id: change-detection
         with:
           filters: |
-            ruby: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/minitest--perfect-ruby-on-rails.yml
-              .ruby-version
-              .node-version
-              ruby-on-rails/perfect-ruby-on-rails/.ruby-version
-              ruby-on-rails/perfect-ruby-on-rails/Gemfile
-              ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
-              ruby-on-rails/perfect-ruby-on-rails/**/*.rb
-              ruby-on-rails/perfect-ruby-on-rails/**/*.rake
-              ruby-on-rails/perfect-ruby-on-rails/**/*.yml
-              ruby-on-rails/perfect-ruby-on-rails/**/*.js
-              ruby-on-rails/perfect-ruby-on-rails/**/*.scss
-              ruby-on-rails/perfect-ruby-on-rails/**/*.css
-              ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb
-              ruby-on-rails/perfect-ruby-on-rails/package.json
-              ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml
-            rubocop: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/minitest--perfect-ruby-on-rails.yml
-              .ruby-version
-              .node-version
-              ruby-on-rails/perfect-ruby-on-rails/.ruby-version
-              ruby-on-rails/perfect-ruby-on-rails/Gemfile
-              ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
-              ruby-on-rails/perfect-ruby-on-rails/rubocop.yml
-              ruby-on-rails/perfect-ruby-on-rails/rubocop_todo.yml
-              ruby-on-rails/perfect-ruby-on-rails/**/*.rb
-              ruby-on-rails/perfect-ruby-on-rails/**/*.rake
-            # steep: |
-            #   .github/actions/setup-ruby-on-rails/action.yml
-            #   .github/workflows/minitest--perfect-ruby-on-rails.yml
-            #   .ruby-version
-            #   .node-version
-            #   ruby-on-rails/perfect-ruby-on-rails/.ruby-version
-            #   ruby-on-rails/perfect-ruby-on-rails/Gemfile
-            #   ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
-            #   ruby-on-rails/perfect-ruby-on-rails/Steepfile
-            #   ruby-on-rails/perfect-ruby-on-rails/**/*.rb
-            #   ruby-on-rails/perfect-ruby-on-rails/**/*.rbs
-            #   ruby-on-rails/perfect-ruby-on-rails/**/*.rake
+            ruby:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/perfect-ruby-on-rails.yml
+              - .ruby-version
+              - .node-version
+              - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
+              - ruby-on-rails/perfect-ruby-on-rails/Gemfile
+              - ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.rb
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.rake
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.yml
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.js
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.scss
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.css
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.html.erb
+              - ruby-on-rails/perfect-ruby-on-rails/package.json
+              - ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml
+            rubocop:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/perfect-ruby-on-rails.yml
+              - .ruby-version
+              - .node-version
+              - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
+              - ruby-on-rails/perfect-ruby-on-rails/Gemfile
+              - ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
+              - ruby-on-rails/perfect-ruby-on-rails/rubocop.yml
+              - ruby-on-rails/perfect-ruby-on-rails/rubocop_todo.yml
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.rb
+              - ruby-on-rails/perfect-ruby-on-rails/**/*.rake
+            # steep:
+              # - .github/actions/setup-ruby-on-rails/action.yml
+              # - .github/workflows/perfect-ruby-on-rails.yml
+              # - .ruby-version
+              # - .node-version
+              # - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
+              # - ruby-on-rails/perfect-ruby-on-rails/Gemfile
+              # - ruby-on-rails/perfect-ruby-on-rails/Gemfile.lock
+              # - ruby-on-rails/perfect-ruby-on-rails/Steepfile
+              # - ruby-on-rails/perfect-ruby-on-rails/**/*.rb
+              # - ruby-on-rails/perfect-ruby-on-rails/**/*.rbs
+              # - ruby-on-rails/perfect-ruby-on-rails/**/*.rake
   minitest:
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -138,7 +138,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-          job-name: Minitest
+          job-name: minitest
       - name: Minitest
         env:
           OAUTH_CLIENT_ID: ${ vars.OAUTH_CLIENT_ID }
@@ -155,7 +155,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-          job-name: Brakeman
+          job-name: brakeman
       - name: Brakeman
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle exec brakeman --no-pager
@@ -169,7 +169,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-          job-name: RuboCop
+          job-name: rubocop
       - name: RuboCop
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
         run: bundle exec rubocop
@@ -183,7 +183,7 @@ jobs:
   #     - uses: ./.github/actions/setup-ruby-on-rails
   #       with:
   #         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-  #         job-name: Steep
+  #         job-name: steep
   #     - name: Steep
   #       working-directory: ./ruby-on-rails/perfect-ruby-on-rails
   #       run: |
