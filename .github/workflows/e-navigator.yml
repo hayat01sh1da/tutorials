@@ -118,7 +118,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: Minitest
+          job-name: minitest
       - name: Minitest
         working-directory: ./ruby-on-rails/e-navigator
         run: bin/rails test
@@ -132,7 +132,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: Brakeman
+          job-name: brakeman
       - name: Brakeman
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec brakeman --no-pager
@@ -146,7 +146,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/e-navigator
-          job-name: RuboCop
+          job-name: rubocop
       - name: RuboCop
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec rubocop
@@ -160,7 +160,7 @@ jobs:
   #     - uses: ./.github/actions/setup-ruby-on-rails
   #       with:
   #         working-directory: ./ruby-on-rails/e-navigator
-  #         job-name: Steep
+  #         job-name: steep
   #     - name: Steep
   #       working-directory: ./ruby-on-rails/e-navigator
   #       run: |
