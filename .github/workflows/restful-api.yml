@@ -61,41 +61,41 @@ jobs:
         id: change-detection
         with:
           filters: |
-            ruby: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rake
-              ruby-on-rails/restful-api/**/*.yml
-            rubocop: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/rubocop.yml
-              ruby-on-rails/restful-api/rubocop_todo.yml
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rake
-            steep: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/Steepfile
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rbs
-              ruby-on-rails/restful-api/**/*.rake
+            ruby:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rake
+              - ruby-on-rails/restful-api/**/*.yml
+            rubocop:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/rubocop.yml
+              - ruby-on-rails/restful-api/rubocop_todo.yml
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rake
+            steep:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/Steepfile
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rbs
+              - ruby-on-rails/restful-api/**/*.rake
   rspec:
     timeout-minutes: 10
     runs-on: ubuntu-latest
