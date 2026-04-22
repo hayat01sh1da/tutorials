@@ -51,9 +51,9 @@ jobs:
   change-detection:
     runs-on: ubuntu-latest
     outputs:
-      ruby-changes: ${{ steps.ruby.outputs.changes }}
-      rubocop-changes: ${{ steps.rubocop.outputs.changes }}
-      steep-changes: ${{ steps.steep.outputs.changes }}
+      ruby-changes: ${{ steps.change-detection.outputs.ruby }}
+      rubocop-changes: ${{ steps.change-detection.outputs.rubocop}}
+      steep-changes: ${{ steps.change-detection.outputs.steep}}
     steps:
       - uses: actions/checkout@v6
       - name: Change Detection
@@ -61,41 +61,41 @@ jobs:
         id: change-detection
         with:
           filters: |
-            ruby: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rake
-              ruby-on-rails/restful-api/**/*.yml
-            rubocop: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/rubocop.yml
-              ruby-on-rails/restful-api/rubocop_todo.yml
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rake
-            steep: |
-              .github/actions/setup-ruby-on-rails/action.yml
-              .github/workflows/restful-api.yml
-              .ruby-version
-              ruby-on-rails/restful-api/.ruby-version
-              ruby-on-rails/restful-api/Gemfile
-              ruby-on-rails/restful-api/Gemfile.lock
-              ruby-on-rails/restful-api/Rakefile
-              ruby-on-rails/restful-api/Steepfile
-              ruby-on-rails/restful-api/**/*.rb
-              ruby-on-rails/restful-api/**/*.rbs
-              ruby-on-rails/restful-api/**/*.rake
+            ruby:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rake
+              - ruby-on-rails/restful-api/**/*.yml
+            rubocop:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/rubocop.yml
+              - ruby-on-rails/restful-api/rubocop_todo.yml
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rake
+            steep:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/restful-api.yml
+              - .ruby-version
+              - ruby-on-rails/restful-api/.ruby-version
+              - ruby-on-rails/restful-api/Gemfile
+              - ruby-on-rails/restful-api/Gemfile.lock
+              - ruby-on-rails/restful-api/Rakefile
+              - ruby-on-rails/restful-api/Steepfile
+              - ruby-on-rails/restful-api/**/*.rb
+              - ruby-on-rails/restful-api/**/*.rbs
+              - ruby-on-rails/restful-api/**/*.rake
   rspec:
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -113,13 +113,10 @@ jobs:
     if: needs.change-detection.outputs.ruby-changes == 'true'
     steps:
       - uses: actions/checkout@v6
-      - uses: ./.github/actions/setup-nodejs
-        with:
-          working-directory: ./ruby-on-rails/restful-api
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/restful-api
-          job-name: RSpec
+          job-name: rspec
       - name: RSpec
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec rspec
@@ -133,7 +130,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/restful-api
-          job-name: Brakeman
+          job-name: brakeman
       - name: Brakeman
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec brakeman --no-pager
@@ -147,7 +144,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/restful-api
-          job-name: RuboCop
+          job-name: rubocop
       - name: RuboCop
         working-directory: ./ruby-on-rails/restful-api
         run: bundle exec rubocop
@@ -161,7 +158,7 @@ jobs:
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/restful-api
-          job-name: Steep
+          job-name: steep
       - name: Steep
         working-directory: ./ruby-on-rails/restful-api
         run: |
