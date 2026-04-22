@@ -113,9 +113,6 @@ jobs:
     if: needs.change-detection.outputs.ruby-changes == 'true'
     steps:
       - uses: actions/checkout@v6
-      - uses: ./.github/actions/setup-nodejs
-        with:
-          working-directory: ./ruby-on-rails/restful-api
       - uses: ./.github/actions/setup-ruby-on-rails
         with:
           working-directory: ./ruby-on-rails/restful-api
