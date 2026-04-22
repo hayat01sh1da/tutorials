@@ -1,5 +1,5 @@
 FROM node:25.9.0 AS node
-FROM ruby:4.0.2
+FROM ruby:4.0.3
 
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree chromium
