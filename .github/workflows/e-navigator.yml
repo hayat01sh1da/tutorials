@@ -13,7 +13,7 @@ on:
       - master
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--e-navigator.yml
+      - .github/workflows/e-navigator.yml
       - .ruby-version
       - ruby-on-rails/e-navigator/.ruby-version
       - ruby-on-rails/e-navigator/Gemfile
@@ -33,7 +33,7 @@ on:
   pull_request:
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--e-navigator.yml
+      - .github/workflows/e-navigator.yml
       - .ruby-version
       - ruby-on-rails/e-navigator/.ruby-version
       - ruby-on-rails/e-navigator/Gemfile
@@ -71,7 +71,7 @@ jobs:
           filters: |
             ruby:
               - .github/actions/setup-ruby-on-rails/action.yml
-              - .github/workflows/minitest--e-navigator.yml
+              - .github/workflows/e-navigator.yml
               - .ruby-version
               - ruby-on-rails/e-navigator/.ruby-version
               - ruby-on-rails/e-navigator/Gemfile
@@ -86,7 +86,7 @@ jobs:
               - ruby-on-rails/e-navigator/**/*.html.erb
             rubocop:
               - .github/actions/setup-ruby-on-rails/action.yml
-              - .github/workflows/minitest--e-navigator.yml
+              - .github/workflows/e-navigator.yml
               - .ruby-version
               - ruby-on-rails/e-navigator/.ruby-version
               - ruby-on-rails/e-navigator/Gemfile
@@ -98,7 +98,7 @@ jobs:
               - ruby-on-rails/e-navigator/**/*.rake
             # steep:
               # - .github/actions/setup-ruby-on-rails/action.yml
-              # - .github/workflows/minitest--e-navigator.yml
+              # - .github/workflows/e-navigator.yml
               # - .ruby-version
               # - ruby-on-rails/e-navigator/.ruby-version
               # - ruby-on-rails/e-navigator/Gemfile

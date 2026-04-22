@@ -13,7 +13,7 @@ on:
       - master
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--perfect-ruby-on-rails.yml
+      - .github/workflows/perfect-ruby-on-rails.yml
       - .ruby-version
       - .node-version
       - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -36,7 +36,7 @@ on:
   pull_request:
     paths:
       - .github/actions/setup-ruby-on-rails/action.yml
-      - .github/workflows/minitest--perfect-ruby-on-rails.yml
+      - .github/workflows/perfect-ruby-on-rails.yml
       - .ruby-version
       - .node-version
       - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -76,7 +76,7 @@ jobs:
           filters: |
             ruby:
               - .github/actions/setup-ruby-on-rails/action.yml
-              - .github/workflows/minitest--perfect-ruby-on-rails.yml
+              - .github/workflows/perfect-ruby-on-rails.yml
               - .ruby-version
               - .node-version
               - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -93,7 +93,7 @@ jobs:
               - ruby-on-rails/perfect-ruby-on-rails/pnpm-lock.yaml
             rubocop:
               - .github/actions/setup-ruby-on-rails/action.yml
-              - .github/workflows/minitest--perfect-ruby-on-rails.yml
+              - .github/workflows/perfect-ruby-on-rails.yml
               - .ruby-version
               - .node-version
               - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
@@ -105,7 +105,7 @@ jobs:
               - ruby-on-rails/perfect-ruby-on-rails/**/*.rake
             # steep:
               # - .github/actions/setup-ruby-on-rails/action.yml
-              # - .github/workflows/minitest--perfect-ruby-on-rails.yml
+              # - .github/workflows/perfect-ruby-on-rails.yml
               # - .ruby-version
               # - .node-version
               # - ruby-on-rails/perfect-ruby-on-rails/.ruby-version
