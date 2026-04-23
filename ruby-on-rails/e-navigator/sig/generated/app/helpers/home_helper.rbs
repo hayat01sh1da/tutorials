@@ -1,5 +1,0 @@
-# Generated from app/helpers/home_helper.rb with RBS::Inline
-
-# rbs_inline: enabled
-module HomeHelper
-end

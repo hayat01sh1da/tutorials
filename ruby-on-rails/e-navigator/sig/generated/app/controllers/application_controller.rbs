@@ -1,6 +1,0 @@
-# Generated from app/controllers/application_controller.rb with RBS::Inline
-
-# rbs_inline: enabled
-class ApplicationController < ActionController::Base
-  def configure_permitted_parameters: () -> untyped
-end

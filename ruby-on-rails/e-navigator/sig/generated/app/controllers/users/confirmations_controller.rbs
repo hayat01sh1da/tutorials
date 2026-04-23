@@ -1,4 +1,0 @@
-# Generated from app/controllers/users/confirmations_controller.rb with RBS::Inline
-
-class Users::ConfirmationsController < Devise::ConfirmationsController
-end

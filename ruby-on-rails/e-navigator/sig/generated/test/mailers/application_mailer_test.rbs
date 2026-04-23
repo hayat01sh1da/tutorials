@@ -1,4 +1,0 @@
-# Generated from test/mailers/application_mailer_test.rb with RBS::Inline
-
-class ApplicationMailerTest < ActionMailer::TestCase
-end

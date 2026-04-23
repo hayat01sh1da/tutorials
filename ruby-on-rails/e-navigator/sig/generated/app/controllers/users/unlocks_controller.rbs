@@ -1,4 +1,0 @@
-# Generated from app/controllers/users/unlocks_controller.rb with RBS::Inline
-
-class Users::UnlocksController < Devise::UnlocksController
-end

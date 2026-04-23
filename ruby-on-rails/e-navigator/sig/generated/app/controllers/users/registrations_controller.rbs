@@ -1,7 +1,0 @@
-# Generated from app/controllers/users/registrations_controller.rb with RBS::Inline
-
-class Users::RegistrationsController < Devise::RegistrationsController
-  def after_update_path_for: (untyped resource) -> untyped
-
-  def update_resource: (untyped resource, untyped params) -> untyped
-end

@@ -1,4 +1,0 @@
-# Generated from test/helpers/application_helper_test.rb with RBS::Inline
-
-class ApplicationHelperTest < ActionView::TestCase
-end

@@ -1,6 +1,0 @@
-# Generated from app/helpers/application_helper.rb with RBS::Inline
-
-# rbs_inline: enabled
-module ApplicationHelper
-  def devise_mapping: () -> untyped
-end
