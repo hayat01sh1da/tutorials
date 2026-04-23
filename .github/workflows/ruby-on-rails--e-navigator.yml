@@ -165,10 +165,4 @@ jobs:
         working-directory: ./ruby-on-rails/e-navigator
         run: |
           bundle exec rbs-inline --output sig/generated/ .
-          mkdir -p sig/generated/app
-          for directory in $(ls -d sig/generated/*); do
-            if [ $directory != 'sig/generated/app' ] && [ $directory != 'sig/generated/test' ]; then
-              mv -f $directory sig/generated/app/
-            fi
-          done
           bundle exec steep check
