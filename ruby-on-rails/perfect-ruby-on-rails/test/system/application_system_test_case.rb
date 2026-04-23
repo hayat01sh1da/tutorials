@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 require_relative '../test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase

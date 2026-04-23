@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class EventsController < ApplicationController
   skip_before_action :authenticate, only: [:index, :show]
   before_action :set_event, only: :show

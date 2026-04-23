@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class EventsControllerTest < ApplicationControllerTest
   setup do
     @event_owner = FactoryBot.create(:user)
