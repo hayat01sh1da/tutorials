@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class UsersController < ApplicationController
   # GET /users
   def index

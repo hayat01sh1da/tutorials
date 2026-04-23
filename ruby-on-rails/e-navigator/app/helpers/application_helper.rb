@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 module ApplicationHelper
 
   def devise_mapping

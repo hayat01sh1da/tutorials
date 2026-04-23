@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 require 'test_helper'
 
 class UserFlowTest < ActionDispatch::IntegrationTest
