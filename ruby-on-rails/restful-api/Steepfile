@@ -6,8 +6,6 @@ target :app do
   signature "sig"
 
   library "net-smtp"
-  library "observer"
-  library "ostruct"
 
   configure_code_diagnostics(D::Ruby.default)
 end
