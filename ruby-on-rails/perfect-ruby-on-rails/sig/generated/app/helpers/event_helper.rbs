@@ -1,6 +1,0 @@
-# Generated from app/helpers/event_helper.rb with RBS::Inline
-
-# rbs_inline: enabled
-module EventHelper
-  def show_image_if_attached: (untyped event) -> untyped
-end

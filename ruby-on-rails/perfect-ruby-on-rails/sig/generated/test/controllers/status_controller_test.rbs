@@ -1,5 +1,0 @@
-# Generated from test/controllers/status_controller_test.rb with RBS::Inline
-
-# rbs_inline: enabled
-class StatusControllerTest < ApplicationControllerTest
-end

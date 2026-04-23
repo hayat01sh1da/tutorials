@@ -1,4 +1,0 @@
-# Generated from test/system/welcomes_test.rb with RBS::Inline
-
-class WelcomesTest < ApplicationSystemTestCase
-end

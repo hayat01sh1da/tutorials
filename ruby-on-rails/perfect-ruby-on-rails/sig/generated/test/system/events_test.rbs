@@ -1,4 +1,0 @@
-# Generated from test/system/events_test.rb with RBS::Inline
-
-class EventsTest < ApplicationSystemTestCase
-end

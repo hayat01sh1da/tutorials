@@ -1,4 +1,0 @@
-# Generated from test/models/event_test.rb with RBS::Inline
-
-class EventTest < ActiveSupport::TestCase
-end

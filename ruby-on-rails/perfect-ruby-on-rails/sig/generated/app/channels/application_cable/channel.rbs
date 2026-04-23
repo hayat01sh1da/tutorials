@@ -1,7 +1,0 @@
-# Generated from app/channels/application_cable/channel.rb with RBS::Inline
-
-# rbs_inline: enabled
-module ApplicationCable
-  class Channel < ActionCable::Channel::Base
-  end
-end
