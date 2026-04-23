@@ -75,9 +75,6 @@ group :development, :test do
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri windows ], require: false
-  # Typechecking
-  gem 'rbs-inline', '~> 0.13.0', require: false
-  gem 'steep', '~> 1.10.0', require: false
 end
 
 group :development do
@@ -90,7 +87,9 @@ group :development do
   gem 'rubocop-minitest', '~> 0.39.0', require: false
   gem 'rubocop-performance', '~> 1.26.0', require: false
   gem 'rubocop-rails', '~> 2.34.3', require: false
-
+  # Typechecking
+  gem 'rbs-inline', '~> 0.13.0', require: false
+  gem 'steep', '~> 1.10.0', require: false
   # Provides methods for benchmarking Ruby code, giving detailed reports on the time taken for each task
   gem 'benchmark', '~> 0.5.0'
 end
