@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 class InterviewMailer < ApplicationMailer
   helper ApplicationHelper
 

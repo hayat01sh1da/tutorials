@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: e-Navigator
+name: Ruby on Rails - e-Navigator
 
 on:
   push:
@@ -21,9 +21,9 @@ on:
       - ruby-on-rails/e-navigator/Rakefile
       - ruby-on-rails/e-navigator/.rubocop.yml
       - ruby-on-rails/e-navigator/.rubocop_todo.yml
-      # - ruby-on-rails/e-navigator/Steepfile
+      - ruby-on-rails/e-navigator/Steepfile
       - ruby-on-rails/e-navigator/**/*.rb
-      # - ruby-on-rails/e-navigator/**/*.rbs
+      - ruby-on-rails/e-navigator/**/*.rbs
       - ruby-on-rails/e-navigator/**/*.rake
       - ruby-on-rails/e-navigator/**/*.yml
       - ruby-on-rails/e-navigator/**/*.js
@@ -41,9 +41,9 @@ on:
       - ruby-on-rails/e-navigator/Rakefile
       - ruby-on-rails/e-navigator/.rubocop.yml
       - ruby-on-rails/e-navigator/.rubocop_todo.yml
-      # - ruby-on-rails/e-navigator/Steepfile
+      - ruby-on-rails/e-navigator/Steepfile
       - ruby-on-rails/e-navigator/**/*.rb
-      # - ruby-on-rails/e-navigator/**/*.rbs
+      - ruby-on-rails/e-navigator/**/*.rbs
       - ruby-on-rails/e-navigator/**/*.rake
       - ruby-on-rails/e-navigator/**/*.yml
       - ruby-on-rails/e-navigator/**/*.js
@@ -61,7 +61,7 @@ jobs:
     outputs:
       ruby-changes: ${{ steps.change-detection.outputs.ruby }}
       rubocop-changes: ${{ steps.change-detection.outputs.rubocop}}
-      # steep-changes: ${{ steps.change-detection.outputs.steep}}
+      steep-changes: ${{ steps.change-detection.outputs.steep}}
     steps:
       - uses: actions/checkout@v6
       - name: Change Detection
@@ -96,18 +96,18 @@ jobs:
               - ruby-on-rails/e-navigator/.rubocop_todo.yml
               - ruby-on-rails/e-navigator/**/*.rb
               - ruby-on-rails/e-navigator/**/*.rake
-            # steep:
-              # - .github/actions/setup-ruby-on-rails/action.yml
-              # - .github/workflows/e-navigator.yml
-              # - .ruby-version
-              # - ruby-on-rails/e-navigator/.ruby-version
-              # - ruby-on-rails/e-navigator/Gemfile
-              # - ruby-on-rails/e-navigator/Gemfile.lock
-              # - ruby-on-rails/e-navigator/Rakefile
-              # - ruby-on-rails/e-navigator/Steepfile
-              # - ruby-on-rails/e-navigator/**/*.rb
-              # - ruby-on-rails/e-navigator/**/*.rbs
-              # - ruby-on-rails/e-navigator/**/*.rake
+            steep:
+              - .github/actions/setup-ruby-on-rails/action.yml
+              - .github/workflows/e-navigator.yml
+              - .ruby-version
+              - ruby-on-rails/e-navigator/.ruby-version
+              - ruby-on-rails/e-navigator/Gemfile
+              - ruby-on-rails/e-navigator/Gemfile.lock
+              - ruby-on-rails/e-navigator/Rakefile
+              - ruby-on-rails/e-navigator/Steepfile
+              - ruby-on-rails/e-navigator/**/*.rb
+              - ruby-on-rails/e-navigator/**/*.rbs
+              - ruby-on-rails/e-navigator/**/*.rake
   minitest:
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -150,19 +150,19 @@ jobs:
       - name: RuboCop
         working-directory: ./ruby-on-rails/e-navigator
         run: bundle exec rubocop
-  # steep:
-  #   timeout-minutes: 10
-  #   runs-on: ubuntu-latest
-  #   needs: change-detection
-  #   if: needs.change-detection.outputs.steep-changes == 'true'
-  #   steps:
-  #     - uses: actions/checkout@v6
-  #     - uses: ./.github/actions/setup-ruby-on-rails
-  #       with:
-  #         working-directory: ./ruby-on-rails/e-navigator
-  #         job-name: steep
-  #     - name: Steep
-  #       working-directory: ./ruby-on-rails/e-navigator
-  #       run: |
-  #         bundle exec rbs-inline --output sig/generated/ .
-  #         bundle exec steep check
+  steep:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs: change-detection
+    if: needs.change-detection.outputs.steep-changes == 'true'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-ruby-on-rails
+        with:
+          working-directory: ./ruby-on-rails/e-navigator
+          job-name: steep
+      - name: Steep
+        working-directory: ./ruby-on-rails/e-navigator
+        run: |
+          bundle exec rbs-inline --output sig/generated/ .
+          bundle exec steep check
