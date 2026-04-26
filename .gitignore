@@ -19,6 +19,8 @@ ruby-on-rails/perfect-ruby-on-rails/app/assets/builds/*
 !ruby-on-rails/perfect-ruby-on-rails/app/assets/builds/.keep
 ruby-on-rails/perfect-ruby-on-rails/node_modules/
 ruby-on-rails/perfect-ruby-on-rails/.env
+ruby-on-rails/perfect-ruby-on-rails/sig/
+ruby-on-rails/perfect-ruby-on-rails/vendor/
 
 ## RESTful API
 ruby-on-rails/restful-api/config/master.key

@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 module SignInHelper
   def sign_in_as(user)
     OmniAuth.config.test_mode = true
