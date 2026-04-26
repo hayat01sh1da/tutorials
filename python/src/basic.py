@@ -1,13 +1,13 @@
-def return_three_strings(string1, string2, string3):
+def return_three_strings(string1: str, string2: str, string3: str) -> str:
     return f'string1: {string1}, string2: {string2}, string3: {string3}'
 
-def judge_num_1(num):
+def judge_num_1(num: int) -> str:
     if num >= 10:
         return 'Number is 10 or more.'
     else:
         return 'Number is less then 10.'
 
-def judge_num_2(num):
+def judge_num_2(num: int) -> str:
     if num > 25:
         return 'Number is more than 25.'
     elif num <= 10:
@@ -15,13 +15,13 @@ def judge_num_2(num):
     else:
         return 'Number more than 10 and 25 or less.'
 
-def print_remainder(num1, num2):
+def print_remainder(num1: int, num2: int) -> int:
     return num1 % num2
 
-def print_quotient(num1, num2):
+def print_quotient(num1: int, num2: int) -> int:
     return num1 % num2
 
-def judge_age(age):
+def judge_age(age: int) -> str:
     if age >= 40:
         return 'Now you must start paying a healthcare insurace tax.'
     elif age >= 20:
