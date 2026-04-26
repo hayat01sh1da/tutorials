@@ -19,8 +19,8 @@ on:
       - ruby-on-rails/restful-api/Gemfile
       - ruby-on-rails/restful-api/Gemfile.lock
       - ruby-on-rails/restful-api/Rakefile
-      - ruby-on-rails/restful-api/rubocop.yml
-      - ruby-on-rails/restful-api/rubocop_todo.yml
+      - ruby-on-rails/restful-api/.rubocop.yml
+      - ruby-on-rails/restful-api/.rubocop_todo.yml
       - ruby-on-rails/restful-api/Steepfile
       - ruby-on-rails/restful-api/**/*.rb
       - ruby-on-rails/restful-api/**/*.rbs
@@ -35,8 +35,8 @@ on:
       - ruby-on-rails/restful-api/Gemfile
       - ruby-on-rails/restful-api/Gemfile.lock
       - ruby-on-rails/restful-api/Rakefile
-      - ruby-on-rails/restful-api/rubocop.yml
-      - ruby-on-rails/restful-api/rubocop_todo.yml
+      - ruby-on-rails/restful-api/.rubocop.yml
+      - ruby-on-rails/restful-api/.rubocop_todo.yml
       - ruby-on-rails/restful-api/Steepfile
       - ruby-on-rails/restful-api/**/*.rb
       - ruby-on-rails/restful-api/**/*.rbs
@@ -80,8 +80,8 @@ jobs:
               - ruby-on-rails/restful-api/Gemfile
               - ruby-on-rails/restful-api/Gemfile.lock
               - ruby-on-rails/restful-api/Rakefile
-              - ruby-on-rails/restful-api/rubocop.yml
-              - ruby-on-rails/restful-api/rubocop_todo.yml
+              - ruby-on-rails/restful-api/.rubocop.yml
+              - ruby-on-rails/restful-api/.rubocop_todo.yml
               - ruby-on-rails/restful-api/**/*.rb
               - ruby-on-rails/restful-api/**/*.rake
             steep:
