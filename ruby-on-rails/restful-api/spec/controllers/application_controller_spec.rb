@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 require 'rails_helper'
 
 RSpec.describe ApplicationController, type: :controller do

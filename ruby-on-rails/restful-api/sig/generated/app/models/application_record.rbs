@@ -1,0 +1,5 @@
+# Generated from app/models/application_record.rb with RBS::Inline
+
+# rbs_inline: enabled
+class ApplicationRecord < ActiveRecord::Base
+end

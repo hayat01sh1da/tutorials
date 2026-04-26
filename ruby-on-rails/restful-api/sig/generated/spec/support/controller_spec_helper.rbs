@@ -1,0 +1,16 @@
+# Generated from spec/support/controller_spec_helper.rb with RBS::Inline
+
+# rbs_inline: enabled
+module ControllerSpecHelper
+  # generate tokens from user id
+  def token_generator: (untyped user_id) -> untyped
+
+  # generate expired tokens from user id
+  def expired_token_generator: (untyped user_id) -> untyped
+
+  # return valid headers
+  def valid_headers: (?untyped version) -> untyped
+
+  # return invalid headers
+  def invalid_headers: (?untyped version) -> untyped
+end

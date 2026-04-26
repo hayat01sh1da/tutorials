@@ -1,0 +1,5 @@
+# Generated from app/models/item.rb with RBS::Inline
+
+# rbs_inline: enabled
+class Item < ApplicationRecord
+end

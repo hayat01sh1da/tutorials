@@ -1,0 +1,27 @@
+# Generated from app/controllers/v1/items_controller.rb with RBS::Inline
+
+# rbs_inline: enabled
+class V1::ItemsController < ApplicationController
+  # GET /todos/:todo_id/items
+  def index: () -> untyped
+
+  # GET /todos/:todo_id/items/:id
+  def show: () -> untyped
+
+  # POST /todos/:todo_id/items
+  def create: () -> untyped
+
+  # PUT /todos/:todo_id/items/:id
+  def update: () -> untyped
+
+  # DELETE /todos/:todo_id/items/:id
+  def destroy: () -> untyped
+
+  private
+
+  def set_todo: () -> untyped
+
+  def set_todo_item: () -> untyped
+
+  def item_params: () -> untyped
+end

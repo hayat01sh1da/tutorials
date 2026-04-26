@@ -1,0 +1,20 @@
+# Generated from app/lib/message.rb with RBS::Inline
+
+# rbs_inline: enabled
+class Message
+  def self.not_found: (?untyped record) -> untyped
+
+  def self.invalid_credentials: () -> untyped
+
+  def self.invalid_token: () -> untyped
+
+  def self.missing_token: () -> untyped
+
+  def self.unauthorized: () -> untyped
+
+  def self.account_created: () -> untyped
+
+  def self.account_not_created: () -> untyped
+
+  def self.expired_token: () -> untyped
+end

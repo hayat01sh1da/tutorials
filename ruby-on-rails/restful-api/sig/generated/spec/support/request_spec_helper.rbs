@@ -1,0 +1,7 @@
+# Generated from spec/support/request_spec_helper.rb with RBS::Inline
+
+# rbs_inline: enabled
+module RequestSpecHelper
+  # Parse JSON response to ruby hash
+  def json: () -> untyped
+end
