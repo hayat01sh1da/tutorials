@@ -19,8 +19,8 @@ on:
       - ruby-on-rails/e-navigator/Gemfile
       - ruby-on-rails/e-navigator/Gemfile.lock
       - ruby-on-rails/e-navigator/Rakefile
-      - ruby-on-rails/e-navigator/rubocop.yml
-      - ruby-on-rails/e-navigator/rubocop_todo.yml
+      - ruby-on-rails/e-navigator/.rubocop.yml
+      - ruby-on-rails/e-navigator/.rubocop_todo.yml
       - ruby-on-rails/e-navigator/Steepfile
       - ruby-on-rails/e-navigator/**/*.rb
       - ruby-on-rails/e-navigator/**/*.rbs
@@ -39,8 +39,8 @@ on:
       - ruby-on-rails/e-navigator/Gemfile
       - ruby-on-rails/e-navigator/Gemfile.lock
       - ruby-on-rails/e-navigator/Rakefile
-      - ruby-on-rails/e-navigator/rubocop.yml
-      - ruby-on-rails/e-navigator/rubocop_todo.yml
+      - ruby-on-rails/e-navigator/.rubocop.yml
+      - ruby-on-rails/e-navigator/.rubocop_todo.yml
       - ruby-on-rails/e-navigator/Steepfile
       - ruby-on-rails/e-navigator/**/*.rb
       - ruby-on-rails/e-navigator/**/*.rbs
@@ -92,8 +92,8 @@ jobs:
               - ruby-on-rails/e-navigator/Gemfile
               - ruby-on-rails/e-navigator/Gemfile.lock
               - ruby-on-rails/e-navigator/Rakefile
-              - ruby-on-rails/e-navigator/rubocop.yml
-              - ruby-on-rails/e-navigator/rubocop_todo.yml
+              - ruby-on-rails/e-navigator/.rubocop.yml
+              - ruby-on-rails/e-navigator/.rubocop_todo.yml
               - ruby-on-rails/e-navigator/**/*.rb
               - ruby-on-rails/e-navigator/**/*.rake
             steep:
