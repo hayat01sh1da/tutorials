@@ -8,9 +8,9 @@ gem 'rails', '~> 8.1.3'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '~> 0.5.7'
 # Use Puma as the app server
-gem 'puma', '~> 8.0.0'
+gem 'puma', '~> 8.0.1'
 # Use Propshaft as the asset pipeline
-gem 'propshaft', '~> 1.3.1'
+gem 'propshaft', '~> 1.3.2'
 # Use importmap for JavaScript
 gem 'importmap-rails', '~> 2.2.3'
 # Hotwire's modest JavaScript framework
@@ -26,7 +26,7 @@ gem 'enum_help'
 gem 'dotenv-rails', '~> 3.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.23.0', require: false
+gem 'bootsnap', '~> 1.24.0', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri windows ], require: false
