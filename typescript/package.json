@@ -28,7 +28,7 @@
     "gulp-typescript": "6.0.0-alpha.1",
     "jest": "^30.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
