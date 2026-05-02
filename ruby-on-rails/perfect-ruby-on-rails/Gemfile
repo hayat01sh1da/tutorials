@@ -31,7 +31,7 @@ gem 'image_processing', '~> 1.14.0'
 gem 'active_storage_validations', '~> 3.0.3'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.24.0', require: false
+gem 'bootsnap', '~> 1.24.1', require: false
 
 # environmental variables
 gem 'dotenv-rails', '~> 3.2.0'
