@@ -6,9 +6,11 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
+    "postcss": "8.4.31",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-scripts": "5.0.1",
+    "uuid": "14.0.0",
     "webpack-dev-server": "5.2.3"
   },
   "scripts": {
