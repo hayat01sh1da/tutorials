@@ -1,17 +1,17 @@
-def print_tv_dramas(movies):
+def print_tv_dramas(movies: list[str]) -> None:
     for movie in movies:
         print(movie)
 
-def print_nums(nums):
+def print_nums(nums: list[int]) -> None:
     for i in nums:
         print(i)
 
-def print_tv_dramas_with_index(movies):
+def print_tv_dramas_with_index(movies: list[str]) -> None:
     for i in range(0, len(movies)):
         movie = movies[i]
         print(f'{i + 1}: {movie}')
 
-def guess_num(val):
+def guess_num(val: str) -> None:
     nums = [1, 3, 5, 7, 9]
     while True:
         # val = input('Input a number or \'q\' to quit: ').strip()
@@ -27,7 +27,7 @@ def guess_num(val):
         else:
             print('Try it again!')
 
-def matrix(nums1, nums2):
+def matrix(nums1: list[int], nums2: list[int]) -> list[int]:
     result = []
     for num1 in nums1:
         for num2 in nums2:

@@ -11,23 +11,23 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TestFile(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         for pycache in self.pycaches:
             if os.path.exists(pycache):
                 shutil.rmtree(pycache)
 
     # 1. Read the contents of a file
-    def test_read_file(self):
+    def test_read_file(self) -> None:
         self.assertEqual(file.read_file('./file/read_file.txt'), 'Hogehoge\nFoobar\n')
 
     # 2. Write an input value on a file
-    def _calFUT(self):
+    def _calFUT(self) -> str:
         return file.write_file('./file/write_file.txt')
 
-    def test_write_file(self):
+    def test_write_file(self) -> None:
         from io import StringIO
         buf = StringIO()
         buf.write('Foobar\n')
@@ -39,7 +39,7 @@ class TestFile(unittest.TestCase):
         self.assertEqual('Foobar', actual)
 
     # 3. Write a CSV with data
-    def test_write_csv(self):
+    def test_write_csv(self) -> None:
         data = [
             [
                 'Top Gun',

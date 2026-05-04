@@ -11,19 +11,19 @@ class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
 class TestLoop(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         for pycache in self.pycaches:
             if os.path.exists(pycache):
                 shutil.rmtree(pycache)
 
     # 1. Print TV dramas by looping a list
-    def _calFUT1(self):
+    def _calFUT1(self) -> None:
         return loop.print_tv_dramas(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
 
-    def test_print_tv_dramas(self):
+    def test_print_tv_dramas(self) -> None:
         from io import StringIO
         buf = StringIO()
 
@@ -34,10 +34,10 @@ class TestLoop(unittest.TestCase):
         self.assertEqual(actual, 'The Walking Dead\nEntourage\nThe Sopranos\nVampire Diaries\n')
 
     # 2. Print 25 - 50
-    def _calFUT2(self):
+    def _calFUT2(self) -> None:
         return loop.print_nums(range(1, 11))
 
-    def test_print_nums(self):
+    def test_print_nums(self) -> None:
         from io import StringIO
         buf = StringIO()
 
@@ -48,10 +48,10 @@ class TestLoop(unittest.TestCase):
         self.assertEqual(actual, '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n')
 
     # 3. Print TV dramas by looping a list with index
-    def _calFUT3(self):
+    def _calFUT3(self) -> None:
         return loop.print_tv_dramas_with_index(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
 
-    def test_print_tv_dramas_with_index(self):
+    def test_print_tv_dramas_with_index(self) -> None:
         from io import StringIO
         buf = StringIO()
 
@@ -67,10 +67,10 @@ class TestLoop(unittest.TestCase):
     #    If the input value is not a number, print 'Input a number or 'q': ' and  continue.
     #    If the input value is 'q', exit.
     # TODO: Test stdin
-    def _calFUT4(self):
+    def _calFUT4(self) -> None:
         return loop.guess_num(1)
 
-    def test_guess_num(self):
+    def test_guess_num(self) -> None:
         from io import StringIO
         buf = StringIO()
         # buf.write('1\n')
@@ -83,7 +83,7 @@ class TestLoop(unittest.TestCase):
         self.assertEqual(actual, 'Congratulations!\n')
 
     # 5. Matrix of 2 lists
-    def test_matrix(self):
+    def test_matrix(self) -> None:
         self.assertEqual(
             loop.matrix([8, 19, 148, 4], [9, 1, 33, 83]),
             [72, 8, 264, 664, 171, 19, 627, 1577, 1332, 148, 4884, 12284, 36, 4, 132, 332]
