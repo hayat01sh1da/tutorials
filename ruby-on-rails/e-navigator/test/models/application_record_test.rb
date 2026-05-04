@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 require 'test_helper'
 
 class ApplicationRecordTest < ActiveSupport::TestCase
