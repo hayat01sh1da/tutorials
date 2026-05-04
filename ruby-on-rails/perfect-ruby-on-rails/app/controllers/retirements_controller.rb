@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 class RetirementsController < ApplicationController
   def new; end
 
