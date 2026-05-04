@@ -1,0 +1,5 @@
+# Generated from app/models/user.rb with RBS::Inline
+
+# rbs_inline: enabled
+class User < ApplicationRecord
+end

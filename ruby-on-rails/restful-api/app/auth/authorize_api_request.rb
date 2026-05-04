@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 class AuthorizeApiRequest
   def initialize(headers = {})
     @headers = headers

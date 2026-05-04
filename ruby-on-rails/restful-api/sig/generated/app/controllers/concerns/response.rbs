@@ -1,0 +1,6 @@
+# Generated from app/controllers/concerns/response.rb with RBS::Inline
+
+# rbs_inline: enabled
+module Response
+  def json_response: (untyped object, ?untyped status) -> untyped
+end

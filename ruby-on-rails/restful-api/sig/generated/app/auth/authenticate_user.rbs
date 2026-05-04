@@ -1,0 +1,18 @@
+# Generated from app/auth/authenticate_user.rb with RBS::Inline
+
+# rbs_inline: enabled
+class AuthenticateUser
+  def initialize: (untyped email, untyped password) -> untyped
+
+  # Service entry point
+  def call: () -> untyped
+
+  private
+
+  attr_reader email: untyped
+
+  attr_reader password: untyped
+
+  # verify user credentials
+  def user: () -> untyped
+end

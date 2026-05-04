@@ -1,3 +1,4 @@
+# rbs_inline: enabled
 require 'rails_helper'
 
 # Test suite for User model
