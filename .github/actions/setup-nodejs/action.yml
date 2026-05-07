@@ -12,6 +12,8 @@ runs:
     # change this to (see https://github.com/actions/setup-node#usage):
     - name: Set up Node.js
       uses: actions/setup-node@v6
+      with:
+        node-version-file: .node-version
     - name: Install pnpm
       shell: bash
       run: corepack enable && corepack prepare pnpm@latest --activate
