@@ -58,4 +58,6 @@ jobs:
           working-directory: ./javascript
       - name: Jest
         working-directory: ./javascript
+        env:
+          TZ: 'Asia/Tokyo'
         run: pnpm exec jest
