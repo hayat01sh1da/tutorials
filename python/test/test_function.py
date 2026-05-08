@@ -1,3 +1,4 @@
+import function
 import unittest
 import contextlib
 import sys
@@ -5,14 +6,20 @@ import glob
 import os
 import shutil
 sys.path.append('./src')
-import function
+
 
 class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
+
 class TestFunction(unittest.TestCase):
     def setUp(self):
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self):
         for pycache in self.pycaches:
@@ -40,7 +47,11 @@ class TestFunction(unittest.TestCase):
 
     # 3. Return a message with 3 required args and 2 optional arg
     def test_introduce_self(self):
-        self.assertEqual(function.introduce_self('Oasist', 'Python'), 'Hi, I am Oasist and stdying Python so hard. My main programming language is Ruby')
+        self.assertEqual(
+            function.introduce_self(
+                'Oasist',
+                'Python'),
+            'Hi, I am Oasist and stdying Python so hard. My main programming language is Ruby')
 
     # 4. Define a function which halves an int arg.
     #    Define another function which fourfold an int arg.
@@ -52,6 +63,7 @@ class TestFunction(unittest.TestCase):
     def test_convert_to_float(self):
         self.assertEqual(function.convert_to_float('99.99'), 99.99)
         self.assertEqual(function.convert_to_float('Hoge'), 'Invalid input.')
+
 
 if __name__ == '__main__':
     unittest.main()
