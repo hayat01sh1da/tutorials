@@ -1,10 +1,10 @@
-from circle import Circle
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from circle import Circle
 
 
 class TestCircle(unittest.TestCase):

@@ -1,10 +1,10 @@
-from pet import Pet
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from pet import Pet
 
 
 class TestPet(unittest.TestCase):

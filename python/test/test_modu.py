@@ -1,10 +1,10 @@
-import modu
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+import modu
 
 
 class TestModu(unittest.TestCase):

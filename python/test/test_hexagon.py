@@ -1,10 +1,10 @@
-from hexagon import Hexagon
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from hexagon import Hexagon
 
 
 class TestHexagon(unittest.TestCase):

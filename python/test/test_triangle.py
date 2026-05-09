@@ -1,10 +1,10 @@
-from triangle import Triangle
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from triangle import Triangle
 
 
 class TestTriangle(unittest.TestCase):

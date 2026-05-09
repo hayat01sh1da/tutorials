@@ -1,10 +1,10 @@
-from rectangle import Rectangle
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):

@@ -1,10 +1,10 @@
-import strings
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+import strings
 
 
 class TesStrings(unittest.TestCase):

@@ -1,11 +1,11 @@
-from rider import Rider
-import is_the_same as i
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+import is_the_same as i
+from rider import Rider
 
 
 class TestIsTheSame(unittest.TestCase):

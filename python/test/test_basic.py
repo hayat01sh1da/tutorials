@@ -1,10 +1,10 @@
-import basic
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+import basic
 
 
 class TestBasic(unittest.TestCase):

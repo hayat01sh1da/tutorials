@@ -1,10 +1,10 @@
-from rider import Rider
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from rider import Rider
 
 
 class TestRider(unittest.TestCase):

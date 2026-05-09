@@ -1,4 +1,3 @@
-import function
 import unittest
 import contextlib
 import sys
@@ -6,6 +5,7 @@ import glob
 import os
 import shutil
 sys.path.append('./src')
+import function
 
 
 class redirect_stdin(contextlib._RedirectStream):

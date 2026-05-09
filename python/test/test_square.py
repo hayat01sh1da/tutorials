@@ -1,10 +1,10 @@
-from square import Square
 import unittest
 import sys
 import glob
 import os
 import shutil
 sys.path.append('./src')
+from square import Square
 
 
 class TestSquare(unittest.TestCase):
