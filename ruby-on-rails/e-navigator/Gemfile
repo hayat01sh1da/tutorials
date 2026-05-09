@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.14.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.22'
 
-gem 'devise', '~> 5.0.3'
+gem 'devise', '~> 5.0.4'
 gem 'enum_help'
 # environment variables
 gem 'dotenv-rails', '~> 3.2.0'
