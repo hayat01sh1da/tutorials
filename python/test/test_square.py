@@ -6,9 +6,15 @@ import shutil
 sys.path.append('./src')
 from square import Square
 
+
 class TestSquare(unittest.TestCase):
     def setUp(self):
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self):
         for pycache in self.pycaches:
@@ -32,6 +38,7 @@ class TestSquare(unittest.TestCase):
         square = Square(120)
         square = Square(160)
         self.assertEqual(square.square_list, [40, 80, 120, 160])
+
 
 if __name__ == '__main__':
     unittest.main()

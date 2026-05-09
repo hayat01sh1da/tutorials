@@ -7,10 +7,16 @@ sys.path.append('./src')
 import is_the_same as i
 from rider import Rider
 
+
 class TestIsTheSame(unittest.TestCase):
     def setUp(self):
-        self.rider    = Rider('Koichi Oguri', 86)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.rider = Rider('Koichi Oguri', 86)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self):
         for pycache in self.pycaches:
@@ -26,6 +32,7 @@ class TestIsTheSame(unittest.TestCase):
     def test_is_not_the_same(self):
         another_rider = Rider('Koichi Oguri', 86)
         self.assertFalse(i.is_the_same(self.rider, another_rider))
+
 
 if __name__ == '__main__':
     unittest.main()
