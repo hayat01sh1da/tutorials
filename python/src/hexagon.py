@@ -8,5 +8,11 @@ class Hexagon:
         self.side6 = s6
 
     def calculate_perimeter(self):
-        sides = [self.side1, self.side2, self.side3, self.side4, self.side5, self.side6]
+        sides = [
+            self.side1,
+            self.side2,
+            self.side3,
+            self.side4,
+            self.side5,
+            self.side6]
         return sum(sides)

@@ -6,10 +6,16 @@ import shutil
 sys.path.append('./src')
 from pet import Pet
 
+
 class TestPet(unittest.TestCase):
     def setUp(self):
-        self.pet      = Pet('cat', 'nana', 18)
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pet = Pet('cat', 'nana', 18)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self):
         for pycache in self.pycaches:
@@ -21,6 +27,7 @@ class TestPet(unittest.TestCase):
         self.assertEqual(self.pet.species, 'cat')
         self.assertEqual(self.pet.name, 'nana')
         self.assertEqual(self.pet.age, 18)
+
 
 if __name__ == '__main__':
     unittest.main()
