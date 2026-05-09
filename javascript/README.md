@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- Node v25.9.0
+- Node v26.0.0
 - PNPM 10.30.3
 
 ## 2. Reference

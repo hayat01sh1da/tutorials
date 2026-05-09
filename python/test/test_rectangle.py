@@ -6,10 +6,16 @@ import shutil
 sys.path.append('./src')
 from rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def setUp(self) -> None:
         self.rectangle = Rectangle(20, 30)
-        self.pycaches  = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self) -> None:
         for pycache in self.pycaches:
@@ -21,6 +27,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(100, self.rectangle.calculate_perimeter())
         # 3. Inherit `Shape` class and call `what_am_i` method
         self.assertEqual(self.rectangle.what_am_i(), 'I am a shape.')
+
 
 if __name__ == '__main__':
     unittest.main()

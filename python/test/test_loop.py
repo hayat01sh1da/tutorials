@@ -7,12 +7,19 @@ import shutil
 sys.path.append('./src')
 import loop
 
+
 class redirect_stdin(contextlib._RedirectStream):
     _stream = 'stdin'
 
+
 class TestLoop(unittest.TestCase):
     def setUp(self) -> None:
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self) -> None:
         for pycache in self.pycaches:
@@ -21,7 +28,8 @@ class TestLoop(unittest.TestCase):
 
     # 1. Print TV dramas by looping a list
     def _calFUT1(self) -> None:
-        return loop.print_tv_dramas(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
+        return loop.print_tv_dramas(
+            ['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
 
     def test_print_tv_dramas(self) -> None:
         from io import StringIO
@@ -31,7 +39,9 @@ class TestLoop(unittest.TestCase):
             self._calFUT1()
 
         actual = buf.getvalue()
-        self.assertEqual(actual, 'The Walking Dead\nEntourage\nThe Sopranos\nVampire Diaries\n')
+        self.assertEqual(
+            actual,
+            'The Walking Dead\nEntourage\nThe Sopranos\nVampire Diaries\n')
 
     # 2. Print 25 - 50
     def _calFUT2(self) -> None:
@@ -49,7 +59,8 @@ class TestLoop(unittest.TestCase):
 
     # 3. Print TV dramas by looping a list with index
     def _calFUT3(self) -> None:
-        return loop.print_tv_dramas_with_index(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
+        return loop.print_tv_dramas_with_index(
+            ['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
 
     def test_print_tv_dramas_with_index(self) -> None:
         from io import StringIO
@@ -59,7 +70,9 @@ class TestLoop(unittest.TestCase):
             self._calFUT3()
 
         actual = buf.getvalue()
-        self.assertEqual(actual, '1: The Walking Dead\n2: Entourage\n3: The Sopranos\n4: Vampire Diaries\n')
+        self.assertEqual(
+            actual,
+            '1: The Walking Dead\n2: Entourage\n3: The Sopranos\n4: Vampire Diaries\n')
 
     # 4. Print a message according to an input number.
     #    If the number is expected, print 'Congratulations!' and exit.
@@ -88,6 +101,7 @@ class TestLoop(unittest.TestCase):
             loop.matrix([8, 19, 148, 4], [9, 1, 33, 83]),
             [72, 8, 264, 664, 171, 19, 627, 1577, 1332, 148, 4884, 12284, 36, 4, 132, 332]
         )
+
 
 if __name__ == '__main__':
     unittest.main()

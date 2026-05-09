@@ -6,9 +6,15 @@ import shutil
 sys.path.append('./src')
 import modu
 
+
 class TestModu(unittest.TestCase):
     def setUp(self) -> None:
-        self.pycaches = glob.glob(os.path.join('.', '**', '__pycache__'), recursive = True)
+        self.pycaches = glob.glob(
+            os.path.join(
+                '.',
+                '**',
+                '__pycache__'),
+            recursive=True)
 
     def tearDown(self) -> None:
         for pycache in self.pycaches:
@@ -30,9 +36,11 @@ class TestModu(unittest.TestCase):
         self.assertEqual(modu.calc_multimode(data), [500])
         self.assertEqual(modu.calc_quantiles(data), [275.0, 500.0, 725.0])
 
-    # 2. Define a function in another module which cubes a number and return the value
+    # 2. Define a function in another module which cubes a number and return
+    # the value
     def test_import_cubed(self) -> None:
         self.assertEqual(modu.import_cubed(9), 729)
+
 
 if __name__ == '__main__':
     unittest.main()

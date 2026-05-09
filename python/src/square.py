@@ -1,5 +1,6 @@
 from shape import Shape
 
+
 class Square(Shape):
     square_list: list[float] = []
 
