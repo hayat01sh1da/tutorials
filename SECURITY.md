@@ -9,7 +9,7 @@
 | Track / Component     | Version(s) / Tooling               | Notes                                                                               |
 | --------------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
 | OS baseline           | WSL (Ubuntu 25.10)                 | Shared environment across tracks.                                                   |
-| Ruby / Rails content  | Ruby 4.0.3 (`.ruby-version`)       | Rails subprojects rely on Bundler; check each subfolder for gem specs.              |
+| Ruby / Rails content  | Ruby 4.0.4 (`.ruby-version`)       | Rails subprojects rely on Bundler; check each subfolder for gem specs.              |
 | Python content        | CPython 3.14.5 (`.python-version`) | Install per-track requirements as documented.                                       |
 | JavaScript/TypeScript | Node v26.1.0 (`.node-version`)     | Frontend tracks (React/Vue/TS/JS) use Node tooling plus per-project `package.json`. |
 
