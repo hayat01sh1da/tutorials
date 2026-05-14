@@ -106,6 +106,8 @@ ruby-on-rails/e-navigator/lib/bundler/man/
 
 # Python
 python/**/__pycache__/
+python/**/.pytest_cache/
+python/**/.mypy_cache/
 python/file/write_csv.csv
 python/file/write_file.txt
 
