@@ -8,6 +8,6 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params.expect(:id))
   end
 end
