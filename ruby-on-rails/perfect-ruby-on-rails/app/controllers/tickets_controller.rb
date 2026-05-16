@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    event = Event.find(params[:event_id])
+    event = Event.find(params.expect(:event_id))
     @ticket = current_user.tickets.build { |t|
       t.event = event
       t.comment = params[:ticket][:comment]
