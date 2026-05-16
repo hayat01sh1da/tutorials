@@ -1,0 +1,7 @@
+# Generated from test/controllers/users_controller_test.rb with RBS::Inline
+
+class UsersControllerTest < ActionDispatch::IntegrationTest
+  def setup: () -> untyped
+
+  private
+end

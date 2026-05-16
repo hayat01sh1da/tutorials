@@ -163,6 +163,4 @@ jobs:
           job-name: steep
       - name: Steep
         working-directory: ./ruby-on-rails/e-navigator
-        run: |
-          bundle exec rbs-inline --output sig/generated/ .
-          bundle exec steep check
+        run: bundle exec steep check
