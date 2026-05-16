@@ -1,0 +1,4 @@
+# Generated from app/helpers/interviews_helper.rb with RBS::Inline
+
+module InterviewsHelper
+end

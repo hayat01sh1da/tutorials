@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+D = Steep::Diagnostic
+
+# Rails framework signatures come from the RBS collection (rbs_collection.yaml),
+# model/route signatures from sig/rbs_rails (`rake rbs_rails:all`), application
+# and test code from sig/generated (rbs-inline), Devise from sig/handwritten,
+# and the Minitest/Rails declarative test DSL from sig/test_shim.
+#
+# `app` and `test` are separate targets so the permissive test-DSL shim only
+# relaxes the tests, never the application code.
+
+target :app do
+  check "app"
+
+  signature "sig/generated"
+  signature "sig/rbs_rails"
+  signature "sig/handwritten"
+
+  configure_code_diagnostics(D::Ruby.default)
+end
+
+target :test do
+  check "test"
+
+  signature "sig/generated"
+  signature "sig/rbs_rails"
+  signature "sig/handwritten"
+  signature "sig/test_shim"
+
+  library "minitest"
+
+  configure_code_diagnostics(D::Ruby.default)
+end
