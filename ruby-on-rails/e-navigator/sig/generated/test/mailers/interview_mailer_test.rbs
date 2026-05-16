@@ -1,0 +1,5 @@
+# Generated from test/mailers/interview_mailer_test.rb with RBS::Inline
+
+class InterviewMailerTest < ActionMailer::TestCase
+  def setup: () -> untyped
+end
