@@ -1,0 +1,65 @@
+# Hand-written shim for Devise, which ships no RBS in the gem collection.
+#
+# Covers the base controllers the app subclasses (app/controllers/users/*)
+# and the controller helpers Devise mixes into every controller at runtime
+# via `ActiveSupport.on_load(:action_controller)`.
+
+module Devise
+  class ParameterSanitizer
+    def permit: (untyped name, *untyped, **untyped) -> untyped
+
+    def sanitize: (untyped name) -> untyped
+  end
+
+  module Controllers
+    module Helpers
+      def authenticate_user!: (*untyped) -> void
+
+      def user_signed_in?: () -> bool
+
+      def current_user: () -> untyped
+
+      def signed_in?: (?untyped scope) -> bool
+
+      def devise_controller?: () -> bool
+
+      def devise_parameter_sanitizer: () -> ::Devise::ParameterSanitizer
+
+      def sign_in: (*untyped) -> void
+
+      def sign_out: (*untyped) -> untyped
+
+      def bypass_sign_in: (untyped resource, ?scope: untyped) -> void
+    end
+  end
+
+  # Devise's controllers descend from `DeviseController`, which descends from
+  # the configured parent controller (ActionController::Base here).
+  class Controller < ::ActionController::Base
+  end
+
+  class ConfirmationsController < ::Devise::Controller
+  end
+
+  class SessionsController < ::Devise::Controller
+  end
+
+  class RegistrationsController < ::Devise::Controller
+  end
+
+  class PasswordsController < ::Devise::Controller
+  end
+
+  class UnlocksController < ::Devise::Controller
+  end
+
+  class OmniauthCallbacksController < ::Devise::Controller
+  end
+end
+
+# Devise mixes its controller helpers into every Action Controller.
+module ActionController
+  class Base
+    include ::Devise::Controllers::Helpers
+  end
+end
