@@ -1,0 +1,30 @@
+# Hand-written shim for test-only types that are not provided by the gem
+# RBS collection. Loaded only by the `:test` Steep target so it never
+# relaxes type checking of application code.
+
+# `ActionMailer::TestCase` ships no RBS in the collection. It behaves as an
+# `ActiveSupport::TestCase` (declarative `test`, assertions and fixtures all
+# come from there / Minitest, which the collection does provide).
+module ActionMailer
+  class TestCase < ::ActiveSupport::TestCase
+  end
+end
+
+# Devise's test integration modules are not in the collection. They are
+# mixed into the test base classes in test/test_helper.rb and provide the
+# `sign_in` / `sign_out` authentication helpers.
+module Devise
+  module Test
+    module IntegrationHelpers
+      def sign_in: (*untyped) -> void
+
+      def sign_out: (*untyped) -> void
+    end
+
+    module ControllerHelpers
+      def sign_in: (*untyped) -> void
+
+      def sign_out: (*untyped) -> void
+    end
+  end
+end

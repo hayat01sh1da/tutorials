@@ -1,0 +1,5 @@
+# Generated from test/models/interview_test.rb with RBS::Inline
+
+class InterviewTest < ActiveSupport::TestCase
+  def setup: () -> untyped
+end

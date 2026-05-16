@@ -1,0 +1,4 @@
+# Generated from app/controllers/users/omniauth_callbacks_controller.rb with RBS::Inline
+
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+end

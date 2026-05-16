@@ -1,0 +1,5 @@
+# Generated from test/integration/user_flow_test.rb with RBS::Inline
+
+class UserFlowTest < ActionDispatch::IntegrationTest
+  def setup: () -> untyped
+end

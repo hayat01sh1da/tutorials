@@ -1,0 +1,64 @@
+# resolve-type-names: false
+
+interface ::_RbsRailsPathHelpers
+  def rails_mailers_path: (*untyped) -> ::String
+  def rails_info_properties_path: (*untyped) -> ::String
+  def rails_info_routes_path: (*untyped) -> ::String
+  def rails_info_notes_path: (*untyped) -> ::String
+  def rails_info_path: (*untyped) -> ::String
+  def new_user_session_path: (*untyped) -> ::String
+  def user_session_path: (*untyped) -> ::String
+  def destroy_user_session_path: (*untyped) -> ::String
+  def new_user_password_path: (*untyped) -> ::String
+  def edit_user_password_path: (*untyped) -> ::String
+  def user_password_path: (*untyped) -> ::String
+  def cancel_user_registration_path: (*untyped) -> ::String
+  def new_user_registration_path: (*untyped) -> ::String
+  def edit_user_registration_path: (*untyped) -> ::String
+  def user_registration_path: (*untyped) -> ::String
+  def root_path: (*untyped) -> ::String
+  def approve_user_interview_path: (*untyped) -> ::String
+  def select_approver_user_interviews_path: (*untyped) -> ::String
+  def user_interviews_path: (*untyped) -> ::String
+  def new_user_interview_path: (*untyped) -> ::String
+  def edit_user_interview_path: (*untyped) -> ::String
+  def user_interview_path: (*untyped) -> ::String
+  def users_path: (*untyped) -> ::String
+  def user_path: (*untyped) -> ::String
+  def turbo_recede_historical_location_path: (*untyped) -> ::String
+  def turbo_resume_historical_location_path: (*untyped) -> ::String
+  def turbo_refresh_historical_location_path: (*untyped) -> ::String
+  def rails_mailers_url: (*untyped) -> ::String
+  def rails_info_properties_url: (*untyped) -> ::String
+  def rails_info_routes_url: (*untyped) -> ::String
+  def rails_info_notes_url: (*untyped) -> ::String
+  def rails_info_url: (*untyped) -> ::String
+  def new_user_session_url: (*untyped) -> ::String
+  def user_session_url: (*untyped) -> ::String
+  def destroy_user_session_url: (*untyped) -> ::String
+  def new_user_password_url: (*untyped) -> ::String
+  def edit_user_password_url: (*untyped) -> ::String
+  def user_password_url: (*untyped) -> ::String
+  def cancel_user_registration_url: (*untyped) -> ::String
+  def new_user_registration_url: (*untyped) -> ::String
+  def edit_user_registration_url: (*untyped) -> ::String
+  def user_registration_url: (*untyped) -> ::String
+  def root_url: (*untyped) -> ::String
+  def approve_user_interview_url: (*untyped) -> ::String
+  def select_approver_user_interviews_url: (*untyped) -> ::String
+  def user_interviews_url: (*untyped) -> ::String
+  def new_user_interview_url: (*untyped) -> ::String
+  def edit_user_interview_url: (*untyped) -> ::String
+  def user_interview_url: (*untyped) -> ::String
+  def users_url: (*untyped) -> ::String
+  def user_url: (*untyped) -> ::String
+  def turbo_recede_historical_location_url: (*untyped) -> ::String
+  def turbo_resume_historical_location_url: (*untyped) -> ::String
+  def turbo_refresh_historical_location_url: (*untyped) -> ::String
+end
+
+module ::ActionController
+  class ::ActionController::Base
+    include ::_RbsRailsPathHelpers
+  end
+end

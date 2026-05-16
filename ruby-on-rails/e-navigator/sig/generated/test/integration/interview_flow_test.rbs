@@ -1,0 +1,5 @@
+# Generated from test/integration/interview_flow_test.rb with RBS::Inline
+
+class InterviewFlowTest < ActionDispatch::IntegrationTest
+  def setup: () -> untyped
+end
