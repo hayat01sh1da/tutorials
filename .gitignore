@@ -109,6 +109,8 @@ ruby-on-rails/restful-api/.env
 
 # Python
 python/**/__pycache__/
+python/**/.pytest_cache/
+python/**/.mypy_cache/
 python/file/write_csv.csv
 python/file/write_file.txt
 
