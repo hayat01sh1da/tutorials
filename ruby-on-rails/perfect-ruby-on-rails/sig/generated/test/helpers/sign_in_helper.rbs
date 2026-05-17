@@ -1,0 +1,11 @@
+# Generated from test/helpers/sign_in_helper.rb with RBS::Inline
+
+module SignInHelper
+  def sign_in_as: (untyped user) -> untyped
+
+  def current_user: () -> untyped
+end
+
+class ActionDispatch::IntegrationTest
+  include SignInHelper
+end

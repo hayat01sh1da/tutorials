@@ -1,0 +1,5 @@
+# Generated from app/controllers/status_controller.rb with RBS::Inline
+
+class StatusController < ApplicationController
+  def index: () -> untyped
+end

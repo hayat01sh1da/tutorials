@@ -1,0 +1,4 @@
+# Generated from app/models/ticket.rb with RBS::Inline
+
+class Ticket < ApplicationRecord
+end
