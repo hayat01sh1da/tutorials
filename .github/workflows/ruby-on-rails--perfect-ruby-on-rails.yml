@@ -186,6 +186,4 @@ jobs:
           job-name: steep
       - name: Steep
         working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-        run: |
-          bundle exec rbs-inline --output sig/generated/ .
-          bundle exec steep check
+        run: bundle exec steep check
