@@ -1,11 +1,40 @@
+# frozen_string_literal: true
+
 D = Steep::Diagnostic
+
+# Rails framework signatures come from the RBS collection (rbs_collection.yaml),
+# model/route signatures from sig/rbs_rails (`rake rbs_rails:all`), application
+# and spec code from sig/generated (rbs-inline), library gaps from
+# sig/handwritten, and the test-only RSpec/FactoryBot DSL from sig/rspec.
+#
+# `app` and `spec` are separate targets so the permissive RSpec DSL shim only
+# relaxes the specs, never the application code.
 
 target :app do
   check 'app'
-  check 'spec'
-  signature 'sig'
+
+  signature 'sig/generated'
+  signature 'sig/rbs_rails'
+  signature 'sig/handwritten'
 
   library 'net-smtp'
 
   configure_code_diagnostics(D::Ruby.default)
+end
+
+target :spec do
+  check 'spec'
+
+  signature 'sig/generated'
+  signature 'sig/rbs_rails'
+  signature 'sig/handwritten'
+  signature 'sig/rspec'
+
+  library 'net-smtp'
+
+  # Empty `params: {}` / `[]` literals are pervasive and harmless in request
+  # specs; silence only that one diagnostic, and only for the spec target.
+  spec_diagnostics = D::Ruby.default.dup
+  spec_diagnostics[D::Ruby::UnannotatedEmptyCollection] = nil
+  configure_code_diagnostics(spec_diagnostics)
 end
