@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 FactoryBot.define do
   factory :user do
     name { Faker::Name.name }

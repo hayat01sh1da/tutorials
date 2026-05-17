@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 module RequestSpecHelper
   # Parse JSON response to ruby hash
   def json

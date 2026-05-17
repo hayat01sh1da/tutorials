@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
 

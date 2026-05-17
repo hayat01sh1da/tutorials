@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class AuthenticateUser
   def initialize(email, password)
     @email = email

@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 class V1::ItemsController < ApplicationController
   before_action :set_todo
   before_action :set_todo_item, only: %i(show update destroy)
@@ -34,11 +35,11 @@ class V1::ItemsController < ApplicationController
   private
 
   def set_todo
-    @todo = Todo.find(params[:todo_id])
+    @todo = Todo.find(params.expect(:todo_id))
   end
 
   def set_todo_item
-    @item = @todo.items.find_by!(id: params[:id]) if @todo
+    @item = @todo.items.find_by!(id: params.expect(:id)) if @todo
   end
 
   def item_params

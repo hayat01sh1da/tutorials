@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 require 'rails_helper'
 
 # Test suite for the Item model

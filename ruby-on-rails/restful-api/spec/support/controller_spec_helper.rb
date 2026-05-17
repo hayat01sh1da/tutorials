@@ -1,4 +1,5 @@
 # rbs_inline: enabled
+
 module ControllerSpecHelper
   # generate tokens from user id
   def token_generator(user_id)
