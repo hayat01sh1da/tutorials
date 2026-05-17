@@ -59,6 +59,7 @@ group :development do
   gem 'rubocop-rspec', '~> 3.9.0', require: false
   # Typechecking
   gem 'rbs-inline', '~> 0.13.0', require: false
+  gem 'rbs_rails', '~> 0.13.1', require: false
   gem 'steep', '~> 1.10.0', require: false
 end
 
