@@ -1,0 +1,18 @@
+# Hand-written application-level signatures that complement the RBS
+# collection where its Rails coverage is incomplete. Loaded by every target.
+
+# The collection's ActiveStorage RBS does not expose these delegated
+# methods on the single-attachment proxy.
+module ActiveStorage
+  class Attached::One
+    def blob: () -> untyped
+
+    def variant: (*untyped) -> untyped
+  end
+end
+
+# View helpers receive ActionView's asset tag helpers at runtime; the
+# collection does not model that mix-in into application helper modules.
+module EventHelper
+  def image_tag: (*untyped) -> untyped
+end
