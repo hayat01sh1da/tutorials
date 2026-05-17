@@ -12,29 +12,29 @@ D = Steep::Diagnostic
 # relaxes the tests, never the application code.
 
 target :app do
-  check "app"
+  check 'app'
 
-  signature "sig/generated"
-  signature "sig/rbs_rails"
-  signature "sig/handwritten"
+  signature 'sig/generated'
+  signature 'sig/rbs_rails'
+  signature 'sig/handwritten'
 
-  library "net-smtp"
-  library "psych"
+  library 'net-smtp'
+  library 'psych'
 
   configure_code_diagnostics(D::Ruby.default)
 end
 
 target :test do
-  check "test"
+  check 'test'
 
-  signature "sig/generated"
-  signature "sig/rbs_rails"
-  signature "sig/handwritten"
-  signature "sig/test_shim"
+  signature 'sig/generated'
+  signature 'sig/rbs_rails'
+  signature 'sig/handwritten'
+  signature 'sig/test_shim'
 
-  library "minitest"
-  library "net-smtp"
-  library "psych"
+  library 'minitest'
+  library 'net-smtp'
+  library 'psych'
 
   configure_code_diagnostics(D::Ruby.default)
 end
