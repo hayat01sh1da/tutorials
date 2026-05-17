@@ -108,7 +108,7 @@ ruby-on-rails/restful-api/tmp/*
 ruby-on-rails/restful-api/log/*
 ruby-on-rails/restful-api/.bundle
 ruby-on-rails/restful-api/.env
-restful-api/.gem_rbs_collection
+ruby-on-rails/restful-api/.gem_rbs_collection
 
 # Python
 python/**/__pycache__/
