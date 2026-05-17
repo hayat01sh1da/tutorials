@@ -1,0 +1,4 @@
+# Generated from test/test_helper.rb with RBS::Inline
+
+class ActiveSupport::TestCase
+end

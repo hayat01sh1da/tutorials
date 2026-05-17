@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 class EventsController < ApplicationController
   skip_before_action :authenticate, only: [:index, :show]
   before_action :set_event, only: :show
@@ -53,10 +55,10 @@ class EventsController < ApplicationController
   end
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find(params.expect(:id))
   end
 
   def set_event_of_current_user
-    @event = current_user.created_events.find(params[:id])
+    @event = current_user.created_events.find(params.expect(:id))
   end
 end

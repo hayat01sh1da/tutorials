@@ -1,0 +1,9 @@
+# Generated from app/controllers/tickets_controller.rb with RBS::Inline
+
+class TicketsController < ApplicationController
+  def new: () -> untyped
+
+  def create: () -> untyped
+
+  def destroy: () -> untyped
+end

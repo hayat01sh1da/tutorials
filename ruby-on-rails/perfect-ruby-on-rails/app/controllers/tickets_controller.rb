@@ -1,10 +1,12 @@
+# rbs_inline: enabled
+
 class TicketsController < ApplicationController
   def new
     raise ApplicationController::RoutingError, 'ログイン状態で TicketsController#new にアクセスされました'
   end
 
   def create
-    event = Event.find(params[:event_id])
+    event = Event.find(params.expect(:event_id))
     @ticket = current_user.tickets.build { |t|
       t.event = event
       t.comment = params[:ticket][:comment]

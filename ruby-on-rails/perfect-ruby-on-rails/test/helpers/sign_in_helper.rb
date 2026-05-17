@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 module SignInHelper
   def sign_in_as(user)
     OmniAuth.config.test_mode = true
@@ -24,8 +26,8 @@ module SignInHelper
   def current_user
     @current_user
   end
+end
 
-  class ActionDispatch::IntegrationTest
-    include SignInHelper
-  end
+class ActionDispatch::IntegrationTest
+  include SignInHelper
 end

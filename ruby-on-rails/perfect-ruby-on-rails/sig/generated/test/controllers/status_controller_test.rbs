@@ -1,0 +1,4 @@
+# Generated from test/controllers/status_controller_test.rb with RBS::Inline
+
+class StatusControllerTest < ApplicationControllerTest
+end

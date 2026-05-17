@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 require_relative './application_system_test_case'
 
 class WelcomesTest < ApplicationSystemTestCase
