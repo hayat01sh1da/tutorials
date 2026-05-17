@@ -1,0 +1,4 @@
+# Generated from test/controllers/application_controller_test.rb with RBS::Inline
+
+class ApplicationControllerTest < ActionDispatch::IntegrationTest
+end

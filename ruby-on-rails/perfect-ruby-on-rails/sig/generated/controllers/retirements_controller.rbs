@@ -1,0 +1,7 @@
+# Generated from app/controllers/retirements_controller.rb with RBS::Inline
+
+class RetirementsController < ApplicationController
+  def new: () -> untyped
+
+  def create: () -> untyped
+end
