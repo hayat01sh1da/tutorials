@@ -26,8 +26,8 @@ module SignInHelper
   def current_user
     @current_user
   end
+end
 
-  class ActionDispatch::IntegrationTest
-    include SignInHelper
-  end
+class ActionDispatch::IntegrationTest
+  include SignInHelper
 end
