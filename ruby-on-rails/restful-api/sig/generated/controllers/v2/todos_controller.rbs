@@ -1,0 +1,5 @@
+# Generated from ./app/controllers/v2/todos_controller.rb with RBS::Inline
+
+class V2::TodosController < ApplicationController
+  def index: () -> untyped
+end

@@ -1,0 +1,39 @@
+# Hand-written application-level signatures that complement the RBS
+# collection and the rbs-inline output where neither can express something.
+# Loaded by every target.
+
+# The versioned API controllers use the compact form
+# `class V1::ItemsController` with no Ruby file declaring the namespace
+# (Rails/Zeitwerk creates the `V1` / `V2` modules implicitly), so rbs-inline
+# never emits them.
+module V1
+end
+
+module V2
+end
+
+# `Response` and `ExceptionHandler` are controller concerns mixed into
+# `ActionController::API` controllers, so at runtime their instance methods
+# resolve controller methods (`render`) and each other's helpers
+# (`json_response`). ActiveSupport::Concern's `included do ... end` block
+# also runs in the including class, where `rescue_from` is available.
+# Model that here since the collection cannot infer the mix-in graph.
+module Response
+  def render: (*untyped) -> untyped
+
+  def head: (*untyped) -> untyped
+end
+
+module ExceptionHandler
+  include ::Response
+
+  def self.rescue_from: (*untyped) ?{ (untyped) -> untyped } -> void
+end
+
+# rbs_rails defines `create!` only on the relation, so `User.create!`
+# resolves through the collection's `ActiveRecord::Base::ClassMethods`,
+# whose generated signature requires a block. Narrow the singleton method
+# to the attributes-hash form the controller actually uses.
+class User
+  def self.create!: (?untyped attributes) ?{ () -> untyped } -> ::User
+end

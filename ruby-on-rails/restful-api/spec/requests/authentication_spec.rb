@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 require 'rails_helper'
 
 RSpec.describe 'Authentication', type: :request do

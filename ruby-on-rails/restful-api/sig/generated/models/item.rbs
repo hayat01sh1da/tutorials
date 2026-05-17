@@ -1,0 +1,4 @@
+# Generated from ./app/models/item.rb with RBS::Inline
+
+class Item < ApplicationRecord
+end

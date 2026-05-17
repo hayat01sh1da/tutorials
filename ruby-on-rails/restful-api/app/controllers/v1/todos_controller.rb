@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 class V1::TodosController < ApplicationController
   before_action :set_todo, only: %i(show update destroy)
 
@@ -33,7 +35,7 @@ class V1::TodosController < ApplicationController
   private
 
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = Todo.find(params.expect(:id))
   end
 
   def todo_params

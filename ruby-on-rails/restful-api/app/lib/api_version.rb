@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 class ApiVersion
   attr_reader :version, :default
 

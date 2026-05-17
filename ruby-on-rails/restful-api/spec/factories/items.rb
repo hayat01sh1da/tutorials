@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 FactoryBot.define do
   factory :item do
     name { Faker::Lorem.word }
