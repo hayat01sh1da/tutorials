@@ -1,0 +1,10 @@
+# Generated from ./app/controllers/authentication_controller.rb with RBS::Inline
+
+class AuthenticationController < ApplicationController
+  # return auth token once user is authenticated
+  def authenticate: () -> untyped
+
+  private
+
+  def auth_params: () -> untyped
+end

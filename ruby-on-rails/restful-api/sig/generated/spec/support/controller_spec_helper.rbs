@@ -1,6 +1,5 @@
-# Generated from spec/support/controller_spec_helper.rb with RBS::Inline
+# Generated from ./spec/support/controller_spec_helper.rb with RBS::Inline
 
-# rbs_inline: enabled
 module ControllerSpecHelper
   # generate tokens from user id
   def token_generator: (untyped user_id) -> untyped

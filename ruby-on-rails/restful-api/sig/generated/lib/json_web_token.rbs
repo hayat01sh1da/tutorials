@@ -1,0 +1,10 @@
+# Generated from ./app/lib/json_web_token.rb with RBS::Inline
+
+class JsonWebToken
+  # secret to encode and decode token
+  HMAC_SECRET: untyped
+
+  def self.encode: (untyped payload, ?untyped exp) -> untyped
+
+  def self.decode: (untyped token) -> untyped
+end
