@@ -285,6 +285,9 @@ GEM
     rubocop-ast (1.49.1)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
+    rubocop-capybara (2.23.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.81)
     rubocop-factory_bot (2.28.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
@@ -384,6 +387,7 @@ DEPENDENCIES
   rbs-inline (~> 0.14.0)
   rbs_rails (~> 0.13.1)
   rubocop (~> 1.86.2)
+  rubocop-capybara (~> 2.23.0)
   rubocop-factory_bot (~> 2.28.0)
   rubocop-minitest (~> 0.39.0)
   rubocop-performance (~> 1.26.0)
@@ -495,6 +499,7 @@ CHECKSUMS
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
   rubocop (1.86.2) sha256=bb2e97f635eda42c448f2588f4a6ff78f221b8bdfdf65b1e9b07fbd57521b45d
   rubocop-ast (1.49.1) sha256=4412f3ee70f6fe4546cc489548e0f6fcf76cafcfa80fa03af67098ffed755035
+  rubocop-capybara (2.23.0) sha256=f9ea1ba3a7561ee8e88cf76fc378ce517ce5327155f305ee7b5c2500e5aee357
   rubocop-factory_bot (2.28.0) sha256=4b17fc02124444173317e131759d195b0d762844a71a29fe8139c1105d92f0cb
   rubocop-minitest (0.39.1) sha256=998398d6da4026d297f0f9bf709a1eac5f2b6947c24431f94af08138510cf7ed
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
