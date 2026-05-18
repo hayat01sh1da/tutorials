@@ -1,4 +1,4 @@
-# Generated from ./app/lib/api_version.rb with RBS::Inline
+# Generated from app/lib/api_version.rb with RBS::Inline
 
 class ApiVersion
   attr_reader version: untyped

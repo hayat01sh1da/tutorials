@@ -1,4 +1,4 @@
-# Generated from ./app/lib/json_web_token.rb with RBS::Inline
+# Generated from app/lib/json_web_token.rb with RBS::Inline
 
 class JsonWebToken
   # secret to encode and decode token

@@ -1,4 +1,4 @@
-# Generated from ./app/controllers/authentication_controller.rb with RBS::Inline
+# Generated from app/controllers/authentication_controller.rb with RBS::Inline
 
 class AuthenticationController < ApplicationController
   # return auth token once user is authenticated
