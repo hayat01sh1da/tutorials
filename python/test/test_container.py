@@ -4,17 +4,22 @@ import container
 
 
 def test_list_favourite_musicians():
-    assert container.list_favourite_musicians('Oasis', "B'z", "L'Arc~en~Ciel") == \
-        ['Oasis', "B'z", "L'Arc~en~Ciel"]
+    assert container.list_favourite_musicians('Oasis', "B'z", "L'Arc~en~Ciel") == [
+        'Oasis', "B'z", "L'Arc~en~Ciel"]
 
 
 def test_show_geographical_info():
-    assert container.show_geographical_info('Australia', 32.016998, 115.933998) == \
-        ('Australia', 32.016998, 115.933998)
+    assert container.show_geographical_info(
+        'Australia', 32.016998, 115.933998) == (
+        'Australia', 32.016998, 115.933998)
 
 
 def test_show_self_info():
-    assert container.show_self_info(171, 'Server-side engineer', 'Japan', 'Black') == {
+    assert container.show_self_info(
+        171,
+        'Server-side engineer',
+        'Japan',
+        'Black') == {
         'height': 171,
         'occupation': 'Server-side engineer',
         'nationality': 'Japan',

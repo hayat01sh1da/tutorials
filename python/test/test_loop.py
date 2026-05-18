@@ -2,7 +2,8 @@ import loop
 
 
 def test_print_tv_dramas(capsys):
-    loop.print_tv_dramas(['The Walking Dead', 'Entourage', 'The Sopranos', 'Vampire Diaries'])
+    loop.print_tv_dramas(['The Walking Dead', 'Entourage',
+                         'The Sopranos', 'Vampire Diaries'])
     captured = capsys.readouterr()
     assert captured.out == 'The Walking Dead\nEntourage\nThe Sopranos\nVampire Diaries\n'
 
