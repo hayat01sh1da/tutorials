@@ -32,7 +32,7 @@ require 'database_cleaner'
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => error
-  puts error.to_s.strip
+  Rails.logger.debug error.to_s.strip
   exit 1
 end
 
