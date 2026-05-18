@@ -22,7 +22,7 @@ gem 'bootsnap', '~> 1.24.1', require: false
 # gem 'rack-cors'
 
 # JSON web tokens
-gem 'jwt', '~> 3.1.2'
+gem 'jwt', '~> 3.2.0'
 
 # Active model serializers
 gem 'active_model_serializers', '~> 0.10.14'
