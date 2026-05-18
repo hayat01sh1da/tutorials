@@ -11,7 +11,7 @@
     "react-dom": "^19.2.6",
     "react-scripts": "5.0.1",
     "uuid": "14.0.0",
-    "webpack-dev-server": "5.2.3"
+    "webpack-dev-server": "5.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,7 +44,7 @@
       "underscore": "1.13.8",
       "postcss": "8.5.10",
       "@tootallnate/once": "3.0.1",
-      "webpack-dev-server": "5.2.3"
+      "webpack-dev-server": "5.2.4"
     }
   }
 }
