@@ -1,0 +1,8 @@
+[tool.mypy]
+python_version = "3.14"
+warn_unused_configs = true
+# This is a language-learning / practice repository (small standalone
+# exercises), so type-checking is kept lenient — mypy runs and must pass,
+# but per-function annotations are not enforced. Missing third-party stubs
+# are ignored. This mirrors the lenient mypy setup used in `deep-learnings`.
+ignore_missing_imports = true

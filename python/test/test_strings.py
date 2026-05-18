@@ -6,7 +6,8 @@ def test_return_each_char():
 
 
 def test_complete_proverb():
-    assert strings.complete_proverb('hungry', 'foolish') == 'Stay hungry, stay foolish!'
+    assert strings.complete_proverb(
+        'hungry', 'foolish') == 'Stay hungry, stay foolish!'
 
 
 def test_capitalise():
@@ -45,5 +46,5 @@ def test_combine_words():
 
 
 def test_slice_sentence():
-    assert strings.slice_sentence('Before I die, I wish to watch aurora in Finland') == \
-        'Before I die'
+    assert strings.slice_sentence(
+        'Before I die, I wish to watch aurora in Finland') == 'Before I die'

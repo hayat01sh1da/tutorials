@@ -25,8 +25,10 @@ def test_print_remainder():
 
 
 def test_judge_age():
-    assert basic.judge_age(41) == 'Now you must start paying a healthcare insurace tax.'
-    assert basic.judge_age(40) == 'Now you must start paying a healthcare insurace tax.'
+    assert basic.judge_age(
+        41) == 'Now you must start paying a healthcare insurace tax.'
+    assert basic.judge_age(
+        40) == 'Now you must start paying a healthcare insurace tax.'
     assert basic.judge_age(39) == 'You are legally allowed to drink.'
     assert basic.judge_age(20) == 'You are legally allowed to drink.'
     assert basic.judge_age(19) == 'You are a teen.'

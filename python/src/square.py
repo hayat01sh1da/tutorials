@@ -2,7 +2,7 @@ from shape import Shape
 
 
 class Square(Shape):
-    square_list = []
+    square_list: list[int] = []
 
     def __init__(self, s):
         self.side = s
