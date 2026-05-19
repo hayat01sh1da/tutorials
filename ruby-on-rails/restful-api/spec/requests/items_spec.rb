@@ -24,7 +24,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 200' do
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -36,7 +36,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -54,7 +54,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 200' do
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
       end
     end
 
@@ -66,7 +66,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -85,7 +85,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 201' do
-        expect(response).to have_http_status(201)
+        expect(response).to have_http_status(:created)
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 422' do
-        expect(response).to have_http_status(422)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
@@ -119,7 +119,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+        expect(response).to have_http_status(:no_content)
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns status code 404' do
-        expect(response).to have_http_status(404)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -143,7 +143,7 @@ RSpec.describe 'Items API' do
     end
 
     it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+      expect(response).to have_http_status(:no_content)
     end
   end
 end
