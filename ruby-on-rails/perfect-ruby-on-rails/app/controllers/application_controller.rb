@@ -1,6 +1,10 @@
 # rbs_inline: enabled
 
 class ApplicationController < ActionController::Base
+  # Raised (and rescued by Rails as a 404) when a route is reached in an
+  # invalid state — e.g. an authenticated user hitting TicketsController#new.
+  class RoutingError < StandardError; end
+
   before_action :authenticate
   helper_method :logged_in?, :current_user
 

@@ -16,3 +16,16 @@ end
 module EventHelper
   def image_tag: (*untyped) -> untyped
 end
+
+# Ransack adds the `ransack` query-builder class method to every model; it is
+# not part of the RBS collection.
+class ApplicationRecord
+  def self.ransack: (*untyped) -> untyped
+end
+
+# `ApplicationController::RoutingError` is raised by TicketsController; it is
+# defined in app/controllers/application_controller.rb.
+class ApplicationController
+  class RoutingError < ::StandardError
+  end
+end
