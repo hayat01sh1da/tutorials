@@ -1,4 +1,4 @@
-# Generated from ./app/controllers/v1/todos_controller.rb with RBS::Inline
+# Generated from app/controllers/v1/todos_controller.rb with RBS::Inline
 
 class V1::TodosController < ApplicationController
   # GET /todos

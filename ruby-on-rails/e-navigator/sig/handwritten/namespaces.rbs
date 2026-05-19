@@ -1,0 +1,8 @@
+# rbs-inline mirrors the Ruby source, so `app/controllers/users/*.rb` is
+# emitted as qualified names (`class Users::SessionsController < ...`) with no
+# wrapping `module Users`. RBS requires every enclosing namespace to have an
+# explicit declaration (otherwise RBS::Resolver::ConstantResolver raises
+# "::Users not found"), so declare the controller namespace here.
+# Rails/Zeitwerk treats the `app/controllers/users/` directory as a module.
+module Users
+end

@@ -1,0 +1,20 @@
+# Hand-written signatures for application surface the generators cannot infer:
+# Devise model mix-in methods and ActionMailer's per-action class proxies.
+# Reopening the classes without a superclass merges with the rbs-inline /
+# rbs_rails declarations (no RBS::SuperclassMismatchError).
+
+# `clean_up_passwords` comes from Devise::Models::DatabaseAuthenticatable,
+# which the collection declares as an empty module. The model calls it from
+# `update_without_current_password`.
+class User
+  def clean_up_passwords: () -> void
+end
+
+# ActionMailer exposes every public instance action as a class method that
+# returns an ActionMailer::MessageDelivery (`InterviewMailer.apply(...)`),
+# but the generated signature only has the instance methods.
+class InterviewMailer
+  def self.apply: (*untyped) -> untyped
+
+  def self.approve: (*untyped) -> untyped
+end

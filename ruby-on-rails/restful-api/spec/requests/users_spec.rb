@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users API', type: :request do
+RSpec.describe 'Users API' do
   let(:user) { build(:user) }
   let(:headers) { valid_headers.except('Authorization') }
   let(:valid_attributes) do
@@ -17,7 +17,7 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'creates a new user' do
-        expect(response).to have_http_status(201)
+        expect(response).to have_http_status(:created)
       end
 
       it 'returns a success message' do
@@ -35,7 +35,7 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'does not create a new user' do
-        expect(response).to have_http_status(422)
+        expect(response).to have_http_status(:unprocessable_content)
       end
 
       it 'returns a failure message' do

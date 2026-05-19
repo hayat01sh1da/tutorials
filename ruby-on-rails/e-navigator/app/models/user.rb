@@ -34,10 +34,11 @@ class User < ApplicationRecord
   end
 
   def age
-    return unless birthday
+    birth = birthday
+    return unless birth
 
     @today      = Time.zone&.today || Date.today
-    @birth_date = birthday.to_date
+    @birth_date = birth.to_date
     age         = today.year - birth_date.year
 
     before_birthday? ? age - 1 : age
@@ -48,7 +49,8 @@ class User < ApplicationRecord
   attr_reader :today, :birth_date
 
   def birthday_cannot_be_in_the_future
-    if birthday.present? && birthday.future?
+    birth = birthday
+    if birth&.future?
       errors.add(:birthday, "に未来の日時は選択できません。")
     end
   end
