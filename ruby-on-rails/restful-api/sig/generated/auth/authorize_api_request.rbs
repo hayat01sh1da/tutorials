@@ -1,4 +1,4 @@
-# Generated from ./app/auth/authorize_api_request.rb with RBS::Inline
+# Generated from app/auth/authorize_api_request.rb with RBS::Inline
 
 class AuthorizeApiRequest
   def initialize: (?untyped headers) -> untyped

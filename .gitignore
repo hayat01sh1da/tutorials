@@ -77,6 +77,8 @@ ruby-on-rails/e-navigator/rdoc/
 ruby-on-rails/e-navigator/.bundle/
 ruby-on-rails/e-navigator/lib/bundler/man/
 ruby-on-rails/e-navigator/vendor/
+ruby-on-rails/e-navigator/sig/generated/vendor/
+ruby-on-rails/e-navigator/sig/rbs_rails/vendor/
 ruby-on-rails/e-navigator/.gem_rbs_collection
 
 ## Perfect Ruby on Rails
@@ -100,6 +102,8 @@ ruby-on-rails/perfect-ruby-on-rails/app/assets/builds/*
 ruby-on-rails/perfect-ruby-on-rails/node_modules/
 ruby-on-rails/perfect-ruby-on-rails/.env
 ruby-on-rails/perfect-ruby-on-rails/vendor/
+ruby-on-rails/perfect-ruby-on-rails/sig/generated/vendor/
+ruby-on-rails/perfect-ruby-on-rails/sig/rbs_rails/vendor/
 ruby-on-rails/perfect-ruby-on-rails/.gem_rbs_collection
 
 ## RESTful API
@@ -109,6 +113,9 @@ ruby-on-rails/restful-api/log/*
 ruby-on-rails/restful-api/.bundle
 ruby-on-rails/restful-api/.env
 ruby-on-rails/restful-api/.gem_rbs_collection
+ruby-on-rails/restful-api/vendor/
+ruby-on-rails/restful-api/sig/generated/vendor/
+ruby-on-rails/restful-api/sig/rbs_rails/vendor/
 
 # Python
 python/**/__pycache__/
