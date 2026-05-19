@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
   def birthday_cannot_be_in_the_future
     birth = birthday
-    if birth && birth.future?
+    if birth&.future?
       errors.add(:birthday, "に未来の日時は選択できません。")
     end
   end
