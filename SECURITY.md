@@ -13,7 +13,7 @@
 | Gemfile               | 4.0.12                             | Per-project dependency manifest; versions install via Bundler.                      |
 | Bundler               | 4.0.12                             | Resolves and installs the gems declared in the Gemfile.                             |
 | Python content        | CPython 3.14.5 (`.python-version`) | Install per-track requirements as documented.                                       |
-| JavaScript/TypeScript | Node v26.1.0 (`.node-version`)     | Frontend tracks (React/Vue/TS/JS) use Node tooling plus per-project `package.json`. |
+| JavaScript/TypeScript | Node v26.2.0 (`.node-version`)     | Frontend tracks (React/Vue/TS/JS) use Node tooling plus per-project `package.json`. |
 
 ## Backward Compatibility
 
