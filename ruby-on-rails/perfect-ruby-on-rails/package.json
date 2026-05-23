@@ -1,23 +1,22 @@
 {
   "name": "perfect_ruby_on_rails",
+  "version": "0.1.0",
+  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.2.0 * pnpm 11.2.2",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "^8.0.23",
-    "@popperjs/core": "^2.11.8",
-    "@rails/actioncable": "^8.1.300",
-    "@rails/activestorage": "^8.1.300",
+    "@hotwired/turbo-rails": "8.0.23",
+    "@popperjs/core": "2.11.8",
+    "@rails/actioncable": "8.1.300",
+    "@rails/activestorage": "8.1.300",
     "@rails/ujs": "7.1.3-4",
-    "bootstrap": "^5.3.8"
-  },
-  "devDependencies": {
-    "esbuild": "^0.25.12",
-    "sass": "^1.99.0"
+    "bootstrap": "5.3.8",
+    "esbuild": "0.28.0",
+    "sass": "1.100.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
     "build:watch": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch",
     "build:css": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
     "build:css:watch": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function --watch"
-  },
-  "version": "0.1.0"
+  }
 }
