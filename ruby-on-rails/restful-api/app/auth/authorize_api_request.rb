@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Service object that resolves the User from the Authorization JWT header.
 class AuthorizeApiRequest
   def initialize(headers = {})
     @headers = headers
@@ -21,9 +23,9 @@ class AuthorizeApiRequest
     # memoize user object
     @user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
     # handle user not found
-  rescue ActiveRecord::RecordNotFound => error
+  rescue ActiveRecord::RecordNotFound => e
     # raise custom error
-    raise(ExceptionHandler::InvalidToken, ("#{Message.invalid_token} #{error.message}"))
+    raise(ExceptionHandler::InvalidToken, ("#{Message.invalid_token} #{e.message}"))
   end
 
   # decode authentication token
@@ -33,7 +35,8 @@ class AuthorizeApiRequest
 
   # check for token in `Authorization` header
   def http_auth_header
-    return headers['Authorization'].split(' ').last if headers['Authorization']
+    return headers['Authorization'].split.last if headers['Authorization']
+
     raise(ExceptionHandler::MissingToken, Message.missing_token)
   end
 end

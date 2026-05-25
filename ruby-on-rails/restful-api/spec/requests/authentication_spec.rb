@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 require 'rails_helper'
@@ -10,18 +11,18 @@ RSpec.describe 'Authentication' do
     # set headers for authorization
     let(:headers) { valid_headers.except('Authorization') }
     # set test valid and invalid credentials
-    let(:valid_credentials) {
+    let(:valid_credentials) do
       {
         email: user.email,
         password: user.password
       }.to_json
-    }
-    let(:invalid_credentials) {
+    end
+    let(:invalid_credentials) do
       {
         email: Faker::Internet.email,
         password: Faker::Internet.password
       }.to_json
-    }
+    end
 
     # set request.headers to our custon headers
     # before { allow(request).to receive(:headers).and_return(headers) }

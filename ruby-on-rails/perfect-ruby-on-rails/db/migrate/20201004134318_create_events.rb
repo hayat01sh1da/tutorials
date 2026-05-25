@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Creates the events table that belongs to a User as :owner.
 class CreateEvents < ActiveRecord::Migration[6.0]
   def change
     create_table :events do |t|

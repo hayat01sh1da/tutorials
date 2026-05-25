@@ -1,5 +1,8 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Base controller wiring up authentication, the current_user helper, and
+# pagination-state persistence shared by every controller.
 class ApplicationController < ActionController::Base
   # Raised (and rescued by Rails as a 404) when a route is reached in an
   # invalid state — e.g. an authenticated user hitting TicketsController#new.
@@ -17,12 +20,15 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    return @current_user if defined?(@current_user)
+
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def authenticate
     return if logged_in?
-    redirect_to root_path, alert: 'ログインしてください'
+
+    redirect_to root_path, alert: I18n.t('flash.require_login')
   end
 
   def paginate_per
@@ -39,10 +45,10 @@ class ApplicationController < ActionController::Base
 
   def load_pagination_params(action)
     data = session[:last_pagination_data].presence
-    if data['controller'] == controller_name && data['action'] == action.to_s
-      session[:last_pagination_data] = nil
-      ret = data['params']
-    end
+    return unless data['controller'] == controller_name && data['action'] == action.to_s
+
+    session[:last_pagination_data] = nil
+    data['params']
   end
 
   def redirect_with_kept_pagination_params(action:, **args)

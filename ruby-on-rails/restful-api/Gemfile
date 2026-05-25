@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -35,7 +37,8 @@ gem 'dotenv-rails', '~> 3.2.0'
 
 gem 'net-smtp', '~> 0.5.0'
 
-# The Observer pattern provides a simple mechanism for one object to inform a set of interested third-party objects when its state changes.
+# The Observer pattern provides a simple mechanism for one object to inform
+# a set of interested third-party objects when its state changes.
 gem 'observer', '~> 0.1.2'
 
 # Data structure, similar to a Hash, that allows the definition of arbitrary attributes with their accompanying values
@@ -47,7 +50,7 @@ group :development, :test do
   # [Ref] https://ruby.github.io/irb/#label-Debugging+with+IRB
   # [Ref] https://github.com/ruby/debug#debug-command-on-the-debug-console
   # [Ref] https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri windows ], require: false
+  gem 'debug', platforms: %i[mri windows], require: false
 end
 
 group :development do
@@ -67,12 +70,12 @@ end
 
 group :test do
   # 'factory_bot_rails' cames not to behave right in 5.0 or more
-  gem 'factory_bot_rails', '~> 6.5.1'
-  gem 'rspec-rails', '~> 8.0.4'
-  gem 'faker', '~> 3.8.0'
-  gem 'shoulda-matchers', '~> 7.0.1'
   gem 'database_cleaner', '~> 2.1.0'
+  gem 'factory_bot_rails', '~> 6.5.1'
+  gem 'faker', '~> 3.8.0'
+  gem 'rspec-rails', '~> 8.0.4'
+  gem 'shoulda-matchers', '~> 7.0.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:windows, :jruby]
+gem 'tzinfo-data', platforms: %i[windows jruby]

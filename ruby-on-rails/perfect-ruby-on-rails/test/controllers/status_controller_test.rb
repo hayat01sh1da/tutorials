@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 class StatusControllerTest < ApplicationControllerTest
-  test "GET /status" do
+  test 'GET /status' do
     get '/status'
 
     assert_nothing_raised do

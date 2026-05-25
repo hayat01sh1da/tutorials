@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Creates the users table backing has_secure_password.
 class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|

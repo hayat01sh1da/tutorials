@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 class EventsControllerTest < ApplicationControllerTest
@@ -36,7 +37,6 @@ class EventsControllerTest < ApplicationControllerTest
     # assert_raise ActiveRecord::RecordNotFound do
     assert_nothing_raised do
       assert_no_difference -> { Event.count } do
-
         delete "/events/#{event.id}"
       end
     end

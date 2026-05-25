@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Issues a JWT for a user after verifying their email/password.
 class AuthenticationController < ApplicationController
   skip_before_action :authorize_request, only: :authenticate
 

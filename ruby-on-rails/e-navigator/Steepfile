@@ -8,7 +8,7 @@ D = Steep::Diagnostic
 # reference gem-internal types that do not resolve (RBS::UnknownTypeName).
 # They are gitignored noise, so load every generated subtree except `vendor/`.
 non_vendor = lambda do |root|
-  Dir.glob("#{root}/*").reject { |path| File.basename(path) == "vendor" }.sort
+  Dir.glob("#{root}/*").reject { |path| File.basename(path) == 'vendor' }.sort
 end
 
 # Rails framework signatures come from the RBS collection (rbs_collection.yaml),
@@ -20,24 +20,24 @@ end
 # relaxes the tests, never the application code.
 
 target :app do
-  check "app"
+  check 'app'
 
-  non_vendor.call("sig/generated").each { |path| signature path }
-  non_vendor.call("sig/rbs_rails").each { |path| signature path }
-  signature "sig/handwritten"
+  non_vendor.call('sig/generated').each { |path| signature path }
+  non_vendor.call('sig/rbs_rails').each { |path| signature path }
+  signature 'sig/handwritten'
 
   configure_code_diagnostics(D::Ruby.default)
 end
 
 target :test do
-  check "test"
+  check 'test'
 
-  non_vendor.call("sig/generated").each { |path| signature path }
-  non_vendor.call("sig/rbs_rails").each { |path| signature path }
-  signature "sig/handwritten"
-  signature "sig/test_shim"
+  non_vendor.call('sig/generated').each { |path| signature path }
+  non_vendor.call('sig/rbs_rails').each { |path| signature path }
+  signature 'sig/handwritten'
+  signature 'sig/test_shim'
 
-  library "minitest"
+  library 'minitest'
 
   configure_code_diagnostics(D::Ruby.default)
 end

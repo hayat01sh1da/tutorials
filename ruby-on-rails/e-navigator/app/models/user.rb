@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Devise-backed user account that owns interviews and exposes computed age.
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,7 +39,7 @@ class User < ApplicationRecord
     birth = birthday
     return unless birth
 
-    @today      = Time.zone&.today || Date.today
+    @today      = Time.zone&.today
     @birth_date = birth.to_date
     age         = today.year - birth_date.year
 
@@ -50,9 +52,9 @@ class User < ApplicationRecord
 
   def birthday_cannot_be_in_the_future
     birth = birthday
-    if birth&.future?
-      errors.add(:birthday, "に未来の日時は選択できません。")
-    end
+    return unless birth&.future?
+
+    errors.add(:birthday, 'に未来の日時は選択できません。')
   end
 
   def before_birth_date_on_birth_month?

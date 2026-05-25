@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 require 'rails_helper'
@@ -37,7 +38,7 @@ RSpec.describe 'Todos API' do
 
       it 'returns a message' do
         expect(json).not_to be_empty
-        expect(JSON.parse(response.body)['message']).to eq('This is the verion 2 of Todos')
+        expect(response.parsed_body['message']).to eq('This is the verion 2 of Todos')
       end
 
       it 'returns status code 200' do
@@ -79,12 +80,12 @@ RSpec.describe 'Todos API' do
   # Test suite for POST /todos
   describe 'POST /todos' do
     # valid payload
-    let(:valid_attributes) {
+    let(:valid_attributes) do
       {
         title: 'Learn Elm',
         user_id: user.id.to_s
       }.to_json
-    }
+    end
 
     context 'when the request is valid' do
       before do
@@ -101,11 +102,11 @@ RSpec.describe 'Todos API' do
     end
 
     context 'when the request is invalid' do
-      let(:invalid_attributes) {
+      let(:invalid_attributes) do
         {
           title: nil
         }.to_json
-      }
+      end
 
       before do
         post '/todos', params: invalid_attributes, headers: headers

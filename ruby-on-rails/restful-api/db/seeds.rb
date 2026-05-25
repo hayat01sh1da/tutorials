@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -15,11 +17,11 @@ end
 
 1.upto(30).map do |t_id|
   Todo.create do |todo|
-    todo.title = "Todo#{sprintf("%03d", t_id)}"
+    todo.title = "Todo#{format('%03d', t_id)}"
     todo.user = user
     30.times do |i_id|
       Item.create do |item|
-        item.name = "Item#{sprintf("%03d", i_id)}"
+        item.name = "Item#{format('%03d', i_id)}"
         item.done = false
         item.todo = todo
       end

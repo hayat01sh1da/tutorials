@@ -1,26 +1,16 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# CRUD endpoints for events. Index/show are anonymous; create/update/destroy
+# act on the signed-in user's own events.
 class EventsController < ApplicationController
-  skip_before_action :authenticate, only: [:index, :show]
+  skip_before_action :authenticate, only: %i[index show]
   before_action :set_event, only: :show
-  before_action :set_event_of_current_user, only: [:edit, :update, :destroy]
+  before_action :set_event_of_current_user, only: %i[edit update destroy]
 
   def index
     @q = Event.ransack(params[:q])
     @events = @q.result.page(params[:page]).per(paginate_per).default
-  end
-
-  def new
-    @event = current_user.created_events.build
-  end
-
-  def create
-    @event = current_user.created_events.build(event_params)
-    if @event.save
-      redirect_to @event, notice: 'イベントを登録しました'
-    else
-      render :new
-    end
   end
 
   def show
@@ -33,11 +23,24 @@ class EventsController < ApplicationController
     end
   end
 
+  def new
+    @event = current_user.created_events.build
+  end
+
   def edit; end
+
+  def create
+    @event = current_user.created_events.build(event_params)
+    if @event.save
+      redirect_to @event, notice: I18n.t('flash.events.created')
+    else
+      render :new
+    end
+  end
 
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: 'イベントを更新しました'
+      redirect_to @event, notice: I18n.t('flash.events.updated')
     else
       render :edit
     end
@@ -45,13 +48,13 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy!
-    redirect_to root_path, notice: 'イベントを削除しました'
+    redirect_to root_path, notice: I18n.t('flash.events.destroyed')
   end
 
   private
 
   def event_params
-    params.expect(event: [:name, :place, :content, :start_at, :end_at, :image, :remove_image])
+    params.expect(event: %i[name place content start_at end_at image remove_image])
   end
 
   def set_event

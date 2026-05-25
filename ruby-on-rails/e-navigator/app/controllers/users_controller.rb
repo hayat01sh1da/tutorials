@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Lists all users (excluding the signed-in user) and shows their profile pages.
 class UsersController < ApplicationController
   # GET /users
   def index

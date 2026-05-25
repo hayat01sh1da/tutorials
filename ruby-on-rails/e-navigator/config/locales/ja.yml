@@ -214,3 +214,18 @@ ja:
         approved: 承認
         declined: 否認
         suspended: 保留
+  interviews:
+    flash:
+      forbidden_create: "他のユーザーの面接日時の登録は許可されていません"
+      created: "面接日時を登録しました"
+      forbidden_update: "他のユーザーの面接日時の変更は許可されていません"
+      updated: "面接日時を変更しました"
+      destroyed: "面接日時を削除しました"
+      applied: "面接日時を申請しました"
+      past_datetime_rejected: "過去の日時を承認することは出来ません"
+      approved: "面接日時を承認しました"
+  interview_mailer:
+    apply:
+      subject: "新規面接日時が登録されました"
+    approve:
+      subject: "面接日時が確定しました"

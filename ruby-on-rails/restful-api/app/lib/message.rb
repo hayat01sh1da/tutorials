@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Static collection of API response messages used by controllers and concerns.
 class Message
   def self.not_found(record = 'record')
     "Sorry, #{record} not found."

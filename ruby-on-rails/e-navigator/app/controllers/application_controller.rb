@@ -1,11 +1,13 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Base controller for every endpoint; wires up Devise and forces authentication.
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
   def configure_permitted_parameters
-    added_attrs = [ :name, :email, :sex, :birthday, :school, :　]
+    added_attrs = %i[name email sex birthday school 　]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs

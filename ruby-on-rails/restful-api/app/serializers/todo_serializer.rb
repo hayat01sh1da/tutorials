@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 # @rbs inherits ActiveModel::Serializer[Todo]

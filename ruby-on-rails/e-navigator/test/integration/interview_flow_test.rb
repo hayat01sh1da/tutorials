@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 require 'test_helper'
@@ -5,28 +6,29 @@ require 'test_helper'
 class InterviewFlowTest < ActionDispatch::IntegrationTest
   def setup
     @user = User.create!(
-      name: "Test User",
-      email: "user@example.com",
-      password: "password123",
-      password_confirmation: "password123",
+      name: 'Test User',
+      email: 'user@example.com',
+      password: 'password123',
+      password_confirmation: 'password123',
       birthday: Date.new(1990, 1, 1)
     )
 
     @approver = User.create!(
-      name: "Approver",
-      email: "approver@example.com",
-      password: "password123",
-      password_confirmation: "password123",
+      name: 'Approver',
+      email: 'approver@example.com',
+      password: 'password123',
+      password_confirmation: 'password123',
       birthday: Date.new(1985, 5, 15)
     )
   end
 
-  test "complete interview workflow" do
+  test 'complete interview workflow' do
     # User signs in
     sign_in @user
 
     # User creates an interview
     get new_user_interview_path(@user)
+
     assert_response :success
 
     assert_difference 'Interview.count', 1 do
@@ -36,8 +38,9 @@ class InterviewFlowTest < ActionDispatch::IntegrationTest
     end
 
     interview = Interview.last
+
     assert_equal @user, interview.user
-    assert_equal "suspended", interview.status
+    assert_equal 'suspended', interview.status
 
     # User selects an approver
     assert_difference 'ActionMailer::Base.deliveries.count', 1 do
@@ -55,15 +58,17 @@ class InterviewFlowTest < ActionDispatch::IntegrationTest
     end
 
     interview.reload
-    assert interview.approved?
+
+    assert_predicate interview, :approved?
 
     # User views approved interview
     sign_in @user
     get user_interviews_path(@user)
+
     assert_response :success
   end
 
-  test "user creates multiple interviews and approver selects one" do
+  test 'user creates multiple interviews and approver selects one' do
     sign_in @user
 
     # Create multiple interviews
@@ -97,17 +102,17 @@ class InterviewFlowTest < ActionDispatch::IntegrationTest
     interview2.reload
     interview3.reload
 
-    assert interview2.approved?
-    assert interview1.declined?
-    assert interview3.declined?
+    assert_predicate interview2, :approved?
+    assert_predicate interview1, :declined?
+    assert_predicate interview3, :declined?
   end
 
-  test "user cannot create interview for another user" do
+  test 'user cannot create interview for another user' do
     other_user = User.create!(
-      name: "Other User",
-      email: "other@example.com",
-      password: "password123",
-      password_confirmation: "password123",
+      name: 'Other User',
+      email: 'other@example.com',
+      password: 'password123',
+      password_confirmation: 'password123',
       birthday: Date.new(1992, 3, 10)
     )
 
@@ -118,10 +123,10 @@ class InterviewFlowTest < ActionDispatch::IntegrationTest
     }
 
     assert_redirected_to users_path
-    assert_equal "他のユーザーの面接日時の登録は許可されていません", flash[:notice]
+    assert_equal '他のユーザーの面接日時の登録は許可されていません', flash[:notice]
   end
 
-  test "user can update their own interview" do
+  test 'user can update their own interview' do
     sign_in @user
 
     interview = Interview.create!(
@@ -137,10 +142,11 @@ class InterviewFlowTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to user_interviews_path(@user)
     interview.reload
+
     assert_in_delta new_datetime.to_i, interview.datetime.to_i, 1
   end
 
-  test "user can delete their own interview" do
+  test 'user can delete their own interview' do
     sign_in @user
 
     interview = Interview.create!(

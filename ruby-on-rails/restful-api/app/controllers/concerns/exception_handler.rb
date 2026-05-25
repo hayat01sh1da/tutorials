@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Controller concern that maps domain/AR exceptions to JSON error responses.
 module ExceptionHandler
   extend ActiveSupport::Concern
 

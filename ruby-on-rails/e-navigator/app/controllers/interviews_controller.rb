@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Manages interview creation, editing, approval, and the apply/approve mailer flow.
 class InterviewsController < ApplicationController
-  before_action :set_user, only: [:index, :new, :create, :select_approver]
-  before_action :set_interview, only: [:edit, :update, :destroy, :approve]
+  before_action :set_user, only: %i[index new create select_approver]
+  before_action :set_interview, only: %i[edit update destroy approve]
 
   # GET /users/:user_id/interviews
   def index
@@ -17,43 +19,35 @@ class InterviewsController < ApplicationController
     @interview = Interview.new
   end
 
+  # GET /users/:user_id/interviews/:id/edit
+  def edit; end
+
   # POST /users/:user_id/interviews
   def create
-    unless current_user?(@user.id)
-      flash[:notice] = "他のユーザーの面接日時の登録は許可されていません"
-      redirect_to users_path
-      return
-    end
+    return redirect_with_forbidden(:forbidden_create) unless current_user?(@user.id)
 
     @interview = @user.interviews.new(interview_params)
     if @interview.save
-      flash[:notice] = "面接日時を登録しました"
+      flash[:notice] = I18n.t('interviews.flash.created')
       redirect_to user_interviews_path
     else
       render :new
     end
   end
 
-  # GET /users/:user_id/interviews/:id/edit
-  def edit; end
-
   # PATCH /users/:user_id/interviews/:id
   def update
-    unless current_user?(@interview.user_id)
-      flash[:notice] = "他のユーザーの面接日時の変更は許可されていません"
-      redirect_to users_path
-      return
-    end
+    return redirect_with_forbidden(:forbidden_update) unless current_user?(@interview.user_id)
 
     @interview.update(interview_params)
-    flash[:notice] = "面接日時を変更しました"
+    flash[:notice] = I18n.t('interviews.flash.updated')
     redirect_to user_interviews_path
   end
 
   # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
-    flash[:notice] = "面接日時を削除しました"
+    flash[:notice] = I18n.t('interviews.flash.destroyed')
     redirect_to user_interviews_path
   end
 
@@ -62,46 +56,55 @@ class InterviewsController < ApplicationController
     @approver = User.find_by(email: approver_params[:email])
     # Mailerの名前を変更しました
     InterviewMailer.apply(@user, @approver).deliver_now
-    flash[:notice] = "面接日時を申請しました"
+    flash[:notice] = I18n.t('interviews.flash.applied')
     redirect_to user_interviews_path
   end
 
   # POST /users/:user_id/interviews/:id/approve
   def approve
     if @interview.datetime < DateTime.now
-      flash[:notice] = "過去の日時を承認することは出来ません"
-      redirect_to user_interviews_path
+      flash[:notice] = I18n.t('interviews.flash.past_datetime_rejected')
     else
-      @interview.approved!
-      # 以下、承認した日時以外を否認状態にする
-      interviews = Interview.where(user_id: @interview.user_id).where.not(id: @interview.id)
-      interviews.each do |interview|
-        begin
-          interview.declined!
-        rescue ActiveRecord::RecordInvalid
-          # Skip interviews that can't be declined
-        end
-      end
-      @approver = current_user
-      # Mailerの名前を変更しました
-      InterviewMailer.approve(@approver, @interview).deliver_now
-      flash[:notice] = "面接日時を承認しました"
-      redirect_to user_interviews_path
+      finalize_approval
+      flash[:notice] = I18n.t('interviews.flash.approved')
     end
+    redirect_to user_interviews_path
   end
 
   private
+
+  def finalize_approval
+    @interview.approved!
+    decline_other_interviews
+    @approver = current_user
+    # Mailerの名前を変更しました
+    InterviewMailer.approve(@approver, @interview).deliver_now
+  end
+
+  def decline_other_interviews
+    other_interviews = Interview.where(user_id: @interview.user_id).where.not(id: @interview.id)
+    other_interviews.each do |interview|
+      interview.declined!
+    rescue ActiveRecord::RecordInvalid
+      # Skip interviews that can't be declined
+    end
+  end
+
+  def redirect_with_forbidden(message_key)
+    flash[:notice] = I18n.t("interviews.flash.#{message_key}")
+    redirect_to users_path
+  end
 
   def set_user
     @user = User.find_by(id: params[:user_id])
   end
 
   def set_interview
-    @interview = Interview.find(params[:id])
+    @interview = Interview.find(params.expect(:id))
   end
 
   def interview_params
-    params.require(:interview).permit(:datetime)
+    params.expect(interview: [:datetime])
   end
 
   def approver_params

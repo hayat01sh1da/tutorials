@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 require 'test_helper'
@@ -6,18 +7,21 @@ class EventTest < ActiveSupport::TestCase
   test 'Argument ID of #created_by? is equal to owner_id' do
     user  = FactoryBot.create(:user)
     event = FactoryBot.create(:event, owner: user)
-    assert_equal(true, event.created_by?(user))
+
+    assert(event.created_by?(user))
   end
 
   test 'Argument ID of #created_by? is not equal to owner_id' do
     event = FactoryBot.create(:event)
     user  = FactoryBot.create(:user)
-    assert_equal(false, event.created_by?(user))
+
+    assert_not(event.created_by?(user))
   end
 
   test 'Argument ID of #created_by? is equal to nil' do
     event = FactoryBot.create(:event)
-    assert_equal(false, event.created_by?(nil))
+
+    assert_not(event.created_by?(nil))
   end
 
   test 'Validation of start_at_should_be_before_end_at is OK' do
@@ -25,6 +29,7 @@ class EventTest < ActiveSupport::TestCase
     end_at   = start_at + rand(1..30).hours
     event    = FactoryBot.build(:event, start_at: start_at, end_at: end_at)
     event.valid?
+
     assert_empty(event.errors[:start_at])
   end
 
@@ -33,6 +38,7 @@ class EventTest < ActiveSupport::TestCase
     end_at   = start_at - rand(1..30).hours
     event    = FactoryBot.build(:event, start_at: start_at, end_at: end_at)
     event.valid?
+
     assert_not_empty(event.errors[:start_at])
   end
 end
