@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 class InterviewsController < ApplicationController
-  before_action :set_user, only: [:index, :new, :create, :select_approver]
-  before_action :set_interview, only: [:edit, :update, :destroy, :approve]
+  before_action :set_user, only: %i[index new create select_approver]
+  before_action :set_interview, only: %i[edit update destroy approve]
 
   # GET /users/:user_id/interviews
   def index
@@ -17,43 +18,43 @@ class InterviewsController < ApplicationController
     @interview = Interview.new
   end
 
+  # GET /users/:user_id/interviews/:id/edit
+  def edit; end
+
   # POST /users/:user_id/interviews
   def create
     unless current_user?(@user.id)
-      flash[:notice] = "他のユーザーの面接日時の登録は許可されていません"
+      flash[:notice] = '他のユーザーの面接日時の登録は許可されていません'
       redirect_to users_path
       return
     end
 
     @interview = @user.interviews.new(interview_params)
     if @interview.save
-      flash[:notice] = "面接日時を登録しました"
+      flash[:notice] = '面接日時を登録しました'
       redirect_to user_interviews_path
     else
       render :new
     end
   end
 
-  # GET /users/:user_id/interviews/:id/edit
-  def edit; end
-
   # PATCH /users/:user_id/interviews/:id
   def update
     unless current_user?(@interview.user_id)
-      flash[:notice] = "他のユーザーの面接日時の変更は許可されていません"
+      flash[:notice] = '他のユーザーの面接日時の変更は許可されていません'
       redirect_to users_path
       return
     end
 
     @interview.update(interview_params)
-    flash[:notice] = "面接日時を変更しました"
+    flash[:notice] = '面接日時を変更しました'
     redirect_to user_interviews_path
   end
 
   # DELETE /users/:user_id/interviews/:id
   def destroy
     @interview.destroy
-    flash[:notice] = "面接日時を削除しました"
+    flash[:notice] = '面接日時を削除しました'
     redirect_to user_interviews_path
   end
 
@@ -62,32 +63,29 @@ class InterviewsController < ApplicationController
     @approver = User.find_by(email: approver_params[:email])
     # Mailerの名前を変更しました
     InterviewMailer.apply(@user, @approver).deliver_now
-    flash[:notice] = "面接日時を申請しました"
+    flash[:notice] = '面接日時を申請しました'
     redirect_to user_interviews_path
   end
 
   # POST /users/:user_id/interviews/:id/approve
   def approve
     if @interview.datetime < DateTime.now
-      flash[:notice] = "過去の日時を承認することは出来ません"
-      redirect_to user_interviews_path
+      flash[:notice] = '過去の日時を承認することは出来ません'
     else
       @interview.approved!
       # 以下、承認した日時以外を否認状態にする
       interviews = Interview.where(user_id: @interview.user_id).where.not(id: @interview.id)
       interviews.each do |interview|
-        begin
-          interview.declined!
-        rescue ActiveRecord::RecordInvalid
-          # Skip interviews that can't be declined
-        end
+        interview.declined!
+      rescue ActiveRecord::RecordInvalid
+        # Skip interviews that can't be declined
       end
       @approver = current_user
       # Mailerの名前を変更しました
       InterviewMailer.approve(@approver, @interview).deliver_now
-      flash[:notice] = "面接日時を承認しました"
-      redirect_to user_interviews_path
+      flash[:notice] = '面接日時を承認しました'
     end
+    redirect_to user_interviews_path
   end
 
   private
@@ -97,11 +95,11 @@ class InterviewsController < ApplicationController
   end
 
   def set_interview
-    @interview = Interview.find(params[:id])
+    @interview = Interview.find(params.expect(:id))
   end
 
   def interview_params
-    params.require(:interview).permit(:datetime)
+    params.expect(interview: [:datetime])
   end
 
   def approver_params

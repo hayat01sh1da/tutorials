@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 module ApplicationHelper
-
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end

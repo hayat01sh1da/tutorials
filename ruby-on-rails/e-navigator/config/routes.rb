@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-  registrations: "users/registrations",
-  sessions: "users/sessions",
-  passwords: "users/passwords"
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
   }
   devise_scope :user do
-    root "users/sessions#new"
+    root 'users/sessions#new'
   end
-  resources :users, only: [:index, :show] do
+  resources :users, only: %i[index show] do
     resources :interviews, except: [:show] do
       member do
         post 'approve'

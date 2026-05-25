@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 class Interview < ApplicationRecord
@@ -13,6 +14,7 @@ class Interview < ApplicationRecord
   def datetime_cannot_be_in_the_past
     dt = datetime
     return unless dt && dt < Time.current
-    errors.add(:datetime, "に過去の日時は選択できません。")
+
+    errors.add(:datetime, 'に過去の日時は選択できません。')
   end
 end
