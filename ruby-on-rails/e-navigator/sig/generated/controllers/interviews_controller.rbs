@@ -28,6 +28,12 @@ class InterviewsController < ApplicationController
 
   private
 
+  def finalize_approval: () -> void
+
+  def decline_other_interviews: () -> void
+
+  def redirect_with_forbidden: (Symbol message_key) -> void
+
   def set_user: () -> untyped
 
   def set_interview: () -> untyped

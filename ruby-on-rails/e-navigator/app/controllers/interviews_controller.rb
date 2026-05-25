@@ -73,6 +73,7 @@ class InterviewsController < ApplicationController
 
   private
 
+  # @rbs return: void
   def finalize_approval
     @interview.approved!
     decline_other_interviews
@@ -81,6 +82,7 @@ class InterviewsController < ApplicationController
     InterviewMailer.approve(@approver, @interview).deliver_now
   end
 
+  # @rbs return: void
   def decline_other_interviews
     other_interviews = Interview.where(user_id: @interview.user_id).where.not(id: @interview.id)
     other_interviews.each do |interview|
@@ -90,6 +92,8 @@ class InterviewsController < ApplicationController
     end
   end
 
+  # @rbs message_key: Symbol
+  # @rbs return: void
   def redirect_with_forbidden(message_key)
     flash[:notice] = I18n.t("interviews.flash.#{message_key}")
     redirect_to users_path

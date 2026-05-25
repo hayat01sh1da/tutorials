@@ -40,6 +40,7 @@ class Event < ApplicationRecord
     owner_id == user.id
   end
 
+  # @rbs return: bool
   def image_to_show?
     image.attached? && image.blob&.persisted?
   end
