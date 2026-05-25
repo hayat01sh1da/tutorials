@@ -21,6 +21,7 @@ require 'action_view/railtie'
 Bundler.require(*Rails.groups)
 
 module ENavigator
+  # Rails application class for the ENavigator tutorial app.
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0

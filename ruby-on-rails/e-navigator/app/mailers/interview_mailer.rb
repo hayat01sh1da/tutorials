@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # rbs_inline: enabled
 
+# Mails interview-apply and interview-approved notifications to the relevant
+# parties.
 class InterviewMailer < ApplicationMailer
   helper ApplicationHelper
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # rbs_inline: enabled
 
+# Manages interview creation, editing, approval, and the apply/approve mailer flow.
 class InterviewsController < ApplicationController
   before_action :set_user, only: %i[index new create select_approver]
   before_action :set_interview, only: %i[edit update destroy approve]

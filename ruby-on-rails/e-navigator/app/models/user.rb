@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # rbs_inline: enabled
 
+# Devise-backed user account that owns interviews and exposes computed age.
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

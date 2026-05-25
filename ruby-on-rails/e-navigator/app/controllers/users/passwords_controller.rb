@@ -2,6 +2,7 @@
 # rbs_inline: enabled
 
 module Users
+  # Devise-generated password reset endpoints.
   class PasswordsController < Devise::PasswordsController
     # GET /resource/password/new
     def new

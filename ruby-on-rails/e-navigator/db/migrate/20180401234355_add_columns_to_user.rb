@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Adds profile columns (name, birthday, sex, school) to the users table.
 class AddColumnsToUser < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :name, :string

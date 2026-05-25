@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # rbs_inline: enabled
 
+# Base controller for every endpoint; wires up Devise and forces authentication.
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!

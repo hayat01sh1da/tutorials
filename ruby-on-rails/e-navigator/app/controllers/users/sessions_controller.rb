@@ -2,6 +2,7 @@
 # rbs_inline: enabled
 
 module Users
+  # Devise-generated sign in/out endpoints.
   class SessionsController < Devise::SessionsController
     # before_action :configure_sign_in_params, only: [:create]
 

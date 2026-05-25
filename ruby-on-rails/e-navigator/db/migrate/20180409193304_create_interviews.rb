@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Creates the interviews table that belongs_to users.
 class CreateInterviews < ActiveRecord::Migration[5.1]
   def change
     create_table :interviews do |t|

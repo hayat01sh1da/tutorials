@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # rbs_inline: enabled
 
+# Interview scheduled by a user. Validates that datetime is not in the past.
 class Interview < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
