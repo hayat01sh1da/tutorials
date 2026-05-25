@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 # Reference: https://github.com/rubocop/ruby-style-guide
 
 plugins:
@@ -17,3 +15,39 @@ AllCops:
     - 'db/schema.rb'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+    # Engine-installed Active Storage migrations are vendor-style code.
+    - 'db/migrate/*active_storage*.rb'
+
+# Specs frequently set up several related fixtures via memoized helpers,
+# assert multiple expectations per behaviour, and nest contexts deeply.
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/NestedGroups:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/NamedSubject:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/ContextWording:
+  Exclude:
+    - 'spec/**/*'
+
+RSpec/LetSetup:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/LineLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*'

@@ -3,9 +3,11 @@
 # Adds profile columns (name, birthday, sex, school) to the users table.
 class AddColumnsToUser < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :name, :string
-    add_column :users, :birthday, :date
-    add_column :users, :sex, :integer
-    add_column :users, :school, :string
+    change_table :users, bulk: true do |t|
+      t.string :name
+      t.date :birthday
+      t.integer :sex
+      t.string :school
+    end
   end
 end

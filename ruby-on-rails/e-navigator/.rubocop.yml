@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 # Reference: https://github.com/rubocop/ruby-style-guide
 
 plugins:
@@ -17,3 +15,36 @@ AllCops:
     - 'db/schema.rb'
     - 'vendor/**/*'
     - 'node_modules/**/*'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+    - 'test/**/*'
+
+# Devise-generated migration packs many column definitions into one
+# create_table block; tests inline long fixture setups.
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+    - 'test/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+# Devise-generated migration adds three add_index calls after the create_table.
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/20180401221813_devise_create_users.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'
+
+Minitest/MultipleAssertions:
+  Exclude:
+    - 'test/**/*'

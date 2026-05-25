@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
+# Signup endpoint that creates a user and returns an auth token.
 class UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
 

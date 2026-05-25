@@ -1,0 +1,18 @@
+ja:
+  flash:
+    require_login: "ログインしてください"
+    events:
+      created: "イベントを登録しました"
+      updated: "イベントを更新しました"
+      destroyed: "イベントを削除しました"
+    retirements:
+      retired: "退会が完了しました"
+    sessions:
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+    tickets:
+      created: "このイベントに参加表明しました"
+      destroyed: "このイベントの参加をキャンセルしました"
+  errors:
+    tickets:
+      invalid_route: "ログイン状態で TicketsController#new にアクセスされました"

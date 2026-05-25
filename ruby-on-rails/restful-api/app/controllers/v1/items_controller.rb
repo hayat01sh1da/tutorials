@@ -1,48 +1,52 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
-class V1::ItemsController < ApplicationController
-  before_action :set_todo
-  before_action :set_todo_item, only: %i(show update destroy)
+module V1
+  # CRUD endpoints for items nested under todos (v1 API surface).
+  class ItemsController < ApplicationController
+    before_action :set_todo
+    before_action :set_todo_item, only: %i[show update destroy]
 
-  # GET /todos/:todo_id/items
-  def index
-    json_response(@todo.items)
-  end
+    # GET /todos/:todo_id/items
+    def index
+      json_response(@todo.items)
+    end
 
-  # GET /todos/:todo_id/items/:id
-  def show
-    json_response(@item)
-  end
+    # GET /todos/:todo_id/items/:id
+    def show
+      json_response(@item)
+    end
 
-  # POST /todos/:todo_id/items
-  def create
-    @item = @todo.items.create!(item_params)
-    json_response(@item, :created)
-  end
+    # POST /todos/:todo_id/items
+    def create
+      @item = @todo.items.create!(item_params)
+      json_response(@item, :created)
+    end
 
-  # PUT /todos/:todo_id/items/:id
-  def update
-    @item.update(item_params)
-    head :no_content
-  end
+    # PUT /todos/:todo_id/items/:id
+    def update
+      @item.update(item_params)
+      head :no_content
+    end
 
-  # DELETE /todos/:todo_id/items/:id
-  def destroy
-    @item.destroy
-    head :no_content
-  end
+    # DELETE /todos/:todo_id/items/:id
+    def destroy
+      @item.destroy
+      head :no_content
+    end
 
-  private
+    private
 
-  def set_todo
-    @todo = Todo.find(params.expect(:todo_id))
-  end
+    def set_todo
+      @todo = Todo.find(params.expect(:todo_id))
+    end
 
-  def set_todo_item
-    @item = @todo.items.find_by!(id: params.expect(:id)) if @todo
-  end
+    def set_todo_item
+      @item = @todo.items.find(params.expect(:id)) if @todo
+    end
 
-  def item_params
-    params.permit(:name, :done)
+    def item_params
+      params.permit(:name, :done)
+    end
   end
 end

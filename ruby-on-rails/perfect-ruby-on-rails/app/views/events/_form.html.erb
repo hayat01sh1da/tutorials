@@ -37,7 +37,7 @@
     <%= show_image_if_attached(event) %>
     <%= f.file_field :image, class: 'form-control-file' %>
   </div>
-  <% if event.has_image_to_show? %>
+  <% if event.image_to_show? %>
     <div class="checkbox">
       <label>
         <%= f.check_box :remove_image %>

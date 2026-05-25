@@ -1,17 +1,20 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
-require_relative './application_system_test_case'
+require_relative 'application_system_test_case'
 
 class EventsTest < ApplicationSystemTestCase
   test 'Visit Event Index' do
     event = FactoryBot.create(:event)
     visit event_path(event)
+
     assert_selector 'h1', text: event.name
   end
 
   test 'Visit Event New and Create an Event' do
     sign_in_as(FactoryBot.create(:user))
     visit new_event_path
+
     assert_selector 'h1', text: '新規イベント登録'
 
     fill_in 'イベント名', with: 'Deep Learning勉強会'
@@ -35,6 +38,7 @@ class EventsTest < ApplicationSystemTestCase
     select end_at.strftime('%M'), from: "#{end_at_field}_5i"
 
     click_on '登録する'
+
     assert_selector 'div.alert', text: 'イベントを登録しました'
   end
 
@@ -46,6 +50,7 @@ class EventsTest < ApplicationSystemTestCase
       accept_confirm do
         click_on 'イベント削除'
       end
+
       assert_selector 'div.alert', text: 'イベントを削除しました'
     end
   end

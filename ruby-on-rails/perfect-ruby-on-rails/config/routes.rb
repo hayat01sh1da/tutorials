@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root   'events#index'
   get    '/status'                  => 'status#index', defaults: { format: :json }
@@ -5,8 +7,8 @@ Rails.application.routes.draw do
   delete '/logout'                  => 'sessions#destroy'
 
   resources :events do
-    resources :tickets, only: [:new, :create, :destroy]
+    resources :tickets, only: %i[new create destroy]
   end
 
-  resource :retirements, only: [:new, :create]
+  resource :retirements, only: %i[new create]
 end

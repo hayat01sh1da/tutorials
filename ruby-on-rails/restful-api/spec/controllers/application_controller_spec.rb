@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 require 'rails_helper'
@@ -28,7 +29,7 @@ RSpec.describe ApplicationController do
 
       it 'raises MissingToken error' do
         expect { subject.instance_eval { authorize_request } }
-        .to raise_error(ExceptionHandler::MissingToken, /Missing token/)
+          .to raise_error(ExceptionHandler::MissingToken, /Missing token/)
       end
     end
   end

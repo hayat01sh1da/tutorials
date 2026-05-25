@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
 module SignInHelper
@@ -11,14 +12,13 @@ module SignInHelper
         image: user.image_url
       }
     )
-    case
-    when respond_to?(:visit)
+    if respond_to?(:visit)
       visit root_path
       click_on 'GitHubでログイン'
-    when respond_to?(:get)
+    elsif respond_to?(:get)
       get '/auth/github/callback'
     else
-      raise NotImplementedError.new
+      raise NotImplementedError
     end
     @current_user = user
   end
@@ -28,6 +28,8 @@ module SignInHelper
   end
 end
 
-class ActionDispatch::IntegrationTest
-  include SignInHelper
+module ActionDispatch
+  class IntegrationTest
+    include SignInHelper
+  end
 end

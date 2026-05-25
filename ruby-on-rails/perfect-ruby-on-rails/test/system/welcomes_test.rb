@@ -1,10 +1,12 @@
+# frozen_string_literal: true
 # rbs_inline: enabled
 
-require_relative './application_system_test_case'
+require_relative 'application_system_test_case'
 
 class WelcomesTest < ApplicationSystemTestCase
   test 'Visit Welcome Page' do
     visit root_path
+
     assert_selector 'h1', text: 'イベント一覧'
   end
 
@@ -14,6 +16,7 @@ class WelcomesTest < ApplicationSystemTestCase
 
     travel_to(Time.zone.now.since(2.days)) do
       visit root_path
+
       assert_selector 'h5', text: future_event.name
       assert_no_selector 'h5', text: past_event.name
     end
