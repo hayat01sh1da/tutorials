@@ -39,7 +39,7 @@ class User < ApplicationRecord
     birth = birthday
     return unless birth
 
-    @today      = Time.zone&.today || Time.zone&.today
+    @today      = Time.zone&.today
     @birth_date = birth.to_date
     age         = today.year - birth_date.year
 
