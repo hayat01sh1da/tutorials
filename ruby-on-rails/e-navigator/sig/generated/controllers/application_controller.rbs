@@ -1,5 +1,6 @@
 # Generated from app/controllers/application_controller.rb with RBS::Inline
 
+# Base controller for every endpoint; wires up Devise and forces authentication.
 class ApplicationController < ActionController::Base
   def configure_permitted_parameters: () -> untyped
 end

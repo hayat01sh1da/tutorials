@@ -1,4 +1,5 @@
 # Generated from app/helpers/interviews_helper.rb with RBS::Inline
 
+# View helpers for the interviews flow.
 module InterviewsHelper
 end

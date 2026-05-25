@@ -1,5 +1,6 @@
 # Generated from app/helpers/application_helper.rb with RBS::Inline
 
+# Helpers shared by every view, currently scoped to the Devise mapping lookup.
 module ApplicationHelper
   def devise_mapping: () -> untyped
 end

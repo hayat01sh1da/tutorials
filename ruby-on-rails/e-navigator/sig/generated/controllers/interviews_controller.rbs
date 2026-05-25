@@ -1,5 +1,6 @@
 # Generated from app/controllers/interviews_controller.rb with RBS::Inline
 
+# Manages interview creation, editing, approval, and the apply/approve mailer flow.
 class InterviewsController < ApplicationController
   # GET /users/:user_id/interviews
   def index: () -> untyped
@@ -7,11 +8,11 @@ class InterviewsController < ApplicationController
   # GET /users/:user_id/interviews/new
   def new: () -> untyped
 
-  # POST /users/:user_id/interviews
-  def create: () -> untyped
-
   # GET /users/:user_id/interviews/:id/edit
   def edit: () -> untyped
+
+  # POST /users/:user_id/interviews
+  def create: () -> untyped
 
   # PATCH /users/:user_id/interviews/:id
   def update: () -> untyped
