@@ -7,7 +7,7 @@ class Event < ApplicationRecord
 
   def created_by?: (untyped user) -> untyped
 
-  def has_image_to_show?: () -> untyped
+  def image_to_show?: () -> bool
 
   def to_markdown: () -> untyped
 

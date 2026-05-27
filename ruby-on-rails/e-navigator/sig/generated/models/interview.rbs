@@ -1,5 +1,6 @@
 # Generated from app/models/interview.rb with RBS::Inline
 
+# Interview scheduled by a user. Validates that datetime is not in the past.
 class Interview < ApplicationRecord
   def datetime_cannot_be_in_the_past: () -> untyped
 end

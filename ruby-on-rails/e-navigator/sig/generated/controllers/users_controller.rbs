@@ -1,5 +1,6 @@
 # Generated from app/controllers/users_controller.rb with RBS::Inline
 
+# Lists all users (excluding the signed-in user) and shows their profile pages.
 class UsersController < ApplicationController
   # GET /users
   def index: () -> untyped

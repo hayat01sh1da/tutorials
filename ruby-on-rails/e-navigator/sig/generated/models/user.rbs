@@ -1,5 +1,6 @@
 # Generated from app/models/user.rb with RBS::Inline
 
+# Devise-backed user account that owns interviews and exposes computed age.
 class User < ApplicationRecord
   # パスワード入力なしでの更新を許可する
   def update_without_current_password: (untyped params, *untyped options) -> untyped

@@ -1,13 +1,19 @@
 # Generated from test/test_helper.rb with RBS::Inline
 
-class ActiveSupport::TestCase
-  include Devise::Test::IntegrationHelpers
+module ActiveSupport
+  class TestCase
+    include Devise::Test::IntegrationHelpers
+  end
 end
 
-class ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
+module ActionDispatch
+  class IntegrationTest
+    include Devise::Test::IntegrationHelpers
+  end
 end
 
-class ActionController::TestCase
-  include Devise::Test::ControllerHelpers
+module ActionController
+  class TestCase
+    include Devise::Test::ControllerHelpers
+  end
 end
