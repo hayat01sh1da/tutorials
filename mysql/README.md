@@ -1,7 +1,7 @@
 ## 1. Common Environment
 
 - MySQL Server 8.0.32
-- Docker 29.4.0
+- Docker 29.5.2
 
 ## 2. Reference
 
