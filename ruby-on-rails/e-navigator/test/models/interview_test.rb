@@ -24,11 +24,11 @@ class InterviewTest < ActiveSupport::TestCase
     assert_predicate @interview, :valid?
   end
 
-  test 'should require user_id' do
+  test 'should require user' do
     @interview.user = nil
 
     assert_not @interview.valid?
-    assert_includes @interview.errors[:user_id], 'を入力してください'
+    assert_includes @interview.errors[:user], 'を入力してください'
   end
 
   test 'should not allow past datetime' do
