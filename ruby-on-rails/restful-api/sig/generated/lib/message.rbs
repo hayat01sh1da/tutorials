@@ -1,5 +1,6 @@
 # Generated from app/lib/message.rb with RBS::Inline
 
+# Static collection of API response messages used by controllers and concerns.
 class Message
   def self.not_found: (?untyped record) -> untyped
 

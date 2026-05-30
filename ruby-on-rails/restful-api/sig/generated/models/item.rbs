@@ -1,4 +1,5 @@
 # Generated from app/models/item.rb with RBS::Inline
 
+# A single todo-list item belonging to a Todo.
 class Item < ApplicationRecord
 end

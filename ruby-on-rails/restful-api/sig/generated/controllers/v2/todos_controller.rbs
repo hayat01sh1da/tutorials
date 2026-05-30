@@ -1,5 +1,8 @@
 # Generated from app/controllers/v2/todos_controller.rb with RBS::Inline
 
-class V2::TodosController < ApplicationController
-  def index: () -> untyped
+module V2
+  # Placeholder todos endpoint for the v2 API surface.
+  class TodosController < ApplicationController
+    def index: () -> untyped
+  end
 end

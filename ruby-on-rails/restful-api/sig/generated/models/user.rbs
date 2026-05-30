@@ -1,4 +1,5 @@
 # Generated from app/models/user.rb with RBS::Inline
 
+# An API user account with a bcrypt password and many todos.
 class User < ApplicationRecord
 end

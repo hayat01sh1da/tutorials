@@ -1,5 +1,6 @@
 # Generated from app/controllers/status_controller.rb with RBS::Inline
 
+# Renders the public app-status page (used by health checks).
 class StatusController < ApplicationController
   def index: () -> untyped
 end

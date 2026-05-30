@@ -1,26 +1,29 @@
 # Generated from app/controllers/v1/items_controller.rb with RBS::Inline
 
-class V1::ItemsController < ApplicationController
-  # GET /todos/:todo_id/items
-  def index: () -> untyped
+module V1
+  # CRUD endpoints for items nested under todos (v1 API surface).
+  class ItemsController < ApplicationController
+    # GET /todos/:todo_id/items
+    def index: () -> untyped
 
-  # GET /todos/:todo_id/items/:id
-  def show: () -> untyped
+    # GET /todos/:todo_id/items/:id
+    def show: () -> untyped
 
-  # POST /todos/:todo_id/items
-  def create: () -> untyped
+    # POST /todos/:todo_id/items
+    def create: () -> untyped
 
-  # PUT /todos/:todo_id/items/:id
-  def update: () -> untyped
+    # PUT /todos/:todo_id/items/:id
+    def update: () -> untyped
 
-  # DELETE /todos/:todo_id/items/:id
-  def destroy: () -> untyped
+    # DELETE /todos/:todo_id/items/:id
+    def destroy: () -> untyped
 
-  private
+    private
 
-  def set_todo: () -> untyped
+    def set_todo: () -> untyped
 
-  def set_todo_item: () -> untyped
+    def set_todo_item: () -> untyped
 
-  def item_params: () -> untyped
+    def item_params: () -> untyped
+  end
 end

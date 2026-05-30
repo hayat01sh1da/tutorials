@@ -1,5 +1,6 @@
 # Generated from app/controllers/retirements_controller.rb with RBS::Inline
 
+# Lets a signed-in user delete their account and ends their session.
 class RetirementsController < ApplicationController
   def new: () -> untyped
 
