@@ -1,4 +1,5 @@
 # Generated from app/models/ticket.rb with RBS::Inline
 
+# RSVP linking a User to an Event with an optional comment.
 class Ticket < ApplicationRecord
 end

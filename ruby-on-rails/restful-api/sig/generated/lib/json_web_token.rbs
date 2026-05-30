@@ -1,5 +1,6 @@
 # Generated from app/lib/json_web_token.rb with RBS::Inline
 
+# Encodes and decodes JWTs against the app's secret_key_base.
 class JsonWebToken
   # secret to encode and decode token
   HMAC_SECRET: untyped

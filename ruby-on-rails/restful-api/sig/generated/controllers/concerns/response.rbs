@@ -1,5 +1,6 @@
 # Generated from app/controllers/concerns/response.rb with RBS::Inline
 
+# Tiny controller concern that wraps render json with a default :ok status.
 module Response
   def json_response: (untyped object, ?untyped status) -> untyped
 end

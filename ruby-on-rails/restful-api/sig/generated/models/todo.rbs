@@ -1,4 +1,5 @@
 # Generated from app/models/todo.rb with RBS::Inline
 
+# A todo list owned by a User, composed of many Items.
 class Todo < ApplicationRecord
 end

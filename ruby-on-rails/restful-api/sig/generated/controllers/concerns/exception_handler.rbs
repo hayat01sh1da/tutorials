@@ -1,5 +1,6 @@
 # Generated from app/controllers/concerns/exception_handler.rb with RBS::Inline
 
+# Controller concern that maps domain/AR exceptions to JSON error responses.
 module ExceptionHandler
   extend ActiveSupport::Concern
 

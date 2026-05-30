@@ -1,5 +1,6 @@
 # Generated from app/controllers/authentication_controller.rb with RBS::Inline
 
+# Issues a JWT for a user after verifying their email/password.
 class AuthenticationController < ApplicationController
   # return auth token once user is authenticated
   def authenticate: () -> untyped

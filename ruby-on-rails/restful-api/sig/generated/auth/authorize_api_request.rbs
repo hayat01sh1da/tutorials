@@ -1,5 +1,6 @@
 # Generated from app/auth/authorize_api_request.rb with RBS::Inline
 
+# Service object that resolves the User from the Authorization JWT header.
 class AuthorizeApiRequest
   def initialize: (?untyped headers) -> untyped
 

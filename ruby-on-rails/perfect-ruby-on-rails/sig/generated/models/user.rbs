@@ -1,5 +1,7 @@
 # Generated from app/models/user.rb with RBS::Inline
 
+# A user account. Owns created_events and joins participating_events through
+# Tickets; refuses destruction while unfinished events remain.
 class User < ApplicationRecord
   def self.find_or_create_from_auth_hash!: (untyped auth_hash) -> untyped
 

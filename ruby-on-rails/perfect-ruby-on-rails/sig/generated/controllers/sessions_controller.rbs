@@ -1,5 +1,6 @@
 # Generated from app/controllers/sessions_controller.rb with RBS::Inline
 
+# Handles the OmniAuth sign-in callback and the sign-out flow.
 class SessionsController < ApplicationController
   def create: () -> untyped
 

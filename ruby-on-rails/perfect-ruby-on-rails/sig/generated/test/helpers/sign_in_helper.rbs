@@ -6,6 +6,8 @@ module SignInHelper
   def current_user: () -> untyped
 end
 
-class ActionDispatch::IntegrationTest
-  include SignInHelper
+module ActionDispatch
+  class IntegrationTest
+    include SignInHelper
+  end
 end

@@ -1,5 +1,6 @@
 # Generated from app/controllers/tickets_controller.rb with RBS::Inline
 
+# Lets a signed-in user RSVP to an event by creating or destroying a Ticket.
 class TicketsController < ApplicationController
   def new: () -> untyped
 

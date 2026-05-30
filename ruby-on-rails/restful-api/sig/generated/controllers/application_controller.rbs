@@ -1,5 +1,6 @@
 # Generated from app/controllers/application_controller.rb with RBS::Inline
 
+# Base API controller wiring up JSON responses, exception handling, and JWT auth.
 class ApplicationController < ActionController::API
   include Response
 

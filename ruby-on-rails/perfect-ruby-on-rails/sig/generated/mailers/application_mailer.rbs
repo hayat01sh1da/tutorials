@@ -1,4 +1,5 @@
 # Generated from app/mailers/application_mailer.rb with RBS::Inline
 
+# Base mailer class shared by every mailer in the app.
 class ApplicationMailer < ActionMailer::Base
 end
