@@ -9,28 +9,28 @@ importers:
   .:
     dependencies:
       '@hotwired/turbo-rails':
-        specifier: 8.0.23
+        specifier: ^8.0.23
         version: 8.0.23
       '@popperjs/core':
-        specifier: 2.11.8
+        specifier: ^2.11.8
         version: 2.11.8
       '@rails/actioncable':
-        specifier: 8.1.300
+        specifier: ^8.1.300
         version: 8.1.300
       '@rails/activestorage':
-        specifier: 8.1.300
+        specifier: ^8.1.300
         version: 8.1.300
       '@rails/ujs':
         specifier: 7.1.3-4
         version: 7.1.3-4
       bootstrap:
-        specifier: 5.3.8
+        specifier: ^5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
       esbuild:
-        specifier: 0.28.0
+        specifier: ^0.28.0
         version: 0.28.0
       sass:
-        specifier: 1.100.0
+        specifier: ^1.100.0
         version: 1.100.0
 
 packages:
