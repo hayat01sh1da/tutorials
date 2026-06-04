@@ -13,7 +13,20 @@ sources:
 # A directory to install the downloaded RBSs
 path: .gem_rbs_collection
 
-# gems:
-#   # If you want to avoid installing rbs files for gems, you can specify them here.
-#   - name: GEM_NAME
-#     ignore: true
+gems:
+  # If you want to avoid installing rbs files for gems, you can specify them here.
+  #   - name: GEM_NAME
+  #     ignore: true
+  #
+  # `benchmark` is a real (dev-only) gem dependency, but rbs-gem only ships a
+  # deprecated stdlib signature for it. Ignore it here so `rbs collection update`
+  # stops pulling the deprecated `stdlib/benchmark/0` RBS and emitting the warning.
+  - name: benchmark
+    ignore: true
+  # `auth-sanitizer` (a transitive dependency) ships its own RBS, but as of
+  # 0.2.0 those signatures declare `::Auth::Sanitizer::VERSION` twice (in both
+  # sig/auth/sanitizer.rbs and sig/auth/sanitizer/version.rbs), which raises
+  # RBS::DuplicatedDeclarationError and crashes `steep check` before any
+  # type checking runs. The app never references the gem's types, so ignore it.
+  - name: auth-sanitizer
+    ignore: true
