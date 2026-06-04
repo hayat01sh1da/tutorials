@@ -89,18 +89,10 @@ gems:
     revision: 3f5e8df1ce89ea06067fa42263012c968b4e583e
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
-- name: auth-sanitizer
-  version: 0.2.0
-  source:
-    type: rubygems
 - name: base64
   version: 0.3.0
   source:
     type: rubygems
-- name: benchmark
-  version: '0'
-  source:
-    type: stdlib
 - name: bigdecimal
   version: 4.1.2
   source:
