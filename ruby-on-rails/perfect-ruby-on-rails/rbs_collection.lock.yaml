@@ -90,7 +90,7 @@ gems:
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
 - name: auth-sanitizer
-  version: 0.1.4
+  version: 0.1.5
   source:
     type: rubygems
 - name: base64
@@ -498,7 +498,7 @@ gems:
   source:
     type: stdlib
 - name: version_gem
-  version: 1.1.9
+  version: 1.1.10
   source:
     type: rubygems
 - name: zlib
