@@ -1,7 +1,7 @@
 {
   "name": "javascript_primer",
   "version": "1.0.0",
-  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.2.0 * pnpm 11.2.2",
+  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.3.0 * pnpm 11.2.2",
   "main": "index.js",
   "scripts": {
     "test": "mocha nodejs/test/"
