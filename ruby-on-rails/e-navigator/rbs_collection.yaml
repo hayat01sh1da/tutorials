@@ -13,7 +13,13 @@ sources:
 # A directory to install the downloaded RBSs
 path: .gem_rbs_collection
 
-# gems:
-#   # If you want to avoid installing rbs files for gems, you can specify them here.
-#   - name: GEM_NAME
-#     ignore: true
+gems:
+  # If you want to avoid installing rbs files for gems, you can specify them here.
+  #   - name: GEM_NAME
+  #     ignore: true
+  #
+  # `benchmark` is a real (dev-only) gem dependency, but rbs-gem only ships a
+  # deprecated stdlib signature for it. Ignore it here so `rbs collection update`
+  # stops pulling the deprecated `stdlib/benchmark/0` RBS and emitting the warning.
+  - name: benchmark
+    ignore: true
