@@ -30,6 +30,10 @@ gem 'dotenv-rails', '~> 3.2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.24.6', require: false
 
+# CGI: used transitively by Rails (cookie/session escaping). Formerly a default
+# gem; pinned explicitly so Bundler/RBS can resolve it from Gemfile.lock.
+gem 'cgi', '~> 0.5.0'
+
 group :development, :test do
   # Debug tool used with binding.irb. Explicit require avoids eager loading `debug/prelude`
   # which interferes with the Docker boot process.
