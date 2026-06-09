@@ -322,7 +322,7 @@ gems:
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
 - name: oauth2
-  version: 2.0.20
+  version: 2.0.22
   source:
     type: rubygems
 - name: observer
@@ -437,10 +437,6 @@ gems:
   version: '0'
   source:
     type: stdlib
-- name: snaky_hash
-  version: 2.0.4
-  source:
-    type: rubygems
 - name: socket
   version: '0'
   source:
@@ -490,7 +486,7 @@ gems:
   source:
     type: stdlib
 - name: version_gem
-  version: 1.1.10
+  version: 1.1.11
   source:
     type: rubygems
 - name: zlib
