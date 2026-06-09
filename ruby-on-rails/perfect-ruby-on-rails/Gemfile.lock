@@ -470,7 +470,7 @@ DEPENDENCIES
   rubocop-factory_bot (~> 2.28.0)
   rubocop-minitest (~> 0.39.0)
   rubocop-performance (~> 1.26.0)
-  rubocop-rails (~> 2.35.3)
+  rubocop-rails (~> 2.35.4)
   selenium-webdriver (~> 4.44.0)
   steep (~> 2.0.0)
   turbo-rails (~> 2.0.16)
