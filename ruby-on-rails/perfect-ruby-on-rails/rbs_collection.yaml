@@ -30,3 +30,10 @@ gems:
   # type checking runs. The app never references the gem's types, so ignore it.
   - name: auth-sanitizer
     ignore: true
+  # `snaky_hash` (a transitive dependency via oauth2) ships its own RBS, but as
+  # of 2.0.5 sig/snaky_hash.rbs declares `::SnakyHash::VERSION` twice (in both
+  # sig/snaky_hash.rbs and sig/snaky_hash/version.rbs), which raises
+  # RBS::DuplicatedDeclarationError and crashes `steep check` before any
+  # type checking runs. The app never references the gem's types, so ignore it.
+  - name: snaky_hash
+    ignore: true
