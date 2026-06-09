@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Board from './board'
-import calculateWinner from '../functions/calculate_winner'
+import Board from './board';
+import calculateWinner from '../functions/calculate_winner';
 
 const Game = class extends React.Component {
   constructor(props) {

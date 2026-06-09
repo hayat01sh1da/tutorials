@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Square from './square'
+import Square from './square';
 
 const Board = class extends React.Component {
   renderSquare(i) {
