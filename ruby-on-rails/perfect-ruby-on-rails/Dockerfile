@@ -12,7 +12,7 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 RUN npm install -g pnpm@11.5.2
 
-ARG BUNDLER_VERSION=4.0.13
+ARG BUNDLER_VERSION=4.0.14
 
 WORKDIR /tmp
 

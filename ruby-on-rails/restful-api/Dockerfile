@@ -3,7 +3,7 @@ FROM ruby:4.0.5
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree
 
-ARG BUNDLER_VERSION=4.0.13
+ARG BUNDLER_VERSION=4.0.14
 
 WORKDIR /tmp
 
