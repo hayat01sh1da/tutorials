@@ -28,15 +28,6 @@ $ docker-compose exec app bin/setup
 
 ![Ruby on Rails App Home](./public/ruby-on-rails-app-home.png)
 
-#### 3-3-2. Import Seed Data
-
-Login via 'GitHubでログイン', and a user data will be created in `user` table.  
-Then, run the following command to create sample data.
-
-```command
-docker-compose exec app bin/rails db:seed
-``
-
 ## 4. `config/credentials.yml.enc`
 
 Define a GitHub `client_id` and `client_secret`.
