@@ -33,7 +33,7 @@ RSpec.describe 'Items API' do
       let!(:todo_id) { 0 }
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Todo/)
+        expect(response.body).to include("Couldn't find Todo")
       end
 
       it 'returns status code 404' do
@@ -63,7 +63,7 @@ RSpec.describe 'Items API' do
       let!(:id) { 0 }
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Item/)
+        expect(response.body).to include("Couldn't find Item")
       end
 
       it 'returns status code 404' do
@@ -96,7 +96,7 @@ RSpec.describe 'Items API' do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body).to match(/Validation failed: Name can't be blank/)
+        expect(response.body).to include("Validation failed: Name can't be blank")
       end
 
       it 'returns status code 422' do
@@ -128,7 +128,7 @@ RSpec.describe 'Items API' do
       let(:id) { 0 }
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Item/)
+        expect(response.body).to include("Couldn't find Item")
       end
 
       it 'returns status code 404' do

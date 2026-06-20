@@ -45,7 +45,7 @@ RSpec.describe 'Authentication' do
       end
 
       it 'returns a failure message' do
-        expect(json['message']).to match(/Invalid credentials/)
+        expect(json['message']).to include('Invalid credentials')
       end
     end
   end
