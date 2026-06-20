@@ -68,7 +68,7 @@ RSpec.describe 'Todos API' do
       let(:id) { 0 }
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Todo/)
+        expect(response.body).to include("Couldn't find Todo")
       end
 
       it 'returns status code 404' do
@@ -113,7 +113,7 @@ RSpec.describe 'Todos API' do
       end
 
       it 'returns a validation failure message' do
-        expect(json['message']).to match(/Validation failed: Title can't be blank/)
+        expect(json['message']).to include("Validation failed: Title can't be blank")
       end
 
       it 'returns status code 422' do
@@ -149,7 +149,7 @@ RSpec.describe 'Todos API' do
       let(:id) { 0 }
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find Todo/)
+        expect(response.body).to include("Couldn't find Todo")
       end
 
       it 'returns status code 404' do
