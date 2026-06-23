@@ -76,7 +76,7 @@ gem 'ffi', '~> 1.17.4'
 
 # CGI: used transitively by Rails (cookie/session escaping). Formerly a default
 # gem; pinned explicitly so Bundler/RBS can resolve it from Gemfile.lock.
-gem 'cgi', '~> 0.5.0'
+gem 'cgi', '~> 0.5.2'
 
 # PStore: simple file-based persistent storage. Formerly a default gem;
 # pinned explicitly so Bundler/RBS can resolve it from Gemfile.lock.
