@@ -23,7 +23,7 @@ importers:
         version: 9.39.4
       '@vitejs/plugin-react':
         specifier: ^5.2.0
-        version: 5.2.0(vite@7.3.5(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0))
+        version: 5.2.0(vite@7.3.6(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0))
       eslint:
         specifier: ^9.39.4
         version: 9.39.4(jiti@1.21.7)
@@ -37,8 +37,8 @@ importers:
         specifier: ^16.5.0
         version: 16.5.0
       vite:
-        specifier: ^7.3.5
-        version: 7.3.5(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0)
+        specifier: ^7.3.6
+        version: 7.3.6(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0)
 
 packages:
 
@@ -819,8 +819,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-releases@2.0.49:
-    resolution: {integrity: sha512-f06bl1D+8ZDkn2oOQQKAh5/otFWqVnM1Q5oerA8Pex7UfT66Tx4IPHIqVVFKqFT3FUtaDstdgkM7yT7JWhqxfw==}
+  node-releases@2.0.50:
+    resolution: {integrity: sha512-J6l92tKHX6w8Jy5nO1Vuc01NoIiRGi/d6qBKVxh+IQ8Cr3b6HbVNfKiF8ZpFKufTwpwxMmce2W3iQZ861ZRyTg==}
     engines: {node: '>=18'}
 
   optionator@0.9.4:
@@ -947,8 +947,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  vite@7.3.5:
-    resolution: {integrity: sha512-KuOaNhcnGFN2zIPGA7wRmzF+lJA1sea7rHq17aiJ++9lzY1WWG6Jpwqwe1KNbRVPIqHmr8GLYx7jbrQcN/7/ww==}
+  vite@7.3.6:
+    resolution: {integrity: sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -1389,7 +1389,7 @@ snapshots:
       undici-types: 7.24.6
     optional: true
 
-  '@vitejs/plugin-react@5.2.0(vite@7.3.5(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0))':
+  '@vitejs/plugin-react@5.2.0(vite@7.3.6(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-transform-react-jsx-self': 7.29.7(@babel/core@7.29.7)
@@ -1397,7 +1397,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-rc.3
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.3.5(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0)
+      vite: 7.3.6(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -1434,7 +1434,7 @@ snapshots:
       baseline-browser-mapping: 2.10.38
       caniuse-lite: 1.0.30001799
       electron-to-chromium: 1.5.378
-      node-releases: 2.0.49
+      node-releases: 2.0.50
       update-browserslist-db: 1.2.3(browserslist@4.28.4)
 
   buffer-from@1.1.2:
@@ -1691,7 +1691,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-releases@2.0.49: {}
+  node-releases@2.0.50: {}
 
   optionator@0.9.4:
     dependencies:
@@ -1831,7 +1831,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  vite@7.3.5(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0):
+  vite@7.3.6(@types/node@25.9.2)(jiti@1.21.7)(terser@5.48.0):
     dependencies:
       esbuild: 0.28.1
       fdir: 6.5.0(picomatch@4.0.4)
