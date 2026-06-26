@@ -56,9 +56,6 @@ gem 'rexml', '~> 3.4.4'
 
 gem 'nokogiri', '~> 1.19.3'
 
-# YAML parser
-gem 'psych', '~> 5.4.0'
-
 gem 'net-smtp', '~> 0.5.0'
 
 # The Observer pattern provides a simple mechanism for one object to inform
