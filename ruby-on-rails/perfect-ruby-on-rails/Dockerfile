@@ -1,4 +1,4 @@
-FROM node:26.3.0 AS node
+FROM node:26.4.0 AS node
 FROM ruby:4.0.5
 
 # Install Packages
@@ -10,7 +10,7 @@ COPY --from=node /usr/local/include/node /usr/local/include/node
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-RUN npm install -g pnpm@11.7.0
+RUN npm install -g pnpm@11.9.0
 
 ARG BUNDLER_VERSION=4.0.15
 
