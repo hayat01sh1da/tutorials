@@ -19,12 +19,11 @@ RSpec.describe 'Todos API' do
       get '/todos', params: {}, headers: headers
     end
 
-    context 'V1' do
+    context 'when the API version is V1' do
       let(:headers) { valid_headers('v1') }
 
       it 'returns todos' do
         # Note `json` is a custom helper to parse JSON responses
-        expect(json).not_to be_empty
         expect(json.length).to eq(10)
       end
 
@@ -33,11 +32,10 @@ RSpec.describe 'Todos API' do
       end
     end
 
-    context 'V2' do
+    context 'when the API version is V2' do
       let(:headers) { valid_headers('v2') }
 
       it 'returns a message' do
-        expect(json).not_to be_empty
         expect(response.parsed_body['message']).to eq('This is the verion 2 of Todos')
       end
 
@@ -55,7 +53,6 @@ RSpec.describe 'Todos API' do
 
     context 'when the todo exists' do
       it 'returns the todo' do
-        expect(json).not_to be_empty
         expect(json['id']).to eq(id)
       end
 
@@ -102,14 +99,8 @@ RSpec.describe 'Todos API' do
     end
 
     context 'when the request is invalid' do
-      let(:invalid_attributes) do
-        {
-          title: nil
-        }.to_json
-      end
-
       before do
-        post '/todos', params: invalid_attributes, headers: headers
+        post '/todos', params: { title: nil }.to_json, headers: headers
       end
 
       it 'returns a validation failure message' do

@@ -28,7 +28,7 @@ RSpec.describe 'Authentication' do
     # before { allow(request).to receive(:headers).and_return(headers) }
 
     # returns auth token when request is valid
-    context 'When request is valid' do
+    context 'when request is valid' do
       before do
         post '/auth/login', params: valid_credentials, headers: headers
       end
@@ -39,7 +39,7 @@ RSpec.describe 'Authentication' do
     end
 
     # returns failure message when request is invalid
-    context 'When request is invalid' do
+    context 'when request is invalid' do
       before do
         post '/auth/login', params: invalid_credentials, headers: headers
       end

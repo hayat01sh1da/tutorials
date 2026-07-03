@@ -18,7 +18,7 @@ RSpec.describe ApplicationController do
 
       # private method authorize_request returns current user
       it 'sets the current user' do
-        expect(subject.instance_eval { authorize_request }).to eq(user)
+        expect(controller.instance_eval { authorize_request }).to eq(user)
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe ApplicationController do
       end
 
       it 'raises MissingToken error' do
-        expect { subject.instance_eval { authorize_request } }
+        expect { controller.instance_eval { authorize_request } }
           .to raise_error(ExceptionHandler::MissingToken, /Missing token/)
       end
     end
