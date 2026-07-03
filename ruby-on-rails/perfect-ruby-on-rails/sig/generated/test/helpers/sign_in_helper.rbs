@@ -4,6 +4,12 @@ module SignInHelper
   def sign_in_as: (untyped user) -> untyped
 
   def current_user: () -> untyped
+
+  private
+
+  # @rbs user: User
+  # @rbs return: void
+  def configure_omniauth_mock: (User user) -> void
 end
 
 module ActionDispatch

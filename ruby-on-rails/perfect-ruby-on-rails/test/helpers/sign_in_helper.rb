@@ -21,6 +21,8 @@ module SignInHelper
 
   private
 
+  # @rbs user: User
+  # @rbs return: void
   def configure_omniauth_mock(user)
     OmniAuth.config.test_mode = true
     OmniAuth.config.add_mock(
