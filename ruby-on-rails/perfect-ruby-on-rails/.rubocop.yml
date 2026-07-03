@@ -17,12 +17,3 @@ AllCops:
     - 'node_modules/**/*'
     # Engine-installed Active Storage migrations are vendor-style code.
     - 'db/migrate/*active_storage*.rb'
-
-# Tests inline long fixture-style setups and assert multiple expectations.
-Metrics/MethodLength:
-  Exclude:
-    - 'test/**/*'
-
-Minitest/MultipleAssertions:
-  Exclude:
-    - 'test/**/*'

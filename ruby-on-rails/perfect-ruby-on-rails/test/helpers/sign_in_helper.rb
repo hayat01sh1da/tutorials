@@ -3,15 +3,7 @@
 
 module SignInHelper
   def sign_in_as(user)
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.add_mock(
-      user.provider,
-      uid: user.uid,
-      info: {
-        nickname: user.name,
-        image: user.image_url
-      }
-    )
+    configure_omniauth_mock(user)
     if respond_to?(:visit)
       visit root_path
       click_on 'GitHubでログイン'
@@ -25,6 +17,20 @@ module SignInHelper
 
   def current_user
     @current_user
+  end
+
+  private
+
+  def configure_omniauth_mock(user)
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.add_mock(
+      user.provider,
+      uid: user.uid,
+      info: {
+        nickname: user.name,
+        image: user.image_url
+      }
+    )
   end
 end
 
