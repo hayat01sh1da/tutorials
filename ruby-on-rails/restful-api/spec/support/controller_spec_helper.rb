@@ -26,7 +26,7 @@ module ControllerSpecHelper
 
   # @rbs authorization: String?
   # @rbs version: String?
-  # @rbs return: Hash[String, String]
+  # @rbs return: Hash[String, String?]
   def base_headers(authorization, version)
     headers = {
       'Authorization' => authorization,
