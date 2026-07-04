@@ -16,28 +16,21 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
 
-Layout/LineLength:
-  Exclude:
-    - 'config/initializers/devise.rb'
-
+# Rails.application.configure blocks in environment configs are
+# framework-generated and inherently long; tests inline fixture setups.
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
     - 'test/**/*'
 
-# Devise-generated migration packs many column definitions into one
-# create_table block; tests inline long fixture setups.
+# The Devise-generated migration packs many column definitions into one
+# change method; tests inline long fixture setups.
 Metrics/MethodLength:
   Exclude:
-    - 'db/migrate/*'
+    - 'db/migrate/20180401221813_devise_create_users.rb'
     - 'test/**/*'
 
 Metrics/AbcSize:
-  Exclude:
-    - 'db/migrate/*'
-
-# Devise-generated migration adds three add_index calls after the create_table.
-Rails/BulkChangeTable:
   Exclude:
     - 'db/migrate/20180401221813_devise_create_users.rb'
 
@@ -45,6 +38,12 @@ Metrics/ClassLength:
   Exclude:
     - 'test/**/*'
 
+# The Devise-generated migration adds three add_index calls after create_table.
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/20180401221813_devise_create_users.rb'
+
+# Integration tests assert every step of multi-request flows.
 Minitest/MultipleAssertions:
   Exclude:
     - 'test/**/*'

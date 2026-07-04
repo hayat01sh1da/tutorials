@@ -12,4 +12,11 @@ module ControllerSpecHelper
 
   # return invalid headers
   def invalid_headers: (?untyped version) -> untyped
+
+  private
+
+  # @rbs authorization: String?
+  # @rbs version: String?
+  # @rbs return: Hash[String, String?]
+  def base_headers: (String? authorization, String? version) -> Hash[String, String?]
 end

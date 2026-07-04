@@ -216,6 +216,10 @@ class Object
 
   def request: () -> untyped
 
+  # rspec-rails' named alias for the controller under test in controller
+  # specs (preferred over bare `subject` by RSpec/NamedSubject).
+  def controller: () -> untyped
+
   # ----- FactoryBot::Syntax::Methods (config.include'd) -----
   def factory: (*untyped) ?{ () -> void } -> void
 

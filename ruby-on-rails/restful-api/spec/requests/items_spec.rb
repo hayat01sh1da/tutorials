@@ -8,19 +8,15 @@ RSpec.describe 'Items API' do
   let(:user) { create(:user) }
   let!(:todo) { create(:todo, user_id: user.id) }
   let!(:items) { create_list(:item, 10, todo_id: todo.id) }
-  let(:todo_id) { todo.id }
-  let(:id) { items.first.id }
-  let(:headers) { valid_headers }
 
   # Test suite for GET /todos/:todo_id/items
   describe 'GET /todos/:todo_id/items' do
-    before do
-      get "/todos/#{todo_id}/items", params: {}, headers: headers
-    end
-
     context 'when todo exists' do
+      before do
+        get "/todos/#{todo.id}/items", params: {}, headers: valid_headers
+      end
+
       it 'returns all items' do
-        expect(json).not_to be_empty
         expect(json.length).to eq(10)
       end
 
@@ -30,7 +26,9 @@ RSpec.describe 'Items API' do
     end
 
     context 'when todo does not exist' do
-      let!(:todo_id) { 0 }
+      before do
+        get '/todos/0/items', params: {}, headers: valid_headers
+      end
 
       it 'returns a not found message' do
         expect(response.body).to include("Couldn't find Todo")
@@ -44,14 +42,13 @@ RSpec.describe 'Items API' do
 
   # Test suite for GET /todos/:todo_id/items/:id
   describe 'GET /todos/:todo_id/items/:id' do
-    before do
-      get "/todos/#{todo_id}/items/#{id}", params: {}, headers: headers
-    end
-
     context 'when todo item exists' do
+      before do
+        get "/todos/#{todo.id}/items/#{items.first.id}", params: {}, headers: valid_headers
+      end
+
       it 'returns the item' do
-        expect(json).not_to be_empty
-        expect(json['id']).to eq(id)
+        expect(json['id']).to eq(items.first.id)
       end
 
       it 'returns status code 200' do
@@ -60,7 +57,9 @@ RSpec.describe 'Items API' do
     end
 
     context 'when todo item does not exist' do
-      let!(:id) { 0 }
+      before do
+        get "/todos/#{todo.id}/items/0", params: {}, headers: valid_headers
+      end
 
       it 'returns a not found message' do
         expect(response.body).to include("Couldn't find Item")
@@ -78,7 +77,7 @@ RSpec.describe 'Items API' do
 
     context 'when the request attributes are valid' do
       before do
-        post "/todos/#{todo_id}/items", params: valid_attributes, headers: headers
+        post "/todos/#{todo.id}/items", params: valid_attributes, headers: valid_headers
       end
 
       it 'creates a todo item' do
@@ -92,7 +91,7 @@ RSpec.describe 'Items API' do
 
     context 'when a request attribute is invalid' do
       before do
-        post "/todos/#{todo_id}/items", params: {}, headers: headers
+        post "/todos/#{todo.id}/items", params: {}, headers: valid_headers
       end
 
       it 'returns a validation failure message' do
@@ -109,13 +108,13 @@ RSpec.describe 'Items API' do
   describe 'PUT /todos/:todo_id/items/:id' do
     let(:valid_attributes) { { name: 'Mozart' }.to_json }
 
-    before do
-      put "/todos/#{todo_id}/items/#{id}", params: valid_attributes, headers: headers
-    end
-
     context 'when the item exists' do
+      before do
+        put "/todos/#{todo.id}/items/#{items.first.id}", params: valid_attributes, headers: valid_headers
+      end
+
       it 'updates the todo item' do
-        updated_item = Item.find(id)
+        updated_item = Item.find(items.first.id)
         expect(updated_item.name).to eq('Mozart')
       end
 
@@ -125,7 +124,9 @@ RSpec.describe 'Items API' do
     end
 
     context 'when the todo item does not exist' do
-      let(:id) { 0 }
+      before do
+        put "/todos/#{todo.id}/items/0", params: valid_attributes, headers: valid_headers
+      end
 
       it 'returns a not found message' do
         expect(response.body).to include("Couldn't find Item")
@@ -140,7 +141,7 @@ RSpec.describe 'Items API' do
   # Test suite for DELETE /todos/:id
   describe 'DELETE /todos/:todo_id/items/:id' do
     before do
-      delete "/todos/#{todo_id}/items/#{id}", params: {}, headers: headers
+      delete "/todos/#{todo.id}/items/#{items.first.id}", params: {}, headers: valid_headers
     end
 
     it 'returns status code 204' do

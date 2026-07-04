@@ -10,13 +10,20 @@ class EventsControllerTest < ApplicationControllerTest
   test 'The events can be rendered as markdown' do
     get "/events/#{event.id}.md"
 
-    assert_nothing_raised do
-      assert_response :success
-      assert_equal 'text/markdown; charset=utf-8', response.content_type
-      assert_match(/# #{event.name}/, response.body)
-      assert_match(/主催者: #{event.owner.name}/, response.body)
-      assert_match(/開催場所: #{event.place}/, response.body)
-      assert_match(/イベント内容: #{event.content}/, response.body)
+    assert_response :success
+    assert_equal 'text/markdown; charset=utf-8', response.content_type
+  end
+
+  test 'The rendered markdown contains the event details' do
+    get "/events/#{event.id}.md"
+
+    [
+      /# #{event.name}/,
+      /主催者: #{event.owner.name}/,
+      /開催場所: #{event.place}/,
+      /イベント内容: #{event.content}/
+    ].each do |pattern|
+      assert_match(pattern, response.body)
     end
   end
 
