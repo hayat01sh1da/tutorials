@@ -1,0 +1,109 @@
+# This workflow updates pnpm package dependencies every day in every
+# application that contains JavaScript (including Ruby on Rails applications
+# with a package.json) and opens a pull request when any dependency changes
+# are detected.
+
+name: JavaScript - Daily Dependencies Update
+
+on:
+  schedule:
+    # 0:00 JST every day
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - name: Install pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
+      - name: Update pnpm Package Dependencies in javascript
+        working-directory: ./javascript
+        run: pnpm update
+      - name: Update pnpm Package Dependencies in typescript
+        working-directory: ./typescript
+        run: pnpm update
+      - name: Update pnpm Package Dependencies in reactjs
+        working-directory: ./reactjs
+        run: pnpm update
+      - name: Update pnpm Package Dependencies in ruby-on-rails/perfect-ruby-on-rails
+        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
+        run: pnpm update
+      - name: Generate Pull Request Description
+        env:
+          BODY_PATH: ${{ runner.temp }}/pr_body.md
+        run: |
+          package_rows() {
+            git diff --unified=0 -- "$1/pnpm-lock.yaml" \
+              | grep -E "^[+-]  '?[^ ]+@[0-9]" \
+              | grep -v '(' \
+              | sed -E "s/^(.)  /\1 /; s/'//g; s/:$//" \
+              | awk '{ i = match($2, /@[^@]*$/); print $1, substr($2, 1, i - 1), substr($2, i + 1) }' \
+              | awk '{ if ($1 == "-") before[$2] = $3; else after[$2] = $3 }
+                END {
+                  for (name in after) {
+                    if (name in before) {
+                      if (before[name] != after[name]) print "|" name " |" before[name] " |" after[name] " |Updated |"
+                      delete before[name]
+                    } else {
+                      print "|" name " |- |" after[name] " |Added |"
+                    }
+                  }
+                  for (name in before) print "|" name " |" before[name] " |- |Removed |"
+                }' \
+              | sort
+          }
+          {
+            cat <<'OVERVIEW'
+          ## 1. Overview
+
+          This pull request was created automatically by the JavaScript - Daily Dependencies Update workflow.
+          It updates every pnpm package dependency to the latest version allowed by each package.json and regenerates each pnpm-lock.yaml:
+
+          ~~~console
+          pnpm update
+          ~~~
+
+          ## 2. Key Changes & Differences
+          OVERVIEW
+            for app in javascript typescript reactjs ruby-on-rails/perfect-ruby-on-rails; do
+              echo
+              echo "### $app"
+              echo
+              echo "|Packages |Before |After |Changes & Differences |"
+              echo "|:-|:-|:-|:-|"
+              ROWS=$(package_rows "$app")
+              if [ -z "$ROWS" ]; then ROWS='| | | |No dependency changes detected |'; fi
+              echo "$ROWS"
+            done
+            cat <<SUMMARY
+
+          ## 3. Summary
+
+          All pnpm package dependencies in javascript, typescript, reactjs, and ruby-on-rails/perfect-ruby-on-rails are now up to date.
+          Please make sure that all CI workflows pass before merging this pull request.
+
+          ## 4. References
+
+          - [JavaScript - Daily Dependencies Update workflow run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
+          - [pnpm update documentation](https://pnpm.io/cli/update)
+          SUMMARY
+          } > "$BODY_PATH"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: daily/javascript-dependency-updates
+          delete-branch: true
+          commit-message: "[Daily][JavaScript] Update pnpm Package Dependencies"
+          title: "[Daily][JavaScript] Update pnpm Package Dependencies"
+          body-path: ${{ runner.temp }}/pr_body.md
