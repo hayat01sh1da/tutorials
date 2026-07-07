@@ -107,3 +107,5 @@ jobs:
           commit-message: "[Daily][JavaScript] Update pnpm Package Dependencies"
           title: "[Daily][JavaScript] Update pnpm Package Dependencies"
           body-path: ${{ runner.temp }}/pr_body.md
+          reviewers: hayat01sh1da
+          assignees: github-actions[bot]
