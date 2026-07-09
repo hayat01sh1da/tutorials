@@ -1,7 +1,7 @@
 # This workflow updates pnpm package dependencies every day in every
 # application that contains JavaScript (including Ruby on Rails applications
-# with a package.json) and opens a pull request when any dependency changes
-# are detected.
+# with a package.json) in parallel and opens a pull request when any
+# dependency changes are detected.
 
 name: JavaScript - Daily Dependencies Update
 
@@ -19,26 +19,46 @@ jobs:
   update_pnpm_package_dependencies:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app:
+          - javascript
+          - typescript
+          - reactjs
+          - ruby-on-rails/perfect-ruby-on-rails
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
+      - uses: ./.github/actions/setup-nodejs
         with:
-          node-version-file: .node-version
-      - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
-      - name: Update pnpm Package Dependencies in javascript
-        working-directory: ./javascript
+          working-directory: ${{ matrix.app }}
+      - name: Update pnpm Package Dependencies in ${{ matrix.app }}
+        working-directory: ${{ matrix.app }}
         run: pnpm update
-      - name: Update pnpm Package Dependencies in typescript
-        working-directory: ./typescript
-        run: pnpm update
-      - name: Update pnpm Package Dependencies in reactjs
-        working-directory: ./reactjs
-        run: pnpm update
-      - name: Update pnpm Package Dependencies in ruby-on-rails/perfect-ruby-on-rails
-        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-        run: pnpm update
+      - name: Export Dependency Changes
+        run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: pnpm-dependency-changes-${{ strategy.job-index }}
+          path: ${{ runner.temp }}/${{ strategy.job-index }}.patch
+
+  create_pull_request:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs: update_pnpm_package_dependencies
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: pnpm-dependency-changes-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/patches
+      - name: Apply Dependency Changes
+        run: |
+          shopt -s nullglob
+          for patch in "${{ runner.temp }}"/patches/*.patch; do
+            if [ -s "$patch" ]; then git apply "$patch"; fi
+          done
       - name: Generate Pull Request Description
         env:
           BODY_PATH: ${{ runner.temp }}/pr_body.md
