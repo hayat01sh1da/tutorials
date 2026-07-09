@@ -63,26 +63,6 @@ jobs:
         env:
           BODY_PATH: ${{ runner.temp }}/pr_body.md
         run: |
-          package_rows() {
-            git diff --unified=0 -- "$1/pnpm-lock.yaml" \
-              | grep -E "^[+-]  '?[^ ]+@[0-9]" \
-              | grep -v '(' \
-              | sed -E "s/^(.)  /\1 /; s/'//g; s/:$//" \
-              | awk '{ i = match($2, /@[^@]*$/); print $1, substr($2, 1, i - 1), substr($2, i + 1) }' \
-              | awk '{ if ($1 == "-") before[$2] = $3; else after[$2] = $3 }
-                END {
-                  for (name in after) {
-                    if (name in before) {
-                      if (before[name] != after[name]) print "|" name " |" before[name] " |" after[name] " |Updated |"
-                      delete before[name]
-                    } else {
-                      print "|" name " |- |" after[name] " |Added |"
-                    }
-                  }
-                  for (name in before) print "|" name " |" before[name] " |- |Removed |"
-                }' \
-              | sort
-          }
           {
             cat <<'OVERVIEW'
           ## 1. Overview
@@ -100,11 +80,7 @@ jobs:
               echo
               echo "### $app"
               echo
-              echo "|Packages |Before |After |Changes & Differences |"
-              echo "|:-|:-|:-|:-|"
-              ROWS=$(package_rows "$app")
-              if [ -z "$ROWS" ]; then ROWS='| | | |No dependency changes detected |'; fi
-              echo "$ROWS"
+              bash .github/scripts/dependency_report.sh pnpm "$app/pnpm-lock.yaml" "$app/package.json" Packages
             done
             cat <<SUMMARY
 
