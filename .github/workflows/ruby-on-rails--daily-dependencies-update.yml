@@ -1,6 +1,6 @@
 # This workflow updates gem dependencies and the RBS collection every day in
-# every Ruby on Rails application and opens a pull request when any dependency
-# changes are detected.
+# every Ruby on Rails application in parallel and opens a pull request when
+# any dependency changes are detected.
 
 name: Ruby on Rails - Daily Dependencies Update
 
@@ -15,15 +15,24 @@ permissions:
   pull-requests: write
 
 jobs:
-  update:
+  update_gem_dependencies:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app:
+          - ruby-on-rails/e-navigator
+          - ruby-on-rails/perfect-ruby-on-rails
+          - ruby-on-rails/restful-api
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-      - name: Update Gem Dependencies in ruby-on-rails/e-navigator
-        working-directory: ./ruby-on-rails/e-navigator
+      - uses: ./.github/actions/setup-ruby-on-rails
+        with:
+          working-directory: ${{ matrix.app }}
+          job-name: update_gem_dependencies
+      - name: Update Gem Dependencies in ${{ matrix.app }}
+        working-directory: ${{ matrix.app }}
         env:
           BUNDLE_FROZEN: "false"
         run: |
@@ -31,48 +40,50 @@ jobs:
           gem install bundler
           bundle update --all
           bundle exec rbs collection update
-      - name: Update Gem Dependencies in ruby-on-rails/perfect-ruby-on-rails
-        working-directory: ./ruby-on-rails/perfect-ruby-on-rails
-        env:
-          BUNDLE_FROZEN: "false"
+      - name: Mirror Updated Versions to Gemfile
+        working-directory: ${{ matrix.app }}
         run: |
-          bundle update --all
-          bundle exec rbs collection update
-      - name: Update Gem Dependencies in ruby-on-rails/restful-api
-        working-directory: ./ruby-on-rails/restful-api
-        env:
-          BUNDLE_FROZEN: "false"
+          ruby <<'RUBY'
+          versions = File.read('Gemfile.lock').scan(/^    (\S+) \((\d+(?:\.\d+)*)\)$/).to_h
+          gemfile = File.read('Gemfile').gsub(/^(\s*gem '([^']+)', )'~> [^']+'/) do
+            versions[$2] ? "#{$1}'~> #{versions[$2]}'" : $~[0]
+          end
+          File.write('Gemfile', gemfile)
+          RUBY
+      - name: Export Dependency Changes
+        run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: gem-dependency-changes-${{ strategy.job-index }}
+          path: ${{ runner.temp }}/${{ strategy.job-index }}.patch
+
+  create_pull_request:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs: update_gem_dependencies
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: gem-dependency-changes-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/patches
+      - name: Apply Dependency Changes
         run: |
-          bundle update --all
-          bundle exec rbs collection update
+          shopt -s nullglob
+          for patch in "${{ runner.temp }}"/patches/*.patch; do
+            if [ -s "$patch" ]; then git apply "$patch"; fi
+          done
       - name: Generate Pull Request Description
         env:
           BODY_PATH: ${{ runner.temp }}/pr_body.md
         run: |
-          gem_rows() {
-            git diff --unified=0 -- "$1/Gemfile.lock" \
-              | grep -E '^[+-] {4}[^ ]+ \([0-9]' \
-              | sed -E 's/^(.) +/\1 /; s/[()]//g' \
-              | awk '{ if ($1 == "-") before[$2] = $3; else after[$2] = $3 }
-                END {
-                  for (name in after) {
-                    if (name in before) {
-                      if (before[name] != after[name]) print "|" name " |" before[name] " |" after[name] " |Updated |"
-                      delete before[name]
-                    } else {
-                      print "|" name " |- |" after[name] " |Added |"
-                    }
-                  }
-                  for (name in before) print "|" name " |" before[name] " |- |Removed |"
-                }' \
-              | sort
-          }
           {
             cat <<'OVERVIEW'
           ## 1. Overview
 
           This pull request was created automatically by the Ruby on Rails - Daily Dependencies Update workflow.
-          It upgrades RubyGems and Bundler, updates every gem to the latest version allowed by each Gemfile, and updates each RBS collection:
+          It upgrades RubyGems and Bundler, updates every gem to the latest version allowed by each Gemfile, updates each RBS collection, and mirrors the updated versions to each Gemfile:
 
           ~~~console
           gem update --system
@@ -87,17 +98,13 @@ jobs:
               echo
               echo "### $app"
               echo
-              echo "|Gems |Before |After |Changes & Differences |"
-              echo "|:-|:-|:-|:-|"
-              ROWS=$(gem_rows "$app")
-              if [ -z "$ROWS" ]; then ROWS='| | | |No dependency changes detected |'; fi
-              echo "$ROWS"
+              bash .github/scripts/dependency_report.sh gem "$app/Gemfile.lock" "$app/Gemfile" Gems
             done
             cat <<SUMMARY
 
           ## 3. Summary
 
-          All gem dependencies and RBS collections (rbs_collection.lock.yaml) in the Ruby on Rails applications are now up to date.
+          All gem dependencies (Gemfile and Gemfile.lock) and RBS collections (rbs_collection.lock.yaml) in the Ruby on Rails applications are now up to date.
           Please make sure that all CI workflows pass before merging this pull request.
 
           ## 4. References
@@ -116,4 +123,4 @@ jobs:
           title: "[Daily][Ruby on Rails] Update Gem dependencies"
           body-path: ${{ runner.temp }}/pr_body.md
           reviewers: hayat01sh1da
-          assignees: github-actions[bot]
+          assignees: hayat01sh1da
