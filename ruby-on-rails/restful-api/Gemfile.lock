@@ -344,10 +344,10 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.14)
+  active_model_serializers (~> 0.10.16)
   bcrypt (~> 3.1.22)
   bootsnap (~> 1.24.6)
-  brakeman (~> 8.0.4)
+  brakeman (~> 8.0.5)
   cgi (~> 0.5.2)
   database_cleaner (~> 2.1.0)
   debug
@@ -356,7 +356,7 @@ DEPENDENCIES
   faker (~> 3.8.0)
   jwt (~> 3.2.0)
   mysql2 (~> 0.5.7)
-  net-smtp (~> 0.5.0)
+  net-smtp (~> 0.5.1)
   observer (~> 0.1.2)
   ostruct (~> 0.6.3)
   puma (~> 8.0.2)
@@ -364,9 +364,9 @@ DEPENDENCIES
   rbs-inline (~> 0.14.0)
   rbs_rails (~> 0.13.1)
   rspec-rails (~> 8.0.4)
-  rubocop (~> 1.88.1)
+  rubocop (~> 1.88.2)
   rubocop-factory_bot (~> 2.28.0)
-  rubocop-performance (~> 1.26.0)
+  rubocop-performance (~> 1.26.1)
   rubocop-rails (~> 2.35.5)
   rubocop-rspec (~> 3.10.2)
   rubocop-rspec_rails (~> 2.32.0)
