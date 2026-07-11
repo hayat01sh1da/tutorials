@@ -38,6 +38,7 @@ jobs:
         run: |
           gem update --system
           gem install bundler
+          bundle update --bundler
           bundle update --all
           bundle exec rbs collection update
       - name: Mirror Updated Versions to Gemfile
@@ -88,6 +89,7 @@ jobs:
           ~~~console
           gem update --system
           gem install bundler
+          bundle update --bundler
           bundle update --all
           bundle exec rbs collection update
           ~~~
