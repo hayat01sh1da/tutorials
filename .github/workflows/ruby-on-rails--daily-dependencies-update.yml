@@ -117,7 +117,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          branch: daily/ruby-on-rails-dependency-updates
+          branch: hayat01sh1da/daily/ruby-on-rails/update-gem-dependencies
           delete-branch: true
           commit-message: "[Daily][Ruby on Rails] Update Gem dependencies"
           title: "[Daily][Ruby on Rails] Update Gem dependencies"
