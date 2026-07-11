@@ -34,7 +34,9 @@ jobs:
           working-directory: ${{ matrix.app }}
       - name: Update pnpm Package Dependencies in ${{ matrix.app }}
         working-directory: ${{ matrix.app }}
-        run: pnpm update
+        run: |
+          corepack use pnpm@latest
+          pnpm update
       - name: Export Dependency Changes
         run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
       - uses: actions/upload-artifact@v7
@@ -68,9 +70,10 @@ jobs:
           ## 1. Overview
 
           This pull request was created automatically by the JavaScript - Daily Dependencies Update workflow.
-          It updates every pnpm package dependency to the latest version allowed by each package.json and regenerates each pnpm-lock.yaml:
+          It updates pnpm itself (pinning the new version to the packageManager field of each package.json), updates every pnpm package dependency to the latest version allowed by each package.json, and regenerates each pnpm-lock.yaml:
 
           ~~~console
+          corepack use pnpm@latest
           pnpm update
           ~~~
 
@@ -86,7 +89,7 @@ jobs:
 
           ## 3. Summary
 
-          All pnpm package dependencies in javascript, typescript, reactjs, and ruby-on-rails/perfect-ruby-on-rails are now up to date.
+          The pnpm version pinned in each package.json and all pnpm package dependencies in javascript, typescript, reactjs, and ruby-on-rails/perfect-ruby-on-rails are now up to date.
           Please make sure that all CI workflows pass before merging this pull request.
 
           ## 4. References
