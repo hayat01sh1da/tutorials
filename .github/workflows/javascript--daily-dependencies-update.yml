@@ -98,7 +98,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
-          branch: daily/javascript-dependency-updates
+          sign-commits: true
+          branch: hayat01sh1da/daily/update-pnpm-package-dependencies
           delete-branch: true
           commit-message: "[Daily][JavaScript] Update pnpm Package Dependencies"
           title: "[Daily][JavaScript] Update pnpm Package Dependencies"
