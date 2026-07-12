@@ -96,6 +96,7 @@ jobs:
 
           - [JavaScript - Daily Dependencies Update workflow run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
           - [pnpm update documentation](https://pnpm.io/cli/update)
+          - [npm](https://www.npmjs.com/)
           SUMMARY
           } > "$BODY_PATH"
       - name: Create Pull Request
