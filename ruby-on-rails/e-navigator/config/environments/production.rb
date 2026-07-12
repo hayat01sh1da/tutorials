@@ -46,18 +46,21 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Replace the default in-process memory cache store with a durable alternative.
-  config.cache_store = :mem_cache_store
+  # Single-container Kamal deployment: no memcached on the host, so keep the in-process store.
+  config.cache_store = :memory_store
 
-  # Replace the default in-process and non-durable queuing backend for Active Job.
-  config.active_job.queue_adapter = :resque
+  # Single-container Kamal deployment: no Redis/Resque on the host, so run jobs in-process.
+  config.active_job.queue_adapter = :async
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: 'e-navigator-hayato-ishida.herokuapp.com', protocol: 'https' }
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch('APP_HOST', 'e-navigator.example.com'),
+    protocol: 'https'
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: ENV.fetch('MAILER_USER_ID', nil),
