@@ -1,0 +1,61 @@
+# Kamal deployment configuration (https://kamal-deploy.org/docs/configuration/overview/).
+# First deploy: `kamal setup`. Subsequent deploys: `kamal deploy`. Run from WSL.
+service: restful-api
+
+# Pushed to ghcr.io (see registry below) as ghcr.io/hayat01sh1da/restful-api.
+image: hayat01sh1da/restful-api
+
+servers:
+  web:
+    - 203.0.113.10 # TODO: replace with the Oracle Cloud VM public IP
+
+# kamal-proxy terminates SSL with a Let's Encrypt certificate for this host.
+proxy:
+  ssl: true
+  host: restful-api.example.com # TODO: replace with the real hostname (must resolve to the VM IP)
+  app_port: 3000
+
+registry:
+  server: ghcr.io
+  username: hayat01sh1da
+  # GitHub personal access token with write:packages, read via .kamal/secrets.
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  # Oracle Cloud Always Free VM.Standard.A1.Flex is ARM (aarch64).
+  arch: arm64
+  dockerfile: Dockerfile.production
+
+env:
+  clear:
+    # Accessory containers are reachable by name on the shared kamal docker network.
+    DB_HOST: restful-api-db
+    DB_USERNAME: root
+  secret:
+    - RAILS_MASTER_KEY
+    - DB_PASSWORD
+
+# Active Storage uses the :local disk service; keep uploads across deploys.
+volumes:
+  - "restful_api_storage:/app/storage"
+
+# MySQL runs on the same VM as a Kamal accessory. No host port is published;
+# the app reaches it over the kamal docker network only.
+accessories:
+  db:
+    image: mysql:8.4
+    host: 203.0.113.10 # TODO: replace with the Oracle Cloud VM public IP
+    env:
+      clear:
+        MYSQL_DATABASE: restful_api_rails_production
+      secret:
+        - MYSQL_ROOT_PASSWORD
+    directories:
+      - data:/var/lib/mysql
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"

@@ -1,0 +1,85 @@
+# syntax=docker/dockerfile:1
+
+# Production image built and deployed by Kamal (see config/deploy.yml).
+# Development keeps using ./Dockerfile via docker-compose.yml.
+FROM docker.io/library/node:26.4.0-slim AS node
+
+ARG RUBY_VERSION=4.0.5
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+
+WORKDIR /app
+
+# Install base packages (libvips for Active Storage image processing)
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y curl default-mysql-client libjemalloc2 libvips && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Set production environment
+ENV RAILS_ENV="production" \
+    BUNDLE_DEPLOYMENT="1" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT="development test"
+
+# Throw-away build stage to reduce size of final image
+FROM base AS build
+
+# Install packages needed to build gems and Node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential default-libmysqlclient-dev git pkg-config && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Node.js + pnpm are only needed at build time (jsbundling/cssbundling)
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
+    ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
+    npm install -g pnpm@11.9.0
+
+ARG BUNDLER_VERSION=4.0.15
+RUN gem install bundler -v $BUNDLER_VERSION --no-document
+
+# Install Node modules
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
+
+# Install application gems
+COPY .ruby-version Gemfile Gemfile.lock ./
+RUN bundle install && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    bundle exec bootsnap precompile --gemfile
+
+# Copy application code
+COPY . .
+
+# Windows checkouts can lose the executable bit; restore it for the bin stubs
+RUN chmod +x bin/*
+
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile app/ lib/
+
+# Precompile assets (runs esbuild + sass via jsbundling/cssbundling) without the production secret key
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
+# Node modules are bundled into app/assets/builds by the precompile; drop the sources
+RUN rm -rf node_modules
+
+# Final stage for app image
+FROM base
+
+# Copy built artifacts: gems, application
+COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
+COPY --from=build /app /app
+
+# Run and own only the runtime files as a non-root user for security
+RUN groupadd --system --gid 1000 rails && \
+    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    mkdir -p db log storage tmp && \
+    chown -R rails:rails db log storage tmp
+USER 1000:1000
+
+# Entrypoint prepares the database before starting the server.
+ENTRYPOINT ["/app/bin/docker-entrypoint"]
+
+# kamal-proxy routes to this port (proxy.app_port in config/deploy.yml)
+EXPOSE 3000
+CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]

@@ -1,0 +1,66 @@
+# Kamal deployment configuration (https://kamal-deploy.org/docs/configuration/overview/).
+# First deploy: `kamal setup`. Subsequent deploys: `kamal deploy`. Run from WSL.
+service: perfect-ruby-on-rails
+
+# Pushed to ghcr.io (see registry below) as ghcr.io/hayat01sh1da/perfect-ruby-on-rails.
+image: hayat01sh1da/perfect-ruby-on-rails
+
+servers:
+  web:
+    - 203.0.113.10 # TODO: replace with the Oracle Cloud VM public IP
+
+# kamal-proxy terminates SSL with a Let's Encrypt certificate for this host.
+proxy:
+  ssl: true
+  host: perfect-ruby-on-rails.example.com # TODO: replace with the real hostname (must resolve to the VM IP)
+  app_port: 3000
+
+registry:
+  server: ghcr.io
+  username: hayat01sh1da
+  # GitHub personal access token with write:packages, read via .kamal/secrets.
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  # Oracle Cloud Always Free VM.Standard.A1.Flex is ARM (aarch64).
+  arch: arm64
+  dockerfile: Dockerfile.production
+
+env:
+  clear:
+    APP_HOST: perfect-ruby-on-rails.example.com # TODO: keep in sync with proxy.host (used by Action Mailer URLs)
+    # Accessory containers are reachable by name on the shared kamal docker network.
+    DB_HOST: perfect-ruby-on-rails-db
+    DB_USERNAME: root
+  secret:
+    - RAILS_MASTER_KEY
+    - DB_PASSWORD
+    # Register the deployed callback URL (https://<host>/auth/github/callback)
+    # in the GitHub OAuth app these credentials belong to.
+    - OAUTH_CLIENT_ID
+    - OAUTH_CLIENT_SECRET
+
+# Active Storage uses the :local disk service; keep uploads across deploys.
+volumes:
+  - "perfect_ruby_on_rails_storage:/app/storage"
+
+# MySQL runs on the same VM as a Kamal accessory. No host port is published;
+# the app reaches it over the kamal docker network only.
+accessories:
+  db:
+    image: mysql:8.4
+    host: 203.0.113.10 # TODO: replace with the Oracle Cloud VM public IP
+    env:
+      clear:
+        MYSQL_DATABASE: perfect_ruby_on_rails_production
+      secret:
+        - MYSQL_ROOT_PASSWORD
+    directories:
+      - data:/var/lib/mysql
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
