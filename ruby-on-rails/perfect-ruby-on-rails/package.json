@@ -18,5 +18,6 @@
     "build:watch": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch",
     "build:css": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
     "build:css:watch": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function --watch"
-  }
+  },
+  "packageManager": "pnpm@11.12.0+sha512.820a6fbd0d9f04c226638002aead1e45340a9139dd5dc077c1d83ef44aa2481c8eb6637b4c9aa696a3c7e35ba818e49cf27213e5f2b91138d09b7a3e26e898ba"
 }
