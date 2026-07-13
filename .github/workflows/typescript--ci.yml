@@ -33,7 +33,7 @@ jobs:
     outputs:
       typescript-changes: ${{ steps.change-detection.outputs.typescript }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Change Detection
         uses: dorny/paths-filter@v4
         id: change-detection
@@ -52,7 +52,7 @@ jobs:
     needs: change-detection
     if: needs.change-detection.outputs.typescript-changes == 'true'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup-nodejs
         with:
           working-directory: ./typescript
