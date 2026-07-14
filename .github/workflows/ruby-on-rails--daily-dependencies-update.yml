@@ -43,6 +43,8 @@ jobs:
           bundle exec rbs collection update
       - name: Mirror Updated Versions to Gemfile
         working-directory: ${{ matrix.app }}
+        env:
+          BUNDLE_FROZEN: "false"
         run: |
           ruby <<'RUBY'
           versions = File.read('Gemfile.lock').scan(/^    (\S+) \((\d+(?:\.\d+)*)\)$/).to_h
@@ -51,6 +53,7 @@ jobs:
           end
           File.write('Gemfile', gemfile)
           RUBY
+          bundle lock --add-checksums
       - name: Export Dependency Changes
         run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
       - uses: actions/upload-artifact@v7
@@ -84,7 +87,7 @@ jobs:
           ## 1. Overview
 
           This pull request was created automatically by the Ruby on Rails - Daily Dependencies Update workflow.
-          It upgrades RubyGems and Bundler, updates every gem to the latest version allowed by each Gemfile, updates each RBS collection, and mirrors the updated versions to each Gemfile:
+          It upgrades RubyGems and Bundler, updates every gem to the latest version allowed by each Gemfile, updates each RBS collection, mirrors the updated versions to each Gemfile, and re-locks each Gemfile.lock so its DEPENDENCIES section stays in sync with its Gemfile:
 
           ~~~console
           gem update --system
