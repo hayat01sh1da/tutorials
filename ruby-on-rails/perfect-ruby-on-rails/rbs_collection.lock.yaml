@@ -314,7 +314,7 @@ gems:
     remote: https://github.com/ruby/gem_rbs_collection.git
     repo_dir: gems
 - name: oauth2
-  version: 2.0.24
+  version: 2.0.25
   source:
     type: rubygems
 - name: observer
