@@ -11,7 +11,7 @@
     "@rails/ujs": "7.1.3-4",
     "bootstrap": "^5.3.8",
     "esbuild": "^0.28.1",
-    "sass": "^1.101.0"
+    "sass": "^1.101.3"
   },
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
