@@ -70,7 +70,7 @@ jobs:
           ## 1. Overview
 
           This pull request was created automatically by the JavaScript - Daily Dependencies Update workflow.
-          It updates pnpm itself (pinning the new version to the packageManager field of each package.json), updates every pnpm package dependency to the latest version allowed by each package.json, and regenerates each pnpm-lock.yaml:
+          It updates pnpm itself (pinning the new version to the packageManager field of each package.json), updates every pnpm package dependency to the latest version allowed by each package.json, regenerates each pnpm-lock.yaml, and mirrors the new pnpm version to the Environment section of every README.md and to the description field of every package.json:
 
           ~~~console
           corepack use pnpm@latest
