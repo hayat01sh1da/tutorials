@@ -186,8 +186,10 @@ mirror() {
   local version=$1 label file tmp
   local -a expressions=()
   while IFS= read -r label; do
-    # `- <label> <version>` bullet in a README's Environment section ...
-    expressions+=(-e "s/^([[:space:]]*[-*][[:space:]]+${label}[[:space:]]+)(v?)[0-9]+(\.[0-9]+)*[[:space:]]*\$/\1\2${version}/")
+    # `- <label> <version>` bullet in a README's Environment section. The trailing
+    # run is captured and replayed rather than dropped, so a CRLF line keeps its
+    # carriage return and a markdown `  ` line break survives untouched.
+    expressions+=(-e "s/^([[:space:]]*[-*][[:space:]]+${label}[[:space:]]+)(v?)[0-9]+(\.[0-9]+)*([[:space:]]*)\$/\1\2${version}\4/")
     # ... and `* <label> <version>` inside a package.json description. Anchoring
     # on the description key keeps the packageManager pin (`pnpm@X.Y.Z+sha512.`)
     # and the dependencies untouched.
