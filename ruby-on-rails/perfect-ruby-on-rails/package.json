@@ -1,7 +1,7 @@
 {
   "name": "perfect_ruby_on_rails",
   "version": "0.1.0",
-  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.5.0 * pnpm 11.17.0",
+  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.5.0 * pnpm 11.18.0",
   "private": true,
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.23",
@@ -19,5 +19,5 @@
     "build:css": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
     "build:css:watch": "sass app/assets/stylesheets/application.bootstrap.scss:app/assets/builds/application.bootstrap.css --no-source-map --load-path=node_modules --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function --watch"
   },
-  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
+  "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
 }
