@@ -1,6 +1,6 @@
 ## 1. Common Environment
 
-- Rails 8.1.3
+- Rails 8.1.3.1
 - Ruby 4.0.6
 - Gemfile 4.0.17
 - Bundler 4.0.17
