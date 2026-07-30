@@ -79,6 +79,12 @@ gem 'cgi', '~> 0.5.2'
 # pinned explicitly so Bundler/RBS can resolve it from Gemfile.lock.
 gem 'pstore', '~> 0.2.1'
 
+# ImageProcessing::Vips requires the ruby-vips gem
+# Without it, it raises LoadError
+# ruby-vips is a binding for the libvips image processing library
+# It is fast and it can process large images without loading the whole image in memory
+gem 'ruby-vips', '~> 2.3.0'
+
 group :development, :test do
   # Debug tool used with binding.irb. Explicit require avoids eager loading `debug/prelude`
   # which interferes with the Docker boot process.
