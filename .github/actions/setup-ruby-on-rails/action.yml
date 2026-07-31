@@ -23,6 +23,15 @@ runs:
       run: |
         bundle config set --local path 'vendor/bundle'
         bundle install
+    # ruby-vips binds libvips.so.42 through FFI, so booting the application
+    # raises LoadError unless the native library is present on the runner.
+    # endsWith because callers pass the path both with and without a leading './'.
+    - name: Install libvips
+      if: ${{ endsWith(inputs.working-directory, 'ruby-on-rails/perfect-ruby-on-rails') }}
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends -y libvips
     - name: Set up Database
       if: ${{ inputs.job-name == 'minitest' || inputs.job-name == 'RSpec' }}
       shell: bash
