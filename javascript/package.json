@@ -1,7 +1,7 @@
 {
   "name": "javascript_primer",
   "version": "1.0.0",
-  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.5.0 * pnpm 11.18.0",
+  "description": "* WSL(Ubuntu 25.10 (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)) * Node.js v26.5.0 * pnpm 11.20.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha nodejs/test/"
@@ -23,5 +23,5 @@
     "jest": "^30.4.2",
     "marked": "^17.0.6"
   },
-  "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
+  "packageManager": "pnpm@11.20.0+sha512.9a6f330a95b66446ea088faf1521405a8a01f07fde7124cc9958dfed52d4bb436737e65b08f85f37b46fcba375092558ac51262b816844b22f63406ed166bfee"
 }
