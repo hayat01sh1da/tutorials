@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.15.1'
 gem 'mysql2', '~> 0.5.7'
 
 # Use Active Storage variant
-gem 'image_processing', '~> 2.0.2'
+gem 'image_processing', '~> 2.0.3'
 
 gem 'active_storage_validations', '~> 3.0.6'
 
