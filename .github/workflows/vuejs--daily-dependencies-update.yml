@@ -1,0 +1,77 @@
+# This workflow updates the npm package dependencies of the Vue.js
+# application every day and opens a pull request when any dependency
+# changes are detected.
+
+name: Vue.js - Daily Dependencies Update
+
+on:
+  schedule:
+    # 1:00 JST every day
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update_pnpm_package_dependencies:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-nodejs
+        with:
+          working-directory: ./vuejs
+      - name: Update pnpm Package Dependencies in vuejs
+        working-directory: ./vuejs
+        run: |
+          corepack use pnpm@latest
+          pnpm update
+      - name: Generate Pull Request Description
+        env:
+          BODY_PATH: ${{ runner.temp }}/pr_body.md
+        run: |
+          {
+            cat <<'OVERVIEW'
+          ## 1. Overview
+
+          This pull request was created automatically by the Vue.js - Daily Dependencies Update workflow.
+          It updates pnpm itself (pinning the new version to the packageManager field of vuejs/package.json), updates every pnpm package dependency to the latest version allowed by vuejs/package.json, regenerates vuejs/pnpm-lock.yaml, and mirrors the new pnpm version to the Environment section of vuejs/README.md and to the description field of vuejs/package.json:
+
+          ~~~console
+          corepack use pnpm@latest
+          pnpm update
+          ~~~
+
+          ## 2. Key Changes & Differences
+          OVERVIEW
+            echo
+            bash .github/scripts/dependency_report.sh pnpm vuejs/pnpm-lock.yaml vuejs/package.json Packages
+            cat <<SUMMARY
+
+          ## 3. Summary
+
+          The pnpm version pinned in vuejs/package.json and all pnpm package dependencies in vuejs are now up to date.
+          Please make sure that all CI workflows pass before merging this pull request.
+
+          ## 4. References
+
+          - [Vue.js - Daily Dependencies Update workflow run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
+          - [pnpm update documentation](https://pnpm.io/cli/update)
+          - [npm](https://www.npmjs.com/)
+          SUMMARY
+          } > "$BODY_PATH"
+      - name: Compute Timestamp
+        run: echo "TIMESTAMP=$(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M:%S JST')" >> "$GITHUB_ENV"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          sign-commits: true
+          branch: hayat01sh1da/daily/update-vuejs-pnpm-package-dependencies
+          delete-branch: true
+          commit-message: "[Daily][Vue.js] Update pnpm Package Dependencies at ${{ env.TIMESTAMP }}"
+          title: "[Daily][Vue.js] Update pnpm Package Dependencies"
+          body-path: ${{ runner.temp }}/pr_body.md
+          reviewers: hayat01sh1da
+          assignees: hayat01sh1da
