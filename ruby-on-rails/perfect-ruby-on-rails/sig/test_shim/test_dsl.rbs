@@ -147,6 +147,22 @@ class Object
 
   def current_user: () -> untyped
 
+  # Private helpers the test classes define for themselves. Like the factory
+  # attributes above, they are called from `test "..." do` blocks, where `self`
+  # is the test singleton rather than an instance.
+  def auth_hash: (*untyped, **untyped) -> untyped
+
+  def build_with: (*untyped, **untyped) -> untyped
+
+  def file_fixture_io: (*untyped) -> untyped
+
+  def attach_image: (*untyped) -> untyped
+
+  def valid_event_params: () -> untyped
+
+  # Application view helpers mixed into ActionView::TestCase by `tests`.
+  def show_image_if_attached: (*untyped) -> untyped
+
   def travel_to: (*untyped) ?{ () -> void } -> untyped
 
   def travel: (*untyped) ?{ () -> void } -> untyped
@@ -159,12 +175,18 @@ class Object
 
   def teardown: (*untyped) ?{ () -> void } -> void
 
+  # `tests EventHelper` — ActionView::TestCase's class-level declaration of the
+  # helper module under test.
+  def tests: (*untyped) -> untyped
+
   # Minitest / ActiveSupport / Rails assertions
   def assert: (*untyped) ?{ () -> untyped } -> untyped
 
   def assert_not: (*untyped) ?{ () -> untyped } -> untyped
 
   def assert_equal: (*untyped) -> untyped
+
+  def assert_not_equal: (*untyped) -> untyped
 
   def assert_nil: (*untyped) -> untyped
 

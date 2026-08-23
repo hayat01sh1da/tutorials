@@ -1,0 +1,4 @@
+# Generated from test/controllers/sessions_controller_test.rb with RBS::Inline
+
+class SessionsControllerTest < ApplicationControllerTest
+end

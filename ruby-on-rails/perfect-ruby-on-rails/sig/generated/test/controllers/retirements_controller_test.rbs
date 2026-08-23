@@ -1,0 +1,4 @@
+# Generated from test/controllers/retirements_controller_test.rb with RBS::Inline
+
+class RetirementsControllerTest < ApplicationControllerTest
+end
