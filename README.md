@@ -7,6 +7,7 @@
 [![Actions Status: Ruby on Rails - RESTful API - CI](https://github.com/hayat01sh1da/tutorials/workflows/Ruby%20on%20Rails%20-%20RESTful%20API%20-%20CI/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Ruby%20on%20Rails%20-%20RESTful%20API%20-%20CI%22)
 [![Actions Status: Ruby on Rails - Daily Dependencies Update](https://github.com/hayat01sh1da/tutorials/workflows/Ruby%20on%20Rails%20-%20Daily%20Dependencies%20Update/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Ruby%20on%20Rails%20-%20Daily%20Dependencies%20Update%22)
 [![Actions Status: TypeScript - CI](https://github.com/hayat01sh1da/tutorials/workflows/TypeScript%20-%20CI/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22TypeScript%20-%20CI%22)
+[![Actions Status: Vue.js - CI](https://github.com/hayat01sh1da/tutorials/workflows/Vue.js%20-%20CI/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22Vue.js%20-%20CI%22)
 [![Actions Status: CodeQL](https://github.com/hayat01sh1da/tutorials/workflows/CodeQL/badge.svg)](https://github.com/hayat01sh1da/tutorials/actions?query=workflow%3A%22CodeQL%22)
 
 ## 1. Common Environment

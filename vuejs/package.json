@@ -1,0 +1,27 @@
+{
+  "name": "vuejs_tutorial",
+  "version": "1.0.0",
+  "description": "Intro to Vue 3 tutorial from Vue Mastery",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayat01sh1da/tutorials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hayat01sh1da/tutorials/issues"
+  },
+  "homepage": "https://github.com/hayat01sh1da/tutorials/vuejs#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@vue/test-utils": "^2.4.11",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "vue": "^3.5.41"
+  }
+}
