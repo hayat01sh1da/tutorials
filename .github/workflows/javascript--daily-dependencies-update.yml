@@ -26,7 +26,6 @@ jobs:
           - javascript
           - typescript
           - reactjs
-          - vuejs
           - ruby-on-rails/perfect-ruby-on-rails
     steps:
       - uses: actions/checkout@v7
@@ -80,7 +79,7 @@ jobs:
 
           ## 2. Key Changes & Differences
           OVERVIEW
-            for app in javascript typescript reactjs vuejs ruby-on-rails/perfect-ruby-on-rails; do
+            for app in javascript typescript reactjs ruby-on-rails/perfect-ruby-on-rails; do
               echo
               echo "### $app"
               echo
@@ -90,7 +89,7 @@ jobs:
 
           ## 3. Summary
 
-          The pnpm version pinned in each package.json and all pnpm package dependencies in javascript, typescript, reactjs, vuejs, and ruby-on-rails/perfect-ruby-on-rails are now up to date.
+          The pnpm version pinned in each package.json and all pnpm package dependencies in javascript, typescript, reactjs, and ruby-on-rails/perfect-ruby-on-rails are now up to date.
           Please make sure that all CI workflows pass before merging this pull request.
 
           ## 4. References
