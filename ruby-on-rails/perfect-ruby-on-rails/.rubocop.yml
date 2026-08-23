@@ -17,3 +17,11 @@ AllCops:
     - 'node_modules/**/*'
     # Engine-installed Active Storage migrations are vendor-style code.
     - 'db/migrate/*active_storage*.rb'
+
+# A test class grows one `test '...' do` block per behaviour it pins down, so
+# its length tracks coverage rather than complexity. Splitting EventTest or
+# EventsControllerTest purely to stay under the limit would scatter the cases
+# for a single class across several files.
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'
