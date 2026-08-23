@@ -139,6 +139,10 @@ reactjs/npm-debug.log*
 reactjs/yarn-debug.log*
 reactjs/yarn-error.log*
 
+# Vue.js
+vuejs/node_modules/
+vuejs/coverage/
+
 # TypeScript
 typescript/node_modules/
 typescript/*~
