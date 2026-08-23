@@ -1,0 +1,4 @@
+# Generated from test/models/ticket_test.rb with RBS::Inline
+
+class TicketTest < ActiveSupport::TestCase
+end

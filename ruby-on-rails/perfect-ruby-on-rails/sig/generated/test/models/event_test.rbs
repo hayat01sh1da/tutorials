@@ -1,4 +1,14 @@
 # Generated from test/models/event_test.rb with RBS::Inline
 
 class EventTest < ActiveSupport::TestCase
+  private
+
+  # @rbs return: untyped
+  def build_with: (**untyped attributes) -> untyped
+
+  # @rbs return: untyped
+  def file_fixture_io: (untyped filename) -> untyped
+
+  # @rbs return: void
+  def attach_image: (untyped event) -> void
 end

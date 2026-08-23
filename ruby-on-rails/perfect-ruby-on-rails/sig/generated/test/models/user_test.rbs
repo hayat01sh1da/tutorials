@@ -1,0 +1,8 @@
+# Generated from test/models/user_test.rb with RBS::Inline
+
+class UserTest < ActiveSupport::TestCase
+  private
+
+  # @rbs return: Hash[Symbol, untyped]
+  def auth_hash: (?provider: untyped, ?uid: untyped, ?nickname: untyped, ?image: untyped) -> Hash[Symbol, untyped]
+end

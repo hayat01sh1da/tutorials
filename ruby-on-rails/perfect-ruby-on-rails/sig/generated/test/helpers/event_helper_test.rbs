@@ -1,0 +1,8 @@
+# Generated from test/helpers/event_helper_test.rb with RBS::Inline
+
+class EventHelperTest < ActionView::TestCase
+  private
+
+  # @rbs return: void
+  def attach_image: (untyped event) -> void
+end

@@ -1,0 +1,7 @@
+# Generated from test/controllers/tickets_controller_test.rb with RBS::Inline
+
+class TicketsControllerTest < ApplicationControllerTest
+  private
+
+  attr_reader event: untyped
+end
