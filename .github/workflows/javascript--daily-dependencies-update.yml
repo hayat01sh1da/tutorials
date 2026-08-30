@@ -37,6 +37,7 @@ jobs:
         working-directory: ${{ matrix.app }}
         run: |
           corepack use pnpm@latest
+          pnpm approve-builds
           pnpm update
       - name: Export Dependency Changes
         run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
@@ -75,6 +76,7 @@ jobs:
 
           ~~~console
           corepack use pnpm@latest
+          pnpm approve-builds
           pnpm update
           ~~~
 
