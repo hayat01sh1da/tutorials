@@ -37,8 +37,7 @@ jobs:
         working-directory: ${{ matrix.app }}
         run: |
           corepack use pnpm@latest
-          pnpm approve-builds
-          pnpm update
+          pnpm update --no-frozen-lockfile
       - name: Export Dependency Changes
         run: git diff > "${{ runner.temp }}/${{ strategy.job-index }}.patch"
       - uses: actions/upload-artifact@v7
@@ -76,8 +75,7 @@ jobs:
 
           ~~~console
           corepack use pnpm@latest
-          pnpm approve-builds
-          pnpm update
+          pnpm update --no-frozen-lockfile
           ~~~
 
           ## 2. Key Changes & Differences
