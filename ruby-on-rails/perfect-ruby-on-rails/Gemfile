@@ -54,7 +54,7 @@ gem 'ransack', '~> 4.4.1'
 
 gem 'rexml', '~> 3.4.4'
 
-gem 'nokogiri', '~> 1.19.3'
+gem 'nokogiri', '~> 1.19.4'
 
 gem 'net-smtp', '~> 0.5.1'
 
