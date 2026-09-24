@@ -2,7 +2,7 @@
 
 - WSL (Ubuntu 25.10)
 - Node v26.8.1
-- pnpm 12.5.1
+- pnpm 12.6.0
 - Vue 3.5.41
 
 ## 2. Reference
