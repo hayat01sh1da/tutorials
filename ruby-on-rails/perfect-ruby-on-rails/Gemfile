@@ -56,7 +56,7 @@ gem 'rexml', '~> 3.4.4'
 
 gem 'nokogiri', '~> 1.19.4'
 
-gem 'net-smtp', '~> 0.5.1'
+gem 'net-smtp', '~> 0.5.2'
 
 # The Observer pattern provides a simple mechanism for one object to inform
 # a set of interested third-party objects when its state changes.
