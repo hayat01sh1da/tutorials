@@ -69,7 +69,7 @@ gem 'ostruct', '~> 0.6.3'
 # A foreign function interface (FFI) is a mechanism by which a program written
 # in one programming language can call routines or make use of services written
 # or compiled in another one
-gem 'ffi', '~> 1.17.4'
+gem 'ffi', '~> 1.0'
 
 # CGI: used transitively by Rails (cookie/session escaping). Formerly a default
 # gem; pinned explicitly so Bundler/RBS can resolve it from Gemfile.lock.

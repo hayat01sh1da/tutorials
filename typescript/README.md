@@ -1,7 +1,7 @@
 ## 1. Environment
 
 - WSL (Ubuntu 25.10)
-- Node v26.10.0
+- Node v26.11.0
 - pnpm 12.9.1
 
 ## 2. Reference
