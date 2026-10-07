@@ -1,4 +1,4 @@
-FROM node:26.10.0 AS node
+FROM node:26.11.0 AS node
 FROM ruby:4.0.7
 
 # Install Packages
