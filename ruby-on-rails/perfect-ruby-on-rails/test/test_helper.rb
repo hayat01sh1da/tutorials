@@ -4,7 +4,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
-Rails.root.glob('test/helpers/**/*.rb').each { |f| require f }
+Rails.root.glob('test/helpers/**/*.rb').each { |f| require f.to_s }
 
 module ActiveSupport
   class TestCase
