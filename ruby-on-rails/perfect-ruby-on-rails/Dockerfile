@@ -2,7 +2,7 @@ FROM node:26.11.1 AS node
 FROM ruby:4.0.7
 
 # Install Packages
-RUN apt-get update && apt-get install -y curl build-essential libpq-dev vim tree chromium
+RUN apt-get update && apt-get install -y curl build-essential libpq-dev libvips-dev vim tree chromium
 
 # Setup Node.js
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
