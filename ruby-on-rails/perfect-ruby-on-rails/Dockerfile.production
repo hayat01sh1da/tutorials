@@ -4,7 +4,7 @@
 # Development keeps using ./Dockerfile via docker-compose.yml.
 FROM docker.io/library/node:26.12.1-slim AS node
 
-ARG RUBY_VERSION=4.0.7
+ARG RUBY_VERSION=4.0.9
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 WORKDIR /app
