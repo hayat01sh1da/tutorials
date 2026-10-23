@@ -39,7 +39,7 @@ gem 'bootsnap', '~> 1.26.0', require: false
 gem 'dotenv-rails', '~> 3.2.0'
 
 # OAuth
-gem 'omniauth', '~> 2.1.4'
+gem 'omniauth', '~> 2.2.0'
 gem 'omniauth-github', '~> 2.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 2.0.1'
 
@@ -100,7 +100,7 @@ group :development do
   # Static code analysis for security vulnerabilities
   gem 'brakeman', '~> 8.1.0', require: false
   # RuboCop
-  gem 'rubocop', '~> 1.92.0', require: false
+  gem 'rubocop', '~> 1.92.1', require: false
   gem 'rubocop-capybara', '~> 2.23.0', require: false
   gem 'rubocop-factory_bot', '~> 2.28.0', require: false
   gem 'rubocop-minitest', '~> 0.39.1', require: false

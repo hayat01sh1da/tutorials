@@ -45,7 +45,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').each { |f| require f.to_s }
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
