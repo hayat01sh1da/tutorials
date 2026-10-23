@@ -5,10 +5,7 @@
 class JsonWebToken
   # secret to encode and decode token
   class JsonWebToken
-  HMAC_SECRET =
-    Rails.application.credentials.respond_to?(:secret_key_base) &&
-      Rails.application.credentials.secret_key_base ||
-    Rails.application.secret_key_base
+  HMAC_SECRET = Rails.application.secret_key_base
 end
 
   def self.encode(payload, exp = 24.hours.from_now)
