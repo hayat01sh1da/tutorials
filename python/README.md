@@ -1,6 +1,6 @@
 ## 1. Environment
 
-- Python 3.14.8
+- Python 3.14.9
 - pip 26.2.2
 
 ## 2. Reference
@@ -18,7 +18,7 @@ $ pip install -r requirements.txt
 ```command
 $ pytest .
 ============================= test session starts ==============================
-platform linux -- Python 3.14.8, pytest-9.0.3, pluggy-1.6.0
+platform linux -- Python 3.14.9, pytest-9.0.3, pluggy-1.6.0
 rootdir: tutorials/python
 configfile: pyproject.toml
 collected 47 items
