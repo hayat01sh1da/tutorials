@@ -7,3 +7,23 @@ allowBuilds:
 
 ignoredBuiltDependencies:
   - core-js
+
+# babel-jest -> babel-preset-current-node-syntax pulls in @babel/plugin-syntax-* 7.x,
+# whose peer range stops at Babel 7. They are no-op parser flags that work with Babel 8.
+peerDependencyRules:
+  allowedVersions:
+    '@babel/plugin-syntax-async-generators>@babel/core': '8'
+    '@babel/plugin-syntax-bigint>@babel/core': '8'
+    '@babel/plugin-syntax-class-properties>@babel/core': '8'
+    '@babel/plugin-syntax-class-static-block>@babel/core': '8'
+    '@babel/plugin-syntax-import-attributes>@babel/core': '8'
+    '@babel/plugin-syntax-import-meta>@babel/core': '8'
+    '@babel/plugin-syntax-json-strings>@babel/core': '8'
+    '@babel/plugin-syntax-logical-assignment-operators>@babel/core': '8'
+    '@babel/plugin-syntax-nullish-coalescing-operator>@babel/core': '8'
+    '@babel/plugin-syntax-numeric-separator>@babel/core': '8'
+    '@babel/plugin-syntax-object-rest-spread>@babel/core': '8'
+    '@babel/plugin-syntax-optional-catch-binding>@babel/core': '8'
+    '@babel/plugin-syntax-optional-chaining>@babel/core': '8'
+    '@babel/plugin-syntax-private-property-in-object>@babel/core': '8'
+    '@babel/plugin-syntax-top-level-await>@babel/core': '8'
