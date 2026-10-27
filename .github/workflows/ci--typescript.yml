@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/typescript--ci.yml
+      - .github/workflows/ci--typescript.yml
       - .node-version
       - typescript/package.json
       - typescript/pnpm-lock.yaml
@@ -16,7 +16,7 @@ on:
       - typescript/**/*.ts
   pull_request:
     paths:
-      - .github/workflows/typescript--ci.yml
+      - .github/workflows/ci--typescript.yml
       - .node-version
       - typescript/package.json
       - typescript/pnpm-lock.yaml
@@ -40,7 +40,7 @@ jobs:
         with:
           filters: |
             typescript:
-              - .github/workflows/typescript--ci.yml
+              - .github/workflows/ci--typescript.yml
               - .node-version
               - typescript/package.json
               - typescript/pnpm-lock.yaml

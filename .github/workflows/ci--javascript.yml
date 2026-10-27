@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/javascript--ci.yml
+      - .github/workflows/ci--javascript.yml
       - .node-version
       - javascript/package.json
       - javascript/pnpm-lock.yaml
@@ -16,7 +16,7 @@ on:
       - javascript/**/*.js
   pull_request:
     paths:
-      - .github/workflows/javascript--ci.yml
+      - .github/workflows/ci--javascript.yml
       - .node-version
       - javascript/package.json
       - javascript/pnpm-lock.yaml
@@ -40,7 +40,7 @@ jobs:
         with:
           filters: |
             javascript:
-              - .github/workflows/javascript--ci.yml
+              - .github/workflows/ci--javascript.yml
               - .node-version
               - javascript/package.json
               - javascript/pnpm-lock.yaml

@@ -8,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/vuejs--ci.yml
+      - .github/workflows/ci--vuejs.yml
       - .node-version
       - vuejs/babel.config.json
       - vuejs/jest.config.js
@@ -18,7 +18,7 @@ on:
       - vuejs/**/*.js
   pull_request:
     paths:
-      - .github/workflows/vuejs--ci.yml
+      - .github/workflows/ci--vuejs.yml
       - .node-version
       - vuejs/babel.config.json
       - vuejs/jest.config.js
@@ -44,7 +44,7 @@ jobs:
         with:
           filters: |
             vuejs:
-              - .github/workflows/vuejs--ci.yml
+              - .github/workflows/ci--vuejs.yml
               - .node-version
               - vuejs/babel.config.json
               - vuejs/jest.config.js
