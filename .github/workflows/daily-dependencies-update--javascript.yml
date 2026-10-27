@@ -3,7 +3,7 @@
 # with a package.json) in parallel and opens a pull request when any
 # dependency changes are detected.
 
-name: JavaScript - Daily Dependencies Update
+name: Daily Dependencies Update - JavaScript
 
 on:
   schedule:
@@ -72,7 +72,7 @@ jobs:
             cat <<'OVERVIEW'
           ## 1. Overview
 
-          This pull request was created automatically by the JavaScript - Daily Dependencies Update workflow.
+          This pull request was created automatically by the Daily Dependencies Update - JavaScript workflow.
           It updates pnpm itself (pinning the new version to the packageManager field of each package.json), updates every pnpm package dependency to the latest version allowed by each package.json, regenerates each pnpm-lock.yaml, and mirrors the new pnpm version to the Environment section of every README.md and to the description field of every package.json:
 
           ~~~console
@@ -98,7 +98,7 @@ jobs:
 
           ## 4. References
 
-          - [JavaScript - Daily Dependencies Update workflow run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
+          - [Daily Dependencies Update - JavaScript workflow run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
           - [pnpm update documentation](https://pnpm.io/cli/update)
           - [npm](https://www.npmjs.com/)
           SUMMARY
