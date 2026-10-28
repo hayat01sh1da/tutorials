@@ -1,7 +1,7 @@
 ## 1. Environment
 
 - Node v26.12.1
-- pnpm 12.15.0
+- pnpm 12.16.1
 
 ## 2. Reference
 
