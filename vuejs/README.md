@@ -1,7 +1,7 @@
 ## 1. Environment
 
 - WSL (Ubuntu 25.10)
-- Node v26.12.1
+- Node v26.13.0
 - pnpm 12.16.1
 - Vue 3.5.41
 
