@@ -16,7 +16,7 @@
   "homepage": "https://github.com/hayat01sh1da/tutorials/vuejs#readme",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^8.0.9",
+    "@babel/core": "^8.0.10",
     "@babel/preset-env": "^8.0.7",
     "@vue/test-utils": "^2.5.1",
     "babel-jest": "^30.5.2",
