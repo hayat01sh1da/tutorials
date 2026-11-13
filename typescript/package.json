@@ -18,8 +18,8 @@
   "homepage": "https://github.com/hayat01sh1da/tutorials/typescript#readme",
   "dependencies": {
     "@babel/core": "^7.29.13",
-    "@babel/plugin-transform-modules-commonjs": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.29.14",
+    "@babel/preset-env": "^7.29.14",
     "@types/node": "^25.9.9",
     "babel-jest": "^30.5.2",
     "esbuild": "^0.28.2",
