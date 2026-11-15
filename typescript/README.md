@@ -2,7 +2,7 @@
 
 - WSL (Ubuntu 25.10)
 - Node v26.13.1
-- pnpm 12.18.0
+- pnpm 12.21.0
 
 ## 2. Reference
 
