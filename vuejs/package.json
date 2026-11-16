@@ -18,7 +18,7 @@
   "devDependencies": {
     "@babel/core": "^8.1.2",
     "@babel/preset-env": "^8.0.7",
-    "@vue/test-utils": "^2.5.1",
+    "@vue/test-utils": "^2.6.0",
     "babel-jest": "^30.5.2",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
