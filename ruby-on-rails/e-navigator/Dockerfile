@@ -1,4 +1,4 @@
-FROM ruby:4.0.9
+FROM ruby:4.0.10
 
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev default-libmysqlclient-dev vim tree
