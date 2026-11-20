@@ -1,5 +1,5 @@
 FROM node:26.13.1 AS node
-FROM ruby:4.0.9
+FROM ruby:4.0.10
 
 # Install Packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev libvips-dev vim tree chromium
