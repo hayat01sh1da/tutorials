@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.15.1'
 gem 'mysql2', '~> 0.5.7'
 
 # Use Active Storage variant
-gem 'image_processing', '~> 2.2.0'
+gem 'image_processing', '~> 2.2.1'
 
 gem 'active_storage_validations', '~> 3.0.6'
 
@@ -98,7 +98,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '~> 4.3.0'
   # Static code analysis for security vulnerabilities
-  gem 'brakeman', '~> 8.1.0', require: false
+  gem 'brakeman', '~> 8.1.1', require: false
   # RuboCop
   gem 'rubocop', '~> 1.92.3', require: false
   gem 'rubocop-capybara', '~> 2.23.0', require: false
