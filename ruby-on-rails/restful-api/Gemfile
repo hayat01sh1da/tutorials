@@ -58,7 +58,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'brakeman', '~> 8.1.0', require: false
+  gem 'brakeman', '~> 8.1.1', require: false
   # RuboCop
   gem 'rubocop', '~> 1.92.3', require: false
   gem 'rubocop-factory_bot', '~> 2.28.0', require: false
