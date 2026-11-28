@@ -136,7 +136,7 @@ GEM
       reline (>= 0.4.2)
     json (3.2.0)
     jsonapi-renderer (0.2.2)
-    jwt (3.3.1)
+    jwt (3.3.2)
       base64
     language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
@@ -360,7 +360,7 @@ DEPENDENCIES
   dotenv-rails (~> 3.2.0)
   factory_bot_rails (~> 6.5.1)
   faker (~> 3.8.0)
-  jwt (~> 3.3.1)
+  jwt (~> 3.3.2)
   mysql2 (~> 0.5.7)
   net-smtp (~> 0.5.2)
   observer (~> 0.1.2)
@@ -432,7 +432,7 @@ CHECKSUMS
   irb (1.19.0) sha256=55ee56acbdd6c9fe06a2e6909f46a24e5c41f45f16906bab04e8049cf46f1d27
   json (3.2.0) sha256=4a4e222a9ee6ffb296ab3171b6b39d85fec83afc4e7b57eee17edf68c74aec87
   jsonapi-renderer (0.2.2) sha256=b5c44b033d61b4abdb6500fa4ab84807ca0b36ea0e59e47a2c3ca7095a6e447b
-  jwt (3.3.1) sha256=d3f8f74f2a4ba373e0ebf6b756858567a6ce4d2fd150c126f91b82bd1f924d03
+  jwt (3.3.2) sha256=8240002e6f9a68fd5b9a05ed5cc1493ac90bfdcfd8ff10faa3831f67f7fb60ad
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   listen (3.10.1) sha256=4c3f32855657f348747da4dd2372ff3790d90a6b1d3e4f21a3706adb2d04783c
