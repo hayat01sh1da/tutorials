@@ -1512,8 +1512,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  baseline-browser-mapping@2.11.39:
-    resolution: {integrity: sha512-Q9buOYhr2ggrEZpImICecZTJHCCd8yXkRUokFlUEQ8uiD6oP82F4W4jWnhOHZYV+wlvrC51V7Wy0ULyWjil5Wg==}
+  baseline-browser-mapping@2.11.40:
+    resolution: {integrity: sha512-WJhaQ3kW5+5BpOduI64ewvykhCyK/IHHG5jCIzivmW2nkYPRowUjs0DbBXY4CAr1LLrN7QEzZGL9727aXH9sJA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1716,8 +1716,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.494:
-    resolution: {integrity: sha512-Tph7ohL4Xc0ft3DXElYEIVTmPI3H0MtPCTdgtz5AwWGZG6q+vMiT3IzJ3RJX/HJQ8pYzeimQyvi6SsBTOS0nyQ==}
+  electron-to-chromium@1.5.495:
+    resolution: {integrity: sha512-dZcmtNbDI5oeT9uP9Z+D7h/H5C1mvBewDTLgZgo9WgyPmqOXSt2cmoCK99evPygUOn9lyXZ4w0Eb8APrkBjqBA==}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -2723,8 +2723,8 @@ packages:
   string_decoder@1.1.1:
     resolution: {integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==}
 
-  string_decoder@1.3.0:
-    resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
+  string_decoder@1.4.0:
+    resolution: {integrity: sha512-r8azg21Y67ckRmeG0hHol5CeDXMs4ZFkFT6eXMO39hX7khvJcopBcYTCeWZ0rQXkMoPh8lVdbjmsOMGL8krxRQ==}
 
   strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
@@ -4375,7 +4375,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  baseline-browser-mapping@2.11.39: {}
+  baseline-browser-mapping@2.11.40: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4395,9 +4395,9 @@ snapshots:
 
   browserslist@4.29.6:
     dependencies:
-      baseline-browser-mapping: 2.11.39
+      baseline-browser-mapping: 2.11.40
       caniuse-lite: 1.0.30001828
-      electron-to-chromium: 1.5.494
+      electron-to-chromium: 1.5.495
       node-releases: 2.0.66
       update-browserslist-db: 1.4.0(browserslist@4.29.6)
 
@@ -4569,7 +4569,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.494: {}
+  electron-to-chromium@1.5.495: {}
 
   emittery@0.13.1: {}
 
@@ -5631,7 +5631,7 @@ snapshots:
   readable-stream@3.6.2:
     dependencies:
       inherits: 2.0.4
-      string_decoder: 1.3.0
+      string_decoder: 1.4.0
       util-deprecate: 1.0.2
 
   readdirp@3.6.0:
@@ -5796,7 +5796,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  string_decoder@1.3.0:
+  string_decoder@1.4.0:
     dependencies:
       safe-buffer: 5.2.1
 
